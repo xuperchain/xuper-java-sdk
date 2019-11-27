@@ -48,8 +48,8 @@ public class XuperClient {
     }
 
     /**
-     * @param from from address
-     * @param to to address
+     * @param from   from address
+     * @param to     to address
      * @param amount transfer amount
      * @return
      * @throws Exception
@@ -66,11 +66,11 @@ public class XuperClient {
     }
 
     /**
-     * @param from the initiator of calling method
-     * @param module module of contract, usually wasm
+     * @param from     the initiator of calling method
+     * @param module   module of contract, usually wasm
      * @param contract contract name
-     * @param method contract method
-     * @param args contract method arguments
+     * @param method   contract method
+     * @param args     contract method arguments
      * @return
      * @throws Exception
      */
@@ -86,11 +86,11 @@ public class XuperClient {
     }
 
     /**
-     * @param from the initiator of calling method
-     * @param module module of contract, usually wasm
+     * @param from     the initiator of calling method
+     * @param module   module of contract, usually wasm
      * @param contract contract name
-     * @param method contract method
-     * @param args contract method arguments
+     * @param method   contract method
+     * @param args     contract method arguments
      * @return
      * @throws Exception
      */
@@ -104,10 +104,10 @@ public class XuperClient {
     }
 
     /**
-     * @param from the contract account to deploy contract
-     * @param code the binary of contract code
+     * @param from     the contract account to deploy contract
+     * @param code     the binary of contract code
      * @param contract the name of contract
-     * @param runtime contract runtime c or go
+     * @param runtime  contract runtime c or go
      * @param initArgs initial argument of initialize method
      * @return
      * @throws Exception
@@ -133,16 +133,16 @@ public class XuperClient {
     }
 
     /**
-     * @param from the use account to create contract account
+     * @param from        the use account to create contract account
      * @param accountName the name of contract account
      * @return
      * @throws Exception
      */
     public Transaction createContractAccount(Account from, String accountName) throws Exception {
-        String desc = "{\"aksWeight\": {\""+from.getAddress()+"\": 1.0}, \"pm\": {\"acceptValue\": 1.0, \"rule\": 1}}";
+        String desc = "{\"aksWeight\": {\"" + from.getAddress() + "\": 1.0}, \"pm\": {\"acceptValue\": 1.0, \"rule\": 1}}";
         Map<String, byte[]> args = new HashMap<>();
         args.put("account_name", accountName.getBytes());
         args.put("acl", desc.getBytes());
-        return invokeContract(from, "xkernel", "","NewAccount", args);
+        return invokeContract(from, "xkernel", "", "NewAccount", args);
     }
 }

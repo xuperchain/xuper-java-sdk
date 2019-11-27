@@ -14,15 +14,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ECKeyPair {
-    private final BigInteger privateKey;
-    private final ECPoint publicKey;
-    private final String jsonPublicKey;
-
     private static final SecureRandom secureRandom;
 
     static {
         secureRandom = new SecureRandom();
     }
+
+    private final BigInteger privateKey;
+    private final ECPoint publicKey;
+    private final String jsonPublicKey;
 
     private ECKeyPair(BigInteger privateKey, ECPoint publicKey) {
         this.privateKey = privateKey;
@@ -30,22 +30,8 @@ public class ECKeyPair {
         this.jsonPublicKey = createJSONPublicKey(publicKey);
     }
 
-    public ECKeyPair create() {
-        return create(secureRandom);
-    }
-
-    public ECKeyPair create (SecureRandom secureRandom) {
-        ECKeyPairGenerator generator = new ECKeyPairGenerator();
-        ECKeyGenerationParameters keygenParams = new ECKeyGenerationParameters(Ecc.domain, secureRandom);
-        generator.init(keygenParams);
-        AsymmetricCipherKeyPair keypair = generator.generateKeyPair();
-        ECPrivateKeyParameters privParams = (ECPrivateKeyParameters) keypair.getPrivate();
-        ECPublicKeyParameters pubParams = (ECPublicKeyParameters) keypair.getPublic();
-        return create(privParams.getD());
-    }
-
-    public static ECKeyPair create (BigInteger privateKey) {
-        ECPoint q =  Ecc.domain.getG().multiply(privateKey);
+    public static ECKeyPair create(BigInteger privateKey) {
+        ECPoint q = Ecc.domain.getG().multiply(privateKey);
         ECPublicKeyParameters params = new ECPublicKeyParameters(q, Ecc.domain);
         return new ECKeyPair(privateKey, params.getQ());
     }
@@ -59,6 +45,20 @@ public class ECKeyPair {
         m.put("Y", y);
         Gson gson = new Gson();
         return gson.toJson(m);
+    }
+
+    public ECKeyPair create() {
+        return create(secureRandom);
+    }
+
+    public ECKeyPair create(SecureRandom secureRandom) {
+        ECKeyPairGenerator generator = new ECKeyPairGenerator();
+        ECKeyGenerationParameters keygenParams = new ECKeyGenerationParameters(Ecc.domain, secureRandom);
+        generator.init(keygenParams);
+        AsymmetricCipherKeyPair keypair = generator.generateKeyPair();
+        ECPrivateKeyParameters privParams = (ECPrivateKeyParameters) keypair.getPrivate();
+        ECPublicKeyParameters pubParams = (ECPublicKeyParameters) keypair.getPublic();
+        return create(privParams.getD());
     }
 
     public String getJSONPublicKey() {

@@ -35,7 +35,6 @@ public class Hash {
     }
 
 
-
     static public byte[] ripeMD128(byte[] msg) {
         final MessageDigest md = newDigest("RipeMD160");
         return md.digest(msg);

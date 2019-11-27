@@ -155,5 +155,7 @@ public class Transaction {
         return contractResponse;
     }
 
-    public long getGasUsed() { return gasUsed; }
+    public long getGasUsed() {
+        return gasUsed;
+    }
 }

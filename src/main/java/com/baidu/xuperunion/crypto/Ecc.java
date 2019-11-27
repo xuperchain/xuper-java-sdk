@@ -14,8 +14,8 @@ import java.math.BigInteger;
 
 public class Ecc {
     static final String curveName = "P-256";
-    static final  X9ECParameters curve = NISTNamedCurves.getByName(curveName);
-    static final  ECDomainParameters domain = new ECDomainParameters(curve.getCurve(), curve.getG(), curve.getN(), curve.getH());
+    static final X9ECParameters curve = NISTNamedCurves.getByName(curveName);
+    static final ECDomainParameters domain = new ECDomainParameters(curve.getCurve(), curve.getG(), curve.getN(), curve.getH());
 
     static public byte[] sign(byte[] hash, BigInteger privateKey) throws IOException {
         ECDSASigner signer = new ECDSASigner();

@@ -1,11 +1,9 @@
 package com.baidu.xuperunion.api;
 
-import com.baidu.xuperunion.crypto.ECKeyPair;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -39,7 +37,7 @@ public class XuperClientTest {
         Map<String, byte[]> args = new HashMap<>();
         args.put("key", "icexin".getBytes());
         Transaction tx = client.invokeContract(account, "wasm", "counter", "increase", args);
-        System.out.println("invoke txid: "+tx.getTxid());
+        System.out.println("invoke txid: " + tx.getTxid());
         System.out.println("response: " + tx.getContractResponse().getBodyStr());
         System.out.println("gas: " + tx.getGasUsed());
     }
@@ -60,7 +58,7 @@ public class XuperClientTest {
         args.put("creator", "icexin".getBytes());
         String codePath = getClass().getResource("counter.wasm").getFile();
         byte[] code = Files.readAllBytes(Paths.get(codePath));
-        Transaction tx = client.deployWasmContract(account, code, "counter","c", args);
+        Transaction tx = client.deployWasmContract(account, code, "counter", "c", args);
         System.out.println("deploy contract " + tx.getTxid());
     }
 

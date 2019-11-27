@@ -20,13 +20,6 @@ public class Account {
         this.address = address;
     }
 
-    class privatePubKey {
-        String CurvName;
-        BigInteger D;
-        BigInteger X;
-        BigInteger Y;
-    }
-
     /**
      * @param keyPath the path to ./data/keys which contains private.key file
      * @return
@@ -49,13 +42,9 @@ public class Account {
      */
     public static Account create(ECKeyPair keyPair) {
         byte[] pubkey = keyPair.getPublicKey().getEncoded(false);
-        byte [] hash = Hash.ripeMD128(Hash.sha256(pubkey));
+        byte[] hash = Hash.ripeMD128(Hash.sha256(pubkey));
         String address = Base58.encodeChecked(1, hash);
         return new Account(keyPair, address);
-    }
-
-    public void setContractAccount(String name) {
-        this.contractAccount = name;
     }
 
     public ECKeyPair getKeyPair() {
@@ -70,6 +59,10 @@ public class Account {
         return this.contractAccount;
     }
 
+    public void setContractAccount(String name) {
+        this.contractAccount = name;
+    }
+
     /**
      * @return the address which can be used to transfer token
      */
@@ -82,8 +75,15 @@ public class Account {
 
     public String getAuthRequireId() {
         if (this.contractAccount != null) {
-            return this.contractAccount+"/"+this.address;
+            return this.contractAccount + "/" + this.address;
         }
         return this.address;
+    }
+
+    class privatePubKey {
+        String CurvName;
+        BigInteger D;
+        BigInteger X;
+        BigInteger Y;
     }
 }

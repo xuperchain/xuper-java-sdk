@@ -2,6 +2,7 @@ package com.baidu.xuperunion.api;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.nio.file.Files;
@@ -26,12 +27,14 @@ public class XuperClientTest {
         client.close();
     }
 
+    @Ignore("no connection")
     @Test
     public void transfer() throws Exception {
         String txid = client.transfer(account, "XC1111111111111111@xuper", "1000000").getTxid();
         System.out.println("transfer " + txid);
     }
 
+    @Ignore("no connection")
     @Test
     public void invokeContract() throws Exception {
         Map<String, byte[]> args = new HashMap<>();
@@ -42,6 +45,7 @@ public class XuperClientTest {
         System.out.println("gas: " + tx.getGasUsed());
     }
 
+    @Ignore("no connection")
     @Test
     public void queryContract() throws Exception {
         Map<String, byte[]> args = new HashMap<>();
@@ -51,6 +55,7 @@ public class XuperClientTest {
         System.out.println("gas: " + tx.getGasUsed());
     }
 
+    @Ignore("no connection")
     @Test
     public void deployWasmContract() throws Exception {
         account.setContractAccount("XC1111111111111111@xuper");
@@ -62,6 +67,7 @@ public class XuperClientTest {
         System.out.println("deploy contract " + tx.getTxid());
     }
 
+    @Ignore("no connection")
     @Test
     public void createContractAccount() throws Exception {
         Transaction tx = client.createContractAccount(account, "1111111111111111");
@@ -70,6 +76,7 @@ public class XuperClientTest {
         sleep(4000);
     }
 
+    @Ignore("no connection")
     @Test
     public void apiExample() throws Exception {
         createContractAccount();

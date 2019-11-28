@@ -1,16 +1,11 @@
 package com.baidu.xuperunion.crypto;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.crypto.digests.RIPEMD160Digest;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.Security;
 
 public class Hash {
-    static {
-        Security.addProvider(new BouncyCastleProvider());
-    }
-
     public static MessageDigest newDigest(String algo) {
         try {
             return MessageDigest.getInstance(algo);
@@ -34,9 +29,11 @@ public class Hash {
         return md.digest(md.digest());
     }
 
-
     static public byte[] ripeMD128(byte[] msg) {
-        final MessageDigest md = newDigest("RipeMD160");
-        return md.digest(msg);
+        RIPEMD160Digest digest = new RIPEMD160Digest();
+        digest.update(msg, 0, msg.length);
+        byte[] out = new byte[20];
+        digest.doFinal(out, 0);
+        return out;
     }
 }

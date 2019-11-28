@@ -1,5 +1,6 @@
 package com.baidu.xuperunion.api;
 
+import com.baidu.xuperunion.pb.XchainOuterClass;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,9 +19,11 @@ public class XuperClientTest {
     private XuperClient client;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         try {
             client = new XuperClient("127.0.0.1:37101");
+            // test connection
+            client.getBlockingClient().getSystemStatus(XchainOuterClass.CommonIn.newBuilder().build());
             account = Account.create(getClass().getResource("keys").getPath());
         } catch (Exception e) {
             assumeNoException(e);
@@ -28,7 +31,7 @@ public class XuperClientTest {
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void tearDown() {
         client.close();
     }
 

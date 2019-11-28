@@ -5,10 +5,7 @@ import com.baidu.xuperunion.pb.XchainOuterClass;
 import com.google.protobuf.ByteString;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Proposal {
     String chainName = "xuper";
@@ -79,7 +76,7 @@ public class Proposal {
                     .setContractName(contractName)
                     .putAllArgs(args);
             // transfer to contract
-            if (this.to.equals(contractName)) {
+            if (Objects.equals(this.to, contractName)) {
                 invokeRequestBuilder.setAmount(this.amount.toString());
             }
         }

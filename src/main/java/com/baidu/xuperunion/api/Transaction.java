@@ -55,7 +55,7 @@ public class Transaction {
             BigInteger need = BigInteger.valueOf(0);
             BigInteger total = new BigInteger(utxos.getTotalSelected());
             if (proposal.to != null && proposal.amount != null) {
-                need = need.add(new BigInteger(proposal.amount));
+                need = need.add(proposal.amount);
                 XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
                         .setToAddr(ByteString.copyFromUtf8(proposal.to))
                         .setAmount(ByteString.copyFrom(need.toByteArray()))
@@ -157,5 +157,9 @@ public class Transaction {
 
     public long getGasUsed() {
         return gasUsed;
+    }
+
+    public XchainOuterClass.Transaction getRawTx() {
+        return pbtx;
     }
 }

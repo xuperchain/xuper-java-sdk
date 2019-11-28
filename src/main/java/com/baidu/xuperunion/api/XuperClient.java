@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -54,7 +55,7 @@ public class XuperClient {
      * @return
      * @throws Exception
      */
-    public Transaction transfer(Account from, String to, String amount) throws Exception {
+    public Transaction transfer(Account from, String to, BigInteger amount) throws Exception {
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)

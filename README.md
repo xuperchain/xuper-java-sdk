@@ -26,7 +26,7 @@ client.createContractAccount(account, "1111111111111111");
 ## Transfer xuper to contract account
 
 ```java
-client.transfer(account, "XC1111111111111111@xuper", "1000000");
+client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(1000000));
 ```
 
 ## Deploy contract using contract account

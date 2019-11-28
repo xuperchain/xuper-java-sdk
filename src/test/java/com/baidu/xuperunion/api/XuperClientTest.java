@@ -2,15 +2,16 @@ package com.baidu.xuperunion.api;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
 import static java.lang.Thread.sleep;
+import static org.junit.Assume.assumeNoException;
 
 public class XuperClientTest {
     private Account account;
@@ -18,8 +19,12 @@ public class XuperClientTest {
 
     @Before
     public void setUp() throws Exception {
-        client = new XuperClient("127.0.0.1:37101");
-        account = Account.create(getClass().getResource("keys").getPath());
+        try {
+            client = new XuperClient("127.0.0.1:37101");
+            account = Account.create(getClass().getResource("keys").getPath());
+        } catch (Exception e) {
+            assumeNoException(e);
+        }
     }
 
     @After
@@ -27,14 +32,12 @@ public class XuperClientTest {
         client.close();
     }
 
-    @Ignore("no connection")
     @Test
     public void transfer() throws Exception {
-        String txid = client.transfer(account, "XC1111111111111111@xuper", "1000000").getTxid();
+        String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(1000000)).getTxid();
         System.out.println("transfer " + txid);
     }
 
-    @Ignore("no connection")
     @Test
     public void invokeContract() throws Exception {
         Map<String, byte[]> args = new HashMap<>();
@@ -45,7 +48,6 @@ public class XuperClientTest {
         System.out.println("gas: " + tx.getGasUsed());
     }
 
-    @Ignore("no connection")
     @Test
     public void queryContract() throws Exception {
         Map<String, byte[]> args = new HashMap<>();
@@ -55,7 +57,6 @@ public class XuperClientTest {
         System.out.println("gas: " + tx.getGasUsed());
     }
 
-    @Ignore("no connection")
     @Test
     public void deployWasmContract() throws Exception {
         account.setContractAccount("XC1111111111111111@xuper");
@@ -67,7 +68,6 @@ public class XuperClientTest {
         System.out.println("deploy contract " + tx.getTxid());
     }
 
-    @Ignore("no connection")
     @Test
     public void createContractAccount() throws Exception {
         Transaction tx = client.createContractAccount(account, "1111111111111111");
@@ -76,7 +76,6 @@ public class XuperClientTest {
         sleep(4000);
     }
 
-    @Ignore("no connection")
     @Test
     public void apiExample() throws Exception {
         createContractAccount();

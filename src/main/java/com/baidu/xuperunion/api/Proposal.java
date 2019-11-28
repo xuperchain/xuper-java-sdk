@@ -15,8 +15,7 @@ public class Proposal {
 
     Account initiator;
     String to;
-    String amount;
-    long amountInt;
+    BigInteger amount;
 
     String moduleName;
     String contractName;
@@ -50,10 +49,9 @@ public class Proposal {
         return this;
     }
 
-    public Proposal transfer(String to, String amount) {
+    public Proposal transfer(String to, BigInteger amount) {
         this.to = to;
         this.amount = amount;
-        this.amountInt = new BigInteger(amount).longValue();
         return this;
     }
 
@@ -80,6 +78,10 @@ public class Proposal {
                     .setMethodName(methodName)
                     .setContractName(contractName)
                     .putAllArgs(args);
+            // transfer to contract
+            if (this.to.equals(contractName)) {
+                invokeRequestBuilder.setAmount(this.amount.toString());
+            }
         }
         XchainOuterClass.InvokeRequest invokeRequest = invokeRequestBuilder.build();
 
@@ -91,6 +93,10 @@ public class Proposal {
                 .addAllAuthRequire(authRequire)
                 .build();
 
+        long amount = 0;
+        if (this.amount != null) {
+            amount = this.amount.longValue();
+        }
         byte[] hash = Hash.doubleSha256((chainName + initiator.getPayableAddress() + amount + false).getBytes());
         byte[] sign = initiator.getKeyPair().sign(hash);
         XchainOuterClass.SignatureInfo signature = XchainOuterClass.SignatureInfo.newBuilder()
@@ -102,7 +108,7 @@ public class Proposal {
                 .setHeader(header)
                 .setBcname(chainName)
                 .setAddress(initiator.getPayableAddress())
-                .setTotalAmount(amountInt)
+                .setTotalAmount(amount)
                 .setSignInfo(signature)
                 .setRequest(invokeRPCRequest)
                 .build();

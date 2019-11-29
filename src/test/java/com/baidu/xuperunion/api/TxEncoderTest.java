@@ -33,7 +33,7 @@ public class TxEncoderTest {
                 .setChainName("xuper")
                 .setInitiator(account)
                 .setDesc("transfer from test")
-                .transfer(account.getPayableAddress(), BigInteger.valueOf(10))
+                .transfer(account.getAddress(), BigInteger.valueOf(10))
                 .build(client)
                 .sign();
         FileOutputStream f = new FileOutputStream("/tmp/transfer.pb");

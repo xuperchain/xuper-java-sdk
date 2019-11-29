@@ -3,8 +3,10 @@ package com.baidu.xuperunion.api;
 import com.baidu.xuperunion.pb.XchainGrpc;
 import com.baidu.xuperunion.pb.XchainOuterClass;
 import com.google.gson.Gson;
+import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import org.bouncycastle.util.encoders.Hex;
 
 import java.math.BigInteger;
 import java.util.HashMap;
@@ -145,5 +147,65 @@ public class XuperClient {
         args.put("account_name", accountName.getBytes());
         args.put("acl", desc.getBytes());
         return invokeContract(from, "xkernel", "", "NewAccount", args);
+    }
+
+    /**
+     * Get balance of account
+     *
+     * @param account account name, can be contract account
+     * @return
+     * @throws Exception
+     */
+    public BigInteger getBalance(String account) throws Exception {
+        XchainOuterClass.AddressStatus request = XchainOuterClass.AddressStatus.newBuilder()
+                .setHeader(Common.newHeader())
+                .setAddress(account)
+                .addBcs(XchainOuterClass.TokenDetail.newBuilder().setBcname(chainName).build())
+                .build();
+        XchainOuterClass.AddressStatus response = blockingClient.getBalance(request);
+
+        for (int i = 0; i < response.getBcsCount(); i++) {
+            if (response.getBcs(i).getBcname().equals(chainName)) {
+                return new BigInteger(response.getBcs(i).getBalance());
+            }
+        }
+        Common.checkResponseHeader(response.getHeader(), "query balance");
+        return BigInteger.valueOf(0);
+    }
+
+    /**
+     * queryTx query transaction
+     *
+     * @param txid the id of transaction
+     * @return
+     * @throws Exception
+     */
+    public XchainOuterClass.Transaction queryTx(String txid) throws Exception {
+        XchainOuterClass.TxStatus request = XchainOuterClass.TxStatus.newBuilder()
+                .setHeader(Common.newHeader())
+                .setBcname(chainName)
+                .setTxid(ByteString.copyFrom(Hex.decode(txid)))
+                .build();
+        XchainOuterClass.TxStatus response = blockingClient.queryTx(request);
+        Common.checkResponseHeader(response.getHeader(), "query transaction");
+        return response.getTx();
+    }
+
+    /**
+     * queryBlock get Block
+     *
+     * @param blockid the id of block
+     * @return
+     * @throws Exception
+     */
+    public XchainOuterClass.InternalBlock queryBlock(String blockid) throws Exception {
+        XchainOuterClass.BlockID request = XchainOuterClass.BlockID.newBuilder()
+                .setHeader(Common.newHeader())
+                .setBcname(chainName)
+                .setBlockid(ByteString.copyFrom(Hex.decode(blockid)))
+                .build();
+        XchainOuterClass.Block response = blockingClient.getBlock(request);
+        Common.checkResponseHeader(response.getHeader(), "query transaction");
+        return response.getBlock();
     }
 }

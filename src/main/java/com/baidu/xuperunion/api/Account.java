@@ -47,6 +47,15 @@ public class Account {
         return new Account(keyPair, address);
     }
 
+    /**
+     * Create a account using random private key
+     *
+     * @return
+     */
+    public static Account create() {
+        return create(ECKeyPair.create());
+    }
+
     public ECKeyPair getKeyPair() {
         return ecKeyPair;
     }

@@ -5,7 +5,7 @@ import com.baidu.xuperunion.pb.XchainOuterClass;
 public class Common {
     static public XchainOuterClass.Header newHeader() {
         return XchainOuterClass.Header.newBuilder()
-                .setLogid("xxxx")
+                .setLogid(newNonce())
                 .build();
     }
 

@@ -22,6 +22,16 @@ class TxEncoder {
         buffer = new StringBuilder();
     }
 
+    static byte[] makeTxDigest(XchainOuterClass.Transaction tx) {
+        TxEncoder enc = new TxEncoder();
+        return Hash.doubleSha256(enc.encodeTx(tx, false));
+    }
+
+    static byte[] makeTxID(XchainOuterClass.Transaction tx) {
+        TxEncoder enc = new TxEncoder();
+        return Hash.doubleSha256(enc.encodeTx(tx, true));
+    }
+
     private void encode(Object obj) {
         String s = gson.toJson(obj);
         buffer.append(s);
@@ -32,16 +42,6 @@ class TxEncoder {
         if (!bs.isEmpty()) {
             encode(Base64.toBase64String(bs.toByteArray()));
         }
-    }
-
-    static byte[] makeTxDigest(XchainOuterClass.Transaction tx) {
-        TxEncoder enc = new TxEncoder();
-        return Hash.doubleSha256(enc.encodeTx(tx, false));
-    }
-
-    static byte[] makeTxID(XchainOuterClass.Transaction tx) {
-        TxEncoder enc = new TxEncoder();
-        return Hash.doubleSha256(enc.encodeTx(tx, true));
     }
 
     byte[] encodeTx(XchainOuterClass.Transaction tx, boolean needSign) {
@@ -137,7 +137,7 @@ class TxEncoder {
                 m.put("to_addr", pb.getToAddr());
             }
             if (pb.getFrozenHeight() != 0) {
-               m.put("frozen_height", pb.getFrozenHeight());
+                m.put("frozen_height", pb.getFrozenHeight());
             }
             return m;
         }

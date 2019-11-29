@@ -29,6 +29,11 @@ client.createContractAccount(account, "1111111111111111");
 client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(1000000));
 ```
 
+## Query balance of account
+```java
+ BigInteger result = client.getBalance("XC1111111111111111@xuper");
+```
+
 ## Deploy contract using contract account
 
 ```java

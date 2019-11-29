@@ -47,11 +47,11 @@ public class ECKeyPair {
         return gson.toJson(m);
     }
 
-    public ECKeyPair create() {
+    public static ECKeyPair create() {
         return create(secureRandom);
     }
 
-    public ECKeyPair create(SecureRandom secureRandom) {
+    public static ECKeyPair create(SecureRandom secureRandom) {
         ECKeyPairGenerator generator = new ECKeyPairGenerator();
         ECKeyGenerationParameters keygenParams = new ECKeyGenerationParameters(Ecc.domain, secureRandom);
         generator.init(keygenParams);
@@ -67,6 +67,10 @@ public class ECKeyPair {
 
     public ECPoint getPublicKey() {
         return publicKey;
+    }
+
+    public BigInteger getPrivateKey() {
+        return privateKey;
     }
 
     public byte[] sign(byte[] hash) throws Exception {

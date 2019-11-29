@@ -19,8 +19,9 @@ public class Transaction {
     /**
      * used to build a transaction from a protobuf tx
      * NOTE: the contractResponse and gasUsed will be null
+     *
      * @param chainName the name of chain
-     * @param tx the protobuf transaction
+     * @param tx        the protobuf transaction
      */
     public Transaction(String chainName, XchainOuterClass.Transaction tx) {
         proposal = new Proposal().setChainName(chainName);

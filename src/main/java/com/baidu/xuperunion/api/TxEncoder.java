@@ -8,7 +8,7 @@ import com.google.protobuf.ByteString;
 import org.bouncycastle.util.encoders.Base64;
 
 import java.lang.reflect.Type;
-import java.util.Map;
+import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
 class TxEncoder {
@@ -34,15 +34,17 @@ class TxEncoder {
         }
     }
 
-    byte[] makeTxDigest(XchainOuterClass.Transaction tx) {
-        return Hash.doubleSha256(encodeTx(tx, false));
+    static byte[] makeTxDigest(XchainOuterClass.Transaction tx) {
+        TxEncoder enc = new TxEncoder();
+        return Hash.doubleSha256(enc.encodeTx(tx, false));
     }
 
-    byte[] makeTxID(XchainOuterClass.Transaction tx) {
-        return Hash.doubleSha256(encodeTx(tx, true));
+    static byte[] makeTxID(XchainOuterClass.Transaction tx) {
+        TxEncoder enc = new TxEncoder();
+        return Hash.doubleSha256(enc.encodeTx(tx, true));
     }
 
-    private byte[] encodeTx(XchainOuterClass.Transaction tx, boolean needSign) {
+    byte[] encodeTx(XchainOuterClass.Transaction tx, boolean needSign) {
         for (TxInput input : tx.getTxInputsList()) {
             encode(input.getRefTxid());
             encode(input.getRefOffset());
@@ -50,9 +52,9 @@ class TxEncoder {
             encode(input.getAmount());
             encode(input.getFrozenHeight());
         }
-        TxOutputBean[] txOutputs = new TxOutputBean[tx.getTxOutputsCount()];
+        Object[] txOutputs = new Object[tx.getTxOutputsCount()];
         for (int i = 0; i < tx.getTxOutputsCount(); i++) {
-            txOutputs[i] = new TxOutputBean(tx.getTxOutputs(i));
+            txOutputs[i] = TxOutputBean.create(tx.getTxOutputs(i));
         }
         encode(txOutputs);
 
@@ -71,11 +73,11 @@ class TxEncoder {
             encode(output.getKey());
             encode(output.getValue());
         }
-        InvokeRequestBean[] invokes = null;
+        Object[] invokes = null;
         if (tx.getContractRequestsCount() != 0) {
-            invokes = new InvokeRequestBean[tx.getContractRequestsCount()];
+            invokes = new Object[tx.getContractRequestsCount()];
             for (int i = 0; i < tx.getContractRequestsCount(); i++) {
-                invokes[i] = new InvokeRequestBean(tx.getContractRequests(i));
+                invokes[i] = InvokeRequestBean.create(tx.getContractRequests(i));
             }
         }
         encode(invokes);
@@ -84,15 +86,20 @@ class TxEncoder {
         encode(tx.getAuthRequireList().toArray());
 
         if (needSign) {
-            SignatureInfoBean[] sigs = new SignatureInfoBean[tx.getInitiatorSignsCount()];
+            Object[] sigs = null;
+            if (tx.getInitiatorSignsCount() != 0) {
+                sigs = new Object[tx.getInitiatorSignsCount()];
+            }
             for (int i = 0; i < tx.getInitiatorSignsCount(); i++) {
-                sigs[i] = new SignatureInfoBean(tx.getInitiatorSigns(i));
+                sigs[i] = SignatureInfoBean.create(tx.getInitiatorSigns(i));
             }
             encode(sigs);
 
-            sigs = new SignatureInfoBean[tx.getAuthRequireCount()];
-            for (int i = 0; i < tx.getInitiatorSignsCount(); i++) {
-                sigs[i] = new SignatureInfoBean(tx.getAuthRequireSigns(i));
+            if (tx.getAuthRequireSignsCount() != 0) {
+                sigs = new Object[tx.getAuthRequireSignsCount()];
+            }
+            for (int i = 0; i < tx.getAuthRequireSignsCount(); i++) {
+                sigs[i] = SignatureInfoBean.create(tx.getAuthRequireSigns(i));
             }
             encode(sigs);
             if (tx.hasXuperSign()) {
@@ -101,12 +108,16 @@ class TxEncoder {
         }
         encode(tx.getCoinbase());
         encode(tx.getAutogen());
-//        FileOutputStream f = new FileOutputStream("tx.pb");
-//        f.write(tx.toByteArray());
-//        f.close();
-//        f = new FileOutputStream("tx.txt");
-//        f.write(buffer.toString().getBytes());
-//        f.close();
+//        try {
+//            FileOutputStream f = new FileOutputStream("/tmp/tx.pb");
+//            f.write(tx.toByteArray());
+//            f.close();
+//            f = new FileOutputStream("/tmp/tx.txt");
+//            f.write(buffer.toString().getBytes());
+//            f.close();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
         return buffer.toString().getBytes();
     }
 
@@ -117,80 +128,75 @@ class TxEncoder {
     }
 
     private static class TxOutputBean {
-        ByteString amount;
-        ByteString to_addr;
-        Long frozen_height;
-
-        TxOutputBean(TxOutput pb) {
+        static Object create(TxOutput pb) {
+            LinkedHashMap<String, Object> m = new LinkedHashMap<>();
             if (!pb.getAmount().isEmpty()) {
-                this.amount = pb.getAmount();
+                m.put("amount", pb.getAmount());
             }
             if (!pb.getToAddr().isEmpty()) {
-                this.to_addr = pb.getToAddr();
+                m.put("to_addr", pb.getToAddr());
             }
             if (pb.getFrozenHeight() != 0) {
-                this.frozen_height = pb.getFrozenHeight();
+               m.put("frozen_height", pb.getFrozenHeight());
             }
+            return m;
         }
     }
 
     private static class InvokeRequestBean {
-        String module_name;
-        String contract_name;
-        String method_name;
-        Map<String, ByteString> args;
-        ResourceLimitBean[] resource_limits;
-        String amount;
-
-        InvokeRequestBean(InvokeRequest pb) {
+        static Object create(InvokeRequest pb) {
+            LinkedHashMap<String, Object> m = new LinkedHashMap<>();
             if (!pb.getMethodName().isEmpty()) {
-                module_name = pb.getModuleName();
+                m.put("module_name", pb.getModuleName());
             }
             if (!pb.getContractName().isEmpty()) {
-                contract_name = pb.getContractName();
+                m.put("contract_name", pb.getContractName());
             }
             if (!pb.getMethodName().isEmpty()) {
-                method_name = pb.getMethodName();
+                m.put("method_name", pb.getMethodName());
+            }
+            if (pb.getArgsCount() != 0) {
+                TreeMap<String, ByteString> margs = new TreeMap<>();
+                margs.putAll(pb.getArgsMap());
+                m.put("args", margs);
             }
             if (pb.getResourceLimitsCount() != 0) {
-                args = new TreeMap<>();
-                args.putAll(pb.getArgsMap());
-                resource_limits = new ResourceLimitBean[pb.getResourceLimitsCount()];
+                Object[] resource_limits = new Object[pb.getResourceLimitsCount()];
                 for (int i = 0; i < pb.getResourceLimitsCount(); i++) {
-                    resource_limits[i] = new ResourceLimitBean(pb.getResourceLimits(i));
+                    resource_limits[i] = ResourceLimitBean.create(pb.getResourceLimits(i));
                 }
+                m.put("resource_limits", resource_limits);
             }
             if (!pb.getAmount().isEmpty()) {
-                amount = pb.getAmount();
+                m.put("amount", pb.getAmount());
             }
+            return m;
         }
     }
 
     private static class ResourceLimitBean {
-        Integer type;
-        Long limit;
-
-        ResourceLimitBean(ResourceLimit pb) {
+        static Object create(ResourceLimit pb) {
+            LinkedHashMap<String, Object> m = new LinkedHashMap<>();
             if (pb.getType().getNumber() != 0) {
-                type = pb.getType().getNumber();
+                m.put("type", pb.getType().getNumber());
             }
             if (pb.getLimit() != 0) {
-                limit = pb.getLimit();
+                m.put("limit", pb.getLimit());
             }
+            return m;
         }
     }
 
     private static class SignatureInfoBean {
-        String PublicKey;
-        ByteString Sign;
-
-        SignatureInfoBean(SignatureInfo pb) {
+        static Object create(SignatureInfo pb) {
+            LinkedHashMap<String, Object> m = new LinkedHashMap<>();
             if (!pb.getPublicKey().isEmpty()) {
-                PublicKey = pb.getPublicKey();
+                m.put("PublicKey", pb.getPublicKey());
             }
             if (!pb.getSign().isEmpty()) {
-                Sign = pb.getSign();
+                m.put("Sign", pb.getSign());
             }
+            return m;
         }
     }
 }

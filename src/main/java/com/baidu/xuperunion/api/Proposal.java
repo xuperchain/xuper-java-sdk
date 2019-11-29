@@ -38,6 +38,10 @@ public class Proposal {
         return this;
     }
 
+    /**
+     * @param name Must be Account.getAuthrequireId
+     * @return
+     */
     public Proposal addAuthRequire(String name) {
         if (this.authRequire == null) {
             this.authRequire = new ArrayList<>();
@@ -94,7 +98,7 @@ public class Proposal {
         if (this.amount != null) {
             amount = this.amount.longValue();
         }
-        byte[] hash = Hash.doubleSha256((chainName + initiator.getPayableAddress() + amount + false).getBytes());
+        byte[] hash = Hash.doubleSha256((chainName + initiator.getAddress() + amount + false).getBytes());
         byte[] sign = initiator.getKeyPair().sign(hash);
         XchainOuterClass.SignatureInfo signature = XchainOuterClass.SignatureInfo.newBuilder()
                 .setPublicKey(initiator.getKeyPair().getJSONPublicKey())
@@ -104,7 +108,7 @@ public class Proposal {
         XchainOuterClass.PreExecWithSelectUTXORequest request = XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
                 .setHeader(header)
                 .setBcname(chainName)
-                .setAddress(initiator.getPayableAddress())
+                .setAddress(initiator.getAddress())
                 .setTotalAmount(amount)
                 .setSignInfo(signature)
                 .setRequest(invokeRPCRequest)

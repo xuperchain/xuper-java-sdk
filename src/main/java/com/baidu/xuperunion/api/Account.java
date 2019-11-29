@@ -52,6 +52,9 @@ public class Account {
     }
 
     public String getAddress() {
+        if (this.contractAccount != null) {
+            return this.contractAccount;
+        }
         return this.address;
     }
 
@@ -61,16 +64,6 @@ public class Account {
 
     public void setContractAccount(String name) {
         this.contractAccount = name;
-    }
-
-    /**
-     * @return the address which can be used to transfer token
-     */
-    public String getPayableAddress() {
-        if (this.contractAccount != null) {
-            return this.contractAccount;
-        }
-        return this.address;
     }
 
     public String getAuthRequireId() {

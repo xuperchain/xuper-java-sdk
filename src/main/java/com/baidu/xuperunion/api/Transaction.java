@@ -16,6 +16,18 @@ public class Transaction {
     private ContractResponse contractResponse;
     private long gasUsed;
 
+    /**
+     * used to build a transaction from a protobuf tx
+     * NOTE: the contractResponse and gasUsed will be null
+     * @param chainName the name of chain
+     * @param tx the protobuf transaction
+     */
+    public Transaction(String chainName, XchainOuterClass.Transaction tx) {
+        proposal = new Proposal().setChainName(chainName);
+        txBuilder = tx.toBuilder();
+        pbtx = tx;
+    }
+
     Transaction(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal) throws Exception {
         XchainOuterClass.InvokeResponse invokeResponse = response.getResponse();
         if (invokeResponse.getResponseCount() != 0) {
@@ -35,52 +47,18 @@ public class Transaction {
                 .setNonce(Common.newNonce())
                 .setTimestamp(System.nanoTime())
                 .setVersion(txVersion)
-                .setInitiator(initiator.getAddress())
-                .addAuthRequire(initiator.getAuthRequireId());
+                .setInitiator(initiator.getAddress());
+
+        if (proposal.desc != null) {
+            txBuilder.setDesc(ByteString.copyFromUtf8(proposal.desc));
+        }
+
+        if (proposal.authRequire != null) {
+            txBuilder.addAllAuthRequire(proposal.authRequire);
+        }
 
         if (!utxos.getTotalSelected().isEmpty()) {
-            // add utxo inputs
-            for (int i = 0; i < utxos.getUtxoListCount(); i++) {
-                XchainOuterClass.Utxo utxo = utxos.getUtxoList(i);
-                XchainOuterClass.TxInput input = XchainOuterClass.TxInput.newBuilder()
-                        .setFromAddr(utxo.getToAddr())
-                        .setRefTxid(utxo.getRefTxid())
-                        .setRefOffset(utxo.getRefOffset())
-                        .setAmount(utxo.getAmount())
-                        .build();
-                txBuilder.addTxInputs(input);
-            }
-
-            // add utxo outputs
-            BigInteger need = BigInteger.valueOf(0);
-            BigInteger total = new BigInteger(utxos.getTotalSelected());
-            if (proposal.to != null && proposal.amount != null) {
-                need = need.add(proposal.amount);
-                XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
-                        .setToAddr(ByteString.copyFromUtf8(proposal.to))
-                        .setAmount(ByteString.copyFrom(need.toByteArray()))
-                        .build();
-                txBuilder.addTxOutputs(out);
-            }
-            // add fee output
-            if (this.gasUsed > 0) {
-                BigInteger gasUsed = BigInteger.valueOf(this.gasUsed);
-                need = need.add(gasUsed);
-                XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
-                        .setToAddr(ByteString.copyFromUtf8("$"))
-                        .setAmount(ByteString.copyFrom(gasUsed.toByteArray()))
-                        .build();
-                txBuilder.addTxOutputs(out);
-            }
-
-            // make change
-            if (total.compareTo(need) > 0) {
-                XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
-                        .setToAddr(ByteString.copyFromUtf8(initiator.getPayableAddress()))
-                        .setAmount(ByteString.copyFrom(total.subtract(need).toByteArray()))
-                        .build();
-                txBuilder.addTxOutputs(out);
-            }
+            makeUtxos(proposal, utxos, initiator, txBuilder, gasUsed);
         }
 
         // add utxos generated from contract
@@ -97,6 +75,51 @@ public class Transaction {
         this.pbtx = txBuilder.build();
     }
 
+    private static void makeUtxos(Proposal proposal, XchainOuterClass.UtxoOutput utxos, Account initiator, XchainOuterClass.Transaction.Builder txBuilder, long gas) {
+        // add utxo inputs
+        for (int i = 0; i < utxos.getUtxoListCount(); i++) {
+            XchainOuterClass.Utxo utxo = utxos.getUtxoList(i);
+            XchainOuterClass.TxInput input = XchainOuterClass.TxInput.newBuilder()
+                    .setFromAddr(utxo.getToAddr())
+                    .setRefTxid(utxo.getRefTxid())
+                    .setRefOffset(utxo.getRefOffset())
+                    .setAmount(utxo.getAmount())
+                    .build();
+            txBuilder.addTxInputs(input);
+        }
+
+        // add utxo outputs
+        BigInteger need = BigInteger.valueOf(0);
+        BigInteger total = new BigInteger(utxos.getTotalSelected());
+        if (proposal.to != null && proposal.amount != null) {
+            need = need.add(proposal.amount);
+            XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
+                    .setToAddr(ByteString.copyFromUtf8(proposal.to))
+                    .setAmount(ByteString.copyFrom(need.toByteArray()))
+                    .build();
+            txBuilder.addTxOutputs(out);
+        }
+        // add fee output
+        if (gas > 0) {
+            BigInteger gasUsed = BigInteger.valueOf(gas);
+            need = need.add(gasUsed);
+            XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
+                    .setToAddr(ByteString.copyFromUtf8("$"))
+                    .setAmount(ByteString.copyFrom(gasUsed.toByteArray()))
+                    .build();
+            txBuilder.addTxOutputs(out);
+        }
+
+        // make change
+        if (total.compareTo(need) > 0) {
+            XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
+                    .setToAddr(ByteString.copyFromUtf8(initiator.getAddress()))
+                    .setAmount(ByteString.copyFrom(total.subtract(need).toByteArray()))
+                    .build();
+            txBuilder.addTxOutputs(out);
+        }
+    }
+
     public Transaction sign() throws Exception {
         sign(proposal.initiator);
         return this;
@@ -104,8 +127,7 @@ public class Transaction {
 
     public Transaction sign(Account singer) throws Exception {
         if (txdigest == null) {
-            TxEncoder enc = new TxEncoder();
-            txdigest = enc.makeTxDigest(txBuilder.build());
+            txdigest = TxEncoder.makeTxDigest(pbtx);
         }
 
         ECKeyPair keyPair = singer.getKeyPair();
@@ -117,10 +139,10 @@ public class Transaction {
                 .build();
 
         txBuilder.addAuthRequireSigns(siginfo);
-        if (singer.getAddress().equals(proposal.initiator.getAddress())) {
+        if (singer.getAddress().equals(pbtx.getInitiator())) {
             txBuilder.addInitiatorSigns(siginfo);
         }
-
+        pbtx = txBuilder.build();
         return this;
     }
 
@@ -130,9 +152,7 @@ public class Transaction {
     }
 
     public Transaction send(XuperClient client) throws Exception {
-        XchainOuterClass.Transaction tx = txBuilder.build();
-        TxEncoder enc = new TxEncoder();
-        byte[] txid = enc.makeTxID(tx);
+        byte[] txid = TxEncoder.makeTxID(pbtx);
         txBuilder.setTxid(ByteString.copyFrom(txid));
         pbtx = txBuilder.build();
 

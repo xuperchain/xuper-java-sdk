@@ -5,6 +5,7 @@ import com.google.common.io.ByteStreams;
 import org.junit.Test;
 
 import java.math.BigInteger;
+import java.nio.file.Paths;
 
 import static org.junit.Assert.assertEquals;
 
@@ -21,7 +22,8 @@ public class AccountTest {
     @Test
     public void createFromPath() throws Exception {
         byte[] address = ByteStreams.toByteArray(getClass().getResourceAsStream("keys/address"));
-        Account account = Account.create(getClass().getResource("keys").getPath());
+        String keyPath = Paths.get(getClass().getResource("keys").toURI()).toString();
+        Account account = Account.create(keyPath);
         assertEquals(new String(address), account.getAddress());
     }
 }

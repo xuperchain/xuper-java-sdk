@@ -26,7 +26,8 @@ public class XuperClientTest {
             client = new XuperClient("127.0.0.1:37101");
             // test connection
             client.getBlockingClient().getSystemStatus(XchainOuterClass.CommonIn.newBuilder().build());
-            account = Account.create(getClass().getResource("keys").getPath());
+            String keyPath = Paths.get(getClass().getResource("keys").toURI()).toString();
+            account = Account.create(keyPath);
         } catch (Exception e) {
             assumeNoException(e);
         }

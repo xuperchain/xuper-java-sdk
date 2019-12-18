@@ -203,6 +203,7 @@ public class XuperClient {
                 .setHeader(Common.newHeader())
                 .setBcname(chainName)
                 .setBlockid(ByteString.copyFrom(Hex.decode(blockid)))
+                .setNeedContent(true)
                 .build();
         XchainOuterClass.Block response = blockingClient.getBlock(request);
         Common.checkResponseHeader(response.getHeader(), "query transaction");

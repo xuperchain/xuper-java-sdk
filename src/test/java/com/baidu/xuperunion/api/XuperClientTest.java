@@ -103,11 +103,14 @@ public class XuperClientTest {
     @Test
     public void queryBlock() throws Exception {
         String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(10)).getTxid();
+        // waiting for confirmed
+        sleep(4000);
         XchainOuterClass.Transaction tx = client.queryTx(txid);
         assertEquals(txid, Hex.toHexString(tx.getTxid().toByteArray()));
 
         String blockid = Hex.toHexString(tx.getBlockid().toByteArray());
         XchainOuterClass.InternalBlock block = client.queryBlock(blockid);
+        System.out.println(Hex.toHexString(block.getPreHash().toByteArray()));
         assertEquals(blockid, Hex.toHexString(block.getBlockid().toByteArray()));
     }
 

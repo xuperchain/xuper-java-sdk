@@ -209,4 +209,36 @@ public class XuperClient {
         Common.checkResponseHeader(response.getHeader(), "query transaction");
         return response.getBlock();
     }
+
+    /**
+     * getSystemStatus get system status contains all blockchains
+     * 
+     * @return instance of SystemsStatus
+     * @throws Exception
+     */
+    public XchainOuterClass.SystemsStatus getSystemStatus() throws Exception {
+        XchainOuterClass.CommonIn request =  XchainOuterClass.CommonIn.newBuilder()
+                .setHeader(Common.newHeader())
+                .build();
+        XchainOuterClass.SystemsStatusReply response = blockingClient.getSystemStatus(request);
+        Common.checkResponseHeader(response.getHeader(), "query system status");
+        return response.getSystemsStatus();
+    }
+
+    /**
+     * getBlockchainStatus get the status of given blockchain
+     * 
+     * @param chainName the name of blockchain
+     * @return instance of BCStatus
+     * @throws Exception
+     */
+    public XchainOuterClass.BCStatus getBlockchainStatus(String chainName) throws Exception {
+        XchainOuterClass.BCStatus request =  XchainOuterClass.BCStatus.newBuilder()
+                .setHeader(Common.newHeader())
+                .setBcname(chainName)
+                .build();
+        XchainOuterClass.BCStatus bcs = blockingClient.getBlockChainStatus(request);
+        Common.checkResponseHeader(bcs.getHeader(), "query blockchain status");
+        return bcs;
+    }
 }

@@ -115,6 +115,39 @@ public class XuperClientTest {
     }
 
     @Test
+    public void getSystemStatus() throws Exception {
+        XchainOuterClass.SystemsStatus status = client.getSystemStatus();
+        assertEquals(1, status.getBcsStatusCount());
+        System.out.println("blockchain count:" + status.getBcsStatusCount());
+        // 遍历所有的链
+        for (int i = 0; i < status.getBcsStatusCount(); i++) {
+            XchainOuterClass.BCStatus bcs = status.getBcsStatusList().get(i);
+            // 打印链名
+            System.out.println("blockchain " + i + ", name=" + bcs.getBcname());
+            // 链上当前主干高度
+            System.out.println("---- Height: " + bcs.getMeta().getTrunkHeight());
+            // 链上最新的块ID
+            System.out.println("---- TipBlockId: " + Hex.toHexString(bcs.getMeta().getTipBlockid().toByteArray()));
+            // 链上创世块ID
+            System.out.println("---- RootBlockId: " + Hex.toHexString(bcs.getMeta().getRootBlockid().toByteArray()));
+        }
+    }
+
+    @Test
+    public void getBlockchainStatus() throws Exception {
+        XchainOuterClass.BCStatus bcs = client.getBlockchainStatus("xuper");
+        assertEquals("xuper", bcs.getBcname());
+        // 打印链名
+        System.out.println("blockchain name=" + bcs.getBcname());
+        // 链上当前主干高度
+        System.out.println("---- Height: " + bcs.getMeta().getTrunkHeight());
+        // 链上最新的块ID
+        System.out.println("---- TipBlockId: " + Hex.toHexString(bcs.getMeta().getTipBlockid().toByteArray()));
+        // 链上创世块ID
+        System.out.println("---- RootBlockId: " + Hex.toHexString(bcs.getMeta().getRootBlockid().toByteArray()));
+    }
+
+    @Test
     public void apiExample() throws Exception {
         createContractAccount();
         transfer();
@@ -124,5 +157,6 @@ public class XuperClientTest {
         queryTx();
         queryBlock();
         getBalance();
+        getSystemStatus();
     }
 }

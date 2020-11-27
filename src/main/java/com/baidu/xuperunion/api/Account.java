@@ -9,6 +9,7 @@ import com.google.gson.stream.JsonReader;
 
 import java.io.FileReader;
 import java.math.BigInteger;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Account {
@@ -132,9 +133,31 @@ public class Account {
      *  |-- mnemonic
      * @return 账户信息。
      */
-    public Account getAccountFromPlainFile(String path){// todo
+    public static Account getAccountFromPlainFile(String path){
+        try {
+            byte[] address = Files.readAllBytes(Paths.get(path+"/address"));
+            byte[] pubKey = Files.readAllBytes(Paths.get(path+"/public.key"));
+            byte[] privKey = Files.readAllBytes(Paths.get(path+"/private.key"));
 
-        return null;
+            Gson gson = new Gson();
+            privatePubKey json = gson.fromJson(new String(privKey), privatePubKey.class);
+            if (json.D == null) {
+                throw new RuntimeException("invalid private.key file");
+            }
+
+            Account a = create(ECKeyPair.create(json.D));
+            if (!a.getAddress().equals(new String(address))){
+                throw new RuntimeException("address and private key not match.");
+            }
+
+            if (!a.getKeyPair().getJSONPublicKey().equals(new String(pubKey))){
+                throw new RuntimeException("public key and private key not match.");
+            }
+            return a;
+
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 
     /**

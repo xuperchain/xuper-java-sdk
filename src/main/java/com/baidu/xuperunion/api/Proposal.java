@@ -1,7 +1,10 @@
 package com.baidu.xuperunion.api;
 
+import com.baidu.xuperunion.config.Config;
 import com.baidu.xuperunion.crypto.Hash;
 import com.baidu.xuperunion.pb.XchainOuterClass;
+import com.baidu.xuperunion.pb.XendorserOuterClass;
+import com.google.gson.Gson;
 import com.google.protobuf.ByteString;
 
 import java.math.BigInteger;
@@ -114,8 +117,19 @@ public class Proposal {
                 .setRequest(invokeRPCRequest)
                 .build();
 
-        XchainOuterClass.PreExecWithSelectUTXOResponse response = client.getBlockingClient().preExecWithSelectUTXO(request);
-        Common.checkResponseHeader(response.getHeader(), "PreExec");
-        return new Transaction(response, this);
+        XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
+        Gson g = new Gson();
+        XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
+                .setHeader(header)
+                .setBcName(chainName)
+                .setRequestData(ByteString.copyFrom(g.toJson(request).getBytes()))
+                .setRequestName("PreExecWithFee")
+                .build());
+
+        XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(r.getResponseData().toString(),XchainOuterClass.PreExecWithSelectUTXOResponse.class);
+
+        //XchainOuterClass.PreExecWithSelectUTXOResponse response = client.getBlockingClient().preExecWithSelectUTXO(request);
+        Common.checkResponseHeader(pr.getHeader(), "PreExec");
+        return new Transaction(pr, this,client.getPlatformAccount());
     }
 }

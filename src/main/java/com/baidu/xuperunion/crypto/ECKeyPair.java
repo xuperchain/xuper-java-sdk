@@ -23,11 +23,13 @@ public class ECKeyPair {
     private final BigInteger privateKey;
     private final ECPoint publicKey;
     private final String jsonPublicKey;
+    private final String jsonPrivateKey;
 
     private ECKeyPair(BigInteger privateKey, ECPoint publicKey) {
         this.privateKey = privateKey;
         this.publicKey = publicKey;
         this.jsonPublicKey = createJSONPublicKey(publicKey);
+        this.jsonPrivateKey = createJSONPrivateKey(privateKey,publicKey);
     }
 
     public static ECKeyPair create(BigInteger privateKey) {
@@ -51,6 +53,15 @@ public class ECKeyPair {
         return create(secureRandom);
     }
 
+    public static ECKeyPair create(byte[] seed) {
+        BigInteger k = new BigInteger(1,seed);
+        BigInteger n = Ecc.domain.getN().subtract(BigInteger.ONE);
+        k = k.mod(n);
+        k = k.add(BigInteger.ONE);
+        ECPrivateKeyParameters p = new ECPrivateKeyParameters(k,Ecc.domain);
+        return create(p.getD());
+    }
+
     public static ECKeyPair create(SecureRandom secureRandom) {
         ECKeyPairGenerator generator = new ECKeyPairGenerator();
         ECKeyGenerationParameters keygenParams = new ECKeyGenerationParameters(Ecc.domain, secureRandom);
@@ -61,8 +72,31 @@ public class ECKeyPair {
         return create(privParams.getD());
     }
 
+    /**
+     * @return 公钥 json 字符串。
+     */
     public String getJSONPublicKey() {
         return jsonPublicKey;
+    }
+
+    /**
+     * @return 私钥 json 字符串。
+     */
+    public String getJSONPrivateKey() {
+        return  jsonPrivateKey;
+    }
+
+    static private String createJSONPrivateKey(BigInteger privateKey, ECPoint publicKey) {
+        BigInteger x = publicKey.getAffineXCoord().toBigInteger();
+        BigInteger y = publicKey.getAffineYCoord().toBigInteger();
+        BigInteger d = privateKey;
+        Map<String, Object> m = new LinkedHashMap<>();
+        m.put("Curvname", Ecc.curveName);
+        m.put("X", x);
+        m.put("Y", y);
+        m.put("D", d);
+        Gson gson = new Gson();
+        return gson.toJson(m);
     }
 
     public ECPoint getPublicKey() {
@@ -73,6 +107,11 @@ public class ECKeyPair {
         return privateKey;
     }
 
+    /**
+     * @param hash 待签名数据。
+     * @return 签名。
+     * @throws Exception
+     */
     public byte[] sign(byte[] hash) throws Exception {
         return Ecc.sign(hash, privateKey);
     }

@@ -15,7 +15,9 @@ import java.util.Map;
 public class XuperClient {
     private final ManagedChannel channel;
     private final XchainGrpc.XchainBlockingStub blockingClient;
+
     private String chainName = "xuper";
+    private Account platformAccount;
 
     /**
      * @param target the address of xchain node, like 127.0.0.1:37101
@@ -28,9 +30,23 @@ public class XuperClient {
                 .build());
     }
 
+    public XuperClient(String target,Account platformAccount) {
+        this(ManagedChannelBuilder.forTarget(target)
+                // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
+                // needing certificates.
+                .usePlaintext()
+                .build());
+        this.platformAccount = platformAccount;
+    }
+
     private XuperClient(ManagedChannel channel) {
         this.channel = channel;
         blockingClient = XchainGrpc.newBlockingStub(channel);
+    }
+
+
+    public Account getPlatformAccount() {
+        return platformAccount;
     }
 
     public void close() {

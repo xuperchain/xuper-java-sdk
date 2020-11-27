@@ -43,7 +43,7 @@ public class Proposal {
 
     /**
      * @param name Must be Account.getAuthrequireId
-     * @return
+     * @return proposal
      */
     public Proposal addAuthRequire(String name) {
         if (this.authRequire == null) {
@@ -70,9 +70,9 @@ public class Proposal {
         return this;
     }
 
-    public Transaction build(XuperClient client) throws Exception {
+    public Transaction build(XuperClient client) {
         if (this.initiator == null) {
-            throw new Exception("missing initiator");
+            throw new RuntimeException("missing initiator");
         }
 
         XchainOuterClass.Header header = Common.newHeader();
@@ -87,9 +87,29 @@ public class Proposal {
                 invokeRequestBuilder.setAmount(this.amount.toString());
             }
         }
+
         XchainOuterClass.InvokeRequest invokeRequest = invokeRequestBuilder.build();
 
-        XchainOuterClass.InvokeRPCRequest invokeRPCRequest = XchainOuterClass.InvokeRPCRequest.newBuilder()
+        XchainOuterClass.InvokeRPCRequest.Builder invokeRPCBuilder = XchainOuterClass.InvokeRPCRequest.newBuilder();
+
+        int extAmount = 0;
+        try {
+            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()){
+                invokeRPCBuilder.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
+
+                if (client.getPlatformAccount() != null){
+                    invokeRPCBuilder.addAuthRequire(client.getPlatformAccount().getAddress());
+                }
+
+                if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()){
+                    extAmount = Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee();
+                }
+            }
+        } catch (Exception e){
+            throw new RuntimeException(e);
+        }
+
+        XchainOuterClass.InvokeRPCRequest invokeRPCRequest = invokeRPCBuilder
                 .setHeader(header)
                 .setBcname(chainName)
                 .addRequests(invokeRequest)
@@ -101,35 +121,41 @@ public class Proposal {
         if (this.amount != null) {
             amount = this.amount.longValue();
         }
-        byte[] hash = Hash.doubleSha256((chainName + initiator.getAddress() + amount + false).getBytes());
-        byte[] sign = initiator.getKeyPair().sign(hash);
-        XchainOuterClass.SignatureInfo signature = XchainOuterClass.SignatureInfo.newBuilder()
-                .setPublicKey(initiator.getKeyPair().getJSONPublicKey())
-                .setSign(ByteString.copyFrom(sign))
-                .build();
+        amount += extAmount;
 
-        XchainOuterClass.PreExecWithSelectUTXORequest request = XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
-                .setHeader(header)
-                .setBcname(chainName)
-                .setAddress(initiator.getAddress())
-                .setTotalAmount(amount)
-                .setSignInfo(signature)
-                .setRequest(invokeRPCRequest)
-                .build();
+        try {
+            byte[] hash = Hash.doubleSha256((chainName + initiator.getAddress() + amount + false).getBytes());
+            byte[] sign = initiator.getKeyPair().sign(hash);
+            XchainOuterClass.SignatureInfo signature = XchainOuterClass.SignatureInfo.newBuilder()
+                    .setPublicKey(initiator.getKeyPair().getJSONPublicKey())
+                    .setSign(ByteString.copyFrom(sign))
+                    .build();
 
-        XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
-        Gson g = new Gson();
-        XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
-                .setHeader(header)
-                .setBcName(chainName)
-                .setRequestData(ByteString.copyFrom(g.toJson(request).getBytes()))
-                .setRequestName("PreExecWithFee")
-                .build());
+            XchainOuterClass.PreExecWithSelectUTXORequest request = XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
+                    .setHeader(header)
+                    .setBcname(chainName)
+                    .setAddress(initiator.getAddress())
+                    .setTotalAmount(amount)
+                    .setSignInfo(signature)
+                    .setRequest(invokeRPCRequest)
+                    .build();
 
-        XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(r.getResponseData().toString(),XchainOuterClass.PreExecWithSelectUTXOResponse.class);
+            XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
+            Gson g = new Gson();
+            XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
+                    .setHeader(header)
+                    .setBcName(chainName)
+                    .setRequestData(ByteString.copyFrom(g.toJson(request).getBytes()))
+                    .setRequestName("PreExecWithFee")
+                    .build());
 
-        //XchainOuterClass.PreExecWithSelectUTXOResponse response = client.getBlockingClient().preExecWithSelectUTXO(request);
-        Common.checkResponseHeader(pr.getHeader(), "PreExec");
-        return new Transaction(pr, this,client.getPlatformAccount());
+            XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(r.getResponseData().toString(),XchainOuterClass.PreExecWithSelectUTXOResponse.class);
+
+            //XchainOuterClass.PreExecWithSelectUTXOResponse response = client.getBlockingClient().preExecWithSelectUTXO(request);
+            Common.checkResponseHeader(pr.getHeader(), "PreExec");
+            return new Transaction(pr, this,client.getPlatformAccount());
+        }catch (Exception e){
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -71,9 +71,8 @@ public class XuperClient {
      * @param to     to address
      * @param amount transfer amount
      * @return
-     * @throws Exception
      */
-    public Transaction transfer(Account from, String to, BigInteger amount) throws Exception {
+    public Transaction transfer(Account from, String to, BigInteger amount) {
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
@@ -91,9 +90,8 @@ public class XuperClient {
      * @param method   contract method
      * @param args     contract method arguments
      * @return
-     * @throws Exception
      */
-    public Transaction invokeContract(Account from, String module, String contract, String method, Map<String, byte[]> args) throws Exception {
+    public Transaction invokeContract(Account from, String module, String contract, String method, Map<String, byte[]> args){
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
@@ -111,9 +109,8 @@ public class XuperClient {
      * @param method   contract method
      * @param args     contract method arguments
      * @return
-     * @throws Exception
      */
-    public Transaction queryContract(Account from, String module, String contract, String method, Map<String, byte[]> args) throws Exception {
+    public Transaction queryContract(Account from, String module, String contract, String method, Map<String, byte[]> args){
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
@@ -129,11 +126,10 @@ public class XuperClient {
      * @param runtime  contract runtime c or go
      * @param initArgs initial argument of initialize method
      * @return
-     * @throws Exception
      */
-    public Transaction deployWasmContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs) throws Exception {
+    public Transaction deployWasmContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs) {
         if (from.getContractAccount().isEmpty()) {
-            throw new Exception("deploy contract must use contract account");
+            throw new RuntimeException("deploy contract must use contract account");
         }
         XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
                 .setRuntime(runtime)
@@ -155,9 +151,8 @@ public class XuperClient {
      * @param from        the use account to create contract account
      * @param accountName the name of contract account
      * @return
-     * @throws Exception
      */
-    public Transaction createContractAccount(Account from, String accountName) throws Exception {
+    public Transaction createContractAccount(Account from, String accountName){
         String desc = "{\"aksWeight\": {\"" + from.getAddress() + "\": 1.0}, \"pm\": {\"acceptValue\": 1.0, \"rule\": 1}}";
         Map<String, byte[]> args = new HashMap<>();
         args.put("account_name", accountName.getBytes());
@@ -170,9 +165,8 @@ public class XuperClient {
      *
      * @param account account name, can be contract account
      * @return
-     * @throws Exception
      */
-    public BigInteger getBalance(String account) throws Exception {
+    public BigInteger getBalance(String account){
         XchainOuterClass.AddressStatus request = XchainOuterClass.AddressStatus.newBuilder()
                 .setHeader(Common.newHeader())
                 .setAddress(account)
@@ -194,9 +188,8 @@ public class XuperClient {
      *
      * @param txid the id of transaction
      * @return
-     * @throws Exception
      */
-    public XchainOuterClass.Transaction queryTx(String txid) throws Exception {
+    public XchainOuterClass.Transaction queryTx(String txid){
         XchainOuterClass.TxStatus request = XchainOuterClass.TxStatus.newBuilder()
                 .setHeader(Common.newHeader())
                 .setBcname(chainName)
@@ -212,9 +205,8 @@ public class XuperClient {
      *
      * @param blockid the id of block
      * @return
-     * @throws Exception
      */
-    public XchainOuterClass.InternalBlock queryBlock(String blockid) throws Exception {
+    public XchainOuterClass.InternalBlock queryBlock(String blockid){
         XchainOuterClass.BlockID request = XchainOuterClass.BlockID.newBuilder()
                 .setHeader(Common.newHeader())
                 .setBcname(chainName)
@@ -230,9 +222,8 @@ public class XuperClient {
      * getSystemStatus get system status contains all blockchains
      * 
      * @return instance of SystemsStatus
-     * @throws Exception
      */
-    public XchainOuterClass.SystemsStatus getSystemStatus() throws Exception {
+    public XchainOuterClass.SystemsStatus getSystemStatus(){
         XchainOuterClass.CommonIn request =  XchainOuterClass.CommonIn.newBuilder()
                 .setHeader(Common.newHeader())
                 .build();
@@ -246,9 +237,8 @@ public class XuperClient {
      * 
      * @param chainName the name of blockchain
      * @return instance of BCStatus
-     * @throws Exception
      */
-    public XchainOuterClass.BCStatus getBlockchainStatus(String chainName) throws Exception {
+    public XchainOuterClass.BCStatus getBlockchainStatus(String chainName){
         XchainOuterClass.BCStatus request =  XchainOuterClass.BCStatus.newBuilder()
                 .setHeader(Common.newHeader())
                 .setBcname(chainName)

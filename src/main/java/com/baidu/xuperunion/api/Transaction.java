@@ -405,30 +405,34 @@ public class Transaction {
         }
     }
 
-    public Transaction sign() throws Exception {
+    public Transaction sign(){
         sign(proposal.initiator);
         return this;
     }
 
-    public Transaction sign(Account singer) throws Exception {
-        if (txdigest == null) {
-            txdigest = TxEncoder.makeTxDigest(pbtx);
+    public Transaction sign(Account singer){
+        try {
+            if (txdigest == null) {
+                txdigest = TxEncoder.makeTxDigest(pbtx);
+            }
+
+            ECKeyPair keyPair = singer.getKeyPair();
+            byte[] sig = keyPair.sign(txdigest);
+
+            XchainOuterClass.SignatureInfo siginfo = XchainOuterClass.SignatureInfo.newBuilder()
+                    .setPublicKey(keyPair.getJSONPublicKey())
+                    .setSign(ByteString.copyFrom(sig))
+                    .build();
+
+            txBuilder.addAuthRequireSigns(siginfo);
+            if (singer.getAddress().equals(pbtx.getInitiator())) {
+                txBuilder.addInitiatorSigns(siginfo);
+            }
+            pbtx = txBuilder.build();
+            return this;
+        } catch (Exception e){
+            throw new RuntimeException(e);
         }
-
-        ECKeyPair keyPair = singer.getKeyPair();
-        byte[] sig = keyPair.sign(txdigest);
-
-        XchainOuterClass.SignatureInfo siginfo = XchainOuterClass.SignatureInfo.newBuilder()
-                .setPublicKey(keyPair.getJSONPublicKey())
-                .setSign(ByteString.copyFrom(sig))
-                .build();
-
-        txBuilder.addAuthRequireSigns(siginfo);
-        if (singer.getAddress().equals(pbtx.getInitiator())) {
-            txBuilder.addInitiatorSigns(siginfo);
-        }
-        pbtx = txBuilder.build();
-        return this;
     }
 
     public Transaction debugPrint() {
@@ -436,7 +440,7 @@ public class Transaction {
         return this;
     }
 
-    public Transaction send(XuperClient client) throws Exception {
+    public Transaction send(XuperClient client){
         byte[] txid = TxEncoder.makeTxID(pbtx);
         txBuilder.setTxid(ByteString.copyFrom(txid));
         pbtx = txBuilder.build();

@@ -13,9 +13,9 @@ public class Common {
         return String.valueOf(System.nanoTime()) + (int) (Math.random() * 100000000);
     }
 
-    static public void checkResponseHeader(XchainOuterClass.Header header, String msg) throws Exception {
+    static public void checkResponseHeader(XchainOuterClass.Header header, String msg){
         if (header.getError() != XchainOuterClass.XChainErrorEnum.SUCCESS) {
-            throw new Exception("Error " + header.getError().toString() + " while " + msg);
+            throw new RuntimeException("Error " + header.getError().toString() + " while " + msg);
         }
     }
 }

@@ -144,7 +144,6 @@ public class Transaction {
         XchainOuterClass.TxInput[] txInputs = genPureTxInputs(utxoOutput);
 
         XchainOuterClass.Transaction.Builder txBuilder = XchainOuterClass.Transaction.newBuilder()
-                .setDesc(ByteString.copyFrom(this.proposal.desc.getBytes()))
                 .setNonce(Common.newNonce())
                 .setVersion(txVersion)
                 .setCoinbase(false)
@@ -155,6 +154,10 @@ public class Transaction {
                 .addAllTxInputsExt(response.getResponse().getInputsList())
                 .addAllTxOutputsExt(response.getResponse().getOutputsList())
                 .addAllContractRequests(response.getResponse().getRequestsList());
+
+        if (proposal.desc != null) {
+            txBuilder.setDesc(ByteString.copyFromUtf8(proposal.desc));
+        }
 
         XchainOuterClass.Transaction t = txBuilder.build();
         txdigest = TxEncoder.makeTxDigest(t);
@@ -176,7 +179,7 @@ public class Transaction {
         signatureInfos[0] = signatureInfo;
 
         txBuilder.addAllInitiatorSigns(Arrays.asList(signatureInfos));
-        if (!this.proposal.initiator.getContractAccount().isEmpty()){
+        if (this.proposal.initiator.getContractAccount() != null && !this.proposal.initiator.getContractAccount().isEmpty()){
             txBuilder.addAllAuthRequireSigns(Arrays.asList(signatureInfos));
         }
         this.txBuilder = txBuilder;
@@ -223,7 +226,7 @@ public class Transaction {
                     .build());
         }
 
-        return txOutputs.toArray(new XchainOuterClass.TxOutput[3]);
+        return txOutputs.toArray(new XchainOuterClass.TxOutput[txOutputs.size()]);
     }
 
     private XchainOuterClass.SignatureInfo complianceCheck(XchainOuterClass.Transaction tx, XchainOuterClass.Transaction fee){
@@ -261,7 +264,12 @@ public class Transaction {
     }
 
     private XchainOuterClass.TxOutput getDeltaTxOutput(XchainOuterClass.UtxoOutput o,BigInteger totalNeed, String accountAddr){
-        BigInteger utxoTotal = new BigInteger(o.getTotalSelected());
+        BigInteger utxoTotal;
+        if (o.getTotalSelected().isEmpty()){
+            utxoTotal = new BigInteger("0");
+        }else {
+            utxoTotal = new BigInteger(o.getTotalSelected());
+        }
         if (utxoTotal.compareTo(totalNeed) > 0){
             BigInteger delta = utxoTotal.subtract(totalNeed);
             return  XchainOuterClass.TxOutput.newBuilder()

@@ -149,9 +149,9 @@ public class Proposal {
                     .setRequestName("PreExecWithFee")
                     .build());
 
-            XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(r.getResponseData().toString(),XchainOuterClass.PreExecWithSelectUTXOResponse.class);
+            XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(new String(r.getResponseData().toByteArray()),XchainOuterClass.PreExecWithSelectUTXOResponse.class);
 
-            //XchainOuterClass.PreExecWithSelectUTXOResponse response = client.getBlockingClient().preExecWithSelectUTXO(request);
+//            XchainOuterClass.PreExecWithSelectUTXOResponse pr = client.getBlockingClient().preExecWithSelectUTXO(request);
             Common.checkResponseHeader(pr.getHeader(), "PreExec");
             return new Transaction(pr, this,client.getPlatformAccount());
         }catch (Exception e){

@@ -184,6 +184,58 @@ public class XuperClient {
     }
 
     /**
+     * Get balance unfrozen balance and frozen balance of account
+     *
+     * @param account account name, can be contract account
+     * @return balance
+     */
+    public String getBalanceDetails(String account){
+        XchainOuterClass.AddressBalanceStatus request = XchainOuterClass.AddressBalanceStatus.newBuilder()
+                .setHeader(Common.newHeader())
+                .setAddress(account)
+                .addTfds(XchainOuterClass.TokenFrozenDetails.newBuilder().setBcname(chainName).build())
+                .build();
+        XchainOuterClass.AddressBalanceStatus response = blockingClient.getBalanceDetail(request);
+
+        XchainOuterClass.TokenFrozenDetails tfds = response.getTfds(0);
+
+        Gson g = new Gson();
+
+        BalDetails[] balDetails = new BalDetails[tfds.getTfdCount()];
+        for (int i = 0; i < tfds.getTfdCount(); i++) {
+            XchainOuterClass.TokenFrozenDetail tfd = tfds.getTfd(i);
+            balDetails[i] = new BalDetails(tfd.getBalance(),tfd.getIsFrozen());
+        }
+
+        return g.toJson(balDetails);
+    }
+
+    public static class BalDetails {
+        private String balance;
+        private Boolean isFrozen;
+
+        BalDetails(String bal, Boolean f){
+            balance = bal;
+            isFrozen = f;
+        }
+
+        public String getBalance() {
+            return balance;
+        }
+
+        public Boolean getFrozen() {
+            return isFrozen;
+        }
+
+        public void setBalance(String balance) {
+            this.balance = balance;
+        }
+
+        public void setFrozen(Boolean frozen) {
+            isFrozen = frozen;
+        }
+    }
+    /**
      * queryTx query transaction
      *
      * @param txid the id of transaction

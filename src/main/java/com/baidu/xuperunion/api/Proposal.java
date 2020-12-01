@@ -120,7 +120,6 @@ public class Proposal {
                 .setBcname(chainName)
                 .addRequests(invokeRequest)
                 .setInitiator(initiator.getAddress())
-//                .addAllAuthRequire(authRequire)
                 .build();
 
         long amount = 0;
@@ -152,25 +151,16 @@ public class Proposal {
 
             XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
             Gson g = new Gson();
-            System.out.println("===" + pb2JsonString(request));
             XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
                     .setHeader(header)
                     .setBcName(chainName)
-//                    .setRequestData(ByteString.copyFrom(g.toJson(request).replace("_","").getBytes()))
-//                    .setRequestData(ByteString.copyFrom(pb2String().getBytes()))
                     .setRequestData(ByteString.copyFrom(pb2JsonString(request).getBytes()))
                     .setRequestName("PreExecWithFee")
                     .build());
 
-//            Message sss = request.getDefaultInstance();
-//            j.printToString(request.getDefaultInstance());
-//            JsonFormat.
-//            System.out.println("==="+pb2JsonString(request));
-
 
             XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(new String(r.getResponseData().toByteArray()), XchainOuterClass.PreExecWithSelectUTXOResponse.class);
 
-//            System.out.println("-----==="+new String(r.getResponseData().toByteArray()));
 //            XchainOuterClass.PreExecWithSelectUTXOResponse pr = client.getBlockingClient().preExecWithSelectUTXO(request);
             Common.checkResponseHeader(pr.getHeader(), "PreExec");
             return new Transaction(pr, this, client.getPlatformAccount());
@@ -202,7 +192,6 @@ public class Proposal {
         m1.put("auth_require", request.getRequest().getAuthRequireList());
 
         m.put("request", m1);
-//        LinkedHashMap<String, Object> m2 = new LinkedHashMap<>();
 
         Gson gson = new Gson();
         return gson.toJson(m);

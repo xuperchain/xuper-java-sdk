@@ -151,6 +151,8 @@ public class Proposal {
 
             XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
             Gson g = new Gson();
+
+            System.out.println("=====" + pb2JsonString(request));
             XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
                     .setHeader(header)
                     .setBcName(chainName)
@@ -188,11 +190,38 @@ public class Proposal {
         }
 
         m1.put("initiator", initiator.getAddress());
-
         m1.put("auth_require", request.getRequest().getAuthRequireList());
 
-        m.put("request", m1);
+        ArrayList<Object> l = new ArrayList<>();
+        System.out.println(request.getRequest().getRequestsList().size());
+        for (XchainOuterClass.InvokeRequest r : request.getRequest().getRequestsList()) {
+            LinkedHashMap<String, Object> m2 = new LinkedHashMap<>();
+            if (!r.getModuleName().isEmpty()) {
+                m2.put("module_name", r.getModuleName());
+            }
+            if (!r.getContractName().isEmpty()) {
+                m2.put("contract_name", r.getContractName());
+            }
+            if (!r.getMethodName().isEmpty()) {
+                m2.put("method_name", r.getMethodName());
+            }
 
+            if (this.args != null) {
+                LinkedHashMap<String, Object> m3 = new LinkedHashMap<>();
+                for (Map.Entry<String, ByteString> entry : this.args.entrySet()) {
+                    m3.put(entry.getKey(), entry.getValue().toByteArray());
+                }
+                m2.put("args", m3);
+            }
+
+            l.add(m2);
+        }
+
+        if (l.size() > 0) {
+            m1.put("requests", l);
+        }
+
+        m.put("request", m1);
         Gson gson = new Gson();
         return gson.toJson(m);
     }

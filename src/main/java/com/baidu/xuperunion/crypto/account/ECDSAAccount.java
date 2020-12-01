@@ -30,7 +30,7 @@ public class ECDSAAccount {
      * @param strength 强度。
      * @param language 助记词语言。
      */
-    public void createAccountWithMnemonic(int strength, int language){
+    public void createAccountWithMnemonic(int strength, int language) {
         int bitSize = calcBitSize(strength);
         byte[] entropyBytes = EntropyGenerator.generateEntropy(bitSize);
 
@@ -49,27 +49,27 @@ public class ECDSAAccount {
         reservedInt = reservedInt.and(new BigInteger("15"));
         tagInt = tagInt.or(reservedInt);
 
-        byte[] tagByte = bytesPad(tagInt.toByteArray(),1);
-        byte[] newEntropyByteSlice = new byte[entropyBytes.length+tagByte.length];
-        System.arraycopy(entropyBytes,0,newEntropyByteSlice,0,entropyBytes.length);
-        System.arraycopy(tagByte,0,newEntropyByteSlice,entropyBytes.length,tagByte.length);
+        byte[] tagByte = bytesPad(tagInt.toByteArray(), 1);
+        byte[] newEntropyByteSlice = new byte[entropyBytes.length + tagByte.length];
+        System.arraycopy(entropyBytes, 0, newEntropyByteSlice, 0, entropyBytes.length);
+        System.arraycopy(tagByte, 0, newEntropyByteSlice, entropyBytes.length, tagByte.length);
         String mnemonic = mg.createMnemonic(newEntropyByteSlice);
 
-        createByMnemonic(mnemonic,language);
+        createByMnemonic(mnemonic, language);
     }
 
     /**
      * @param mnemonic 助记词。
      * @param language 助记词语言。
      */
-    public void createByMnemonic(String mnemonic, int language){
+    public void createByMnemonic(String mnemonic, int language) {
         MnemonicCode mg = new MnemonicCode(getWordList(language));
         int cryptography = mg.getCryptographyFromMnemonic(mnemonic.split(" "));
-        if (cryptography != 1){
+        if (cryptography != 1) {
             throw new RuntimeException("Only cryptoGraphy NIST[1] is supported in this version.");
         }
 
-        byte[] seed = MnemonicCode.toSeed(mnemonic,"jingbo is handsome!");// go 版本的密码就是这个，所以保存一致了。
+        byte[] seed = MnemonicCode.toSeed(mnemonic, "jingbo is handsome!");// go 版本的密码就是这个，所以保存一致了。
         ECKeyPair e = ECKeyPair.create(seed);
         byte[] pubKey = e.getPublicKey().getEncoded(false);
         byte[] hash = Hash.ripeMD128(Hash.sha256(pubKey));
@@ -83,20 +83,20 @@ public class ECDSAAccount {
     }
 
     /**
-     * @param path 保存路径。
+     * @param path   保存路径。
      * @param passwd 密码。
      */
-    public void saveToFile(String path, String passwd){
+    public void saveToFile(String path, String passwd) {
         mkdir(path);
-        if (!path.endsWith("/")){
+        if (!path.endsWith("/")) {
             path += "/";
         }
         byte[] newPW = Hash.doubleSha256(passwd.getBytes());
-        byte[] encryptContent=AES.encrypt(this.jsonPrivateKey.getBytes(),newPW);
-        writeFileUsingFileName(path+"private.key",encryptContent);
+        byte[] encryptContent = AES.encrypt(this.jsonPrivateKey.getBytes(), newPW);
+        writeFileUsingFileName(path + "private.key", encryptContent);
     }
 
-    private void writeFileUsingFileName(String fileName, byte[] content){
+    private void writeFileUsingFileName(String fileName, byte[] content) {
         BASE64Encoder encoder = new BASE64Encoder();
         String encoded = encoder.encode(content);
         FileWriter writer;
@@ -110,26 +110,26 @@ public class ECDSAAccount {
         }
     }
 
-    private void mkdir(String path){
+    private void mkdir(String path) {
         File file = new File(path);
-        if (file.exists() || file.isDirectory()){
+        if (file.exists() || file.isDirectory()) {
             throw new RuntimeException("dir exist");
         }
 
-        if (!file.mkdir()){
-           throw new RuntimeException("mkdir failed.");
+        if (!file.mkdir()) {
+            throw new RuntimeException("mkdir failed.");
         }
     }
 
-    public static byte[] getBinaryECDSAPrivateKey(String path, String passwd){
+    public static byte[] getBinaryECDSAPrivateKey(String path, String passwd) {
         String fileName = path + "/private.key";
         byte[] content = readFileWithBASE64Decode(fileName);
         byte[] newPasswd = Hash.doubleSha256(passwd.getBytes());
-        return AES.decrypt(content,newPasswd);
+        return AES.decrypt(content, newPasswd);
     }
 
-    private int calcBitSize(int strength){
-        switch (strength){
+    private int calcBitSize(int strength) {
+        switch (strength) {
             case 1:
                 return 120;
             case 2:
@@ -141,8 +141,8 @@ public class ECDSAAccount {
         }
     }
 
-    private WordList getWordList(int language){
-        switch (language){
+    private WordList getWordList(int language) {
+        switch (language) {
             case 1:
                 return Chinese.INSTANCE;
             case 2:
@@ -152,21 +152,21 @@ public class ECDSAAccount {
         }
     }
 
-    private static byte[] readFileWithBASE64Decode(String path){
+    private static byte[] readFileWithBASE64Decode(String path) {
         try {
             byte[] fileBytes = Files.readAllBytes(Paths.get(path));
             BASE64Decoder d = new BASE64Decoder();
             return d.decodeBuffer(new String(fileBytes));
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    private byte[] bytesPad(byte[] data, int length){
+    private byte[] bytesPad(byte[] data, int length) {
         byte[] result = new byte[length];
-        int index = length-1;
-        for (int i = data.length-1; i >= 0; i--) {
+        int index = length - 1;
+        for (int i = data.length - 1; i >= 0; i--) {
             result[index] = data[i];
             index--;
         }

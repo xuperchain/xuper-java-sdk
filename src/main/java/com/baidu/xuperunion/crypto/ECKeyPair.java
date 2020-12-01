@@ -29,7 +29,7 @@ public class ECKeyPair {
         this.privateKey = privateKey;
         this.publicKey = publicKey;
         this.jsonPublicKey = createJSONPublicKey(publicKey);
-        this.jsonPrivateKey = createJSONPrivateKey(privateKey,publicKey);
+        this.jsonPrivateKey = createJSONPrivateKey(privateKey, publicKey);
     }
 
     public static ECKeyPair create(BigInteger privateKey) {
@@ -54,11 +54,11 @@ public class ECKeyPair {
     }
 
     public static ECKeyPair create(byte[] seed) {
-        BigInteger k = new BigInteger(1,seed);
+        BigInteger k = new BigInteger(1, seed);
         BigInteger n = Ecc.domain.getN().subtract(BigInteger.ONE);
         k = k.mod(n);
         k = k.add(BigInteger.ONE);
-        ECPrivateKeyParameters p = new ECPrivateKeyParameters(k,Ecc.domain);
+        ECPrivateKeyParameters p = new ECPrivateKeyParameters(k, Ecc.domain);
         return create(p.getD());
     }
 
@@ -83,7 +83,7 @@ public class ECKeyPair {
      * @return 私钥 json 字符串。
      */
     public String getJSONPrivateKey() {
-        return  jsonPrivateKey;
+        return jsonPrivateKey;
     }
 
     static private String createJSONPrivateKey(BigInteger privateKey, ECPoint publicKey) {

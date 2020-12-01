@@ -49,32 +49,32 @@ public class Transaction {
         this.gasUsed = invokeResponse.getGasUsed();
 
         try {
-            if (!Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()){
-                genRealTxOnly(response,proposal);
+            if (!Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+                genRealTxOnly(response, proposal);
                 return;
             }
 
             XchainOuterClass.Transaction complianceCheckTx = null;
-            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()){
+            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()) {
                 complianceCheckTx = genComplianceCheckTx(response);
-                genRealTx(response,complianceCheckTx);
-            }else {
-                genRealTxOnly(response,proposal);
+                genRealTx(response, complianceCheckTx);
+            } else {
+                genRealTxOnly(response, proposal);
             }
 
             XchainOuterClass.SignatureInfo sigInfo = complianceCheck(this.pbtx, complianceCheckTx);
             this.txBuilder.addAuthRequireSigns(sigInfo);
-            this.pbtx= this.txBuilder.build();
-            if (platformAccount != null){
+            this.pbtx = this.txBuilder.build();
+            if (platformAccount != null) {
                 sign(platformAccount);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     // 没有背书检查时，生成完整的交易。
-    private void genRealTxOnly(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal){
+    private void genRealTxOnly(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal) {
         XchainOuterClass.UtxoOutput utxos = response.getUtxoOutput();
         XchainOuterClass.InvokeResponse invokeResponse = response.getResponse();
 
@@ -112,13 +112,13 @@ public class Transaction {
 
     private void genRealTx(
             XchainOuterClass.PreExecWithSelectUTXOResponse response,
-            XchainOuterClass.Transaction complianceCheckTx){
+            XchainOuterClass.Transaction complianceCheckTx) {
 
         BigInteger totalSelected = new BigInteger("0");
         ArrayList<XchainOuterClass.Utxo> utxoList = new ArrayList<>();
         for (int i = 0; i < complianceCheckTx.getTxOutputsList().size(); i++) {
             XchainOuterClass.TxOutput txOutput = complianceCheckTx.getTxOutputs(i);
-            if(txOutput.getToAddr().toString().equals(this.proposal.initiator.getAddress())){
+            if (txOutput.getToAddr().toString().equals(this.proposal.initiator.getAddress())) {
                 utxoList.add(XchainOuterClass.Utxo.newBuilder()
                         .setAmount(txOutput.getAmount())
                         .setToAddr(txOutput.getToAddr())
@@ -134,7 +134,15 @@ public class Transaction {
                 .setTotalSelected(totalSelected.toString())
                 .build();
 
-        BigInteger totalNeed = this.proposal.amount;
+        BigInteger totalNeed = new BigInteger("0");
+        if (this.proposal.amount != null) {
+            totalNeed = this.proposal.amount;
+        }
+
+        if (!this.proposal.fee.isEmpty()) {
+            totalNeed = totalNeed.add(new BigInteger(this.proposal.fee));
+        }
+
         if (gasUsed > 0) {
             totalNeed = totalNeed.add(BigInteger.valueOf(getGasUsed()));
         }
@@ -172,21 +180,21 @@ public class Transaction {
                     .setSign(ByteString.copyFrom(signBytes))
                     .build();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
         signatureInfos[0] = signatureInfo;
 
         txBuilder.addAllInitiatorSigns(Arrays.asList(signatureInfos));
-        if (this.proposal.initiator.getContractAccount() != null && !this.proposal.initiator.getContractAccount().isEmpty()){
+        if (this.proposal.initiator.getContractAccount() != null && !this.proposal.initiator.getContractAccount().isEmpty()) {
             txBuilder.addAllAuthRequireSigns(Arrays.asList(signatureInfos));
         }
         this.txBuilder = txBuilder;
         this.pbtx = txBuilder.build();
     }
 
-    private XchainOuterClass.TxInput[] genPureTxInputs(XchainOuterClass.UtxoOutput utxoOutputs){
+    private XchainOuterClass.TxInput[] genPureTxInputs(XchainOuterClass.UtxoOutput utxoOutputs) {
         XchainOuterClass.TxInput[] result = new XchainOuterClass.TxInput[utxoOutputs.getUtxoListCount()];
         for (int i = 0; i < utxoOutputs.getUtxoListCount(); i++) {
             XchainOuterClass.Utxo utxo = utxoOutputs.getUtxoList(i);
@@ -201,15 +209,17 @@ public class Transaction {
         return result;
     }
 
-    private XchainOuterClass.TxOutput[] genMultiTxOutputs(String selfAmount){
+    private XchainOuterClass.TxOutput[] genMultiTxOutputs(String selfAmount) {
         String selfAddr = this.proposal.initiator.getAddress();
         ArrayList<XchainOuterClass.TxOutput> txOutputs = new ArrayList<>();
 
         // 添加向木变转账 output
-        txOutputs.add(XchainOuterClass.TxOutput.newBuilder()
-                .setToAddr(ByteString.copyFrom(this.proposal.to.getBytes()))
-                .setAmount(ByteString.copyFrom(this.proposal.amount.toByteArray()))
-                .build());
+        if (this.proposal.amount != null) {
+            txOutputs.add(XchainOuterClass.TxOutput.newBuilder()
+                    .setToAddr(ByteString.copyFrom(this.proposal.to.getBytes()))
+                    .setAmount(ByteString.copyFrom(this.proposal.amount.toByteArray()))
+                    .build());
+        }
 
         // 自己的转账地址接收差额部分的转回的txOutput
         txOutputs.add(XchainOuterClass.TxOutput.newBuilder()
@@ -229,7 +239,7 @@ public class Transaction {
         return txOutputs.toArray(new XchainOuterClass.TxOutput[txOutputs.size()]);
     }
 
-    private XchainOuterClass.SignatureInfo complianceCheck(XchainOuterClass.Transaction tx, XchainOuterClass.Transaction fee){
+    private XchainOuterClass.SignatureInfo complianceCheck(XchainOuterClass.Transaction tx, XchainOuterClass.Transaction fee) {
         try {
             XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
             Gson g = new Gson();
@@ -250,7 +260,7 @@ public class Transaction {
         }
     }
 
-    private XchainOuterClass.TxInput[] genTxInput(XchainOuterClass.UtxoOutput utxoOutputs,BigInteger totalNeed){
+    private XchainOuterClass.TxInput[] genTxInput(XchainOuterClass.UtxoOutput utxoOutputs, BigInteger totalNeed) {
         XchainOuterClass.TxInput[] result = new XchainOuterClass.TxInput[utxoOutputs.getUtxoListCount()];
         for (int i = 0; i < utxoOutputs.getUtxoListCount(); i++) {
             XchainOuterClass.Utxo utxo = utxoOutputs.getUtxoList(i);
@@ -263,58 +273,58 @@ public class Transaction {
         return result;
     }
 
-    private XchainOuterClass.TxOutput getDeltaTxOutput(XchainOuterClass.UtxoOutput o,BigInteger totalNeed, String accountAddr){
+    private XchainOuterClass.TxOutput getDeltaTxOutput(XchainOuterClass.UtxoOutput o, BigInteger totalNeed, String accountAddr) {
         BigInteger utxoTotal;
-        if (o.getTotalSelected().isEmpty()){
+        if (o.getTotalSelected().isEmpty()) {
             utxoTotal = new BigInteger("0");
-        }else {
+        } else {
             utxoTotal = new BigInteger(o.getTotalSelected());
         }
-        if (utxoTotal.compareTo(totalNeed) > 0){
+        if (utxoTotal.compareTo(totalNeed) > 0) {
             BigInteger delta = utxoTotal.subtract(totalNeed);
-            return  XchainOuterClass.TxOutput.newBuilder()
+            return XchainOuterClass.TxOutput.newBuilder()
                     .setToAddr(ByteString.copyFromUtf8(accountAddr))
                     .setAmount(ByteString.copyFrom(delta.toByteArray()))
                     .build();
 
-        }else {
+        } else {
             return null;
         }
     }
 
-    private XchainOuterClass.TxOutput[] genTxOutput(String to,String fee, int amount){
+    private XchainOuterClass.TxOutput[] genTxOutput(String to, String fee, int amount) {
 
         ArrayList<XchainOuterClass.TxDataAccount> accounts = new ArrayList<>();
 
-        if (!to.isEmpty()){
+        if (!to.isEmpty()) {
             accounts.add(XchainOuterClass.TxDataAccount.newBuilder().setAddress(to)
-            .setAmount(amount+"")
-            .build());
-        }
-
-        if (!fee.equals("0")){
-            accounts.add(XchainOuterClass.TxDataAccount.newBuilder().setAddress(to)
-                    .setAddress("$")
-                    .setAmount(amount+"")
+                    .setAmount(amount + "")
                     .build());
         }
 
-        ArrayList<XchainOuterClass.TxOutput> result  = new ArrayList<>();
-        for (XchainOuterClass.TxDataAccount acc:accounts) {
+        if (!fee.equals("0")) {
+            accounts.add(XchainOuterClass.TxDataAccount.newBuilder().setAddress(to)
+                    .setAddress("$")
+                    .setAmount(amount + "")
+                    .build());
+        }
+
+        ArrayList<XchainOuterClass.TxOutput> result = new ArrayList<>();
+        for (XchainOuterClass.TxDataAccount acc : accounts) {
             BigInteger a = new BigInteger(acc.getAmount());
             int cmpRes = a.compareTo(BigInteger.ZERO);
-            if (cmpRes < 0 ){
+            if (cmpRes < 0) {
                 throw new RuntimeException("Invalid negative number");
             }
-            if (cmpRes == 0){
+            if (cmpRes == 0) {
                 continue;
             }
 
             result.add(XchainOuterClass.TxOutput.newBuilder()
-            .setAmount(ByteString.copyFrom(a.toByteArray()))
-            .setToAddr(acc.getAddressBytes())
-            .setFrozenHeight(acc.getFrozenHeight())
-            .build());
+                    .setAmount(ByteString.copyFrom(a.toByteArray()))
+                    .setToAddr(acc.getAddressBytes())
+                    .setFrozenHeight(acc.getFrozenHeight())
+                    .build());
 
         }
 
@@ -322,18 +332,18 @@ public class Transaction {
         return result.toArray(new XchainOuterClass.TxOutput[size]);
     }
 
-    private XchainOuterClass.Transaction genComplianceCheckTx(XchainOuterClass.PreExecWithSelectUTXOResponse response){
+    private XchainOuterClass.Transaction genComplianceCheckTx(XchainOuterClass.PreExecWithSelectUTXOResponse response) {
         try {
-            BigInteger totalNeed = new BigInteger(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee()+"");
-            XchainOuterClass.TxInput[] txInputs = genTxInput(response.getUtxoOutput(),totalNeed);
-            XchainOuterClass.TxOutput deltaTxOutput = getDeltaTxOutput(response.getUtxoOutput(),totalNeed,this.proposal.initiator.getAddress());
+            BigInteger totalNeed = new BigInteger(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee() + "");
+            XchainOuterClass.TxInput[] txInputs = genTxInput(response.getUtxoOutput(), totalNeed);
+            XchainOuterClass.TxOutput deltaTxOutput = getDeltaTxOutput(response.getUtxoOutput(), totalNeed, this.proposal.initiator.getAddress());
 
             XchainOuterClass.TxOutput[] txOutputs = genTxOutput(
                     Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFeeAddr(),
                     "0",
                     Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee());
 
-            if (deltaTxOutput != null){
+            if (deltaTxOutput != null) {
                 List<XchainOuterClass.TxOutput> txOutputsTemp = Arrays.asList(txOutputs);
                 txOutputsTemp.add(deltaTxOutput);
                 int size = txOutputsTemp.size();
@@ -361,7 +371,7 @@ public class Transaction {
                     .build();
             builder.addAllInitiatorSigns(Arrays.asList(signatureInfos));
 
-            return  builder.build();
+            return builder.build();
 
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -383,6 +393,9 @@ public class Transaction {
 
         // add utxo outputs
         BigInteger need = BigInteger.valueOf(0);
+        if (!proposal.fee.isEmpty()) {
+            need = new BigInteger(proposal.fee);
+        }
         BigInteger total = new BigInteger(utxos.getTotalSelected());
         if (proposal.to != null && proposal.amount != null) {
             need = need.add(proposal.amount);
@@ -413,12 +426,12 @@ public class Transaction {
         }
     }
 
-    public Transaction sign(){
+    public Transaction sign() {
         sign(proposal.initiator);
         return this;
     }
 
-    public Transaction sign(Account singer){
+    public Transaction sign(Account singer) {
         try {
             if (txdigest == null) {
                 txdigest = TxEncoder.makeTxDigest(pbtx);
@@ -438,7 +451,7 @@ public class Transaction {
             }
             pbtx = txBuilder.build();
             return this;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
@@ -448,7 +461,7 @@ public class Transaction {
         return this;
     }
 
-    public Transaction send(XuperClient client){
+    public Transaction send(XuperClient client) {
         byte[] txid = TxEncoder.makeTxID(pbtx);
         txBuilder.setTxid(ByteString.copyFrom(txid));
         pbtx = txBuilder.build();

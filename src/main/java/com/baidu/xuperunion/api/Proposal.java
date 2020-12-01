@@ -16,6 +16,7 @@ public class Proposal {
     Account initiator;
     String to;
     BigInteger amount;
+    String fee;
 
     String moduleName;
     String contractName;
@@ -38,6 +39,11 @@ public class Proposal {
 
     public Proposal setDesc(String desc) {
         this.desc = desc;
+        return this;
+    }
+
+    public Proposal setFee(String fee) {
+        this.fee = fee;
         return this;
     }
 
@@ -94,18 +100,18 @@ public class Proposal {
 
         int extAmount = 0;
         try {
-            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()){
+            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
                 invokeRPCBuilder.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
 
-                if (client.getPlatformAccount() != null){
+                if (client.getPlatformAccount() != null) {
                     invokeRPCBuilder.addAuthRequire(client.getPlatformAccount().getAddress());
                 }
 
-                if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()){
+                if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()) {
                     extAmount = Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee();
                 }
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
@@ -114,12 +120,16 @@ public class Proposal {
                 .setBcname(chainName)
                 .addRequests(invokeRequest)
                 .setInitiator(initiator.getAddress())
-                .addAllAuthRequire(authRequire)
+//                .addAllAuthRequire(authRequire)
                 .build();
 
         long amount = 0;
         if (this.amount != null) {
             amount = this.amount.longValue();
+        }
+
+        if (this.fee != null) {
+            amount += Long.parseLong(fee);
         }
         amount += extAmount;
 
@@ -142,20 +152,59 @@ public class Proposal {
 
             XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
             Gson g = new Gson();
+            System.out.println("===" + pb2JsonString(request));
             XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
                     .setHeader(header)
                     .setBcName(chainName)
-                    .setRequestData(ByteString.copyFrom(g.toJson(request).getBytes()))
+//                    .setRequestData(ByteString.copyFrom(g.toJson(request).replace("_","").getBytes()))
+//                    .setRequestData(ByteString.copyFrom(pb2String().getBytes()))
+                    .setRequestData(ByteString.copyFrom(pb2JsonString(request).getBytes()))
                     .setRequestName("PreExecWithFee")
                     .build());
 
-            XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(new String(r.getResponseData().toByteArray()),XchainOuterClass.PreExecWithSelectUTXOResponse.class);
+//            Message sss = request.getDefaultInstance();
+//            j.printToString(request.getDefaultInstance());
+//            JsonFormat.
+//            System.out.println("==="+pb2JsonString(request));
 
+
+            XchainOuterClass.PreExecWithSelectUTXOResponse pr = g.fromJson(new String(r.getResponseData().toByteArray()), XchainOuterClass.PreExecWithSelectUTXOResponse.class);
+
+//            System.out.println("-----==="+new String(r.getResponseData().toByteArray()));
 //            XchainOuterClass.PreExecWithSelectUTXOResponse pr = client.getBlockingClient().preExecWithSelectUTXO(request);
             Common.checkResponseHeader(pr.getHeader(), "PreExec");
-            return new Transaction(pr, this,client.getPlatformAccount());
-        }catch (Exception e){
+            return new Transaction(pr, this, client.getPlatformAccount());
+        } catch (Exception e) {
             throw new RuntimeException(e);
+
         }
+    }
+
+    private String pb2JsonString(XchainOuterClass.PreExecWithSelectUTXORequest request) {
+        LinkedHashMap<String, Object> m = new LinkedHashMap<>();
+        if (!request.getBcname().isEmpty()) {
+            m.put("bcname", request.getBcname());
+        }
+
+        if (!request.getAddress().isEmpty()) {
+            m.put("address", request.getAddress());
+        }
+
+        m.put("totalAmount", request.getTotalAmount());
+
+        LinkedHashMap<String, Object> m1 = new LinkedHashMap<>();
+        if (!request.getBcname().isEmpty()) {
+            m1.put("bcname", request.getBcname());
+        }
+
+        m1.put("initiator", initiator.getAddress());
+
+        m1.put("auth_require", request.getRequest().getAuthRequireList());
+
+        m.put("request", m1);
+//        LinkedHashMap<String, Object> m2 = new LinkedHashMap<>();
+
+        Gson gson = new Gson();
+        return gson.toJson(m);
     }
 }

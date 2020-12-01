@@ -13,7 +13,7 @@ public class Common {
         return String.valueOf(System.nanoTime()) + (int) (Math.random() * 100000000);
     }
 
-    static public void checkResponseHeader(XchainOuterClass.Header header, String msg){
+    static public void checkResponseHeader(XchainOuterClass.Header header, String msg) {
         if (header.getError() != XchainOuterClass.XChainErrorEnum.SUCCESS) {
             throw new RuntimeException("Error " + header.getError().toString() + " while " + msg);
         }

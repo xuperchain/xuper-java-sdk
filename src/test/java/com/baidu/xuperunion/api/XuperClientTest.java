@@ -40,7 +40,7 @@ public class XuperClientTest {
 
     @Test
     public void transfer() throws Exception {
-        String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(1000000)).getTxid();
+        String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(1000000),"0").getTxid();
         System.out.println("transfer " + txid);
     }
 
@@ -48,7 +48,7 @@ public class XuperClientTest {
     public void getBalance() throws Exception {
         Account bob = Account.create();
         BigInteger amount = BigInteger.valueOf(100);
-        Transaction tx = client.transfer(account, bob.getAddress(), amount);
+        Transaction tx = client.transfer(account, bob.getAddress(), amount,"0");
         System.out.println("transfer to bob " + tx.getTxid());
 
         BigInteger result = client.getBalance(bob.getAddress());
@@ -95,14 +95,14 @@ public class XuperClientTest {
 
     @Test
     public void queryTx() throws Exception {
-        String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(10)).getTxid();
+        String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(10),"0").getTxid();
         XchainOuterClass.Transaction tx = client.queryTx(txid);
         assertEquals(txid, Hex.toHexString(tx.getTxid().toByteArray()));
     }
 
     @Test
     public void queryBlock() throws Exception {
-        String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(10)).getTxid();
+        String txid = client.transfer(account, "XC1111111111111111@xuper", BigInteger.valueOf(10),"0").getTxid();
         // waiting for confirmed
         sleep(4000);
         XchainOuterClass.Transaction tx = client.queryTx(txid);

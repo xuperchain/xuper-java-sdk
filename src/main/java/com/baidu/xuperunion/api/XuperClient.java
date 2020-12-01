@@ -30,7 +30,7 @@ public class XuperClient {
                 .build());
     }
 
-    public XuperClient(String target,Account platformAccount) {
+    public XuperClient(String target, Account platformAccount) {
         this(ManagedChannelBuilder.forTarget(target)
                 // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
                 // needing certificates.
@@ -72,10 +72,11 @@ public class XuperClient {
      * @param amount transfer amount
      * @return
      */
-    public Transaction transfer(Account from, String to, BigInteger amount) {
+    public Transaction transfer(Account from, String to, BigInteger amount, String fee) {
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
+                .setFee(fee)
                 .transfer(to, amount)
                 .build(this)
                 .sign()
@@ -91,7 +92,7 @@ public class XuperClient {
      * @param args     contract method arguments
      * @return
      */
-    public Transaction invokeContract(Account from, String module, String contract, String method, Map<String, byte[]> args){
+    public Transaction invokeContract(Account from, String module, String contract, String method, Map<String, byte[]> args) {
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
@@ -110,7 +111,7 @@ public class XuperClient {
      * @param args     contract method arguments
      * @return
      */
-    public Transaction queryContract(Account from, String module, String contract, String method, Map<String, byte[]> args){
+    public Transaction queryContract(Account from, String module, String contract, String method, Map<String, byte[]> args) {
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
@@ -152,7 +153,7 @@ public class XuperClient {
      * @param accountName the name of contract account
      * @return
      */
-    public Transaction createContractAccount(Account from, String accountName){
+    public Transaction createContractAccount(Account from, String accountName) {
         String desc = "{\"aksWeight\": {\"" + from.getAddress() + "\": 1.0}, \"pm\": {\"acceptValue\": 1.0, \"rule\": 1}}";
         Map<String, byte[]> args = new HashMap<>();
         args.put("account_name", accountName.getBytes());
@@ -166,7 +167,7 @@ public class XuperClient {
      * @param account account name, can be contract account
      * @return
      */
-    public BigInteger getBalance(String account){
+    public BigInteger getBalance(String account) {
         XchainOuterClass.AddressStatus request = XchainOuterClass.AddressStatus.newBuilder()
                 .setHeader(Common.newHeader())
                 .setAddress(account)
@@ -189,7 +190,7 @@ public class XuperClient {
      * @param account account name, can be contract account
      * @return balance
      */
-    public String getBalanceDetails(String account){
+    public BalDetails[] getBalanceDetails(String account) {
         XchainOuterClass.AddressBalanceStatus request = XchainOuterClass.AddressBalanceStatus.newBuilder()
                 .setHeader(Common.newHeader())
                 .setAddress(account)
@@ -204,17 +205,17 @@ public class XuperClient {
         BalDetails[] balDetails = new BalDetails[tfds.getTfdCount()];
         for (int i = 0; i < tfds.getTfdCount(); i++) {
             XchainOuterClass.TokenFrozenDetail tfd = tfds.getTfd(i);
-            balDetails[i] = new BalDetails(tfd.getBalance(),tfd.getIsFrozen());
+            balDetails[i] = new BalDetails(tfd.getBalance(), tfd.getIsFrozen());
         }
 
-        return g.toJson(balDetails);
+        return balDetails;
     }
 
     public static class BalDetails {
         private String balance;
         private Boolean isFrozen;
 
-        BalDetails(String bal, Boolean f){
+        BalDetails(String bal, Boolean f) {
             balance = bal;
             isFrozen = f;
         }
@@ -235,13 +236,14 @@ public class XuperClient {
             isFrozen = frozen;
         }
     }
+
     /**
      * queryTx query transaction
      *
      * @param txid the id of transaction
      * @return
      */
-    public XchainOuterClass.Transaction queryTx(String txid){
+    public XchainOuterClass.Transaction queryTx(String txid) {
         XchainOuterClass.TxStatus request = XchainOuterClass.TxStatus.newBuilder()
                 .setHeader(Common.newHeader())
                 .setBcname(chainName)
@@ -258,7 +260,7 @@ public class XuperClient {
      * @param blockid the id of block
      * @return
      */
-    public XchainOuterClass.InternalBlock queryBlock(String blockid){
+    public XchainOuterClass.InternalBlock queryBlock(String blockid) {
         XchainOuterClass.BlockID request = XchainOuterClass.BlockID.newBuilder()
                 .setHeader(Common.newHeader())
                 .setBcname(chainName)
@@ -272,11 +274,11 @@ public class XuperClient {
 
     /**
      * getSystemStatus get system status contains all blockchains
-     * 
+     *
      * @return instance of SystemsStatus
      */
-    public XchainOuterClass.SystemsStatus getSystemStatus(){
-        XchainOuterClass.CommonIn request =  XchainOuterClass.CommonIn.newBuilder()
+    public XchainOuterClass.SystemsStatus getSystemStatus() {
+        XchainOuterClass.CommonIn request = XchainOuterClass.CommonIn.newBuilder()
                 .setHeader(Common.newHeader())
                 .build();
         XchainOuterClass.SystemsStatusReply response = blockingClient.getSystemStatus(request);
@@ -286,12 +288,12 @@ public class XuperClient {
 
     /**
      * getBlockchainStatus get the status of given blockchain
-     * 
+     *
      * @param chainName the name of blockchain
      * @return instance of BCStatus
      */
-    public XchainOuterClass.BCStatus getBlockchainStatus(String chainName){
-        XchainOuterClass.BCStatus request =  XchainOuterClass.BCStatus.newBuilder()
+    public XchainOuterClass.BCStatus getBlockchainStatus(String chainName) {
+        XchainOuterClass.BCStatus request = XchainOuterClass.BCStatus.newBuilder()
                 .setHeader(Common.newHeader())
                 .setBcname(chainName)
                 .build();

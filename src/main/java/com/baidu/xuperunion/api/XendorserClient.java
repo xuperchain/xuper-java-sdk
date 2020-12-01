@@ -8,7 +8,7 @@ public class XendorserClient {
     private final ManagedChannel channel;
     private final XendorserGrpc.xendorserBlockingStub blockingClient;
 
-    public XendorserClient(String target){
+    public XendorserClient(String target) {
         this(ManagedChannelBuilder.forTarget(target)
                 .usePlaintext()
                 .build());

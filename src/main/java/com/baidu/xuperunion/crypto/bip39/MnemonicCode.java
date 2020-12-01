@@ -12,7 +12,7 @@ import static java.util.Arrays.asList;
 public class MnemonicCode {
     private final WordList wordList;
 
-    public MnemonicCode(final WordList wordList){
+    public MnemonicCode(final WordList wordList) {
         this.wordList = wordList;
     }
 
@@ -20,12 +20,12 @@ public class MnemonicCode {
      * @param entropy 随机熵。
      * @return 助记词。
      */
-    public String createMnemonic(byte[] entropy){
+    public String createMnemonic(byte[] entropy) {
         List<String> words = genMnemonic(entropy);
         String mnemonic = "";
-        for (int i =0;i<words.size();i++) {
+        for (int i = 0; i < words.size(); i++) {
             mnemonic = mnemonic + words.get(i);
-            if (i != words.size()-1){
+            if (i != words.size() - 1) {
                 mnemonic += " ";
             }
         }
@@ -36,21 +36,21 @@ public class MnemonicCode {
      * @param mnemonic 助记词。
      * @return 随机熵。
      */
-    public byte[] getEntropyFromMnemonic(String[] mnemonic){
-        if (!this.checkMnemonic(mnemonic)){
+    public byte[] getEntropyFromMnemonic(String[] mnemonic) {
+        if (!this.checkMnemonic(mnemonic)) {
             throw new RuntimeException("checkMnemonic failed");
         }
 
-        int mnemonicBitSize = mnemonic.length*11;
+        int mnemonicBitSize = mnemonic.length * 11;
         int checksumBitSize = mnemonicBitSize % 32;
         BigInteger b = new BigInteger("0");
 
-        for (String word:mnemonic) {
+        for (String word : mnemonic) {
             byte[] wordBytes = new byte[2];
             int index = this.wordList.getIndex(word);
             int ss = index >> 8;
-            wordBytes[0] = (byte)ss;
-            wordBytes[1] = (byte)index;
+            wordBytes[0] = (byte) ss;
+            wordBytes[1] = (byte) index;
 
             b = b.multiply(new BigInteger("2048"));
             b = b.or(new BigInteger(wordBytes));
@@ -61,14 +61,14 @@ public class MnemonicCode {
 
         BigInteger entropy = b.divide(checksumModulo);
         int entropyByteSize = (mnemonicBitSize - checksumBitSize) / 8;
-        int fullByteSize = entropyByteSize +1;
+        int fullByteSize = entropyByteSize + 1;
 
-        byte[] entropyBytes = bytesPad(toByteArray(entropy),entropyByteSize);
-        byte[] entropyWithChecksumBytes = bytesPad(b.toByteArray(),fullByteSize);
+        byte[] entropyBytes = bytesPad(toByteArray(entropy), entropyByteSize);
+        byte[] entropyWithChecksumBytes = bytesPad(b.toByteArray(), fullByteSize);
         byte[] addChecksumEntropyBytes = addChecksum(entropyBytes);
-        byte[] newEntropyWithChecksumBytes = bytesPad(addChecksumEntropyBytes,fullByteSize);
+        byte[] newEntropyWithChecksumBytes = bytesPad(addChecksumEntropyBytes, fullByteSize);
 
-        if (!Arrays.equals(entropyWithChecksumBytes, newEntropyWithChecksumBytes)){
+        if (!Arrays.equals(entropyWithChecksumBytes, newEntropyWithChecksumBytes)) {
             throw new RuntimeException("The checksum within the Mnemonic sentence incorrect.");
         }
         return toByteArray(entropy);
@@ -78,23 +78,23 @@ public class MnemonicCode {
      * @param mnemonic 助记词。
      * @return 密码学算法标志位。
      */
-    public int getCryptographyFromMnemonic(String[] mnemonic){
+    public int getCryptographyFromMnemonic(String[] mnemonic) {
         byte[] entropy = getEntropyFromMnemonic(mnemonic);
         byte[] tagByte = new byte[1];
-        System.arraycopy(entropy,entropy.length-1,tagByte,0,1);
-        BigInteger tagInt = new BigInteger(1,tagByte);
+        System.arraycopy(entropy, entropy.length - 1, tagByte, 0, 1);
+        BigInteger tagInt = new BigInteger(1, tagByte);
         tagInt = tagInt.divide(new BigInteger("16"));
         BigInteger cryptographyInt = tagInt.and(new BigInteger("15"));
 
         byte[] cryptographyByte = toByteArray(cryptographyInt);
-        if (cryptographyByte.length == 0){
+        if (cryptographyByte.length == 0) {
             throw new RuntimeException("invalid cryptographyByte length");
         }
         return cryptographyByte[0];
     }
 
     /**
-     * @param words 助记词。
+     * @param words      助记词。
      * @param passphrase 密码。
      * @return seed
      */
@@ -103,23 +103,23 @@ public class MnemonicCode {
         return PBKDF2SHA512.derive(words, salt, 2048, 40);
     }
 
-    private byte[] addChecksum(byte[] data){
+    private byte[] addChecksum(byte[] data) {
         byte[] hashByte = hash(data);
         byte firstChecksumByte = hashByte[1];
         int checksumBitLength = data.length / 4;
-        BigInteger dataBigInt = new BigInteger(1,data);
+        BigInteger dataBigInt = new BigInteger(1, data);
 
-        for (int i = 0; i < checksumBitLength; i++){
+        for (int i = 0; i < checksumBitLength; i++) {
             dataBigInt = dataBigInt.multiply(new BigInteger("2"));
-            if ((firstChecksumByte&(1<<(7-i)))>0){
+            if ((firstChecksumByte & (1 << (7 - i))) > 0) {
                 dataBigInt = dataBigInt.or(BigInteger.ONE);
             }
         }
         return dataBigInt.toByteArray();
     }
 
-    private byte[] bytesPad(byte[] data, int length){
-        if (length == data.length){
+    private byte[] bytesPad(byte[] data, int length) {
+        if (length == data.length) {
             return data;
         }
 
@@ -138,9 +138,9 @@ public class MnemonicCode {
         return array;
     }
 
-    private boolean checkMnemonic(String[] mnemonic){
-        List<String> validLength = asList("12","15","18","21","24");
-        if (!validLength.contains(String.valueOf(mnemonic.length))){
+    private boolean checkMnemonic(String[] mnemonic) {
+        List<String> validLength = asList("12", "15", "18", "21", "24");
+        if (!validLength.contains(String.valueOf(mnemonic.length))) {
             return false;
         }
 
@@ -152,20 +152,20 @@ public class MnemonicCode {
         return true;
     }
 
-    private List<String> genMnemonic(byte[] entropy){
+    private List<String> genMnemonic(byte[] entropy) {
         int entropyBitLength = entropy.length * 8;
         validateEntropyBitSize(entropyBitLength);
         int checksumBitLength = entropyBitLength / 32;
         int sentenceLength = (entropyBitLength + checksumBitLength) / 11;
         byte[] entropyWithChecksum = addChecksum(entropy);
-        BigInteger entropyInt = new BigInteger(1,entropyWithChecksum);
+        BigInteger entropyInt = new BigInteger(1, entropyWithChecksum);
 
         String[] words = new String[sentenceLength];
         BigInteger word = new BigInteger("0");
-        for (int i = sentenceLength-1; i >= 0 ; i--) {
+        for (int i = sentenceLength - 1; i >= 0; i--) {
             word = entropyInt.and(new BigInteger("2047"));
             entropyInt = entropyInt.divide(new BigInteger("2048"));
-            byte[] wordBytes = bytesPad(word.toByteArray(),2);
+            byte[] wordBytes = bytesPad(word.toByteArray(), 2);
             int ii = byteBE2Int(wordBytes);
             words[i] = this.wordList.getWord(ii);
         }
@@ -175,17 +175,17 @@ public class MnemonicCode {
 
     private int byteBE2Int(byte[] bytes) {
         int result;
-        if(bytes.length==1){
+        if (bytes.length == 1) {
             result = bytes[0] & 0xFF;
-        }else{
+        } else {
             result = bytes[0] & 0xFF;
-            result = (result << 8) | (bytes[1] & 0xff) ;
+            result = (result << 8) | (bytes[1] & 0xff);
         }
         return result;
     }
 
-    private void validateEntropyBitSize(int bitSize){
-        if (bitSize%32 != 0 || bitSize < 128 || bitSize > 256){
+    private void validateEntropyBitSize(int bitSize) {
+        if (bitSize % 32 != 0 || bitSize < 128 || bitSize > 256) {
             throw new RuntimeException("invalid bitSize");
         }
     }
@@ -194,7 +194,7 @@ public class MnemonicCode {
         MessageDigest messageDigest = null;
         try {
             messageDigest = MessageDigest.getInstance("SHA-256");
-        } catch(NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
 

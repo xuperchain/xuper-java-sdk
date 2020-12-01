@@ -1,4 +1,5 @@
 package com.baidu.xuperunion.config;
+
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
 
@@ -16,14 +17,15 @@ public class Config {
     private static final String confPath = "./conf";
     private static final String confName = "sdk.yaml";
 
-    private Config(){}
+    private Config() {
+    }
 
-    public static Config getInstance() throws Exception{
-        if (singletonConfig != null){
+    public static Config getInstance() throws Exception {
+        if (singletonConfig != null) {
             return singletonConfig;
         }
         Yaml yaml = new Yaml(new Constructor(Config.class));
-        return yaml.load(new FileInputStream(new File(confPath+"/"+confName)));
+        return yaml.load(new FileInputStream(new File(confPath + "/" + confName)));
     }
 
     public String getEndorseServiceHost() {
@@ -58,7 +60,7 @@ public class Config {
         this.crypto = crypto;
     }
 
-    public static class ComplianceCheck{
+    public static class ComplianceCheck {
         private boolean isNeedComplianceCheck;
         private boolean isNeedComplianceCheckFee;
         private int complianceCheckEndorseServiceFee;

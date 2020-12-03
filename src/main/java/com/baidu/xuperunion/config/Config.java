@@ -20,12 +20,39 @@ public class Config {
     private Config() {
     }
 
-    public static Config getInstance() throws Exception {
+    public static Config getInstance() {
         if (singletonConfig != null) {
             return singletonConfig;
         }
+
+        try {
+            singletonConfig = getConfigFromYaml();
+        } catch (Exception e) {
+            singletonConfig = getDefaultConfig();
+        }
+        return singletonConfig;
+    }
+
+    private static Config getConfigFromYaml() throws Exception {
         Yaml yaml = new Yaml(new Constructor(Config.class));
         return yaml.load(new FileInputStream(new File(confPath + "/" + confName)));
+    }
+
+    private static Config getDefaultConfig() {
+        singletonConfig = new Config();
+        singletonConfig.minNewChainAmount = "100";
+        singletonConfig.crypto = "xchain";
+        singletonConfig.endorseServiceHost = "";
+
+        ComplianceCheck c = new ComplianceCheck();
+        c.isNeedComplianceCheck = false;
+        c.isNeedComplianceCheckFee = false;
+        c.complianceCheckEndorseServiceFee = 10;
+        c.complianceCheckEndorseServiceFeeAddr = "XBbhR82cB6PvaLJs3D4uB9f12bhmKkHeX";
+        c.complianceCheckEndorseServiceAddr = "TYyA3y8wdFZyzExtcbRNVd7ZZ2XXcfjdw";
+
+        singletonConfig.complianceCheck = c;
+        return singletonConfig;
     }
 
     public String getEndorseServiceHost() {

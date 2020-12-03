@@ -1,5 +1,6 @@
 package com.baidu.xuperunion.api;
 
+import com.baidu.xuperunion.config.Config;
 import com.baidu.xuperunion.pb.XchainGrpc;
 import com.baidu.xuperunion.pb.XchainOuterClass;
 import com.google.gson.Gson;
@@ -73,15 +74,19 @@ public class XuperClient {
      * @return
      */
     public Transaction transfer(Account from, String to, BigInteger amount, String fee) {
-        Transaction tx = new Proposal()
+        Proposal p = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
-                .setFee(fee)
-                .transfer(to, amount)
-                .build(this)
-                .sign()
-                .send(this);
-        return tx;
+                .setFee(fee);
+
+        if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
+            if (this.platformAccount != null) {
+                p.addAuthRequire(this.platformAccount.getAddress());
+            }
+        }
+
+        return p.transfer(to, amount).build(this).sign().send(this);
     }
 
     /**
@@ -93,14 +98,15 @@ public class XuperClient {
      * @return
      */
     public Transaction invokeContract(Account from, String module, String contract, String method, Map<String, byte[]> args) {
-        Transaction tx = new Proposal()
+        Proposal p = new Proposal()
                 .setChainName(chainName)
-                .setInitiator(from)
-                .invokeContract(module, contract, method, args)
-                .build(this)
-                .sign()
-                .send(this);
-        return tx;
+                .setInitiator(from);
+
+        if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
+        }
+        
+        return p.invokeContract(module, contract, method, args).build(this).sign().send(this);
     }
 
     /**
@@ -115,6 +121,7 @@ public class XuperClient {
         Transaction tx = new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
+                .addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr())
                 .invokeContract(module, contract, method, args)
                 .build(this);
         return tx;

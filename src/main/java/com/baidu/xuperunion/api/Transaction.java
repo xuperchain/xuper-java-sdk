@@ -4,7 +4,6 @@ import com.baidu.xuperunion.config.Config;
 import com.baidu.xuperunion.crypto.ECKeyPair;
 import com.baidu.xuperunion.pb.XchainOuterClass;
 import com.baidu.xuperunion.pb.XendorserOuterClass;
-import com.google.gson.Gson;
 import com.google.protobuf.ByteString;
 import org.bouncycastle.util.encoders.Hex;
 
@@ -242,14 +241,20 @@ public class Transaction {
     private XchainOuterClass.SignatureInfo complianceCheck(XchainOuterClass.Transaction tx, XchainOuterClass.Transaction fee) {
         try {
             XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
-            Gson g = new Gson();
-            XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
+            XendorserOuterClass.EndorserRequest.Builder builder = XendorserOuterClass.EndorserRequest.newBuilder();
+            if (fee != null) {
+                builder.setFee(fee);
+            }
+
+            String gs = JsonUtils.TxStatus2Json(XchainOuterClass.TxStatus.newBuilder()
+                    .setBcname(this.proposal.chainName)
+                    .setTx(tx)
+                    .build());
+//            System.out.println("gs::::" + gs);
+
+            XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(builder
                     .setBcName(this.proposal.chainName)
-                    .setFee(fee)
-                    .setRequestData(ByteString.copyFrom(g.toJson(XchainOuterClass.TxStatus.newBuilder()
-                            .setBcname(this.proposal.chainName)
-                            .setTx(tx)
-                            .build()).getBytes()))
+                    .setRequestData(ByteString.copyFrom(gs.getBytes()))
                     .setRequestName("ComplianceCheck")
                     .build());
 
@@ -345,9 +350,10 @@ public class Transaction {
 
             if (deltaTxOutput != null) {
                 List<XchainOuterClass.TxOutput> txOutputsTemp = Arrays.asList(txOutputs);
-                txOutputsTemp.add(deltaTxOutput);
-                int size = txOutputsTemp.size();
-                txOutputs = txOutputsTemp.toArray(new XchainOuterClass.TxOutput[size]);
+                List<XchainOuterClass.TxOutput> arrList = new ArrayList<>(txOutputsTemp);
+                arrList.add(deltaTxOutput);
+                int size = arrList.size();
+                txOutputs = arrList.toArray(new XchainOuterClass.TxOutput[size]);
             }
 
             XchainOuterClass.Transaction.Builder builder = XchainOuterClass.Transaction.newBuilder();
@@ -401,17 +407,24 @@ public class Transaction {
             need = need.add(proposal.amount);
             XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
                     .setToAddr(ByteString.copyFromUtf8(proposal.to))
-                    .setAmount(ByteString.copyFrom(need.toByteArray()))
+                    .setAmount(ByteString.copyFrom(proposal.amount.toByteArray()))
                     .build();
             txBuilder.addTxOutputs(out);
         }
-        // add fee output
+
+        BigInteger allFee = BigInteger.valueOf(0);
         if (gas > 0) {
+            allFee = allFee.add(BigInteger.valueOf(gas));
+        }
+        if (proposal.fee != null) {
+            allFee = allFee.add(new BigInteger(proposal.fee));
+        }
+        // add fee output
+        if (allFee.compareTo(BigInteger.ZERO) > 0) {
             BigInteger gasUsed = BigInteger.valueOf(gas);
-            need = need.add(gasUsed);
             XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
                     .setToAddr(ByteString.copyFromUtf8("$"))
-                    .setAmount(ByteString.copyFrom(gasUsed.toByteArray()))
+                    .setAmount(ByteString.copyFrom(new BigInteger(proposal.fee).add(gasUsed).toByteArray()))
                     .build();
             txBuilder.addTxOutputs(out);
         }

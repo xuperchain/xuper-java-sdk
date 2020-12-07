@@ -159,7 +159,7 @@ public class Transaction {
                 .setTimestamp(System.nanoTime())
                 .addAllTxInputs(Arrays.asList(txInputs))
                 .addAllTxOutputs(Arrays.asList(txOutputs))
-                .setInitiator(this.proposal.initiator.getAddress())
+                .setInitiator(this.proposal.initiator.getRealAddress())
                 .addAllTxInputsExt(response.getResponse().getInputsList())
                 .addAllTxOutputsExt(response.getResponse().getOutputsList())
                 .addAllContractRequests(response.getResponse().getRequestsList());

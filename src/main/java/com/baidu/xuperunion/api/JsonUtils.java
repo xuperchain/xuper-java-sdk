@@ -273,10 +273,18 @@ public class JsonUtils {
                 ArrayList<TxInputExt> tis = new ArrayList<>();
                 for (XchainOuterClass.TxInputExt tie : t.getTxInputsExtList()) {
                     TxInputExt newTxInput = new TxInputExt();
-                    newTxInput.bucket = tie.getBucket();
-                    newTxInput.key = tie.getKey().toByteArray();
-                    newTxInput.ref_txid = tie.getRefTxid().toByteArray();
-                    newTxInput.ref_offset = tie.getRefOffset();
+                    if (tie.getBucket() != null && !tie.getBucket().isEmpty()) {
+                        newTxInput.bucket = tie.getBucket();
+                    }
+                    if (tie.getKey() != null && !tie.getKey().isEmpty()) {
+                        newTxInput.key = tie.getKey().toByteArray();
+                    }
+                    if (tie.getRefTxid() != null && !tie.getRefTxid().isEmpty()) {
+                        newTxInput.ref_txid = tie.getRefTxid().toByteArray();
+                    }
+                    if (tie.getRefOffset() != 0) {
+                        newTxInput.ref_offset = tie.getRefOffset();
+                    }
                     tis.add(newTxInput);
                 }
                 rt.tx_inputs_ext = tis.toArray(new TxInputExt[0]);
@@ -286,9 +294,15 @@ public class JsonUtils {
                 ArrayList<TxOutputExt> tos = new ArrayList<>();
                 for (XchainOuterClass.TxOutputExt to : t.getTxOutputsExtList()) {
                     TxOutputExt newTxOutput = new TxOutputExt();
-                    newTxOutput.bucket = to.getBucket();
-                    newTxOutput.key = to.getKey().toByteArray();
-                    newTxOutput.value = to.getValue().toByteArray();
+                    if (to.getBucket() != null && !to.getBucket().isEmpty()) {
+                        newTxOutput.bucket = to.getBucket();
+                    }
+                    if (to.getKey() != null && !to.getKey().isEmpty()) {
+                        newTxOutput.key = to.getKey().toByteArray();
+                    }
+                    if (to.getValue() != null && !to.getValue().isEmpty()) {
+                        newTxOutput.value = to.getValue().toByteArray();
+                    }
                     tos.add(newTxOutput);
                 }
                 rt.tx_outputs_ext = tos.toArray(new TxOutputExt[0]);
@@ -298,9 +312,15 @@ public class JsonUtils {
                 ArrayList<InvokeRequest> irs = new ArrayList<>();
                 for (XchainOuterClass.InvokeRequest item : t.getContractRequestsList()) {
                     InvokeRequest newIR = new InvokeRequest();
-                    newIR.module_name = item.getModuleName();
-                    newIR.contract_name = item.getContractName();
-                    newIR.method_name = item.getMethodName();
+                    if (item.getModuleName() != null && !item.getModuleName().isEmpty()) {
+                        newIR.module_name = item.getModuleName();
+                    }
+                    if (item.getContractName() != null && !item.getContractName().isEmpty()) {
+                        newIR.contract_name = item.getContractName();
+                    }
+                    if (item.getMethodName() != null && !item.getMethodName().isEmpty()) {
+                        newIR.method_name = item.getMethodName();
+                    }
 
                     if (item.getArgsMap().size() != 0) {
                         HashMap<String, byte[]> m = new HashMap<>();
@@ -314,8 +334,12 @@ public class JsonUtils {
                         ArrayList<ResourceLimit> rls = new ArrayList<>();
                         for (XchainOuterClass.ResourceLimit rl : item.getResourceLimitsList()) {
                             ResourceLimit r = new ResourceLimit();
-                            r.type = rl.getTypeValue();
-                            r.limit = rl.getLimit();
+                            if (rl.getTypeValue() != 0) {
+                                r.type = rl.getTypeValue();
+                            }
+                            if (rl.getLimit() != 0) {
+                                r.limit = rl.getLimit();
+                            }
                             rls.add(r);
                         }
                         newIR.resource_limits = rls.toArray(new ResourceLimit[0]);
@@ -362,11 +386,21 @@ public class JsonUtils {
             if (t.hasModifyBlock() && t.getModifyBlock() != null) {
                 XchainOuterClass.ModifyBlock xmb = t.getModifyBlock();
                 ModifyBlock mb = new ModifyBlock();
-                mb.effective_txid = xmb.getEffectiveTxid();
-                mb.marked = xmb.getMarked();
-                mb.effective_height = xmb.getEffectiveHeight();
-                mb.public_key = xmb.getPublicKey();
-                mb.sign = xmb.getSign();
+                if (xmb.getEffectiveTxid() != null && !xmb.getEffectiveTxid().isEmpty()) {
+                    mb.effective_txid = xmb.getEffectiveTxid();
+                }
+                if (xmb.getMarked()) {
+                    mb.marked = xmb.getMarked();
+                }
+                if (xmb.getEffectiveHeight() > 0) {
+                    mb.effective_height = xmb.getEffectiveHeight();
+                }
+                if (xmb.getPublicKey() != null && !xmb.getPublicKey().isEmpty()) {
+                    mb.public_key = xmb.getPublicKey();
+                }
+                if (xmb.getSign() != null && !xmb.getSign().isEmpty()) {
+                    mb.sign = xmb.getSign();
+                }
                 rt.modify_block = mb;
             }
 
@@ -377,7 +411,6 @@ public class JsonUtils {
                 SerializerFeature.NotWriteRootClassName,
                 SerializerFeature.NotWriteDefaultValue
         );
-//        return JSON.toJSONString(result);
     }
 
     public static class PreExecWithSelectUTXOResponse {

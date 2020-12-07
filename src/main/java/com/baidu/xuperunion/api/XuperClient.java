@@ -97,14 +97,11 @@ public class XuperClient {
      * @return
      */
     public Transaction invokeContract(Account from, String module, String contract, String method, Map<String, byte[]> args) {
-        Proposal p = new Proposal()
-                .setChainName(chainName)
-                .setInitiator(from);
-
+        Proposal p = new Proposal().setChainName(chainName);
         if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
             p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
         }
-
+        p.setInitiator(from);
         return p.invokeContract(module, contract, method, args).build(this).sign().send(this);
     }
 

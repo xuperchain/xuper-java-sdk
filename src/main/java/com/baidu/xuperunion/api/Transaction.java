@@ -183,11 +183,15 @@ public class Transaction {
         XchainOuterClass.TxInput[] result = new XchainOuterClass.TxInput[utxoOutputs.getUtxoListCount()];
         for (int i = 0; i < utxoOutputs.getUtxoListCount(); i++) {
             XchainOuterClass.Utxo utxo = utxoOutputs.getUtxoList(i);
+
+            // 背书服务返回的数据为 string，此处需要将 utxo.GetAmount() 转成 string，然后再转成 Biginteger。
+            BigInteger amount = new BigInteger(utxo.getAmount().toStringUtf8());
+
             result[i] = XchainOuterClass.TxInput.newBuilder()
                     .setRefTxid(utxo.getRefTxid())
                     .setRefOffset(utxo.getRefOffset())
                     .setFromAddr(utxo.getToAddr())
-                    .setAmount(utxo.getAmount())
+                    .setAmount(ByteString.copyFrom(amount.toByteArray()))
                     .build();
         }
 
@@ -198,7 +202,7 @@ public class Transaction {
         String selfAddr = this.proposal.initiator.getAddress();
         ArrayList<XchainOuterClass.TxOutput> txOutputs = new ArrayList<>();
 
-        // 添加目标变转账 output
+        // 添加目标转账 output
         if (this.proposal.amount != null) {
             txOutputs.add(XchainOuterClass.TxOutput.newBuilder()
                     .setToAddr(ByteString.copyFrom(this.proposal.to.getBytes()))
@@ -209,7 +213,7 @@ public class Transaction {
         // 自己的转账地址接收差额部分的转回的txOutput
         txOutputs.add(XchainOuterClass.TxOutput.newBuilder()
                 .setToAddr(ByteString.copyFrom(selfAddr.getBytes()))
-                .setAmount(ByteString.copyFrom(selfAmount.getBytes()))
+                .setAmount(ByteString.copyFrom(new BigInteger(selfAmount).toByteArray()))
                 .build());
 
 
@@ -438,10 +442,7 @@ public class Transaction {
 
     public Transaction sign(Account singer) {
         try {
-            if (txdigest == null) {
-                txdigest = TxEncoder.makeTxDigest(pbtx);
-            }
-
+            txdigest = TxEncoder.makeTxDigest(pbtx);
             ECKeyPair keyPair = singer.getKeyPair();
             byte[] sig = keyPair.sign(txdigest);
 

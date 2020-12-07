@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
 class TxEncoder {
-    private static int anInt;
+    //private static int anInt;
     private static final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(ByteString.class, new PbByteStringAdapter())
             .disableHtmlEscaping()

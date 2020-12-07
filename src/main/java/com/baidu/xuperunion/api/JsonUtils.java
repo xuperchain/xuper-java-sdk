@@ -1,6 +1,7 @@
 package com.baidu.xuperunion.api;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.baidu.xuperunion.pb.XchainOuterClass;
 import com.google.protobuf.ByteString;
 
@@ -214,7 +215,7 @@ public class JsonUtils {
 
         result.bcname = txStatus.getBcname();
 
-        if (txStatus.getTxid() != null) {
+        if (txStatus.getTxid() != null && txStatus.getTxid().size() > 0) {
             result.txid = txStatus.getTxid().toByteArray();
         }
         result.status = txStatus.getStatusValue();
@@ -224,17 +225,25 @@ public class JsonUtils {
             XchainOuterClass.Transaction t = txStatus.getTx();
             Transaction rt = new Transaction();
             rt.txid = t.getTxid().toByteArray();
-            rt.blockid = t.getBlockid().toByteArray();
-            rt.desc = t.getDesc().toByteArray();
-            rt.coinbase = t.getCoinbase();
-            rt.nonce = t.getNonce();
+            if (t.getBlockid() != null && t.getBlockid().size() > 0) {
+                rt.blockid = t.getBlockid().toByteArray();
+            }
+            if (t.getDesc().toByteArray() != null && t.getDesc().toByteArray().length > 0) {
+                rt.desc = t.getDesc().toByteArray();
+            }
+            if (t.getCoinbase()) {
+                rt.coinbase = t.getCoinbase();
+            }
+            if (t.getNonce() != null && !t.getNonce().isEmpty()) {
+                rt.nonce = t.getNonce();
+            }
             rt.timestamp = t.getTimestamp();
             rt.version = t.getVersion();
             rt.initiator = t.getInitiator();
             rt.auth_require = t.getAuthRequireList().toArray(new String[t.getAuthRequireCount()]);
             rt.received_timestamp = t.getReceivedTimestamp();
 
-            if (t.getTxInputsList() != null) {
+            if (t.getTxInputsList() != null && t.getTxInputsList().size() > 0) {
                 ArrayList<TxInput> tis = new ArrayList<>();
                 for (XchainOuterClass.TxInput ti : t.getTxInputsList()) {
                     TxInput newTxInput = new TxInput();
@@ -248,7 +257,7 @@ public class JsonUtils {
                 rt.tx_inputs = tis.toArray(new TxInput[0]);
             }
 
-            if (t.getTxOutputsList() != null) {
+            if (t.getTxOutputsList() != null && t.getTxOutputsList().size() > 0) {
                 ArrayList<TxOutput> tos = new ArrayList<>();
                 for (XchainOuterClass.TxOutput to : t.getTxOutputsList()) {
                     TxOutput newTxOutput = new TxOutput();
@@ -260,7 +269,7 @@ public class JsonUtils {
                 rt.tx_outputs = tos.toArray(new TxOutput[0]);
             }
 
-            if (t.getTxInputsExtList() != null) {
+            if (t.getTxInputsExtList() != null && t.getTxInputsExtList().size() > 0) {
                 ArrayList<TxInputExt> tis = new ArrayList<>();
                 for (XchainOuterClass.TxInputExt tie : t.getTxInputsExtList()) {
                     TxInputExt newTxInput = new TxInputExt();
@@ -273,7 +282,7 @@ public class JsonUtils {
                 rt.tx_inputs_ext = tis.toArray(new TxInputExt[0]);
             }
 
-            if (t.getTxOutputsExtList() != null) {
+            if (t.getTxOutputsExtList() != null && t.getTxOutputsExtList().size() > 0) {
                 ArrayList<TxOutputExt> tos = new ArrayList<>();
                 for (XchainOuterClass.TxOutputExt to : t.getTxOutputsExtList()) {
                     TxOutputExt newTxOutput = new TxOutputExt();
@@ -285,7 +294,7 @@ public class JsonUtils {
                 rt.tx_outputs_ext = tos.toArray(new TxOutputExt[0]);
             }
 
-            if (t.getContractRequestsList() != null) {
+            if (t.getContractRequestsList() != null && t.getContractRequestsList().size() > 0) {
                 ArrayList<InvokeRequest> irs = new ArrayList<>();
                 for (XchainOuterClass.InvokeRequest item : t.getContractRequestsList()) {
                     InvokeRequest newIR = new InvokeRequest();
@@ -301,7 +310,7 @@ public class JsonUtils {
                         newIR.args = m;
                     }
 
-                    if (item.getResourceLimitsList() != null) {
+                    if (item.getResourceLimitsList() != null && item.getResourceLimitsList().size() > 0) {
                         ArrayList<ResourceLimit> rls = new ArrayList<>();
                         for (XchainOuterClass.ResourceLimit rl : item.getResourceLimitsList()) {
                             ResourceLimit r = new ResourceLimit();
@@ -317,7 +326,7 @@ public class JsonUtils {
                 rt.contract_requests = irs.toArray(new InvokeRequest[0]);
             }
 
-            if (t.getInitiatorSignsList() != null) {
+            if (t.getInitiatorSignsList() != null && t.getInitiatorSignsList().size() > 0) {
                 ArrayList<SignatureInfo> sis = new ArrayList<>();
                 for (XchainOuterClass.SignatureInfo s : t.getInitiatorSignsList()) {
                     SignatureInfo rs = new SignatureInfo();
@@ -328,7 +337,7 @@ public class JsonUtils {
                 rt.initiator_signs = sis.toArray(new SignatureInfo[0]);
             }
 
-            if (t.getAuthRequireSignsList() != null) {
+            if (t.getAuthRequireSignsList() != null && t.getAuthRequireSignsList().size() > 0) {
                 ArrayList<SignatureInfo> sis = new ArrayList<>();
                 for (XchainOuterClass.SignatureInfo s : t.getAuthRequireSignsList()) {
                     SignatureInfo rs = new SignatureInfo();
@@ -339,7 +348,7 @@ public class JsonUtils {
                 rt.auth_require_signs = sis.toArray(new SignatureInfo[0]);
             }
 
-            if (t.getXuperSign() != null) {
+            if (t.getXuperSign() != null && t.hasXuperSign()) {
                 XuperSignature xs = new XuperSignature();
                 xs.signature = t.getXuperSign().getSignature().toByteArray();
                 ArrayList<byte[]> pubs = new ArrayList<>();
@@ -350,7 +359,7 @@ public class JsonUtils {
                 rt.xuper_sign = xs;
             }
 
-            if (t.getModifyBlock() != null) {
+            if (t.hasModifyBlock() && t.getModifyBlock() != null) {
                 XchainOuterClass.ModifyBlock xmb = t.getModifyBlock();
                 ModifyBlock mb = new ModifyBlock();
                 mb.effective_txid = xmb.getEffectiveTxid();
@@ -364,7 +373,11 @@ public class JsonUtils {
             result.tx = rt;
         }
 
-        return JSON.toJSONString(result);
+        return JSON.toJSONString(result,
+                SerializerFeature.NotWriteRootClassName,
+                SerializerFeature.NotWriteDefaultValue
+        );
+//        return JSON.toJSONString(result);
     }
 
     public static class PreExecWithSelectUTXOResponse {

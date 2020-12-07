@@ -199,7 +199,7 @@ public class Transaction {
     }
 
     private XchainOuterClass.TxOutput[] genMultiTxOutputs(String selfAmount) {
-        String selfAddr = this.proposal.initiator.getAddress();
+        String selfAddr = this.proposal.initiator.getRealAddress();
         ArrayList<XchainOuterClass.TxOutput> txOutputs = new ArrayList<>();
 
         // 添加目标转账 output

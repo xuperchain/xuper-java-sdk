@@ -167,12 +167,19 @@ public class Account {
     }
 
     /**
-     * @return 账户地址。
+     * @return 账户地址，如果存在合约账户地址，返回合约账户地址。
      */
     public String getAddress() {
         if (this.contractAccount != null) {
             return this.contractAccount;
         }
+        return this.address;
+    }
+
+    /**
+     * @return 账户地址，不会返回合约账户地址。
+     */
+    public String getRealAddress() {
         return this.address;
     }
 

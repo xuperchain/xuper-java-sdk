@@ -76,7 +76,6 @@ public class XuperClient {
     public Transaction transfer(Account from, String to, BigInteger amount, String fee) {
         Proposal p = new Proposal()
                 .setChainName(chainName)
-                .setInitiator(from)
                 .setFee(fee);
 
         if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
@@ -85,7 +84,7 @@ public class XuperClient {
                 p.addAuthRequire(this.platformAccount.getAddress());
             }
         }
-
+        p.setInitiator(from);
         return p.transfer(to, amount).build(this).sign().send(this);
     }
 
@@ -105,7 +104,7 @@ public class XuperClient {
         if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
             p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
         }
-        
+
         return p.invokeContract(module, contract, method, args).build(this).sign().send(this);
     }
 

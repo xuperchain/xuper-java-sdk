@@ -1,10 +1,10 @@
 package com.baidu.xuperunion.api;
 
+import com.alibaba.fastjson.JSON;
 import com.baidu.xuperunion.config.Config;
 import com.baidu.xuperunion.crypto.Hash;
 import com.baidu.xuperunion.pb.XchainOuterClass;
 import com.baidu.xuperunion.pb.XendorserOuterClass;
-import com.google.gson.Gson;
 import com.google.protobuf.ByteString;
 
 import java.math.BigInteger;
@@ -113,8 +113,13 @@ public class Proposal {
         XchainOuterClass.InvokeRPCRequest.Builder invokeRPCBuilder = XchainOuterClass.InvokeRPCRequest.newBuilder()
                 .setHeader(header)
                 .setBcname(chainName)
-                .setInitiator(initiator.getAddress())
-                .addAllAuthRequire(this.authRequire);
+                .setInitiator(initiator.getRealAddress());
+
+        if (this.authRequire != null) {
+            invokeRPCBuilder.addAllAuthRequire(this.authRequire);
+        } else {
+            invokeRPCBuilder.addAuthRequire(this.initiator.getAuthRequireId());
+        }
 
         if (invokeRequest != null) {
             invokeRPCBuilder.addRequests(invokeRequest);
@@ -143,7 +148,7 @@ public class Proposal {
             XchainOuterClass.PreExecWithSelectUTXORequest request = XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
                     .setHeader(header)
                     .setBcname(chainName)
-                    .setAddress(initiator.getAddress())
+                    .setAddress(initiator.getRealAddress())
                     .setTotalAmount(amount)
                     .setSignInfo(signature)
                     .setRequest(invokeRPCRequest)
@@ -188,11 +193,10 @@ public class Proposal {
             m1.put("bcname", request.getBcname());
         }
 
-        m1.put("initiator", initiator.getAddress());
+        m1.put("initiator", request.getRequest().getInitiator());
         m1.put("auth_require", request.getRequest().getAuthRequireList());
 
         ArrayList<Object> l = new ArrayList<>();
-        System.out.println(request.getRequest().getRequestsList().size());
         for (XchainOuterClass.InvokeRequest r : request.getRequest().getRequestsList()) {
             LinkedHashMap<String, Object> m2 = new LinkedHashMap<>();
             if (!r.getModuleName().isEmpty()) {
@@ -205,9 +209,9 @@ public class Proposal {
                 m2.put("method_name", r.getMethodName());
             }
 
-            if (this.args != null) {
+            if (r.getArgsMap().size() > 0) {
                 LinkedHashMap<String, Object> m3 = new LinkedHashMap<>();
-                for (Map.Entry<String, ByteString> entry : this.args.entrySet()) {
+                for (Map.Entry<String, ByteString> entry : r.getArgsMap().entrySet()) {
                     m3.put(entry.getKey(), entry.getValue().toByteArray());
                 }
                 m2.put("args", m3);
@@ -221,7 +225,6 @@ public class Proposal {
         }
 
         m.put("request", m1);
-        Gson gson = new Gson();
-        return gson.toJson(m);
+        return JSON.toJSONString(m);
     }
 }

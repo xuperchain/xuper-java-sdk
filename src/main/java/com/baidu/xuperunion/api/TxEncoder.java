@@ -12,6 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.TreeMap;
 
 class TxEncoder {
+    private static int anInt;
     private static final Gson gson = new GsonBuilder()
             .registerTypeHierarchyAdapter(ByteString.class, new PbByteStringAdapter())
             .disableHtmlEscaping()
@@ -83,7 +84,11 @@ class TxEncoder {
         encode(invokes);
 
         encode(tx.getInitiator());
-        encode(tx.getAuthRequireList().toArray());
+        if (tx.getAuthRequireCount() > 0) {
+            encode(tx.getAuthRequireList().toArray());
+        } else {
+            encode((Object) null);
+        }
 
         if (needSign) {
             Object[] sigs = null;
@@ -95,6 +100,7 @@ class TxEncoder {
             }
             encode(sigs);
 
+            sigs = null;
             if (tx.getAuthRequireSignsCount() != 0) {
                 sigs = new Object[tx.getAuthRequireSignsCount()];
             }
@@ -103,16 +109,19 @@ class TxEncoder {
             }
             encode(sigs);
             if (tx.hasXuperSign()) {
-                encode(sigs);
+                encode(tx.getXuperSign());
             }
         }
         encode(tx.getCoinbase());
         encode(tx.getAutogen());
 //        try {
-//            FileOutputStream f = new FileOutputStream("/tmp/tx.pb");
+//            anInt++;
+//            System.out.println("anInt:" + anInt);
+//            System.out.println("txID:" + Arrays.toString(tx.getTxid().toByteArray()));
+//            FileOutputStream f = new FileOutputStream("./tmp/tx" + anInt + ".pb");
 //            f.write(tx.toByteArray());
 //            f.close();
-//            f = new FileOutputStream("/tmp/tx.txt");
+//            f = new FileOutputStream("./tmp/tx" + anInt + "txt");
 //            f.write(buffer.toString().getBytes());
 //            f.close();
 //        } catch (Exception e) {

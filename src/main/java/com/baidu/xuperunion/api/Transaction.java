@@ -174,7 +174,6 @@ public class Transaction {
             txBuilder.addAuthRequire(this.proposal.initiator.getAuthRequireId());
         }
 
-        XchainOuterClass.Transaction t = txBuilder.build();
         this.txBuilder = txBuilder;
         this.pbtx = txBuilder.build();
     }
@@ -260,7 +259,7 @@ public class Transaction {
         }
     }
 
-    private XchainOuterClass.TxInput[] genTxInput(XchainOuterClass.UtxoOutput utxoOutputs, BigInteger totalNeed) {
+    private XchainOuterClass.TxInput[] genTxInput(XchainOuterClass.UtxoOutput utxoOutputs) {
         XchainOuterClass.TxInput[] result = new XchainOuterClass.TxInput[utxoOutputs.getUtxoListCount()];
         for (int i = 0; i < utxoOutputs.getUtxoListCount(); i++) {
             XchainOuterClass.Utxo utxo = utxoOutputs.getUtxoList(i);
@@ -335,7 +334,7 @@ public class Transaction {
     private XchainOuterClass.Transaction genComplianceCheckTx(XchainOuterClass.PreExecWithSelectUTXOResponse response) {
         try {
             BigInteger totalNeed = new BigInteger(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee() + "");
-            XchainOuterClass.TxInput[] txInputs = genTxInput(response.getUtxoOutput(), totalNeed);
+            XchainOuterClass.TxInput[] txInputs = genTxInput(response.getUtxoOutput());
             XchainOuterClass.TxOutput deltaTxOutput = getDeltaTxOutput(response.getUtxoOutput(), totalNeed, this.proposal.initiator.getRealAddress());
 
             XchainOuterClass.TxOutput[] txOutputs = genTxOutput(
@@ -394,8 +393,8 @@ public class Transaction {
         }
 
         // add utxo outputs
-        BigInteger need = BigInteger.valueOf(0);
-        if (!proposal.fee.isEmpty()) {
+        BigInteger need = BigInteger.valueOf(gas);
+        if (proposal.fee != null && !proposal.fee.isEmpty()) {
             need = new BigInteger(proposal.fee);
         }
         BigInteger total = new BigInteger(utxos.getTotalSelected());
@@ -417,10 +416,9 @@ public class Transaction {
         }
         // add fee output
         if (allFee.compareTo(BigInteger.ZERO) > 0) {
-            BigInteger gasUsed = BigInteger.valueOf(gas);
             XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
                     .setToAddr(ByteString.copyFromUtf8("$"))
-                    .setAmount(ByteString.copyFrom(new BigInteger(proposal.fee).add(gasUsed).toByteArray()))
+                    .setAmount(ByteString.copyFrom(allFee.toByteArray()))
                     .build();
             txBuilder.addTxOutputs(out);
         }

@@ -34,7 +34,19 @@ public class Transaction {
         pbtx = tx;
     }
 
-    Transaction(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal, Account platformAccount) throws Exception {
+    Transaction(XchainOuterClass.InvokeRPCResponse rpcResponse, Proposal proposal) {
+        this.proposal = proposal;
+        if (rpcResponse.getResponse().getResponseCount() != 0) {
+            this.contractResponse = new ContractResponse(rpcResponse.getResponse().getResponses(0));
+            if (this.contractResponse.getStatus() >= 400) {
+                throw new RuntimeException("contract error status:"
+                        + this.contractResponse.getStatus()
+                        + " message:" + this.contractResponse.getMessage());
+            }
+        }
+    }
+
+    Transaction(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal) throws Exception {
         XchainOuterClass.InvokeResponse invokeResponse = response.getResponse();
         if (invokeResponse.getResponseCount() != 0) {
             this.contractResponse = new ContractResponse(invokeResponse.getResponses(0));
@@ -48,7 +60,7 @@ public class Transaction {
         this.gasUsed = invokeResponse.getGasUsed();
 
         try {
-            if (!Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            if (!Config.hasConfigFile()) {
                 genRealTxOnly(response, proposal);
                 return;
             }
@@ -68,9 +80,6 @@ public class Transaction {
             XchainOuterClass.SignatureInfo sigInfo = complianceCheck(this.pbtx, complianceCheckTx);
             this.txBuilder.addAuthRequireSigns(sigInfo);
             this.pbtx = this.txBuilder.build();
-            if (platformAccount != null) {
-                sign(platformAccount);
-            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -86,7 +95,7 @@ public class Transaction {
                 .setNonce(Common.newNonce())
                 .setTimestamp(System.nanoTime())
                 .setVersion(txVersion)
-                .setInitiator(initiator.getRealAddress());
+                .setInitiator(initiator.getAKAddress());
 
         if (proposal.desc != null) {
             txBuilder.setDesc(ByteString.copyFromUtf8(proposal.desc));
@@ -119,7 +128,7 @@ public class Transaction {
         ArrayList<XchainOuterClass.Utxo> utxoList = new ArrayList<>();
         for (int i = 0; i < complianceCheckTx.getTxOutputsList().size(); i++) {
             XchainOuterClass.TxOutput txOutput = complianceCheckTx.getTxOutputs(i);
-            if (txOutput.getToAddr().toStringUtf8().equals(this.proposal.initiator.getRealAddress())) {
+            if (txOutput.getToAddr().toStringUtf8().equals(this.proposal.initiator.getAKAddress())) {
                 utxoList.add(XchainOuterClass.Utxo.newBuilder()
                         .setAmount(ByteString.copyFrom(new BigInteger(txOutput.getAmount().toByteArray()).toString().getBytes()))
                         .setToAddr(txOutput.getToAddr())
@@ -159,7 +168,7 @@ public class Transaction {
                 .setTimestamp(System.nanoTime())
                 .addAllTxInputs(Arrays.asList(txInputs))
                 .addAllTxOutputs(Arrays.asList(txOutputs))
-                .setInitiator(this.proposal.initiator.getRealAddress())
+                .setInitiator(this.proposal.initiator.getAKAddress())
                 .addAllTxInputsExt(response.getResponse().getInputsList())
                 .addAllTxOutputsExt(response.getResponse().getOutputsList())
                 .addAllContractRequests(response.getResponse().getRequestsList());
@@ -198,7 +207,7 @@ public class Transaction {
     }
 
     private XchainOuterClass.TxOutput[] genMultiTxOutputs(String selfAmount) {
-        String selfAddr = this.proposal.initiator.getRealAddress();
+        String selfAddr = this.proposal.initiator.getAKAddress();
         ArrayList<XchainOuterClass.TxOutput> txOutputs = new ArrayList<>();
 
         // 添加目标转账 output
@@ -335,7 +344,7 @@ public class Transaction {
         try {
             BigInteger totalNeed = new BigInteger(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee() + "");
             XchainOuterClass.TxInput[] txInputs = genTxInput(response.getUtxoOutput());
-            XchainOuterClass.TxOutput deltaTxOutput = getDeltaTxOutput(response.getUtxoOutput(), totalNeed, this.proposal.initiator.getRealAddress());
+            XchainOuterClass.TxOutput deltaTxOutput = getDeltaTxOutput(response.getUtxoOutput(), totalNeed, this.proposal.initiator.getAKAddress());
 
             XchainOuterClass.TxOutput[] txOutputs = genTxOutput(
                     Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFeeAddr(),
@@ -356,7 +365,7 @@ public class Transaction {
                     .setCoinbase(false)
                     .addAllTxInputs(Arrays.asList(txInputs))
                     .addAllTxOutputs(Arrays.asList(txOutputs))
-                    .setInitiator(this.proposal.initiator.getRealAddress())
+                    .setInitiator(this.proposal.initiator.getAKAddress())
                     .setTimestamp(System.nanoTime());
 
             XchainOuterClass.Transaction tx = builder.build();
@@ -426,7 +435,7 @@ public class Transaction {
         // make change
         if (total.compareTo(need) > 0) {
             XchainOuterClass.TxOutput out = XchainOuterClass.TxOutput.newBuilder()
-                    .setToAddr(ByteString.copyFromUtf8(initiator.getAddress()))
+                    .setToAddr(ByteString.copyFromUtf8(initiator.getAKAddress()))
                     .setAmount(ByteString.copyFrom(total.subtract(need).toByteArray()))
                     .build();
             txBuilder.addTxOutputs(out);
@@ -450,7 +459,7 @@ public class Transaction {
                     .build();
 
             txBuilder.addAuthRequireSigns(siginfo);
-            if (singer.getRealAddress().equals(pbtx.getInitiator())) {
+            if (singer.getAKAddress().equals(pbtx.getInitiator())) {
                 txBuilder.addInitiatorSigns(siginfo);
             }
             pbtx = txBuilder.build();

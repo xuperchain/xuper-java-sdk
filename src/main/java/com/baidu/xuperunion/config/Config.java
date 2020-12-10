@@ -16,8 +16,17 @@ public class Config {
 
     private static final String confPath = "./conf";
     private static final String confName = "sdk.yaml";
+    private static String confFilePath;
 
     private Config() {
+    }
+
+    public static void setConfigPath(String path) {
+        confFilePath = path;
+    }
+
+    public static boolean hasConfigFile() {
+        return confFilePath != null;
     }
 
     public static Config getInstance() {
@@ -25,11 +34,16 @@ public class Config {
             return singletonConfig;
         }
 
-        try {
-            singletonConfig = getConfigFromYaml();
-        } catch (Exception e) {
+        if (confFilePath != null) {
+            try {
+                singletonConfig = getConfigFromYaml();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        } else {
             singletonConfig = getDefaultConfig();
         }
+
         return singletonConfig;
     }
 

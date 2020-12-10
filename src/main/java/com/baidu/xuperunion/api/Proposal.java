@@ -76,6 +76,25 @@ public class Proposal {
         return this;
     }
 
+    public Transaction preExec(XuperClient client) {
+        ArrayList<XchainOuterClass.InvokeRequest> requests = new ArrayList<>();
+        requests.add(XchainOuterClass.InvokeRequest.newBuilder()
+                .setModuleName(this.moduleName)
+                .setMethodName(this.methodName)
+                .setContractName(this.contractName)
+                .putAllArgs(this.args)
+                .build());
+
+        XchainOuterClass.InvokeRPCRequest request = XchainOuterClass.InvokeRPCRequest.newBuilder()
+                .setBcname(this.chainName)
+                .addAllRequests(requests)
+                .setInitiator(this.initiator.getAKAddress())
+                .addAllAuthRequire(this.authRequire)
+                .build();
+        XchainOuterClass.InvokeRPCResponse invokeRPCResponse = client.getBlockingClient().preExec(request);
+        return new Transaction(invokeRPCResponse, this);
+    }
+
     public Transaction build(XuperClient client) {
         if (this.initiator == null) {
             throw new RuntimeException("missing initiator");
@@ -113,7 +132,7 @@ public class Proposal {
         XchainOuterClass.InvokeRPCRequest.Builder invokeRPCBuilder = XchainOuterClass.InvokeRPCRequest.newBuilder()
                 .setHeader(header)
                 .setBcname(chainName)
-                .setInitiator(initiator.getRealAddress());
+                .setInitiator(initiator.getAKAddress());
 
         if (this.authRequire != null) {
             invokeRPCBuilder.addAllAuthRequire(this.authRequire);
@@ -138,7 +157,7 @@ public class Proposal {
         amount += extAmount;
 
         try {
-            byte[] hash = Hash.doubleSha256((chainName + initiator.getAddress() + amount + false).getBytes());
+            byte[] hash = Hash.doubleSha256((chainName + initiator.getAKAddress() + amount + false).getBytes());
             byte[] sign = initiator.getKeyPair().sign(hash);
             XchainOuterClass.SignatureInfo signature = XchainOuterClass.SignatureInfo.newBuilder()
                     .setPublicKey(initiator.getKeyPair().getJSONPublicKey())
@@ -148,14 +167,14 @@ public class Proposal {
             XchainOuterClass.PreExecWithSelectUTXORequest request = XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
                     .setHeader(header)
                     .setBcname(chainName)
-                    .setAddress(initiator.getRealAddress())
+                    .setAddress(initiator.getAKAddress())
                     .setTotalAmount(amount)
                     .setSignInfo(signature)
                     .setRequest(invokeRPCRequest)
                     .build();
 
             XchainOuterClass.PreExecWithSelectUTXOResponse pr;
-            if (!Config.getInstance().getEndorseServiceHost().isEmpty()) {
+            if (Config.hasConfigFile() && Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
                 XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
                 XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
                         .setHeader(header)
@@ -170,7 +189,7 @@ public class Proposal {
             }
 
             Common.checkResponseHeader(pr.getHeader(), "PreExec");
-            return new Transaction(pr, this, client.getPlatformAccount());
+            return new Transaction(pr, this);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

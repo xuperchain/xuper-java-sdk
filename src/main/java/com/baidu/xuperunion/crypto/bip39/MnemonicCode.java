@@ -64,7 +64,7 @@ public class MnemonicCode {
         int fullByteSize = entropyByteSize + 1;
 
         byte[] entropyBytes = bytesPad(toByteArray(entropy), entropyByteSize);
-        byte[] entropyWithChecksumBytes = bytesPad(b.toByteArray(), fullByteSize);
+        byte[] entropyWithChecksumBytes = bytesPad(toByteArray(b), fullByteSize);
         byte[] addChecksumEntropyBytes = addChecksum(entropyBytes);
         byte[] newEntropyWithChecksumBytes = bytesPad(addChecksumEntropyBytes, fullByteSize);
 
@@ -115,7 +115,7 @@ public class MnemonicCode {
                 dataBigInt = dataBigInt.or(BigInteger.ONE);
             }
         }
-        return dataBigInt.toByteArray();
+        return toByteArray(dataBigInt);
     }
 
     private byte[] bytesPad(byte[] data, int length) {
@@ -165,7 +165,7 @@ public class MnemonicCode {
         for (int i = sentenceLength - 1; i >= 0; i--) {
             word = entropyInt.and(new BigInteger("2047"));
             entropyInt = entropyInt.divide(new BigInteger("2048"));
-            byte[] wordBytes = bytesPad(word.toByteArray(), 2);
+            byte[] wordBytes = bytesPad(toByteArray(word), 2);
             int ii = byteBE2Int(wordBytes);
             words[i] = this.wordList.getWord(ii);
         }

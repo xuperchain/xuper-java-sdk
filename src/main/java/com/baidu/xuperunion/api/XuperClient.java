@@ -18,7 +18,6 @@ public class XuperClient {
     private final XchainGrpc.XchainBlockingStub blockingClient;
 
     private String chainName = "xuper";
-    private Account platformAccount;
 
     /**
      * @param target the address of xchain node, like 127.0.0.1:37101
@@ -31,23 +30,9 @@ public class XuperClient {
                 .build());
     }
 
-    public XuperClient(String target, Account platformAccount) {
-        this(ManagedChannelBuilder.forTarget(target)
-                // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
-                // needing certificates.
-                .usePlaintext()
-                .build());
-        this.platformAccount = platformAccount;
-    }
-
     private XuperClient(ManagedChannel channel) {
         this.channel = channel;
         blockingClient = XchainGrpc.newBlockingStub(channel);
-    }
-
-
-    public Account getPlatformAccount() {
-        return platformAccount;
     }
 
     public void close() {
@@ -80,9 +65,6 @@ public class XuperClient {
 
         if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
             p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
-            if (this.platformAccount != null) {
-                p.addAuthRequire(this.platformAccount.getAddress());
-            }
         }
         p.setInitiator(from);
         return p.transfer(to, amount).build(this).sign().send(this);
@@ -114,13 +96,12 @@ public class XuperClient {
      * @return
      */
     public Transaction queryContract(Account from, String module, String contract, String method, Map<String, byte[]> args) {
-        Transaction tx = new Proposal()
+        return new Proposal()
                 .setChainName(chainName)
                 .setInitiator(from)
                 .addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr())
                 .invokeContract(module, contract, method, args)
-                .build(this);
-        return tx;
+                .preExec(this);
     }
 
     /**
@@ -202,8 +183,6 @@ public class XuperClient {
         XchainOuterClass.AddressBalanceStatus response = blockingClient.getBalanceDetail(request);
 
         XchainOuterClass.TokenFrozenDetails tfds = response.getTfds(0);
-
-        Gson g = new Gson();
 
         BalDetails[] balDetails = new BalDetails[tfds.getTfdCount()];
         for (int i = 0; i < tfds.getTfdCount(); i++) {

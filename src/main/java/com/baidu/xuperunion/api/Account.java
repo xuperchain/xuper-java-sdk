@@ -145,7 +145,7 @@ public class Account {
             }
 
             Account a = create(ECKeyPair.create(json.D));
-            if (!a.getAddress().equals(new String(address))) {
+            if (!a.getAKAddress().equals(new String(address))) {
                 throw new RuntimeException("address and private key not match.");
             }
 
@@ -179,7 +179,7 @@ public class Account {
     /**
      * @return 账户地址，不会返回合约账户地址。
      */
-    public String getRealAddress() {
+    public String getAKAddress() {
         return this.address;
     }
 

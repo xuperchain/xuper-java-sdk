@@ -8,16 +8,13 @@ import java.io.FileInputStream;
 
 public class Config {
     private static Config singletonConfig;
+    private static String confFilePath;
 
     private String endorseServiceHost;
     private ComplianceCheck complianceCheck;
     private String minNewChainAmount;
     private String crypto;
-
-    private static final String confPath = "./conf";
-    private static final String confName = "sdk.yaml";
-    private static String confFilePath;
-
+    
     private Config() {
     }
 
@@ -49,7 +46,7 @@ public class Config {
 
     private static Config getConfigFromYaml() throws Exception {
         Yaml yaml = new Yaml(new Constructor(Config.class));
-        return yaml.load(new FileInputStream(new File(confPath + "/" + confName)));
+        return yaml.load(new FileInputStream(new File(confFilePath)));
     }
 
     private static Config getDefaultConfig() {

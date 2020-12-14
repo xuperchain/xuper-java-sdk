@@ -60,7 +60,7 @@ public class Transaction {
         this.gasUsed = invokeResponse.getGasUsed();
 
         try {
-            if (!Config.hasConfigFile()) {
+            if (!Config.hasConfigFile() || !Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
                 genRealTxOnly(response, proposal);
                 return;
             }

@@ -16,6 +16,7 @@ import java.util.Map;
 public class XuperClient {
     private final ManagedChannel channel;
     private final XchainGrpc.XchainBlockingStub blockingClient;
+    private final XendorserClient xendorserClient;
 
     private String chainName = "xuper";
 
@@ -33,10 +34,18 @@ public class XuperClient {
     private XuperClient(ManagedChannel channel) {
         this.channel = channel;
         blockingClient = XchainGrpc.newBlockingStub(channel);
+        if (Config.hasConfigFile()) {
+            xendorserClient = new XendorserClient(Config.getInstance().getEndorseServiceHost());
+        } else {
+            xendorserClient = null;
+        }
     }
 
     public void close() {
         channel.shutdown();
+        if (xendorserClient != null) {
+            xendorserClient.close();
+        }
     }
 
     /**
@@ -50,6 +59,10 @@ public class XuperClient {
 
     XchainGrpc.XchainBlockingStub getBlockingClient() {
         return blockingClient;
+    }
+
+    public XendorserClient getXendorserClient() {
+        return xendorserClient;
     }
 
     /**

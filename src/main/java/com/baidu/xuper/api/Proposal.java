@@ -175,8 +175,7 @@ public class Proposal {
 
             XchainOuterClass.PreExecWithSelectUTXOResponse pr;
             if (Config.hasConfigFile() && Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
-                XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
-                XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
+                XendorserOuterClass.EndorserResponse r = client.getXendorserClient().getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
                         .setHeader(header)
                         .setBcName(chainName)
                         .setRequestData(ByteString.copyFrom(pb2JsonString(request).getBytes()))

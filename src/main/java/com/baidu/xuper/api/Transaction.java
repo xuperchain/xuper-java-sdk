@@ -199,7 +199,7 @@ public class Transaction {
                     .setRefTxid(utxo.getRefTxid())
                     .setRefOffset(utxo.getRefOffset())
                     .setFromAddr(utxo.getToAddr())
-                    .setAmount(ByteString.copyFrom(amount.toByteArray()))
+                    .setAmount(ByteString.copyFrom(toByteArray(amount)))
                     .build();
         }
 
@@ -504,5 +504,16 @@ public class Transaction {
 
     public XchainOuterClass.Transaction getRawTx() {
         return pbtx;
+    }
+
+    // unsigned
+    private byte[] toByteArray(BigInteger bi) {
+        byte[] array = bi.toByteArray();
+        if (array[0] == 0) {
+            byte[] tmp = new byte[array.length - 1];
+            System.arraycopy(array, 1, tmp, 0, tmp.length);
+            array = tmp;
+        }
+        return array;
     }
 }

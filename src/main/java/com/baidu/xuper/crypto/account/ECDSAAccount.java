@@ -148,7 +148,7 @@ public class ECDSAAccount {
             case 2:
                 return English.INSTANCE;
             default:
-                return null;
+                throw new IllegalStateException("Unexpected value: " + language);
         }
     }
 

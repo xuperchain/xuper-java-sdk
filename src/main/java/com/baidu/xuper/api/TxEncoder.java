@@ -9,11 +9,13 @@ import org.bouncycastle.util.encoders.Base64;
 
 import java.lang.reflect.Type;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 class TxEncoder {
     //private static int anInt;
     private static final Gson gson = new GsonBuilder()
+            .serializeNulls()
             .registerTypeHierarchyAdapter(ByteString.class, new PbByteStringAdapter())
             .disableHtmlEscaping()
             .create();
@@ -166,7 +168,13 @@ class TxEncoder {
             }
             if (pb.getArgsCount() != 0) {
                 TreeMap<String, ByteString> margs = new TreeMap<>();
-                margs.putAll(pb.getArgsMap());
+                for (Map.Entry<String, ByteString> entry : pb.getArgsMap().entrySet()) {
+                    if (entry.getValue().isEmpty()) {
+                        margs.put(entry.getKey(), null);
+                    } else {
+                        margs.put(entry.getKey(), entry.getValue());
+                    }
+                }
                 m.put("args", margs);
             }
             if (pb.getResourceLimitsCount() != 0) {

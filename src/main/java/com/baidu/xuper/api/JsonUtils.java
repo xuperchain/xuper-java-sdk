@@ -93,7 +93,11 @@ public class JsonUtils {
                     }
                     if (r.args != null) {
                         for (Map.Entry<String, byte[]> entry : r.args.entrySet()) {
-                            ireqBuilder.putArgs(entry.getKey(), ByteString.copyFrom(entry.getValue()));
+                            if (entry.getValue() == null) {
+                                ireqBuilder.putArgs(entry.getKey(), ByteString.EMPTY);
+                            } else {
+                                ireqBuilder.putArgs(entry.getKey(), ByteString.copyFrom(entry.getValue()));
+                            }
                         }
                     }
                     if (r.resource_limits != null) {
@@ -325,7 +329,11 @@ public class JsonUtils {
                     if (item.getArgsMap().size() != 0) {
                         HashMap<String, byte[]> m = new HashMap<>();
                         for (Map.Entry<String, ByteString> entry : item.getArgsMap().entrySet()) {
-                            m.put(entry.getKey(), entry.getValue().toByteArray());
+                            if (entry.getValue().isEmpty()) {
+                                m.put(entry.getKey(), null);
+                            } else {
+                                m.put(entry.getKey(), entry.getValue().toByteArray());
+                            }
                         }
                         newIR.args = m;
                     }
@@ -409,7 +417,8 @@ public class JsonUtils {
 
         return JSON.toJSONString(result,
                 SerializerFeature.NotWriteRootClassName,
-                SerializerFeature.NotWriteDefaultValue
+                SerializerFeature.NotWriteDefaultValue,
+                SerializerFeature.WriteMapNullValue
         );
     }
 

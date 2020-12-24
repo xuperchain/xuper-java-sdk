@@ -188,7 +188,7 @@ public class Proposal {
             }
 
             Common.checkResponseHeader(pr.getHeader(), "PreExec");
-            return new Transaction(pr, this);
+            return new Transaction(pr, this, client);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -46,7 +46,7 @@ public class Transaction {
         }
     }
 
-    Transaction(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal) throws Exception {
+    Transaction(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal, XuperClient client) throws Exception {
         XchainOuterClass.InvokeResponse invokeResponse = response.getResponse();
         if (invokeResponse.getResponseCount() != 0) {
             this.contractResponse = new ContractResponse(invokeResponse.getResponses(0));
@@ -77,7 +77,7 @@ public class Transaction {
             byte[] txid = TxEncoder.makeTxID(t);
             txBuilder.setTxid(ByteString.copyFrom(txid));
             this.pbtx = this.txBuilder.build();
-            XchainOuterClass.SignatureInfo sigInfo = complianceCheck(this.pbtx, complianceCheckTx);
+            XchainOuterClass.SignatureInfo sigInfo = complianceCheck(this.pbtx, complianceCheckTx, client);
             this.txBuilder.addAuthRequireSigns(sigInfo);
             this.pbtx = this.txBuilder.build();
         } catch (Exception e) {
@@ -242,9 +242,8 @@ public class Transaction {
         return txOutputs.toArray(new XchainOuterClass.TxOutput[txOutputs.size()]);
     }
 
-    private XchainOuterClass.SignatureInfo complianceCheck(XchainOuterClass.Transaction tx, XchainOuterClass.Transaction fee) {
+    private XchainOuterClass.SignatureInfo complianceCheck(XchainOuterClass.Transaction tx, XchainOuterClass.Transaction fee, XuperClient client) {
         try {
-            XendorserClient ec = new XendorserClient(Config.getInstance().getEndorseServiceHost());
             XendorserOuterClass.EndorserRequest.Builder builder = XendorserOuterClass.EndorserRequest.newBuilder();
             if (fee != null) {
                 builder.setFee(fee);
@@ -255,7 +254,7 @@ public class Transaction {
                     .setTx(tx)
                     .build());
 
-            XendorserOuterClass.EndorserResponse r = ec.getBlockingClient().endorserCall(builder
+            XendorserOuterClass.EndorserResponse r = client.getXendorserClient().getBlockingClient().endorserCall(builder
                     .setBcName(this.proposal.chainName)
                     .setRequestData(ByteString.copyFrom(gs.getBytes()))
                     .setRequestName("ComplianceCheck")

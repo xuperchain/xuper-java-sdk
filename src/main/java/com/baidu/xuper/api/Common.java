@@ -10,7 +10,11 @@ public class Common {
     }
 
     static public String newNonce() {
-        return String.valueOf(System.nanoTime()) + (int) (Math.random() * 100000000);
+        return String.valueOf(getTimestamp() + (int) (Math.random() * 100000000));
+    }
+
+    static public Long getTimestamp() {
+        return System.currentTimeMillis() * 1000 * 1000;
     }
 
     static public void checkResponseHeader(XchainOuterClass.Header header, String msg) {

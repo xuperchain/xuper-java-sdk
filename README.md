@@ -3,6 +3,30 @@ The java sdk of xuperunion https://github.com/xuperchain/xuperunion
 
 # Usage
 
+## Add Dependency
+
+If your're using Maven, just add the following dependency in `pom.xml`.
+
+```xml
+<dependency>
+  <groupId>com.baidu.xuper</groupId>
+  <artifactId>xuper-java-sdk</artifactId>
+  <version>0.1.1</version>
+</dependency>
+```
+
+## Config file
+
+If you use the endorsement feature, set the configuration file like this:
+
+```
+Config.setConfigPath("./conf/sdk.yaml");
+```
+
+The config file is here: src/main/java/com/baidu/xuper/conf/sdk.yaml.
+
+Test net config file is here: src/main/java/com/baidu/xuper/conf/sdk.testnet.yaml.
+
 ## Create client
 
 ```java

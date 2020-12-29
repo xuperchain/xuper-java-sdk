@@ -93,7 +93,7 @@ public class Transaction {
         Account initiator = proposal.initiator;
         XchainOuterClass.Transaction.Builder txBuilder = XchainOuterClass.Transaction.newBuilder()
                 .setNonce(Common.newNonce())
-                .setTimestamp(System.nanoTime())
+                .setTimestamp(Common.getTimestamp())
                 .setVersion(txVersion)
                 .setInitiator(initiator.getAKAddress());
 
@@ -165,7 +165,7 @@ public class Transaction {
                 .setNonce(Common.newNonce())
                 .setVersion(txVersion)
                 .setCoinbase(false)
-                .setTimestamp(System.nanoTime())
+                .setTimestamp(Common.getTimestamp())
                 .addAllTxInputs(Arrays.asList(txInputs))
                 .addAllTxOutputs(Arrays.asList(txOutputs))
                 .setInitiator(this.proposal.initiator.getAKAddress())
@@ -366,7 +366,7 @@ public class Transaction {
                     .addAllTxInputs(Arrays.asList(txInputs))
                     .addAllTxOutputs(Arrays.asList(txOutputs))
                     .setInitiator(this.proposal.initiator.getAKAddress())
-                    .setTimestamp(System.nanoTime());
+                    .setTimestamp(Common.getTimestamp());
 
             XchainOuterClass.Transaction tx = builder.build();
             byte[] bytes = TxEncoder.makeTxDigest(tx);

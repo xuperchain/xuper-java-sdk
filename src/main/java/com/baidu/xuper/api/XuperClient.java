@@ -48,6 +48,59 @@ public class XuperClient {
         }
     }
 
+    public XchainOuterClass.Block getBlockByHeight(long height) {
+        return getBlockingClient().getBlockByHeight(XchainOuterClass.BlockHeight.newBuilder()
+                .setBcname(chainName)
+                .setHeight(height)
+                .build());
+    }
+
+    public XchainOuterClass.AK2AccountResponse getAccountByAK(String address) {
+        return getBlockingClient().getAccountByAK(XchainOuterClass.AK2AccountRequest.newBuilder()
+                .setBcname(chainName)
+                .setAddress(address)
+                .build());
+    }
+
+    public XchainOuterClass.UtxoRecordDetail queryUtxoRecord(String address, long utxoItemNum) {
+        return getBlockingClient().queryUtxoRecord(XchainOuterClass.UtxoRecordDetail.newBuilder()
+                .setAccountName(address)
+                .setDisplayCount(utxoItemNum)
+                .setBcname(chainName)
+                .build());
+    }
+
+    public XchainOuterClass.GetAccountContractsResponse getAccountContracts(String contractAccount) {
+        return getBlockingClient().getAccountContracts(XchainOuterClass.GetAccountContractsRequest.newBuilder()
+                .setBcname(chainName)
+                .setAccount(contractAccount)
+                .build());
+    }
+
+    public XchainOuterClass.AddressContractsResponse getAddressContracts(String address, Boolean verbose) {
+        return getBlockingClient().getAddressContracts(XchainOuterClass.AddressContractsRequest.newBuilder()
+                .setBcname(chainName)
+                .setAddress(address)
+                .setNeedContent(verbose)
+                .build());
+    }
+
+    public XchainOuterClass.AclStatus queryAccountACL(String account) {
+        return getBlockingClient().queryACL(XchainOuterClass.AclStatus.newBuilder()
+                .setBcname(chainName)
+                .setAccountName(account)
+                .build());
+    }
+
+    public XchainOuterClass.AclStatus queryContractMethodACL(String contract, String method) {
+        return getBlockingClient().queryACL(XchainOuterClass.AclStatus.newBuilder()
+                .setBcname(chainName)
+                .setContractName(contract)
+                .setMethodName(method)
+                .build());
+    }
+
+
     /**
      * @param name name of chain
      * @return

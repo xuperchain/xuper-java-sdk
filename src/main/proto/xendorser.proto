@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-option java_outer_classname="XendorserOuterClass";
-option java_package = "com.baidu.xuperunion.pb";
+option java_outer_classname = "XendorserOuterClass";
+option java_package = "com.baidu.xuper.pb";
 
 package pb;
 import "xchain.proto";

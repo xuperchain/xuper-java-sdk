@@ -97,4 +97,46 @@ System.out.println("response: " + tx.getContractResponse().getBodyStr());
 System.out.println("gas: " + tx.getGasUsed());
 ```
 
+## Get block by height
+
+```java
+XuperClient c = new XuperClient("127.0.0.1:37101");
+XchainOuterClass.Block block = c.getBlockByHeight(100);
+System.out.println("block:" + bbb);
+```
+
+## Get account by AK
+
+```java
+XchainOuterClass.AK2AccountResponse response = c.getAccountByAK("Sw5kwvaf3PAwozXxMdFuBrd9UiqXuXhVF");
+System.out.println(response);
+```
+
+## Get account contracts
+
+```java
+XchainOuterClass.GetAccountContractsResponse response = c.getAccountContracts("XC1111111111111111@xuper");
+System.out.println(response);
+```
+
+## Query UTXO record
+
+```java
+XchainOuterClass.UtxoRecordDetail detail = c.queryUtxoRecord("WEtfMgJHcWWLwtwuTsRZkmYutjZGENXd6", 2);
+System.out.println(detail);
+```
+
+## Query account acl
+
+```java
+XchainOuterClass.AclStatus acl = c.queryAccountACL("XC1111111111111111@xuper");
+System.out.println(acl);
+```
+
+## Query contract method acl
+
+```java
+XchainOuterClass.AclStatus acl = c.queryContractMethodACL("counter", "increase");
+System.out.println(acl);
+```
 

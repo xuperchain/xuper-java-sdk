@@ -48,6 +48,80 @@ public class XuperClient {
         }
     }
 
+    public XchainOuterClass.Block getBlockByHeight(long height) {
+        XchainOuterClass.Block block = getBlockingClient().getBlockByHeight(XchainOuterClass.BlockHeight.newBuilder()
+                .setBcname(chainName)
+                .setHeight(height)
+                .build());
+
+        Common.checkResponseHeader(block.getHeader(), "get block by height");
+        return block;
+    }
+
+    public XchainOuterClass.AK2AccountResponse getAccountByAK(String address) {
+        XchainOuterClass.AK2AccountResponse response = getBlockingClient().getAccountByAK(XchainOuterClass.AK2AccountRequest.newBuilder()
+                .setBcname(chainName)
+                .setAddress(address)
+                .build());
+
+        Common.checkResponseHeader(response.getHeader(), "get account by AK");
+        return response;
+    }
+
+    public XchainOuterClass.UtxoRecordDetail queryUtxoRecord(String address, long utxoItemNum) {
+        XchainOuterClass.UtxoRecordDetail detail = getBlockingClient().queryUtxoRecord(XchainOuterClass.UtxoRecordDetail.newBuilder()
+                .setAccountName(address)
+                .setDisplayCount(utxoItemNum)
+                .setBcname(chainName)
+                .build());
+
+        Common.checkResponseHeader(detail.getHeader(), "query UTXO record");
+        return detail;
+    }
+
+    public XchainOuterClass.GetAccountContractsResponse getAccountContracts(String contractAccount) {
+        XchainOuterClass.GetAccountContractsResponse response = getBlockingClient().getAccountContracts(XchainOuterClass.GetAccountContractsRequest.newBuilder()
+                .setBcname(chainName)
+                .setAccount(contractAccount)
+                .build());
+
+        Common.checkResponseHeader(response.getHeader(), "get account contracts");
+        return response;
+    }
+
+    public XchainOuterClass.AddressContractsResponse getAddressContracts(String address, Boolean verbose) {
+        XchainOuterClass.AddressContractsResponse response = getBlockingClient().getAddressContracts(XchainOuterClass.AddressContractsRequest.newBuilder()
+                .setBcname(chainName)
+                .setAddress(address)
+                .setNeedContent(verbose)
+                .build());
+
+        Common.checkResponseHeader(response.getHeader(), "get address contracts");
+        return response;
+    }
+
+    public XchainOuterClass.AclStatus queryAccountACL(String account) {
+        XchainOuterClass.AclStatus aclStatus = getBlockingClient().queryACL(XchainOuterClass.AclStatus.newBuilder()
+                .setBcname(chainName)
+                .setAccountName(account)
+                .build());
+
+        Common.checkResponseHeader(aclStatus.getHeader(), "query account ACL");
+        return aclStatus;
+    }
+
+    public XchainOuterClass.AclStatus queryContractMethodACL(String contract, String method) {
+        XchainOuterClass.AclStatus aclStatus = getBlockingClient().queryACL(XchainOuterClass.AclStatus.newBuilder()
+                .setBcname(chainName)
+                .setContractName(contract)
+                .setMethodName(method)
+                .build());
+
+        Common.checkResponseHeader(aclStatus.getHeader(), "query contract method ACL");
+        return aclStatus;
+    }
+
+
     /**
      * @param name name of chain
      * @return

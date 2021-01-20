@@ -431,6 +431,14 @@ public final class XchainOuterClass {
          * <code>UNCONFIRM = 4;</code>
          */
         UNCONFIRM(4),
+        /**
+         * <pre>
+         * Transaction occurs error
+         * </pre>
+         *
+         * <code>FAILED = 5;</code>
+         */
+        FAILED(5),
         UNRECOGNIZED(-1),
         ;
 
@@ -474,6 +482,14 @@ public final class XchainOuterClass {
          * <code>UNCONFIRM = 4;</code>
          */
         public static final int UNCONFIRM_VALUE = 4;
+        /**
+         * <pre>
+         * Transaction occurs error
+         * </pre>
+         *
+         * <code>FAILED = 5;</code>
+         */
+        public static final int FAILED_VALUE = 5;
 
 
         public final int getNumber() {
@@ -500,6 +516,8 @@ public final class XchainOuterClass {
                     return FURCATION;
                 case 4:
                     return UNCONFIRM;
+                case 5:
+                    return FAILED;
                 default:
                     return null;
             }
@@ -1179,7 +1197,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Header, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Header)
                 com.baidu.xuper.pb.XchainOuterClass.HeaderOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Header.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Header.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -1836,7 +1854,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxDataAccount, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxDataAccount)
                 com.baidu.xuper.pb.XchainOuterClass.TxDataAccountOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxDataAccount.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxDataAccount.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -3302,7 +3320,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxData, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxData)
                 com.baidu.xuper.pb.XchainOuterClass.TxDataOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxData.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxData.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -4729,7 +4747,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxStatus)
                 com.baidu.xuper.pb.XchainOuterClass.TxStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -5505,7 +5523,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BatchTxs, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BatchTxs)
                 com.baidu.xuper.pb.XchainOuterClass.BatchTxsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BatchTxs.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BatchTxs.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -6322,7 +6340,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Block, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Block)
                 com.baidu.xuper.pb.XchainOuterClass.BlockOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Block.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Block.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -7041,7 +7059,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BlockID, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BlockID)
                 com.baidu.xuper.pb.XchainOuterClass.BlockIDOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BlockID.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BlockID.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -7633,7 +7651,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BlockHeight, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BlockHeight)
                 com.baidu.xuper.pb.XchainOuterClass.BlockHeightOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BlockHeight.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BlockHeight.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -8073,7 +8091,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.CommonReply, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.CommonReply)
                 com.baidu.xuper.pb.XchainOuterClass.CommonReplyOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.CommonReply.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CommonReply.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -8429,7 +8447,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.CommonIn, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.CommonIn)
                 com.baidu.xuper.pb.XchainOuterClass.CommonInOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.CommonIn.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CommonIn.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -8910,7 +8928,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TokenDetail, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TokenDetail)
                 com.baidu.xuper.pb.XchainOuterClass.TokenDetailOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TokenDetail.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TokenDetail.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -9582,7 +9600,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AddressStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AddressStatus)
                 com.baidu.xuper.pb.XchainOuterClass.AddressStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AddressStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AddressStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -10143,7 +10161,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetail, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TokenFrozenDetail)
                 com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetailOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TokenFrozenDetail.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetail.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -10732,7 +10750,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetails, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TokenFrozenDetails)
                 com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetailsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TokenFrozenDetails.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetails.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -11473,7 +11491,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AddressBalanceStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AddressBalanceStatus)
                 com.baidu.xuper.pb.XchainOuterClass.AddressBalanceStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AddressBalanceStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AddressBalanceStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -12216,7 +12234,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxInput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxInput)
                 com.baidu.xuper.pb.XchainOuterClass.TxInputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxInput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxInput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -12829,7 +12847,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxOutput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxOutput)
                 com.baidu.xuper.pb.XchainOuterClass.TxOutputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxOutput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxOutput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -13327,7 +13345,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.XuperSignature, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.XuperSignature)
                 com.baidu.xuper.pb.XchainOuterClass.XuperSignatureOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.XuperSignature.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.XuperSignature.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -13880,6 +13898,24 @@ public final class XchainOuterClass {
          * <code>optional .pb.ModifyBlock modify_block = 32;</code>
          */
         com.baidu.xuper.pb.XchainOuterClass.ModifyBlock getModifyBlock();
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        boolean hasHDInfo();
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.HDInfo getHDInfo();
     }
 
     /**
@@ -15829,6 +15865,89 @@ public final class XchainOuterClass {
 
         }
 
+        public static final int HD_INFO_FIELD_NUMBER = 33;
+        private com.baidu.xuper.pb.XchainOuterClass.HDInfo hDInfo_;
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        public boolean hasHDInfo() {
+            return hDInfo_ != null;
+        }
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.HDInfo getHDInfo() {
+            return hDInfo_ == null ? com.baidu.xuper.pb.XchainOuterClass.HDInfo.getDefaultInstance() : hDInfo_;
+        }
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        private void setHDInfo(com.baidu.xuper.pb.XchainOuterClass.HDInfo value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            hDInfo_ = value;
+
+        }
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        private void setHDInfo(
+                com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder builderForValue) {
+            hDInfo_ = builderForValue.build();
+
+        }
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        private void mergeHDInfo(com.baidu.xuper.pb.XchainOuterClass.HDInfo value) {
+            if (hDInfo_ != null &&
+                    hDInfo_ != com.baidu.xuper.pb.XchainOuterClass.HDInfo.getDefaultInstance()) {
+                hDInfo_ =
+                        com.baidu.xuper.pb.XchainOuterClass.HDInfo.newBuilder(hDInfo_).mergeFrom(value).buildPartial();
+            } else {
+                hDInfo_ = value;
+            }
+
+        }
+
+        /**
+         * <pre>
+         * HD加解密相关信息
+         * </pre>
+         *
+         * <code>optional .pb.HDInfo HD_info = 33;</code>
+         */
+        private void clearHDInfo() {
+            hDInfo_ = null;
+
+        }
+
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (!txid_.isEmpty()) {
@@ -15890,6 +16009,9 @@ public final class XchainOuterClass {
             }
             if (modifyBlock_ != null) {
                 output.writeMessage(32, getModifyBlock());
+            }
+            if (hDInfo_ != null) {
+                output.writeMessage(33, getHDInfo());
             }
         }
 
@@ -15982,6 +16104,10 @@ public final class XchainOuterClass {
             if (modifyBlock_ != null) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeMessageSize(32, getModifyBlock());
+            }
+            if (hDInfo_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(33, getHDInfo());
             }
             memoizedSerializedSize = size;
             return size;
@@ -16077,7 +16203,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Transaction, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Transaction)
                 com.baidu.xuper.pb.XchainOuterClass.TransactionOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Transaction.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Transaction.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -17733,6 +17859,81 @@ public final class XchainOuterClass {
                 return this;
             }
 
+            /**
+             * <pre>
+             * HD加解密相关信息
+             * </pre>
+             *
+             * <code>optional .pb.HDInfo HD_info = 33;</code>
+             */
+            public boolean hasHDInfo() {
+                return instance.hasHDInfo();
+            }
+
+            /**
+             * <pre>
+             * HD加解密相关信息
+             * </pre>
+             *
+             * <code>optional .pb.HDInfo HD_info = 33;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.HDInfo getHDInfo() {
+                return instance.getHDInfo();
+            }
+
+            /**
+             * <pre>
+             * HD加解密相关信息
+             * </pre>
+             *
+             * <code>optional .pb.HDInfo HD_info = 33;</code>
+             */
+            public Builder setHDInfo(com.baidu.xuper.pb.XchainOuterClass.HDInfo value) {
+                copyOnWrite();
+                instance.setHDInfo(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * HD加解密相关信息
+             * </pre>
+             *
+             * <code>optional .pb.HDInfo HD_info = 33;</code>
+             */
+            public Builder setHDInfo(
+                    com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder builderForValue) {
+                copyOnWrite();
+                instance.setHDInfo(builderForValue);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * HD加解密相关信息
+             * </pre>
+             *
+             * <code>optional .pb.HDInfo HD_info = 33;</code>
+             */
+            public Builder mergeHDInfo(com.baidu.xuper.pb.XchainOuterClass.HDInfo value) {
+                copyOnWrite();
+                instance.mergeHDInfo(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * HD加解密相关信息
+             * </pre>
+             *
+             * <code>optional .pb.HDInfo HD_info = 33;</code>
+             */
+            public Builder clearHDInfo() {
+                copyOnWrite();
+                instance.clearHDInfo();
+                return this;
+            }
+
             // @@protoc_insertion_point(builder_scope:pb.Transaction)
         }
 
@@ -17793,6 +17994,7 @@ public final class XchainOuterClass {
                             other.receivedTimestamp_ != 0L, other.receivedTimestamp_);
                     xuperSign_ = visitor.visitMessage(xuperSign_, other.xuperSign_);
                     modifyBlock_ = visitor.visitMessage(modifyBlock_, other.modifyBlock_);
+                    hDInfo_ = visitor.visitMessage(hDInfo_, other.hDInfo_);
                     if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
                             .INSTANCE) {
                         bitField0_ |= other.bitField0_;
@@ -17964,6 +18166,19 @@ public final class XchainOuterClass {
                                     if (subBuilder != null) {
                                         subBuilder.mergeFrom(modifyBlock_);
                                         modifyBlock_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 266: {
+                                    com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder subBuilder = null;
+                                    if (hDInfo_ != null) {
+                                        subBuilder = hDInfo_.toBuilder();
+                                    }
+                                    hDInfo_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.HDInfo.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(hDInfo_);
+                                        hDInfo_ = subBuilder.buildPartial();
                                     }
 
                                     break;
@@ -18309,7 +18524,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.LedgerMeta, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.LedgerMeta)
                 com.baidu.xuper.pb.XchainOuterClass.LedgerMetaOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.LedgerMeta.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.LedgerMeta.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -18704,6 +18919,24 @@ public final class XchainOuterClass {
          * <code>optional .pb.GasPrice gasPrice = 12;</code>
          */
         com.baidu.xuper.pb.XchainOuterClass.GasPrice getGasPrice();
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        boolean hasGroupChainContract();
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.InvokeRequest getGroupChainContract();
     }
 
     /**
@@ -19492,6 +19725,89 @@ public final class XchainOuterClass {
 
         }
 
+        public static final int GROUP_CHAIN_CONTRACT_FIELD_NUMBER = 13;
+        private com.baidu.xuper.pb.XchainOuterClass.InvokeRequest groupChainContract_;
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        public boolean hasGroupChainContract() {
+            return groupChainContract_ != null;
+        }
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.InvokeRequest getGroupChainContract() {
+            return groupChainContract_ == null ? com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.getDefaultInstance() : groupChainContract_;
+        }
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        private void setGroupChainContract(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            groupChainContract_ = value;
+
+        }
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        private void setGroupChainContract(
+                com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.Builder builderForValue) {
+            groupChainContract_ = builderForValue.build();
+
+        }
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        private void mergeGroupChainContract(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+            if (groupChainContract_ != null &&
+                    groupChainContract_ != com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.getDefaultInstance()) {
+                groupChainContract_ =
+                        com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.newBuilder(groupChainContract_).mergeFrom(value).buildPartial();
+            } else {
+                groupChainContract_ = value;
+            }
+
+        }
+
+        /**
+         * <pre>
+         * 群组合约相关
+         * </pre>
+         *
+         * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+         */
+        private void clearGroupChainContract() {
+            groupChainContract_ = null;
+
+        }
+
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (!latestBlockid_.isEmpty()) {
@@ -19529,6 +19845,9 @@ public final class XchainOuterClass {
             }
             if (gasPrice_ != null) {
                 output.writeMessage(12, getGasPrice());
+            }
+            if (groupChainContract_ != null) {
+                output.writeMessage(13, getGroupChainContract());
             }
         }
 
@@ -19589,6 +19908,10 @@ public final class XchainOuterClass {
             if (gasPrice_ != null) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeMessageSize(12, getGasPrice());
+            }
+            if (groupChainContract_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(13, getGroupChainContract());
             }
             memoizedSerializedSize = size;
             return size;
@@ -19684,7 +20007,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.UtxoMeta, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.UtxoMeta)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoMetaOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.UtxoMeta.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoMeta.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -20376,6 +20699,81 @@ public final class XchainOuterClass {
                 return this;
             }
 
+            /**
+             * <pre>
+             * 群组合约相关
+             * </pre>
+             *
+             * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+             */
+            public boolean hasGroupChainContract() {
+                return instance.hasGroupChainContract();
+            }
+
+            /**
+             * <pre>
+             * 群组合约相关
+             * </pre>
+             *
+             * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.InvokeRequest getGroupChainContract() {
+                return instance.getGroupChainContract();
+            }
+
+            /**
+             * <pre>
+             * 群组合约相关
+             * </pre>
+             *
+             * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+             */
+            public Builder setGroupChainContract(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+                copyOnWrite();
+                instance.setGroupChainContract(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 群组合约相关
+             * </pre>
+             *
+             * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+             */
+            public Builder setGroupChainContract(
+                    com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.Builder builderForValue) {
+                copyOnWrite();
+                instance.setGroupChainContract(builderForValue);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 群组合约相关
+             * </pre>
+             *
+             * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+             */
+            public Builder mergeGroupChainContract(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+                copyOnWrite();
+                instance.mergeGroupChainContract(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * 群组合约相关
+             * </pre>
+             *
+             * <code>optional .pb.InvokeRequest group_chain_contract = 13;</code>
+             */
+            public Builder clearGroupChainContract() {
+                copyOnWrite();
+                instance.clearGroupChainContract();
+                return this;
+            }
+
             // @@protoc_insertion_point(builder_scope:pb.UtxoMeta)
         }
 
@@ -20420,6 +20818,7 @@ public final class XchainOuterClass {
                     irreversibleSlideWindow_ = visitor.visitLong(irreversibleSlideWindow_ != 0L, irreversibleSlideWindow_,
                             other.irreversibleSlideWindow_ != 0L, other.irreversibleSlideWindow_);
                     gasPrice_ = visitor.visitMessage(gasPrice_, other.gasPrice_);
+                    groupChainContract_ = visitor.visitMessage(groupChainContract_, other.groupChainContract_);
                     if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
                             .INSTANCE) {
                         bitField0_ |= other.bitField0_;
@@ -20526,6 +20925,19 @@ public final class XchainOuterClass {
                                     if (subBuilder != null) {
                                         subBuilder.mergeFrom(gasPrice_);
                                         gasPrice_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 106: {
+                                    com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.Builder subBuilder = null;
+                                    if (groupChainContract_ != null) {
+                                        subBuilder = groupChainContract_.toBuilder();
+                                    }
+                                    groupChainContract_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(groupChainContract_);
+                                        groupChainContract_ = subBuilder.buildPartial();
                                     }
 
                                     break;
@@ -20845,7 +21257,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.GasPrice, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.GasPrice)
                 com.baidu.xuper.pb.XchainOuterClass.GasPriceOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.GasPrice.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.GasPrice.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -22728,7 +23140,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InternalBlock, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InternalBlock)
                 com.baidu.xuper.pb.XchainOuterClass.InternalBlockOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InternalBlock.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InternalBlock.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -24821,7 +25233,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BCStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BCStatus)
                 com.baidu.xuper.pb.XchainOuterClass.BCStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BCStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BCStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -25682,7 +26094,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BCTipStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BCTipStatus)
                 com.baidu.xuper.pb.XchainOuterClass.BCTipStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BCTipStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BCTipStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -26200,7 +26612,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BlockChains, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BlockChains)
                 com.baidu.xuper.pb.XchainOuterClass.BlockChainsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BlockChains.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BlockChains.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -26876,7 +27288,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Speeds, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Speeds)
                 com.baidu.xuper.pb.XchainOuterClass.SpeedsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Speeds.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Speeds.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -27484,7 +27896,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BCSpeeds, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BCSpeeds)
                 com.baidu.xuper.pb.XchainOuterClass.BCSpeedsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BCSpeeds.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BCSpeeds.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -28258,7 +28670,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.SystemsStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.SystemsStatus)
                 com.baidu.xuper.pb.XchainOuterClass.SystemsStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.SystemsStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.SystemsStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -28967,7 +29379,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.SystemsStatusReply, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.SystemsStatusReply)
                 com.baidu.xuper.pb.XchainOuterClass.SystemsStatusReplyOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.SystemsStatusReply.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.SystemsStatusReply.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -29466,7 +29878,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.RawUrl, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.RawUrl)
                 com.baidu.xuper.pb.XchainOuterClass.RawUrlOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.RawUrl.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.RawUrl.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -30004,7 +30416,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Utxo, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Utxo)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Utxo.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Utxo.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -30967,7 +31379,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.UtxoInput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.UtxoInput)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoInputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.UtxoInput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoInput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -32066,7 +32478,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.UtxoOutput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.UtxoOutput)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoOutputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.UtxoOutput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoOutput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -33017,7 +33429,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeDesc, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeDesc)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeDescOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeDesc.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeDesc.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -33462,6 +33874,17 @@ public final class XchainOuterClass {
          */
         com.google.protobuf.ByteString
         getVmCompilerBytes();
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        java.lang.String getContractType();
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        com.google.protobuf.ByteString
+        getContractTypeBytes();
     }
 
     /**
@@ -33477,6 +33900,7 @@ public final class XchainOuterClass {
             compiler_ = "";
             digest_ = com.google.protobuf.ByteString.EMPTY;
             vmCompiler_ = "";
+            contractType_ = "";
         }
 
         public static final int RUNTIME_FIELD_NUMBER = 1;
@@ -33661,6 +34085,57 @@ public final class XchainOuterClass {
             vmCompiler_ = value.toStringUtf8();
         }
 
+        public static final int CONTRACT_TYPE_FIELD_NUMBER = 5;
+        private java.lang.String contractType_;
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        public java.lang.String getContractType() {
+            return contractType_;
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        public com.google.protobuf.ByteString
+        getContractTypeBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(contractType_);
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        private void setContractType(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            contractType_ = value;
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        private void clearContractType() {
+
+            contractType_ = getDefaultInstance().getContractType();
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        private void setContractTypeBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            contractType_ = value.toStringUtf8();
+        }
+
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (!runtime_.isEmpty()) {
@@ -33674,6 +34149,9 @@ public final class XchainOuterClass {
             }
             if (!vmCompiler_.isEmpty()) {
                 output.writeString(4, getVmCompiler());
+            }
+            if (!contractType_.isEmpty()) {
+                output.writeString(5, getContractType());
             }
         }
 
@@ -33697,6 +34175,10 @@ public final class XchainOuterClass {
             if (!vmCompiler_.isEmpty()) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeStringSize(4, getVmCompiler());
+            }
+            if (!contractType_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(5, getContractType());
             }
             memoizedSerializedSize = size;
             return size;
@@ -33788,7 +34270,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.WasmCodeDesc, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.WasmCodeDesc)
                 com.baidu.xuper.pb.XchainOuterClass.WasmCodeDescOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.WasmCodeDesc.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.WasmCodeDesc.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -33951,6 +34433,50 @@ public final class XchainOuterClass {
                 return this;
             }
 
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public java.lang.String getContractType() {
+                return instance.getContractType();
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public com.google.protobuf.ByteString
+            getContractTypeBytes() {
+                return instance.getContractTypeBytes();
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public Builder setContractType(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setContractType(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public Builder clearContractType() {
+                copyOnWrite();
+                instance.clearContractType();
+                return this;
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public Builder setContractTypeBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setContractTypeBytes(value);
+                return this;
+            }
+
             // @@protoc_insertion_point(builder_scope:pb.WasmCodeDesc)
         }
 
@@ -33981,6 +34507,8 @@ public final class XchainOuterClass {
                             other.digest_ != com.google.protobuf.ByteString.EMPTY, other.digest_);
                     vmCompiler_ = visitor.visitString(!vmCompiler_.isEmpty(), vmCompiler_,
                             !other.vmCompiler_.isEmpty(), other.vmCompiler_);
+                    contractType_ = visitor.visitString(!contractType_.isEmpty(), contractType_,
+                            !other.contractType_.isEmpty(), other.contractType_);
                     if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
                             .INSTANCE) {
                     }
@@ -34026,6 +34554,12 @@ public final class XchainOuterClass {
                                     String s = input.readStringRequireUtf8();
 
                                     vmCompiler_ = s;
+                                    break;
+                                }
+                                case 42: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    contractType_ = s;
                                     break;
                                 }
                             }
@@ -34745,7 +35279,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DeployNativeCodeRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DeployNativeCodeRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -35466,7 +36000,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DeployNativeCodeResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DeployNativeCodeResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -35898,7 +36432,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeStatus)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -36388,7 +36922,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeStatusRequest)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeStatusRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -36955,7 +37489,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeStatusResponse)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeStatusResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -37510,7 +38044,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCandidatesRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCandidatesRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposCandidatesRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCandidatesRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCandidatesRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -38056,7 +38590,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCandidatesResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCandidatesResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposCandidatesResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCandidatesResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCandidatesResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -38652,7 +39186,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNominateRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNominateRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -39184,7 +39718,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNominateInfo, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNominateInfo)
                 com.baidu.xuper.pb.XchainOuterClass.DposNominateInfoOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNominateInfo.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNominateInfo.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -39746,7 +40280,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNominateRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNominateRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -40371,7 +40905,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNomineeRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNomineeRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -40909,7 +41443,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNomineeRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNomineeRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -41465,7 +41999,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVoteRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVoteRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -41997,7 +42531,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.voteRecord, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.voteRecord)
                 com.baidu.xuper.pb.XchainOuterClass.voteRecordOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.voteRecord.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.voteRecord.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -42627,7 +43161,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVoteRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVoteRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -43300,7 +43834,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVotedRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVotedRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -43832,7 +44366,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.votedRecord, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.votedRecord)
                 com.baidu.xuper.pb.XchainOuterClass.votedRecordOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.votedRecord.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.votedRecord.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -44462,7 +44996,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVotedRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVotedRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -45103,7 +45637,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCheckResultsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCheckResultsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -45719,7 +46253,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCheckResultsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCheckResultsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -46277,7 +46811,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposStatusRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposStatusRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposStatusRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposStatusRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposStatusRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -46769,7 +47303,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposStatusResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposStatusResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposStatusResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposStatusResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposStatusResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -47428,7 +47962,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposStatus)
                 com.baidu.xuper.pb.XchainOuterClass.DposStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -48387,7 +48921,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeRPCRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeRPCRequest)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeRPCRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeRPCRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeRPCRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -49205,7 +49739,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeRPCResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeRPCResponse)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeRPCResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeRPCResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeRPCResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -50236,7 +50770,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeRequest)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -52022,7 +52556,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeResponse)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -53261,7 +53795,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxInputExt, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxInputExt)
                 com.baidu.xuper.pb.XchainOuterClass.TxInputExtOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxInputExt.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxInputExt.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -53786,7 +54320,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxOutputExt, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxOutputExt)
                 com.baidu.xuper.pb.XchainOuterClass.TxOutputExtOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxOutputExt.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxOutputExt.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -54237,7 +54771,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.SignatureInfo, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.SignatureInfo)
                 com.baidu.xuper.pb.XchainOuterClass.SignatureInfoOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.SignatureInfo.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -54651,7 +55185,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.PermissionModel, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.PermissionModel)
                 com.baidu.xuper.pb.XchainOuterClass.PermissionModelOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.PermissionModel.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.PermissionModel.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -55147,7 +55681,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AkSet, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AkSet)
                 com.baidu.xuper.pb.XchainOuterClass.AkSetOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AkSet.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AkSet.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -55780,7 +56314,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AkSets, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AkSets)
                 com.baidu.xuper.pb.XchainOuterClass.AkSetsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AkSets.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AkSets.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -56602,7 +57136,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Acl, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Acl)
                 com.baidu.xuper.pb.XchainOuterClass.AclOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Acl.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Acl.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -57598,7 +58132,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AclStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AclStatus)
                 com.baidu.xuper.pb.XchainOuterClass.AclStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AclStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AclStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -58485,7 +59019,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.IdentityAuth, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.IdentityAuth)
                 com.baidu.xuper.pb.XchainOuterClass.IdentityAuthOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.IdentityAuth.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.IdentityAuth.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -59086,7 +59620,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.IdentityAuths, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.IdentityAuths)
                 com.baidu.xuper.pb.XchainOuterClass.IdentityAuthsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.IdentityAuths.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.IdentityAuths.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -59520,7 +60054,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ResourceLimit, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ResourceLimit)
                 com.baidu.xuper.pb.XchainOuterClass.ResourceLimitOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ResourceLimit.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ResourceLimit.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -60031,7 +60565,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AK2AccountRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AK2AccountRequest)
                 com.baidu.xuper.pb.XchainOuterClass.AK2AccountRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AK2AccountRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AK2AccountRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -60691,7 +61225,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AK2AccountResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AK2AccountResponse)
                 com.baidu.xuper.pb.XchainOuterClass.AK2AccountResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AK2AccountResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AK2AccountResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -61339,7 +61873,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.GetAccountContractsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.GetAccountContractsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -61966,7 +62500,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.GetAccountContractsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.GetAccountContractsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -62287,6 +62821,22 @@ public final class XchainOuterClass {
          * <code>optional bool is_banned = 4;</code>
          */
         boolean getIsBanned();
+
+        /**
+         * <code>optional int64 timestamp = 5;</code>
+         */
+        long getTimestamp();
+
+        /**
+         * <code>optional string runtime = 6;</code>
+         */
+        java.lang.String getRuntime();
+
+        /**
+         * <code>optional string runtime = 6;</code>
+         */
+        com.google.protobuf.ByteString
+        getRuntimeBytes();
     }
 
     /**
@@ -62305,6 +62855,7 @@ public final class XchainOuterClass {
             contractName_ = "";
             txid_ = "";
             desc_ = com.google.protobuf.ByteString.EMPTY;
+            runtime_ = "";
         }
 
         public static final int CONTRACT_NAME_FIELD_NUMBER = 1;
@@ -62464,6 +63015,83 @@ public final class XchainOuterClass {
             isBanned_ = false;
         }
 
+        public static final int TIMESTAMP_FIELD_NUMBER = 5;
+        private long timestamp_;
+
+        /**
+         * <code>optional int64 timestamp = 5;</code>
+         */
+        public long getTimestamp() {
+            return timestamp_;
+        }
+
+        /**
+         * <code>optional int64 timestamp = 5;</code>
+         */
+        private void setTimestamp(long value) {
+
+            timestamp_ = value;
+        }
+
+        /**
+         * <code>optional int64 timestamp = 5;</code>
+         */
+        private void clearTimestamp() {
+
+            timestamp_ = 0L;
+        }
+
+        public static final int RUNTIME_FIELD_NUMBER = 6;
+        private java.lang.String runtime_;
+
+        /**
+         * <code>optional string runtime = 6;</code>
+         */
+        public java.lang.String getRuntime() {
+            return runtime_;
+        }
+
+        /**
+         * <code>optional string runtime = 6;</code>
+         */
+        public com.google.protobuf.ByteString
+        getRuntimeBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(runtime_);
+        }
+
+        /**
+         * <code>optional string runtime = 6;</code>
+         */
+        private void setRuntime(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            runtime_ = value;
+        }
+
+        /**
+         * <code>optional string runtime = 6;</code>
+         */
+        private void clearRuntime() {
+
+            runtime_ = getDefaultInstance().getRuntime();
+        }
+
+        /**
+         * <code>optional string runtime = 6;</code>
+         */
+        private void setRuntimeBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            runtime_ = value.toStringUtf8();
+        }
+
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (!contractName_.isEmpty()) {
@@ -62477,6 +63105,12 @@ public final class XchainOuterClass {
             }
             if (isBanned_ != false) {
                 output.writeBool(4, isBanned_);
+            }
+            if (timestamp_ != 0L) {
+                output.writeInt64(5, timestamp_);
+            }
+            if (!runtime_.isEmpty()) {
+                output.writeString(6, getRuntime());
             }
         }
 
@@ -62500,6 +63134,14 @@ public final class XchainOuterClass {
             if (isBanned_ != false) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeBoolSize(4, isBanned_);
+            }
+            if (timestamp_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(5, timestamp_);
+            }
+            if (!runtime_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(6, getRuntime());
             }
             memoizedSerializedSize = size;
             return size;
@@ -62595,7 +63237,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ContractStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ContractStatus)
                 com.baidu.xuper.pb.XchainOuterClass.ContractStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ContractStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -62739,6 +63381,75 @@ public final class XchainOuterClass {
                 return this;
             }
 
+            /**
+             * <code>optional int64 timestamp = 5;</code>
+             */
+            public long getTimestamp() {
+                return instance.getTimestamp();
+            }
+
+            /**
+             * <code>optional int64 timestamp = 5;</code>
+             */
+            public Builder setTimestamp(long value) {
+                copyOnWrite();
+                instance.setTimestamp(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 timestamp = 5;</code>
+             */
+            public Builder clearTimestamp() {
+                copyOnWrite();
+                instance.clearTimestamp();
+                return this;
+            }
+
+            /**
+             * <code>optional string runtime = 6;</code>
+             */
+            public java.lang.String getRuntime() {
+                return instance.getRuntime();
+            }
+
+            /**
+             * <code>optional string runtime = 6;</code>
+             */
+            public com.google.protobuf.ByteString
+            getRuntimeBytes() {
+                return instance.getRuntimeBytes();
+            }
+
+            /**
+             * <code>optional string runtime = 6;</code>
+             */
+            public Builder setRuntime(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setRuntime(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string runtime = 6;</code>
+             */
+            public Builder clearRuntime() {
+                copyOnWrite();
+                instance.clearRuntime();
+                return this;
+            }
+
+            /**
+             * <code>optional string runtime = 6;</code>
+             */
+            public Builder setRuntimeBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setRuntimeBytes(value);
+                return this;
+            }
+
             // @@protoc_insertion_point(builder_scope:pb.ContractStatus)
         }
 
@@ -62769,6 +63480,10 @@ public final class XchainOuterClass {
                             other.desc_ != com.google.protobuf.ByteString.EMPTY, other.desc_);
                     isBanned_ = visitor.visitBoolean(isBanned_ != false, isBanned_,
                             other.isBanned_ != false, other.isBanned_);
+                    timestamp_ = visitor.visitLong(timestamp_ != 0L, timestamp_,
+                            other.timestamp_ != 0L, other.timestamp_);
+                    runtime_ = visitor.visitString(!runtime_.isEmpty(), runtime_,
+                            !other.runtime_.isEmpty(), other.runtime_);
                     if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
                             .INSTANCE) {
                     }
@@ -62813,6 +63528,17 @@ public final class XchainOuterClass {
                                 case 32: {
 
                                     isBanned_ = input.readBool();
+                                    break;
+                                }
+                                case 40: {
+
+                                    timestamp_ = input.readInt64();
+                                    break;
+                                }
+                                case 50: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    runtime_ = s;
                                     break;
                                 }
                             }
@@ -63430,7 +64156,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXORequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.PreExecWithSelectUTXORequest)
                 com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXORequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -64346,7 +65072,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXOResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.PreExecWithSelectUTXOResponse)
                 com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXOResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.PreExecWithSelectUTXOResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXOResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -64990,7 +65716,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ContractResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ContractResponse)
                 com.baidu.xuper.pb.XchainOuterClass.ContractResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ContractResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -65723,7 +66449,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ModifyBlock, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ModifyBlock)
                 com.baidu.xuper.pb.XchainOuterClass.ModifyBlockOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ModifyBlock.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ModifyBlock.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -66123,6 +66849,9798 @@ public final class XchainOuterClass {
         private static volatile com.google.protobuf.Parser<ModifyBlock> PARSER;
 
         public static com.google.protobuf.Parser<ModifyBlock> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface HDInfoOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.HDInfo)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <pre>
+         * HDPublickey
+         * </pre>
+         *
+         * <code>optional bytes hd_public_key = 1;</code>
+         */
+        com.google.protobuf.ByteString getHdPublicKey();
+
+        /**
+         * <pre>
+         * original_hash
+         * </pre>
+         *
+         * <code>optional bytes original_hash = 2;</code>
+         */
+        com.google.protobuf.ByteString getOriginalHash();
+    }
+
+    /**
+     * Protobuf type {@code pb.HDInfo}
+     */
+    public static final class HDInfo extends
+            com.google.protobuf.GeneratedMessageLite<
+                    HDInfo, HDInfo.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.HDInfo)
+            HDInfoOrBuilder {
+        private HDInfo() {
+            hdPublicKey_ = com.google.protobuf.ByteString.EMPTY;
+            originalHash_ = com.google.protobuf.ByteString.EMPTY;
+        }
+
+        public static final int HD_PUBLIC_KEY_FIELD_NUMBER = 1;
+        private com.google.protobuf.ByteString hdPublicKey_;
+
+        /**
+         * <pre>
+         * HDPublickey
+         * </pre>
+         *
+         * <code>optional bytes hd_public_key = 1;</code>
+         */
+        public com.google.protobuf.ByteString getHdPublicKey() {
+            return hdPublicKey_;
+        }
+
+        /**
+         * <pre>
+         * HDPublickey
+         * </pre>
+         *
+         * <code>optional bytes hd_public_key = 1;</code>
+         */
+        private void setHdPublicKey(com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            hdPublicKey_ = value;
+        }
+
+        /**
+         * <pre>
+         * HDPublickey
+         * </pre>
+         *
+         * <code>optional bytes hd_public_key = 1;</code>
+         */
+        private void clearHdPublicKey() {
+
+            hdPublicKey_ = getDefaultInstance().getHdPublicKey();
+        }
+
+        public static final int ORIGINAL_HASH_FIELD_NUMBER = 2;
+        private com.google.protobuf.ByteString originalHash_;
+
+        /**
+         * <pre>
+         * original_hash
+         * </pre>
+         *
+         * <code>optional bytes original_hash = 2;</code>
+         */
+        public com.google.protobuf.ByteString getOriginalHash() {
+            return originalHash_;
+        }
+
+        /**
+         * <pre>
+         * original_hash
+         * </pre>
+         *
+         * <code>optional bytes original_hash = 2;</code>
+         */
+        private void setOriginalHash(com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            originalHash_ = value;
+        }
+
+        /**
+         * <pre>
+         * original_hash
+         * </pre>
+         *
+         * <code>optional bytes original_hash = 2;</code>
+         */
+        private void clearOriginalHash() {
+
+            originalHash_ = getDefaultInstance().getOriginalHash();
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!hdPublicKey_.isEmpty()) {
+                output.writeBytes(1, hdPublicKey_);
+            }
+            if (!originalHash_.isEmpty()) {
+                output.writeBytes(2, originalHash_);
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!hdPublicKey_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeBytesSize(1, hdPublicKey_);
+            }
+            if (!originalHash_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeBytesSize(2, originalHash_);
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.HDInfo prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.HDInfo}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.HDInfo, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.HDInfo)
+                com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.HDInfo.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <pre>
+             * HDPublickey
+             * </pre>
+             *
+             * <code>optional bytes hd_public_key = 1;</code>
+             */
+            public com.google.protobuf.ByteString getHdPublicKey() {
+                return instance.getHdPublicKey();
+            }
+
+            /**
+             * <pre>
+             * HDPublickey
+             * </pre>
+             *
+             * <code>optional bytes hd_public_key = 1;</code>
+             */
+            public Builder setHdPublicKey(com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setHdPublicKey(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * HDPublickey
+             * </pre>
+             *
+             * <code>optional bytes hd_public_key = 1;</code>
+             */
+            public Builder clearHdPublicKey() {
+                copyOnWrite();
+                instance.clearHdPublicKey();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * original_hash
+             * </pre>
+             *
+             * <code>optional bytes original_hash = 2;</code>
+             */
+            public com.google.protobuf.ByteString getOriginalHash() {
+                return instance.getOriginalHash();
+            }
+
+            /**
+             * <pre>
+             * original_hash
+             * </pre>
+             *
+             * <code>optional bytes original_hash = 2;</code>
+             */
+            public Builder setOriginalHash(com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setOriginalHash(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * original_hash
+             * </pre>
+             *
+             * <code>optional bytes original_hash = 2;</code>
+             */
+            public Builder clearOriginalHash() {
+                copyOnWrite();
+                instance.clearOriginalHash();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.HDInfo)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.HDInfo();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.HDInfo other = (com.baidu.xuper.pb.XchainOuterClass.HDInfo) arg1;
+                    hdPublicKey_ = visitor.visitByteString(hdPublicKey_ != com.google.protobuf.ByteString.EMPTY, hdPublicKey_,
+                            other.hdPublicKey_ != com.google.protobuf.ByteString.EMPTY, other.hdPublicKey_);
+                    originalHash_ = visitor.visitByteString(originalHash_ != com.google.protobuf.ByteString.EMPTY, originalHash_,
+                            other.originalHash_ != com.google.protobuf.ByteString.EMPTY, other.originalHash_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+
+                                    hdPublicKey_ = input.readBytes();
+                                    break;
+                                }
+                                case 18: {
+
+                                    originalHash_ = input.readBytes();
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.HDInfo.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.HDInfo)
+        private static final com.baidu.xuper.pb.XchainOuterClass.HDInfo DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new HDInfo();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.HDInfo getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<HDInfo> PARSER;
+
+        public static com.google.protobuf.Parser<HDInfo> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface UtxoRecordDetailOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.UtxoRecordDetail)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        boolean hasHeader();
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.Header getHeader();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        java.lang.String getBcname();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        com.google.protobuf.ByteString
+        getBcnameBytes();
+
+        /**
+         * <code>optional string accountName = 3;</code>
+         */
+        java.lang.String getAccountName();
+
+        /**
+         * <code>optional string accountName = 3;</code>
+         */
+        com.google.protobuf.ByteString
+        getAccountNameBytes();
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        boolean hasOpenUtxoRecord();
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getOpenUtxoRecord();
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>setDisplayCount
+         */
+        boolean hasLockedUtxoRecord();
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getLockedUtxoRecord();
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        boolean hasFrozenUtxoRecord();
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getFrozenUtxoRecord();
+
+        /**
+         * <code>optional int64 displayCount = 7;</code>
+         */
+        long getDisplayCount();
+    }
+
+    /**
+     * Protobuf type {@code pb.UtxoRecordDetail}
+     */
+    public static final class UtxoRecordDetail extends
+            com.google.protobuf.GeneratedMessageLite<
+                    UtxoRecordDetail, UtxoRecordDetail.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.UtxoRecordDetail)
+            UtxoRecordDetailOrBuilder {
+        private UtxoRecordDetail() {
+            bcname_ = "";
+            accountName_ = "";
+        }
+
+        public static final int HEADER_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.Header header_;
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public boolean hasHeader() {
+            return header_ != null;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+            return header_ == null ? com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance() : header_;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            header_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(
+                com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+            header_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (header_ != null &&
+                    header_ != com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance()) {
+                header_ =
+                        com.baidu.xuper.pb.XchainOuterClass.Header.newBuilder(header_).mergeFrom(value).buildPartial();
+            } else {
+                header_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void clearHeader() {
+            header_ = null;
+
+        }
+
+        public static final int BCNAME_FIELD_NUMBER = 2;
+        private java.lang.String bcname_;
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public java.lang.String getBcname() {
+            return bcname_;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getBcnameBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(bcname_);
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcname(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            bcname_ = value;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void clearBcname() {
+
+            bcname_ = getDefaultInstance().getBcname();
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcnameBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            bcname_ = value.toStringUtf8();
+        }
+
+        public static final int ACCOUNTNAME_FIELD_NUMBER = 3;
+        private java.lang.String accountName_;
+
+        /**
+         * <code>optional string accountName = 3;</code>
+         */
+        public java.lang.String getAccountName() {
+            return accountName_;
+        }
+
+        /**
+         * <code>optional string accountName = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getAccountNameBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(accountName_);
+        }
+
+        /**
+         * <code>optional string accountName = 3;</code>
+         */
+        private void setAccountName(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            accountName_ = value;
+        }
+
+        /**
+         * <code>optional string accountName = 3;</code>
+         */
+        private void clearAccountName() {
+
+            accountName_ = getDefaultInstance().getAccountName();
+        }
+
+        /**
+         * <code>optional string accountName = 3;</code>
+         */
+        private void setAccountNameBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            accountName_ = value.toStringUtf8();
+        }
+
+        public static final int OPENUTXORECORD_FIELD_NUMBER = 4;
+        private com.baidu.xuper.pb.XchainOuterClass.UtxoRecord openUtxoRecord_;
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        public boolean hasOpenUtxoRecord() {
+            return openUtxoRecord_ != null;
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getOpenUtxoRecord() {
+            return openUtxoRecord_ == null ? com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.getDefaultInstance() : openUtxoRecord_;
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        private void setOpenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            openUtxoRecord_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        private void setOpenUtxoRecord(
+                com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder builderForValue) {
+            openUtxoRecord_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        private void mergeOpenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+            if (openUtxoRecord_ != null &&
+                    openUtxoRecord_ != com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.getDefaultInstance()) {
+                openUtxoRecord_ =
+                        com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.newBuilder(openUtxoRecord_).mergeFrom(value).buildPartial();
+            } else {
+                openUtxoRecord_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+         */
+        private void clearOpenUtxoRecord() {
+            openUtxoRecord_ = null;
+
+        }
+
+        public static final int LOCKEDUTXORECORD_FIELD_NUMBER = 5;
+        private com.baidu.xuper.pb.XchainOuterClass.UtxoRecord lockedUtxoRecord_;
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+         */
+        public boolean hasLockedUtxoRecord() {
+            return lockedUtxoRecord_ != null;
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getLockedUtxoRecord() {
+            return lockedUtxoRecord_ == null ? com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.getDefaultInstance() : lockedUtxoRecord_;
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+         */
+        private void setLockedUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            lockedUtxoRecord_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+         */
+        private void setLockedUtxoRecord(
+                com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder builderForValue) {
+            lockedUtxoRecord_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+         */
+        private void mergeLockedUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+            if (lockedUtxoRecord_ != null &&
+                    lockedUtxoRecord_ != com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.getDefaultInstance()) {
+                lockedUtxoRecord_ =
+                        com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.newBuilder(lockedUtxoRecord_).mergeFrom(value).buildPartial();
+            } else {
+                lockedUtxoRecord_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+         */
+        private void clearLockedUtxoRecord() {
+            lockedUtxoRecord_ = null;
+
+        }
+
+        public static final int FROZENUTXORECORD_FIELD_NUMBER = 6;
+        private com.baidu.xuper.pb.XchainOuterClass.UtxoRecord frozenUtxoRecord_;
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        public boolean hasFrozenUtxoRecord() {
+            return frozenUtxoRecord_ != null;
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getFrozenUtxoRecord() {
+            return frozenUtxoRecord_ == null ? com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.getDefaultInstance() : frozenUtxoRecord_;
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        private void setFrozenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            frozenUtxoRecord_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        private void setFrozenUtxoRecord(
+                com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder builderForValue) {
+            frozenUtxoRecord_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        private void mergeFrozenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+            if (frozenUtxoRecord_ != null &&
+                    frozenUtxoRecord_ != com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.getDefaultInstance()) {
+                frozenUtxoRecord_ =
+                        com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.newBuilder(frozenUtxoRecord_).mergeFrom(value).buildPartial();
+            } else {
+                frozenUtxoRecord_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+         */
+        private void clearFrozenUtxoRecord() {
+            frozenUtxoRecord_ = null;
+
+        }
+
+        public static final int DISPLAYCOUNT_FIELD_NUMBER = 7;
+        private long displayCount_;
+
+        /**
+         * <code>optional int64 displayCount = 7;</code>
+         */
+        public long getDisplayCount() {
+            return displayCount_;
+        }
+
+        /**
+         * <code>optional int64 displayCount = 7;</code>
+         */
+        private void setDisplayCount(long value) {
+
+            displayCount_ = value;
+        }
+
+        /**
+         * <code>optional int64 displayCount = 7;</code>
+         */
+        private void clearDisplayCount() {
+
+            displayCount_ = 0L;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (header_ != null) {
+                output.writeMessage(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                output.writeString(2, getBcname());
+            }
+            if (!accountName_.isEmpty()) {
+                output.writeString(3, getAccountName());
+            }
+            if (openUtxoRecord_ != null) {
+                output.writeMessage(4, getOpenUtxoRecord());
+            }
+            if (lockedUtxoRecord_ != null) {
+                output.writeMessage(5, getLockedUtxoRecord());
+            }
+            if (frozenUtxoRecord_ != null) {
+                output.writeMessage(6, getFrozenUtxoRecord());
+            }
+            if (displayCount_ != 0L) {
+                output.writeInt64(7, displayCount_);
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (header_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(2, getBcname());
+            }
+            if (!accountName_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(3, getAccountName());
+            }
+            if (openUtxoRecord_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(4, getOpenUtxoRecord());
+            }
+            if (lockedUtxoRecord_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(5, getLockedUtxoRecord());
+            }
+            if (frozenUtxoRecord_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(6, getFrozenUtxoRecord());
+            }
+            if (displayCount_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(7, displayCount_);
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.UtxoRecordDetail}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.UtxoRecordDetail)
+                com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetailOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public boolean hasHeader() {
+                return instance.hasHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+                return instance.getHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.setHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(
+                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+                copyOnWrite();
+                instance.setHeader(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.mergeHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder clearHeader() {
+                copyOnWrite();
+                instance.clearHeader();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public java.lang.String getBcname() {
+                return instance.getBcname();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getBcnameBytes() {
+                return instance.getBcnameBytes();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcname(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setBcname(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder clearBcname() {
+                copyOnWrite();
+                instance.clearBcname();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcnameBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setBcnameBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string accountName = 3;</code>
+             */
+            public java.lang.String getAccountName() {
+                return instance.getAccountName();
+            }
+
+            /**
+             * <code>optional string accountName = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getAccountNameBytes() {
+                return instance.getAccountNameBytes();
+            }
+
+            /**
+             * <code>optional string accountName = 3;</code>
+             */
+            public Builder setAccountName(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setAccountName(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string accountName = 3;</code>
+             */
+            public Builder clearAccountName() {
+                copyOnWrite();
+                instance.clearAccountName();
+                return this;
+            }
+
+            /**
+             * <code>optional string accountName = 3;</code>
+             */
+            public Builder setAccountNameBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setAccountNameBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+             */
+            public boolean hasOpenUtxoRecord() {
+                return instance.hasOpenUtxoRecord();
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getOpenUtxoRecord() {
+                return instance.getOpenUtxoRecord();
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+             */
+            public Builder setOpenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+                copyOnWrite();
+                instance.setOpenUtxoRecord(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+             */
+            public Builder setOpenUtxoRecord(
+                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder builderForValue) {
+                copyOnWrite();
+                instance.setOpenUtxoRecord(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+             */
+            public Builder mergeOpenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+                copyOnWrite();
+                instance.mergeOpenUtxoRecord(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord openUtxoRecord = 4;</code>
+             */
+            public Builder clearOpenUtxoRecord() {
+                copyOnWrite();
+                instance.clearOpenUtxoRecord();
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+             */
+            public boolean hasLockedUtxoRecord() {
+                return instance.hasLockedUtxoRecord();
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getLockedUtxoRecord() {
+                return instance.getLockedUtxoRecord();
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+             */
+            public Builder setLockedUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+                copyOnWrite();
+                instance.setLockedUtxoRecord(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+             */
+            public Builder setLockedUtxoRecord(
+                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder builderForValue) {
+                copyOnWrite();
+                instance.setLockedUtxoRecord(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+             */
+            public Builder mergeLockedUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+                copyOnWrite();
+                instance.mergeLockedUtxoRecord(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord lockedUtxoRecord = 5;</code>
+             */
+            public Builder clearLockedUtxoRecord() {
+                copyOnWrite();
+                instance.clearLockedUtxoRecord();
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+             */
+            public boolean hasFrozenUtxoRecord() {
+                return instance.hasFrozenUtxoRecord();
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getFrozenUtxoRecord() {
+                return instance.getFrozenUtxoRecord();
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+             */
+            public Builder setFrozenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+                copyOnWrite();
+                instance.setFrozenUtxoRecord(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+             */
+            public Builder setFrozenUtxoRecord(
+                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder builderForValue) {
+                copyOnWrite();
+                instance.setFrozenUtxoRecord(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+             */
+            public Builder mergeFrozenUtxoRecord(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord value) {
+                copyOnWrite();
+                instance.mergeFrozenUtxoRecord(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.UtxoRecord frozenUtxoRecord = 6;</code>
+             */
+            public Builder clearFrozenUtxoRecord() {
+                copyOnWrite();
+                instance.clearFrozenUtxoRecord();
+                return this;
+            }
+
+            /**
+             * <code>optional int64 displayCount = 7;</code>
+             */
+            public long getDisplayCount() {
+                return instance.getDisplayCount();
+            }
+
+            /**
+             * <code>optional int64 displayCount = 7;</code>
+             */
+            public Builder setDisplayCount(long value) {
+                copyOnWrite();
+                instance.setDisplayCount(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 displayCount = 7;</code>
+             */
+            public Builder clearDisplayCount() {
+                copyOnWrite();
+                instance.clearDisplayCount();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.UtxoRecordDetail)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail other = (com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail) arg1;
+                    header_ = visitor.visitMessage(header_, other.header_);
+                    bcname_ = visitor.visitString(!bcname_.isEmpty(), bcname_,
+                            !other.bcname_.isEmpty(), other.bcname_);
+                    accountName_ = visitor.visitString(!accountName_.isEmpty(), accountName_,
+                            !other.accountName_.isEmpty(), other.accountName_);
+                    openUtxoRecord_ = visitor.visitMessage(openUtxoRecord_, other.openUtxoRecord_);
+                    lockedUtxoRecord_ = visitor.visitMessage(lockedUtxoRecord_, other.lockedUtxoRecord_);
+                    frozenUtxoRecord_ = visitor.visitMessage(frozenUtxoRecord_, other.frozenUtxoRecord_);
+                    displayCount_ = visitor.visitLong(displayCount_ != 0L, displayCount_,
+                            other.displayCount_ != 0L, other.displayCount_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder subBuilder = null;
+                                    if (header_ != null) {
+                                        subBuilder = header_.toBuilder();
+                                    }
+                                    header_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.Header.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(header_);
+                                        header_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 18: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    bcname_ = s;
+                                    break;
+                                }
+                                case 26: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    accountName_ = s;
+                                    break;
+                                }
+                                case 34: {
+                                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder subBuilder = null;
+                                    if (openUtxoRecord_ != null) {
+                                        subBuilder = openUtxoRecord_.toBuilder();
+                                    }
+                                    openUtxoRecord_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(openUtxoRecord_);
+                                        openUtxoRecord_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 42: {
+                                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder subBuilder = null;
+                                    if (lockedUtxoRecord_ != null) {
+                                        subBuilder = lockedUtxoRecord_.toBuilder();
+                                    }
+                                    lockedUtxoRecord_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(lockedUtxoRecord_);
+                                        lockedUtxoRecord_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 50: {
+                                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.Builder subBuilder = null;
+                                    if (frozenUtxoRecord_ != null) {
+                                        subBuilder = frozenUtxoRecord_.toBuilder();
+                                    }
+                                    frozenUtxoRecord_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(frozenUtxoRecord_);
+                                        frozenUtxoRecord_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 56: {
+
+                                    displayCount_ = input.readInt64();
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.UtxoRecordDetail)
+        private static final com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new UtxoRecordDetail();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecordDetail getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<UtxoRecordDetail> PARSER;
+
+        public static com.google.protobuf.Parser<UtxoRecordDetail> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface UtxoRecordOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.UtxoRecord)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional string utxoCount = 1;</code>
+         */
+        java.lang.String getUtxoCount();
+
+        /**
+         * <code>optional string utxoCount = 1;</code>
+         */
+        com.google.protobuf.ByteString
+        getUtxoCountBytes();
+
+        /**
+         * <code>optional string utxoAmount = 2;</code>
+         */
+        java.lang.String getUtxoAmount();
+
+        /**
+         * <code>optional string utxoAmount = 2;</code>
+         */
+        com.google.protobuf.ByteString
+        getUtxoAmountBytes();
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        java.util.List<com.baidu.xuper.pb.XchainOuterClass.UtxoKey>
+        getItemList();
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.UtxoKey getItem(int index);
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        int getItemCount();
+    }
+
+    /**
+     * Protobuf type {@code pb.UtxoRecord}
+     */
+    public static final class UtxoRecord extends
+            com.google.protobuf.GeneratedMessageLite<
+                    UtxoRecord, UtxoRecord.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.UtxoRecord)
+            UtxoRecordOrBuilder {
+        private UtxoRecord() {
+            utxoCount_ = "";
+            utxoAmount_ = "";
+            item_ = emptyProtobufList();
+        }
+
+        private int bitField0_;
+        public static final int UTXOCOUNT_FIELD_NUMBER = 1;
+        private java.lang.String utxoCount_;
+
+        /**
+         * <code>optional string utxoCount = 1;</code>
+         */
+        public java.lang.String getUtxoCount() {
+            return utxoCount_;
+        }
+
+        /**
+         * <code>optional string utxoCount = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+        getUtxoCountBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(utxoCount_);
+        }
+
+        /**
+         * <code>optional string utxoCount = 1;</code>
+         */
+        private void setUtxoCount(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            utxoCount_ = value;
+        }
+
+        /**
+         * <code>optional string utxoCount = 1;</code>
+         */
+        private void clearUtxoCount() {
+
+            utxoCount_ = getDefaultInstance().getUtxoCount();
+        }
+
+        /**
+         * <code>optional string utxoCount = 1;</code>
+         */
+        private void setUtxoCountBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            utxoCount_ = value.toStringUtf8();
+        }
+
+        public static final int UTXOAMOUNT_FIELD_NUMBER = 2;
+        private java.lang.String utxoAmount_;
+
+        /**
+         * <code>optional string utxoAmount = 2;</code>
+         */
+        public java.lang.String getUtxoAmount() {
+            return utxoAmount_;
+        }
+
+        /**
+         * <code>optional string utxoAmount = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getUtxoAmountBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(utxoAmount_);
+        }
+
+        /**
+         * <code>optional string utxoAmount = 2;</code>
+         */
+        private void setUtxoAmount(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            utxoAmount_ = value;
+        }
+
+        /**
+         * <code>optional string utxoAmount = 2;</code>
+         */
+        private void clearUtxoAmount() {
+
+            utxoAmount_ = getDefaultInstance().getUtxoAmount();
+        }
+
+        /**
+         * <code>optional string utxoAmount = 2;</code>
+         */
+        private void setUtxoAmountBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            utxoAmount_ = value.toStringUtf8();
+        }
+
+        public static final int ITEM_FIELD_NUMBER = 3;
+        private com.google.protobuf.Internal.ProtobufList<com.baidu.xuper.pb.XchainOuterClass.UtxoKey> item_;
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        public java.util.List<com.baidu.xuper.pb.XchainOuterClass.UtxoKey> getItemList() {
+            return item_;
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        public java.util.List<? extends com.baidu.xuper.pb.XchainOuterClass.UtxoKeyOrBuilder>
+        getItemOrBuilderList() {
+            return item_;
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        public int getItemCount() {
+            return item_.size();
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.UtxoKey getItem(int index) {
+            return item_.get(index);
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.UtxoKeyOrBuilder getItemOrBuilder(
+                int index) {
+            return item_.get(index);
+        }
+
+        private void ensureItemIsMutable() {
+            if (!item_.isModifiable()) {
+                item_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(item_);
+            }
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void setItem(
+                int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureItemIsMutable();
+            item_.set(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void setItem(
+                int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey.Builder builderForValue) {
+            ensureItemIsMutable();
+            item_.set(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void addItem(com.baidu.xuper.pb.XchainOuterClass.UtxoKey value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureItemIsMutable();
+            item_.add(value);
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void addItem(
+                int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureItemIsMutable();
+            item_.add(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void addItem(
+                com.baidu.xuper.pb.XchainOuterClass.UtxoKey.Builder builderForValue) {
+            ensureItemIsMutable();
+            item_.add(builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void addItem(
+                int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey.Builder builderForValue) {
+            ensureItemIsMutable();
+            item_.add(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void addAllItem(
+                java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.UtxoKey> values) {
+            ensureItemIsMutable();
+            com.google.protobuf.AbstractMessageLite.addAll(
+                    values, item_);
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void clearItem() {
+            item_ = emptyProtobufList();
+        }
+
+        /**
+         * <code>repeated .pb.UtxoKey item = 3;</code>
+         */
+        private void removeItem(int index) {
+            ensureItemIsMutable();
+            item_.remove(index);
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!utxoCount_.isEmpty()) {
+                output.writeString(1, getUtxoCount());
+            }
+            if (!utxoAmount_.isEmpty()) {
+                output.writeString(2, getUtxoAmount());
+            }
+            for (int i = 0; i < item_.size(); i++) {
+                output.writeMessage(3, item_.get(i));
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!utxoCount_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(1, getUtxoCount());
+            }
+            if (!utxoAmount_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(2, getUtxoAmount());
+            }
+            for (int i = 0; i < item_.size(); i++) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(3, item_.get(i));
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.UtxoRecord prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.UtxoRecord}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.UtxoRecord, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.UtxoRecord)
+                com.baidu.xuper.pb.XchainOuterClass.UtxoRecordOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional string utxoCount = 1;</code>
+             */
+            public java.lang.String getUtxoCount() {
+                return instance.getUtxoCount();
+            }
+
+            /**
+             * <code>optional string utxoCount = 1;</code>
+             */
+            public com.google.protobuf.ByteString
+            getUtxoCountBytes() {
+                return instance.getUtxoCountBytes();
+            }
+
+            /**
+             * <code>optional string utxoCount = 1;</code>
+             */
+            public Builder setUtxoCount(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setUtxoCount(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string utxoCount = 1;</code>
+             */
+            public Builder clearUtxoCount() {
+                copyOnWrite();
+                instance.clearUtxoCount();
+                return this;
+            }
+
+            /**
+             * <code>optional string utxoCount = 1;</code>
+             */
+            public Builder setUtxoCountBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setUtxoCountBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string utxoAmount = 2;</code>
+             */
+            public java.lang.String getUtxoAmount() {
+                return instance.getUtxoAmount();
+            }
+
+            /**
+             * <code>optional string utxoAmount = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getUtxoAmountBytes() {
+                return instance.getUtxoAmountBytes();
+            }
+
+            /**
+             * <code>optional string utxoAmount = 2;</code>
+             */
+            public Builder setUtxoAmount(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setUtxoAmount(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string utxoAmount = 2;</code>
+             */
+            public Builder clearUtxoAmount() {
+                copyOnWrite();
+                instance.clearUtxoAmount();
+                return this;
+            }
+
+            /**
+             * <code>optional string utxoAmount = 2;</code>
+             */
+            public Builder setUtxoAmountBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setUtxoAmountBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public java.util.List<com.baidu.xuper.pb.XchainOuterClass.UtxoKey> getItemList() {
+                return java.util.Collections.unmodifiableList(
+                        instance.getItemList());
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public int getItemCount() {
+                return instance.getItemCount();
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.UtxoKey getItem(int index) {
+                return instance.getItem(index);
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder setItem(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey value) {
+                copyOnWrite();
+                instance.setItem(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder setItem(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey.Builder builderForValue) {
+                copyOnWrite();
+                instance.setItem(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder addItem(com.baidu.xuper.pb.XchainOuterClass.UtxoKey value) {
+                copyOnWrite();
+                instance.addItem(value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder addItem(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey value) {
+                copyOnWrite();
+                instance.addItem(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder addItem(
+                    com.baidu.xuper.pb.XchainOuterClass.UtxoKey.Builder builderForValue) {
+                copyOnWrite();
+                instance.addItem(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder addItem(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.UtxoKey.Builder builderForValue) {
+                copyOnWrite();
+                instance.addItem(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder addAllItem(
+                    java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.UtxoKey> values) {
+                copyOnWrite();
+                instance.addAllItem(values);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder clearItem() {
+                copyOnWrite();
+                instance.clearItem();
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.UtxoKey item = 3;</code>
+             */
+            public Builder removeItem(int index) {
+                copyOnWrite();
+                instance.removeItem(index);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.UtxoRecord)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.UtxoRecord();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    item_.makeImmutable();
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.UtxoRecord other = (com.baidu.xuper.pb.XchainOuterClass.UtxoRecord) arg1;
+                    utxoCount_ = visitor.visitString(!utxoCount_.isEmpty(), utxoCount_,
+                            !other.utxoCount_.isEmpty(), other.utxoCount_);
+                    utxoAmount_ = visitor.visitString(!utxoAmount_.isEmpty(), utxoAmount_,
+                            !other.utxoAmount_.isEmpty(), other.utxoAmount_);
+                    item_ = visitor.visitList(item_, other.item_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                        bitField0_ |= other.bitField0_;
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    utxoCount_ = s;
+                                    break;
+                                }
+                                case 18: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    utxoAmount_ = s;
+                                    break;
+                                }
+                                case 26: {
+                                    if (!item_.isModifiable()) {
+                                        item_ =
+                                                com.google.protobuf.GeneratedMessageLite.mutableCopy(item_);
+                                    }
+                                    item_.add(
+                                            input.readMessage(com.baidu.xuper.pb.XchainOuterClass.UtxoKey.parser(), extensionRegistry));
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.UtxoRecord.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.UtxoRecord)
+        private static final com.baidu.xuper.pb.XchainOuterClass.UtxoRecord DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new UtxoRecord();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoRecord getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<UtxoRecord> PARSER;
+
+        public static com.google.protobuf.Parser<UtxoRecord> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface UtxoKeyOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.UtxoKey)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional string refTxid = 1;</code>
+         */
+        java.lang.String getRefTxid();
+
+        /**
+         * <code>optional string refTxid = 1;</code>
+         */
+        com.google.protobuf.ByteString
+        getRefTxidBytes();
+
+        /**
+         * <code>optional string offset = 2;</code>
+         */
+        java.lang.String getOffset();
+
+        /**
+         * <code>optional string offset = 2;</code>
+         */
+        com.google.protobuf.ByteString
+        getOffsetBytes();
+
+        /**
+         * <code>optional string amount = 3;</code>
+         */
+        java.lang.String getAmount();
+
+        /**
+         * <code>optional string amount = 3;</code>
+         */
+        com.google.protobuf.ByteString
+        getAmountBytes();
+    }
+
+    /**
+     * Protobuf type {@code pb.UtxoKey}
+     */
+    public static final class UtxoKey extends
+            com.google.protobuf.GeneratedMessageLite<
+                    UtxoKey, UtxoKey.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.UtxoKey)
+            UtxoKeyOrBuilder {
+        private UtxoKey() {
+            refTxid_ = "";
+            offset_ = "";
+            amount_ = "";
+        }
+
+        public static final int REFTXID_FIELD_NUMBER = 1;
+        private java.lang.String refTxid_;
+
+        /**
+         * <code>optional string refTxid = 1;</code>
+         */
+        public java.lang.String getRefTxid() {
+            return refTxid_;
+        }
+
+        /**
+         * <code>optional string refTxid = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+        getRefTxidBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(refTxid_);
+        }
+
+        /**
+         * <code>optional string refTxid = 1;</code>
+         */
+        private void setRefTxid(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            refTxid_ = value;
+        }
+
+        /**
+         * <code>optional string refTxid = 1;</code>
+         */
+        private void clearRefTxid() {
+
+            refTxid_ = getDefaultInstance().getRefTxid();
+        }
+
+        /**
+         * <code>optional string refTxid = 1;</code>
+         */
+        private void setRefTxidBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            refTxid_ = value.toStringUtf8();
+        }
+
+        public static final int OFFSET_FIELD_NUMBER = 2;
+        private java.lang.String offset_;
+
+        /**
+         * <code>optional string offset = 2;</code>
+         */
+        public java.lang.String getOffset() {
+            return offset_;
+        }
+
+        /**
+         * <code>optional string offset = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getOffsetBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(offset_);
+        }
+
+        /**
+         * <code>optional string offset = 2;</code>
+         */
+        private void setOffset(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            offset_ = value;
+        }
+
+        /**
+         * <code>optional string offset = 2;</code>
+         */
+        private void clearOffset() {
+
+            offset_ = getDefaultInstance().getOffset();
+        }
+
+        /**
+         * <code>optional string offset = 2;</code>
+         */
+        private void setOffsetBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            offset_ = value.toStringUtf8();
+        }
+
+        public static final int AMOUNT_FIELD_NUMBER = 3;
+        private java.lang.String amount_;
+
+        /**
+         * <code>optional string amount = 3;</code>
+         */
+        public java.lang.String getAmount() {
+            return amount_;
+        }
+
+        /**
+         * <code>optional string amount = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getAmountBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(amount_);
+        }
+
+        /**
+         * <code>optional string amount = 3;</code>
+         */
+        private void setAmount(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            amount_ = value;
+        }
+
+        /**
+         * <code>optional string amount = 3;</code>
+         */
+        private void clearAmount() {
+
+            amount_ = getDefaultInstance().getAmount();
+        }
+
+        /**
+         * <code>optional string amount = 3;</code>
+         */
+        private void setAmountBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            amount_ = value.toStringUtf8();
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!refTxid_.isEmpty()) {
+                output.writeString(1, getRefTxid());
+            }
+            if (!offset_.isEmpty()) {
+                output.writeString(2, getOffset());
+            }
+            if (!amount_.isEmpty()) {
+                output.writeString(3, getAmount());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!refTxid_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(1, getRefTxid());
+            }
+            if (!offset_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(2, getOffset());
+            }
+            if (!amount_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(3, getAmount());
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.UtxoKey prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.UtxoKey}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.UtxoKey, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.UtxoKey)
+                com.baidu.xuper.pb.XchainOuterClass.UtxoKeyOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoKey.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional string refTxid = 1;</code>
+             */
+            public java.lang.String getRefTxid() {
+                return instance.getRefTxid();
+            }
+
+            /**
+             * <code>optional string refTxid = 1;</code>
+             */
+            public com.google.protobuf.ByteString
+            getRefTxidBytes() {
+                return instance.getRefTxidBytes();
+            }
+
+            /**
+             * <code>optional string refTxid = 1;</code>
+             */
+            public Builder setRefTxid(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setRefTxid(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string refTxid = 1;</code>
+             */
+            public Builder clearRefTxid() {
+                copyOnWrite();
+                instance.clearRefTxid();
+                return this;
+            }
+
+            /**
+             * <code>optional string refTxid = 1;</code>
+             */
+            public Builder setRefTxidBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setRefTxidBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string offset = 2;</code>
+             */
+            public java.lang.String getOffset() {
+                return instance.getOffset();
+            }
+
+            /**
+             * <code>optional string offset = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getOffsetBytes() {
+                return instance.getOffsetBytes();
+            }
+
+            /**
+             * <code>optional string offset = 2;</code>
+             */
+            public Builder setOffset(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setOffset(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string offset = 2;</code>
+             */
+            public Builder clearOffset() {
+                copyOnWrite();
+                instance.clearOffset();
+                return this;
+            }
+
+            /**
+             * <code>optional string offset = 2;</code>
+             */
+            public Builder setOffsetBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setOffsetBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string amount = 3;</code>
+             */
+            public java.lang.String getAmount() {
+                return instance.getAmount();
+            }
+
+            /**
+             * <code>optional string amount = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getAmountBytes() {
+                return instance.getAmountBytes();
+            }
+
+            /**
+             * <code>optional string amount = 3;</code>
+             */
+            public Builder setAmount(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setAmount(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string amount = 3;</code>
+             */
+            public Builder clearAmount() {
+                copyOnWrite();
+                instance.clearAmount();
+                return this;
+            }
+
+            /**
+             * <code>optional string amount = 3;</code>
+             */
+            public Builder setAmountBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setAmountBytes(value);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.UtxoKey)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.UtxoKey();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.UtxoKey other = (com.baidu.xuper.pb.XchainOuterClass.UtxoKey) arg1;
+                    refTxid_ = visitor.visitString(!refTxid_.isEmpty(), refTxid_,
+                            !other.refTxid_.isEmpty(), other.refTxid_);
+                    offset_ = visitor.visitString(!offset_.isEmpty(), offset_,
+                            !other.offset_.isEmpty(), other.offset_);
+                    amount_ = visitor.visitString(!amount_.isEmpty(), amount_,
+                            !other.amount_.isEmpty(), other.amount_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    refTxid_ = s;
+                                    break;
+                                }
+                                case 18: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    offset_ = s;
+                                    break;
+                                }
+                                case 26: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    amount_ = s;
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.UtxoKey.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.UtxoKey)
+        private static final com.baidu.xuper.pb.XchainOuterClass.UtxoKey DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new UtxoKey();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.UtxoKey getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<UtxoKey> PARSER;
+
+        public static com.google.protobuf.Parser<UtxoKey> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface ContractStatDataRequestOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.ContractStatDataRequest)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        boolean hasHeader();
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.Header getHeader();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        java.lang.String getBcname();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        com.google.protobuf.ByteString
+        getBcnameBytes();
+    }
+
+    /**
+     * Protobuf type {@code pb.ContractStatDataRequest}
+     */
+    public static final class ContractStatDataRequest extends
+            com.google.protobuf.GeneratedMessageLite<
+                    ContractStatDataRequest, ContractStatDataRequest.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.ContractStatDataRequest)
+            ContractStatDataRequestOrBuilder {
+        private ContractStatDataRequest() {
+            bcname_ = "";
+        }
+
+        public static final int HEADER_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.Header header_;
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public boolean hasHeader() {
+            return header_ != null;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+            return header_ == null ? com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance() : header_;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            header_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(
+                com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+            header_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (header_ != null &&
+                    header_ != com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance()) {
+                header_ =
+                        com.baidu.xuper.pb.XchainOuterClass.Header.newBuilder(header_).mergeFrom(value).buildPartial();
+            } else {
+                header_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void clearHeader() {
+            header_ = null;
+
+        }
+
+        public static final int BCNAME_FIELD_NUMBER = 2;
+        private java.lang.String bcname_;
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public java.lang.String getBcname() {
+            return bcname_;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getBcnameBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(bcname_);
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcname(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            bcname_ = value;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void clearBcname() {
+
+            bcname_ = getDefaultInstance().getBcname();
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcnameBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            bcname_ = value.toStringUtf8();
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (header_ != null) {
+                output.writeMessage(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                output.writeString(2, getBcname());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (header_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(2, getBcname());
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.ContractStatDataRequest}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.ContractStatDataRequest)
+                com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequestOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public boolean hasHeader() {
+                return instance.hasHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+                return instance.getHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.setHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(
+                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+                copyOnWrite();
+                instance.setHeader(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.mergeHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder clearHeader() {
+                copyOnWrite();
+                instance.clearHeader();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public java.lang.String getBcname() {
+                return instance.getBcname();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getBcnameBytes() {
+                return instance.getBcnameBytes();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcname(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setBcname(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder clearBcname() {
+                copyOnWrite();
+                instance.clearBcname();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcnameBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setBcnameBytes(value);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.ContractStatDataRequest)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest other = (com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest) arg1;
+                    header_ = visitor.visitMessage(header_, other.header_);
+                    bcname_ = visitor.visitString(!bcname_.isEmpty(), bcname_,
+                            !other.bcname_.isEmpty(), other.bcname_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder subBuilder = null;
+                                    if (header_ != null) {
+                                        subBuilder = header_.toBuilder();
+                                    }
+                                    header_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.Header.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(header_);
+                                        header_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 18: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    bcname_ = s;
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.ContractStatDataRequest)
+        private static final com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new ContractStatDataRequest();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataRequest getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<ContractStatDataRequest> PARSER;
+
+        public static com.google.protobuf.Parser<ContractStatDataRequest> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface ContractStatDataResponseOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.ContractStatDataResponse)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        boolean hasHeader();
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.Header getHeader();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        java.lang.String getBcname();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        com.google.protobuf.ByteString
+        getBcnameBytes();
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        boolean hasData();
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.ContractStatData getData();
+    }
+
+    /**
+     * Protobuf type {@code pb.ContractStatDataResponse}
+     */
+    public static final class ContractStatDataResponse extends
+            com.google.protobuf.GeneratedMessageLite<
+                    ContractStatDataResponse, ContractStatDataResponse.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.ContractStatDataResponse)
+            ContractStatDataResponseOrBuilder {
+        private ContractStatDataResponse() {
+            bcname_ = "";
+        }
+
+        public static final int HEADER_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.Header header_;
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public boolean hasHeader() {
+            return header_ != null;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+            return header_ == null ? com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance() : header_;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            header_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(
+                com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+            header_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (header_ != null &&
+                    header_ != com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance()) {
+                header_ =
+                        com.baidu.xuper.pb.XchainOuterClass.Header.newBuilder(header_).mergeFrom(value).buildPartial();
+            } else {
+                header_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void clearHeader() {
+            header_ = null;
+
+        }
+
+        public static final int BCNAME_FIELD_NUMBER = 2;
+        private java.lang.String bcname_;
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public java.lang.String getBcname() {
+            return bcname_;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getBcnameBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(bcname_);
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcname(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            bcname_ = value;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void clearBcname() {
+
+            bcname_ = getDefaultInstance().getBcname();
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcnameBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            bcname_ = value.toStringUtf8();
+        }
+
+        public static final int DATA_FIELD_NUMBER = 3;
+        private com.baidu.xuper.pb.XchainOuterClass.ContractStatData data_;
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        public boolean hasData() {
+            return data_ != null;
+        }
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.ContractStatData getData() {
+            return data_ == null ? com.baidu.xuper.pb.XchainOuterClass.ContractStatData.getDefaultInstance() : data_;
+        }
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        private void setData(com.baidu.xuper.pb.XchainOuterClass.ContractStatData value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            data_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        private void setData(
+                com.baidu.xuper.pb.XchainOuterClass.ContractStatData.Builder builderForValue) {
+            data_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        private void mergeData(com.baidu.xuper.pb.XchainOuterClass.ContractStatData value) {
+            if (data_ != null &&
+                    data_ != com.baidu.xuper.pb.XchainOuterClass.ContractStatData.getDefaultInstance()) {
+                data_ =
+                        com.baidu.xuper.pb.XchainOuterClass.ContractStatData.newBuilder(data_).mergeFrom(value).buildPartial();
+            } else {
+                data_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.ContractStatData data = 3;</code>
+         */
+        private void clearData() {
+            data_ = null;
+
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (header_ != null) {
+                output.writeMessage(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                output.writeString(2, getBcname());
+            }
+            if (data_ != null) {
+                output.writeMessage(3, getData());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (header_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(2, getBcname());
+            }
+            if (data_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(3, getData());
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.ContractStatDataResponse}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.ContractStatDataResponse)
+                com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponseOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public boolean hasHeader() {
+                return instance.hasHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+                return instance.getHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.setHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(
+                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+                copyOnWrite();
+                instance.setHeader(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.mergeHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder clearHeader() {
+                copyOnWrite();
+                instance.clearHeader();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public java.lang.String getBcname() {
+                return instance.getBcname();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getBcnameBytes() {
+                return instance.getBcnameBytes();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcname(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setBcname(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder clearBcname() {
+                copyOnWrite();
+                instance.clearBcname();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcnameBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setBcnameBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.ContractStatData data = 3;</code>
+             */
+            public boolean hasData() {
+                return instance.hasData();
+            }
+
+            /**
+             * <code>optional .pb.ContractStatData data = 3;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.ContractStatData getData() {
+                return instance.getData();
+            }
+
+            /**
+             * <code>optional .pb.ContractStatData data = 3;</code>
+             */
+            public Builder setData(com.baidu.xuper.pb.XchainOuterClass.ContractStatData value) {
+                copyOnWrite();
+                instance.setData(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.ContractStatData data = 3;</code>
+             */
+            public Builder setData(
+                    com.baidu.xuper.pb.XchainOuterClass.ContractStatData.Builder builderForValue) {
+                copyOnWrite();
+                instance.setData(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.ContractStatData data = 3;</code>
+             */
+            public Builder mergeData(com.baidu.xuper.pb.XchainOuterClass.ContractStatData value) {
+                copyOnWrite();
+                instance.mergeData(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.ContractStatData data = 3;</code>
+             */
+            public Builder clearData() {
+                copyOnWrite();
+                instance.clearData();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.ContractStatDataResponse)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse other = (com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse) arg1;
+                    header_ = visitor.visitMessage(header_, other.header_);
+                    bcname_ = visitor.visitString(!bcname_.isEmpty(), bcname_,
+                            !other.bcname_.isEmpty(), other.bcname_);
+                    data_ = visitor.visitMessage(data_, other.data_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder subBuilder = null;
+                                    if (header_ != null) {
+                                        subBuilder = header_.toBuilder();
+                                    }
+                                    header_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.Header.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(header_);
+                                        header_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 18: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    bcname_ = s;
+                                    break;
+                                }
+                                case 26: {
+                                    com.baidu.xuper.pb.XchainOuterClass.ContractStatData.Builder subBuilder = null;
+                                    if (data_ != null) {
+                                        subBuilder = data_.toBuilder();
+                                    }
+                                    data_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.ContractStatData.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(data_);
+                                        data_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.ContractStatDataResponse)
+        private static final com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new ContractStatDataResponse();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatDataResponse getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<ContractStatDataResponse> PARSER;
+
+        public static com.google.protobuf.Parser<ContractStatDataResponse> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface ContractStatDataOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.ContractStatData)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional int64 accountCount = 1;</code>
+         */
+        long getAccountCount();
+
+        /**
+         * <code>optional int64 contractCount = 2;</code>
+         */
+        long getContractCount();
+    }
+
+    /**
+     * Protobuf type {@code pb.ContractStatData}
+     */
+    public static final class ContractStatData extends
+            com.google.protobuf.GeneratedMessageLite<
+                    ContractStatData, ContractStatData.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.ContractStatData)
+            ContractStatDataOrBuilder {
+        private ContractStatData() {
+        }
+
+        public static final int ACCOUNTCOUNT_FIELD_NUMBER = 1;
+        private long accountCount_;
+
+        /**
+         * <code>optional int64 accountCount = 1;</code>
+         */
+        public long getAccountCount() {
+            return accountCount_;
+        }
+
+        /**
+         * <code>optional int64 accountCount = 1;</code>
+         */
+        private void setAccountCount(long value) {
+
+            accountCount_ = value;
+        }
+
+        /**
+         * <code>optional int64 accountCount = 1;</code>
+         */
+        private void clearAccountCount() {
+
+            accountCount_ = 0L;
+        }
+
+        public static final int CONTRACTCOUNT_FIELD_NUMBER = 2;
+        private long contractCount_;
+
+        /**
+         * <code>optional int64 contractCount = 2;</code>
+         */
+        public long getContractCount() {
+            return contractCount_;
+        }
+
+        /**
+         * <code>optional int64 contractCount = 2;</code>
+         */
+        private void setContractCount(long value) {
+
+            contractCount_ = value;
+        }
+
+        /**
+         * <code>optional int64 contractCount = 2;</code>
+         */
+        private void clearContractCount() {
+
+            contractCount_ = 0L;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (accountCount_ != 0L) {
+                output.writeInt64(1, accountCount_);
+            }
+            if (contractCount_ != 0L) {
+                output.writeInt64(2, contractCount_);
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (accountCount_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(1, accountCount_);
+            }
+            if (contractCount_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(2, contractCount_);
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.ContractStatData prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.ContractStatData}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.ContractStatData, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.ContractStatData)
+                com.baidu.xuper.pb.XchainOuterClass.ContractStatDataOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractStatData.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional int64 accountCount = 1;</code>
+             */
+            public long getAccountCount() {
+                return instance.getAccountCount();
+            }
+
+            /**
+             * <code>optional int64 accountCount = 1;</code>
+             */
+            public Builder setAccountCount(long value) {
+                copyOnWrite();
+                instance.setAccountCount(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 accountCount = 1;</code>
+             */
+            public Builder clearAccountCount() {
+                copyOnWrite();
+                instance.clearAccountCount();
+                return this;
+            }
+
+            /**
+             * <code>optional int64 contractCount = 2;</code>
+             */
+            public long getContractCount() {
+                return instance.getContractCount();
+            }
+
+            /**
+             * <code>optional int64 contractCount = 2;</code>
+             */
+            public Builder setContractCount(long value) {
+                copyOnWrite();
+                instance.setContractCount(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 contractCount = 2;</code>
+             */
+            public Builder clearContractCount() {
+                copyOnWrite();
+                instance.clearContractCount();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.ContractStatData)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.ContractStatData();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.ContractStatData other = (com.baidu.xuper.pb.XchainOuterClass.ContractStatData) arg1;
+                    accountCount_ = visitor.visitLong(accountCount_ != 0L, accountCount_,
+                            other.accountCount_ != 0L, other.accountCount_);
+                    contractCount_ = visitor.visitLong(contractCount_ != 0L, contractCount_,
+                            other.contractCount_ != 0L, other.contractCount_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 8: {
+
+                                    accountCount_ = input.readInt64();
+                                    break;
+                                }
+                                case 16: {
+
+                                    contractCount_ = input.readInt64();
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.ContractStatData.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.ContractStatData)
+        private static final com.baidu.xuper.pb.XchainOuterClass.ContractStatData DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new ContractStatData();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractStatData getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<ContractStatData> PARSER;
+
+        public static com.google.protobuf.Parser<ContractStatData> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface AddressContractsRequestOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.AddressContractsRequest)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        boolean hasHeader();
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.Header getHeader();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        java.lang.String getBcname();
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        com.google.protobuf.ByteString
+        getBcnameBytes();
+
+        /**
+         * <code>optional string address = 3;</code>
+         */
+        java.lang.String getAddress();
+
+        /**
+         * <code>optional string address = 3;</code>
+         */
+        com.google.protobuf.ByteString
+        getAddressBytes();
+
+        /**
+         * <code>optional bool need_content = 4;</code>
+         */
+        boolean getNeedContent();
+    }
+
+    /**
+     * <pre>
+     * Query address contracts request
+     * </pre>
+     * <p>
+     * Protobuf type {@code pb.AddressContractsRequest}
+     */
+    public static final class AddressContractsRequest extends
+            com.google.protobuf.GeneratedMessageLite<
+                    AddressContractsRequest, AddressContractsRequest.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.AddressContractsRequest)
+            AddressContractsRequestOrBuilder {
+        private AddressContractsRequest() {
+            bcname_ = "";
+            address_ = "";
+        }
+
+        public static final int HEADER_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.Header header_;
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public boolean hasHeader() {
+            return header_ != null;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+            return header_ == null ? com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance() : header_;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            header_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(
+                com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+            header_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (header_ != null &&
+                    header_ != com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance()) {
+                header_ =
+                        com.baidu.xuper.pb.XchainOuterClass.Header.newBuilder(header_).mergeFrom(value).buildPartial();
+            } else {
+                header_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void clearHeader() {
+            header_ = null;
+
+        }
+
+        public static final int BCNAME_FIELD_NUMBER = 2;
+        private java.lang.String bcname_;
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public java.lang.String getBcname() {
+            return bcname_;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getBcnameBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(bcname_);
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcname(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            bcname_ = value;
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void clearBcname() {
+
+            bcname_ = getDefaultInstance().getBcname();
+        }
+
+        /**
+         * <code>optional string bcname = 2;</code>
+         */
+        private void setBcnameBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            bcname_ = value.toStringUtf8();
+        }
+
+        public static final int ADDRESS_FIELD_NUMBER = 3;
+        private java.lang.String address_;
+
+        /**
+         * <code>optional string address = 3;</code>
+         */
+        public java.lang.String getAddress() {
+            return address_;
+        }
+
+        /**
+         * <code>optional string address = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getAddressBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(address_);
+        }
+
+        /**
+         * <code>optional string address = 3;</code>
+         */
+        private void setAddress(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            address_ = value;
+        }
+
+        /**
+         * <code>optional string address = 3;</code>
+         */
+        private void clearAddress() {
+
+            address_ = getDefaultInstance().getAddress();
+        }
+
+        /**
+         * <code>optional string address = 3;</code>
+         */
+        private void setAddressBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            address_ = value.toStringUtf8();
+        }
+
+        public static final int NEED_CONTENT_FIELD_NUMBER = 4;
+        private boolean needContent_;
+
+        /**
+         * <code>optional bool need_content = 4;</code>
+         */
+        public boolean getNeedContent() {
+            return needContent_;
+        }
+
+        /**
+         * <code>optional bool need_content = 4;</code>
+         */
+        private void setNeedContent(boolean value) {
+
+            needContent_ = value;
+        }
+
+        /**
+         * <code>optional bool need_content = 4;</code>
+         */
+        private void clearNeedContent() {
+
+            needContent_ = false;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (header_ != null) {
+                output.writeMessage(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                output.writeString(2, getBcname());
+            }
+            if (!address_.isEmpty()) {
+                output.writeString(3, getAddress());
+            }
+            if (needContent_ != false) {
+                output.writeBool(4, needContent_);
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (header_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getHeader());
+            }
+            if (!bcname_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(2, getBcname());
+            }
+            if (!address_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(3, getAddress());
+            }
+            if (needContent_ != false) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeBoolSize(4, needContent_);
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * <pre>
+         * Query address contracts request
+         * </pre>
+         * <p>
+         * Protobuf type {@code pb.AddressContractsRequest}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.AddressContractsRequest)
+                com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequestOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public boolean hasHeader() {
+                return instance.hasHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+                return instance.getHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.setHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(
+                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+                copyOnWrite();
+                instance.setHeader(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.mergeHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder clearHeader() {
+                copyOnWrite();
+                instance.clearHeader();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public java.lang.String getBcname() {
+                return instance.getBcname();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getBcnameBytes() {
+                return instance.getBcnameBytes();
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcname(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setBcname(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder clearBcname() {
+                copyOnWrite();
+                instance.clearBcname();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 2;</code>
+             */
+            public Builder setBcnameBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setBcnameBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string address = 3;</code>
+             */
+            public java.lang.String getAddress() {
+                return instance.getAddress();
+            }
+
+            /**
+             * <code>optional string address = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getAddressBytes() {
+                return instance.getAddressBytes();
+            }
+
+            /**
+             * <code>optional string address = 3;</code>
+             */
+            public Builder setAddress(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setAddress(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string address = 3;</code>
+             */
+            public Builder clearAddress() {
+                copyOnWrite();
+                instance.clearAddress();
+                return this;
+            }
+
+            /**
+             * <code>optional string address = 3;</code>
+             */
+            public Builder setAddressBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setAddressBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional bool need_content = 4;</code>
+             */
+            public boolean getNeedContent() {
+                return instance.getNeedContent();
+            }
+
+            /**
+             * <code>optional bool need_content = 4;</code>
+             */
+            public Builder setNeedContent(boolean value) {
+                copyOnWrite();
+                instance.setNeedContent(value);
+                return this;
+            }
+
+            /**
+             * <code>optional bool need_content = 4;</code>
+             */
+            public Builder clearNeedContent() {
+                copyOnWrite();
+                instance.clearNeedContent();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.AddressContractsRequest)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest other = (com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest) arg1;
+                    header_ = visitor.visitMessage(header_, other.header_);
+                    bcname_ = visitor.visitString(!bcname_.isEmpty(), bcname_,
+                            !other.bcname_.isEmpty(), other.bcname_);
+                    address_ = visitor.visitString(!address_.isEmpty(), address_,
+                            !other.address_.isEmpty(), other.address_);
+                    needContent_ = visitor.visitBoolean(needContent_ != false, needContent_,
+                            other.needContent_ != false, other.needContent_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder subBuilder = null;
+                                    if (header_ != null) {
+                                        subBuilder = header_.toBuilder();
+                                    }
+                                    header_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.Header.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(header_);
+                                        header_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 18: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    bcname_ = s;
+                                    break;
+                                }
+                                case 26: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    address_ = s;
+                                    break;
+                                }
+                                case 32: {
+
+                                    needContent_ = input.readBool();
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.AddressContractsRequest)
+        private static final com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new AddressContractsRequest();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsRequest getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<AddressContractsRequest> PARSER;
+
+        public static com.google.protobuf.Parser<AddressContractsRequest> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface ContractListOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.ContractList)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        java.util.List<com.baidu.xuper.pb.XchainOuterClass.ContractStatus>
+        getContractStatusList();
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.ContractStatus getContractStatus(int index);
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        int getContractStatusCount();
+    }
+
+    /**
+     * Protobuf type {@code pb.ContractList}
+     */
+    public static final class ContractList extends
+            com.google.protobuf.GeneratedMessageLite<
+                    ContractList, ContractList.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.ContractList)
+            ContractListOrBuilder {
+        private ContractList() {
+            contractStatus_ = emptyProtobufList();
+        }
+
+        public static final int CONTRACT_STATUS_FIELD_NUMBER = 1;
+        private com.google.protobuf.Internal.ProtobufList<com.baidu.xuper.pb.XchainOuterClass.ContractStatus> contractStatus_;
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        public java.util.List<com.baidu.xuper.pb.XchainOuterClass.ContractStatus> getContractStatusList() {
+            return contractStatus_;
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        public java.util.List<? extends com.baidu.xuper.pb.XchainOuterClass.ContractStatusOrBuilder>
+        getContractStatusOrBuilderList() {
+            return contractStatus_;
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        public int getContractStatusCount() {
+            return contractStatus_.size();
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.ContractStatus getContractStatus(int index) {
+            return contractStatus_.get(index);
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.ContractStatusOrBuilder getContractStatusOrBuilder(
+                int index) {
+            return contractStatus_.get(index);
+        }
+
+        private void ensureContractStatusIsMutable() {
+            if (!contractStatus_.isModifiable()) {
+                contractStatus_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(contractStatus_);
+            }
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void setContractStatus(
+                int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureContractStatusIsMutable();
+            contractStatus_.set(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void setContractStatus(
+                int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus.Builder builderForValue) {
+            ensureContractStatusIsMutable();
+            contractStatus_.set(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void addContractStatus(com.baidu.xuper.pb.XchainOuterClass.ContractStatus value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureContractStatusIsMutable();
+            contractStatus_.add(value);
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void addContractStatus(
+                int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureContractStatusIsMutable();
+            contractStatus_.add(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void addContractStatus(
+                com.baidu.xuper.pb.XchainOuterClass.ContractStatus.Builder builderForValue) {
+            ensureContractStatusIsMutable();
+            contractStatus_.add(builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void addContractStatus(
+                int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus.Builder builderForValue) {
+            ensureContractStatusIsMutable();
+            contractStatus_.add(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void addAllContractStatus(
+                java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.ContractStatus> values) {
+            ensureContractStatusIsMutable();
+            com.google.protobuf.AbstractMessageLite.addAll(
+                    values, contractStatus_);
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void clearContractStatus() {
+            contractStatus_ = emptyProtobufList();
+        }
+
+        /**
+         * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+         */
+        private void removeContractStatus(int index) {
+            ensureContractStatusIsMutable();
+            contractStatus_.remove(index);
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            for (int i = 0; i < contractStatus_.size(); i++) {
+                output.writeMessage(1, contractStatus_.get(i));
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            for (int i = 0; i < contractStatus_.size(); i++) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, contractStatus_.get(i));
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.ContractList prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.ContractList}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.ContractList, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.ContractList)
+                com.baidu.xuper.pb.XchainOuterClass.ContractListOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractList.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public java.util.List<com.baidu.xuper.pb.XchainOuterClass.ContractStatus> getContractStatusList() {
+                return java.util.Collections.unmodifiableList(
+                        instance.getContractStatusList());
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public int getContractStatusCount() {
+                return instance.getContractStatusCount();
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.ContractStatus getContractStatus(int index) {
+                return instance.getContractStatus(index);
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder setContractStatus(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus value) {
+                copyOnWrite();
+                instance.setContractStatus(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder setContractStatus(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus.Builder builderForValue) {
+                copyOnWrite();
+                instance.setContractStatus(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder addContractStatus(com.baidu.xuper.pb.XchainOuterClass.ContractStatus value) {
+                copyOnWrite();
+                instance.addContractStatus(value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder addContractStatus(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus value) {
+                copyOnWrite();
+                instance.addContractStatus(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder addContractStatus(
+                    com.baidu.xuper.pb.XchainOuterClass.ContractStatus.Builder builderForValue) {
+                copyOnWrite();
+                instance.addContractStatus(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder addContractStatus(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.ContractStatus.Builder builderForValue) {
+                copyOnWrite();
+                instance.addContractStatus(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder addAllContractStatus(
+                    java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.ContractStatus> values) {
+                copyOnWrite();
+                instance.addAllContractStatus(values);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder clearContractStatus() {
+                copyOnWrite();
+                instance.clearContractStatus();
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.ContractStatus contract_status = 1;</code>
+             */
+            public Builder removeContractStatus(int index) {
+                copyOnWrite();
+                instance.removeContractStatus(index);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.ContractList)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.ContractList();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    contractStatus_.makeImmutable();
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.ContractList other = (com.baidu.xuper.pb.XchainOuterClass.ContractList) arg1;
+                    contractStatus_ = visitor.visitList(contractStatus_, other.contractStatus_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    if (!contractStatus_.isModifiable()) {
+                                        contractStatus_ =
+                                                com.google.protobuf.GeneratedMessageLite.mutableCopy(contractStatus_);
+                                    }
+                                    contractStatus_.add(
+                                            input.readMessage(com.baidu.xuper.pb.XchainOuterClass.ContractStatus.parser(), extensionRegistry));
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.ContractList.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.ContractList)
+        private static final com.baidu.xuper.pb.XchainOuterClass.ContractList DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new ContractList();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.ContractList getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<ContractList> PARSER;
+
+        public static com.google.protobuf.Parser<ContractList> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface AddressContractsResponseOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.AddressContractsResponse)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        boolean hasHeader();
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.Header getHeader();
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+        int getContractsCount();
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+        boolean containsContracts(
+                java.lang.String key);
+
+        /**
+         * Use {@link #getContractsMap()} instead.
+         */
+        @java.lang.Deprecated
+        java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList>
+        getContracts();
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+        java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList>
+        getContractsMap();
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+
+        com.baidu.xuper.pb.XchainOuterClass.ContractList getContractsOrDefault(
+                java.lang.String key,
+                com.baidu.xuper.pb.XchainOuterClass.ContractList defaultValue);
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+
+        com.baidu.xuper.pb.XchainOuterClass.ContractList getContractsOrThrow(
+                java.lang.String key);
+    }
+
+    /**
+     * <pre>
+     * Query address contracts response
+     * </pre>
+     * <p>
+     * Protobuf type {@code pb.AddressContractsResponse}
+     */
+    public static final class AddressContractsResponse extends
+            com.google.protobuf.GeneratedMessageLite<
+                    AddressContractsResponse, AddressContractsResponse.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.AddressContractsResponse)
+            AddressContractsResponseOrBuilder {
+        private AddressContractsResponse() {
+        }
+
+        private int bitField0_;
+        public static final int HEADER_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.Header header_;
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public boolean hasHeader() {
+            return header_ != null;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+            return header_ == null ? com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance() : header_;
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            header_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void setHeader(
+                com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+            header_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+            if (header_ != null &&
+                    header_ != com.baidu.xuper.pb.XchainOuterClass.Header.getDefaultInstance()) {
+                header_ =
+                        com.baidu.xuper.pb.XchainOuterClass.Header.newBuilder(header_).mergeFrom(value).buildPartial();
+            } else {
+                header_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.Header header = 1;</code>
+         */
+        private void clearHeader() {
+            header_ = null;
+
+        }
+
+        public static final int CONTRACTS_FIELD_NUMBER = 2;
+
+        private static final class ContractsDefaultEntryHolder {
+            static final com.google.protobuf.MapEntryLite<
+                    java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> defaultEntry =
+                    com.google.protobuf.MapEntryLite
+                            .<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList>newDefaultInstance(
+                                    com.google.protobuf.WireFormat.FieldType.STRING,
+                                    "",
+                                    com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                                    com.baidu.xuper.pb.XchainOuterClass.ContractList.getDefaultInstance());
+        }
+
+        private com.google.protobuf.MapFieldLite<
+                java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> contracts_ =
+                com.google.protobuf.MapFieldLite.emptyMapField();
+
+        private com.google.protobuf.MapFieldLite<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList>
+        internalGetContracts() {
+            return contracts_;
+        }
+
+        private com.google.protobuf.MapFieldLite<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList>
+        internalGetMutableContracts() {
+            if (!contracts_.isMutable()) {
+                contracts_ = contracts_.mutableCopy();
+            }
+            return contracts_;
+        }
+
+        public int getContractsCount() {
+            return internalGetContracts().size();
+        }
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+
+        public boolean containsContracts(
+                java.lang.String key) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            return internalGetContracts().containsKey(key);
+        }
+
+        /**
+         * Use {@link #getContractsMap()} instead.
+         */
+        @java.lang.Deprecated
+        public java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> getContracts() {
+            return getContractsMap();
+        }
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+
+        public java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> getContractsMap() {
+            return java.util.Collections.unmodifiableMap(
+                    internalGetContracts());
+        }
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+
+        public com.baidu.xuper.pb.XchainOuterClass.ContractList getContractsOrDefault(
+                java.lang.String key,
+                com.baidu.xuper.pb.XchainOuterClass.ContractList defaultValue) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> map =
+                    internalGetContracts();
+            return map.containsKey(key) ? map.get(key) : defaultValue;
+        }
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+
+        public com.baidu.xuper.pb.XchainOuterClass.ContractList getContractsOrThrow(
+                java.lang.String key) {
+            if (key == null) {
+                throw new java.lang.NullPointerException();
+            }
+            java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> map =
+                    internalGetContracts();
+            if (!map.containsKey(key)) {
+                throw new java.lang.IllegalArgumentException();
+            }
+            return map.get(key);
+        }
+
+        /**
+         * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+         */
+        private java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList>
+        getMutableContractsMap() {
+            return internalGetMutableContracts();
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (header_ != null) {
+                output.writeMessage(1, getHeader());
+            }
+            for (java.util.Map.Entry<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> entry
+                    : internalGetContracts().entrySet()) {
+                ContractsDefaultEntryHolder.defaultEntry.serializeTo(
+                        output, 2, entry.getKey(), entry.getValue());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (header_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getHeader());
+            }
+            for (java.util.Map.Entry<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> entry
+                    : internalGetContracts().entrySet()) {
+                size += ContractsDefaultEntryHolder.defaultEntry.computeMessageSize(
+                        2, entry.getKey(), entry.getValue());
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * <pre>
+         * Query address contracts response
+         * </pre>
+         * <p>
+         * Protobuf type {@code pb.AddressContractsResponse}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.AddressContractsResponse)
+                com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponseOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public boolean hasHeader() {
+                return instance.hasHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.Header getHeader() {
+                return instance.getHeader();
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.setHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder setHeader(
+                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder builderForValue) {
+                copyOnWrite();
+                instance.setHeader(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder mergeHeader(com.baidu.xuper.pb.XchainOuterClass.Header value) {
+                copyOnWrite();
+                instance.mergeHeader(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.Header header = 1;</code>
+             */
+            public Builder clearHeader() {
+                copyOnWrite();
+                instance.clearHeader();
+                return this;
+            }
+
+
+            public int getContractsCount() {
+                return instance.getContractsMap().size();
+            }
+
+            /**
+             * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+             */
+
+            public boolean containsContracts(
+                    java.lang.String key) {
+                if (key == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                return instance.getContractsMap().containsKey(key);
+            }
+
+            public Builder clearContracts() {
+                copyOnWrite();
+                instance.getMutableContractsMap().clear();
+                return this;
+            }
+
+            /**
+             * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+             */
+
+            public Builder removeContracts(
+                    java.lang.String key) {
+                if (key == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                copyOnWrite();
+                instance.getMutableContractsMap().remove(key);
+                return this;
+            }
+
+            /**
+             * Use {@link #getContractsMap()} instead.
+             */
+            @java.lang.Deprecated
+            public java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> getContracts() {
+                return getContractsMap();
+            }
+
+            /**
+             * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+             */
+            public java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> getContractsMap() {
+                return java.util.Collections.unmodifiableMap(
+                        instance.getContractsMap());
+            }
+
+            /**
+             * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+             */
+
+            public com.baidu.xuper.pb.XchainOuterClass.ContractList getContractsOrDefault(
+                    java.lang.String key,
+                    com.baidu.xuper.pb.XchainOuterClass.ContractList defaultValue) {
+                if (key == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> map =
+                        instance.getContractsMap();
+                return map.containsKey(key) ? map.get(key) : defaultValue;
+            }
+
+            /**
+             * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+             */
+
+            public com.baidu.xuper.pb.XchainOuterClass.ContractList getContractsOrThrow(
+                    java.lang.String key) {
+                if (key == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> map =
+                        instance.getContractsMap();
+                if (!map.containsKey(key)) {
+                    throw new java.lang.IllegalArgumentException();
+                }
+                return map.get(key);
+            }
+
+            /**
+             * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+             */
+            public Builder putContracts(
+                    java.lang.String key,
+                    com.baidu.xuper.pb.XchainOuterClass.ContractList value) {
+                if (key == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                if (value == null) {
+                    throw new java.lang.NullPointerException();
+                }
+                copyOnWrite();
+                instance.getMutableContractsMap().put(key, value);
+                return this;
+            }
+
+            /**
+             * <code>map&lt;string, .pb.ContractList&gt; contracts = 2;</code>
+             */
+            public Builder putAllContracts(
+                    java.util.Map<java.lang.String, com.baidu.xuper.pb.XchainOuterClass.ContractList> values) {
+                copyOnWrite();
+                instance.getMutableContractsMap().putAll(values);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.AddressContractsResponse)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    contracts_.makeImmutable();
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse other = (com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse) arg1;
+                    header_ = visitor.visitMessage(header_, other.header_);
+                    contracts_ = visitor.visitMap(
+                            contracts_, other.internalGetContracts());
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                        bitField0_ |= other.bitField0_;
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.Header.Builder subBuilder = null;
+                                    if (header_ != null) {
+                                        subBuilder = header_.toBuilder();
+                                    }
+                                    header_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.Header.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(header_);
+                                        header_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 18: {
+                                    if (!contracts_.isMutable()) {
+                                        contracts_ = contracts_.mutableCopy();
+                                    }
+                                    ContractsDefaultEntryHolder.defaultEntry.parseInto(contracts_, input, extensionRegistry);
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.AddressContractsResponse)
+        private static final com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new AddressContractsResponse();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.AddressContractsResponse getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<AddressContractsResponse> PARSER;
+
+        public static com.google.protobuf.Parser<AddressContractsResponse> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface CrossQueryRequestOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.CrossQueryRequest)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional string bcname = 1;</code>
+         */
+        java.lang.String getBcname();
+
+        /**
+         * <code>optional string bcname = 1;</code>
+         */
+        com.google.protobuf.ByteString
+        getBcnameBytes();
+
+        /**
+         * <code>optional int64 timestamp = 2;</code>
+         */
+        long getTimestamp();
+
+        /**
+         * <code>optional string initiator = 3;</code>
+         */
+        java.lang.String getInitiator();
+
+        /**
+         * <code>optional string initiator = 3;</code>
+         */
+        com.google.protobuf.ByteString
+        getInitiatorBytes();
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        java.util.List<String>
+        getAuthRequireList();
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        int getAuthRequireCount();
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        java.lang.String getAuthRequire(int index);
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        com.google.protobuf.ByteString
+        getAuthRequireBytes(int index);
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        boolean hasRequest();
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.InvokeRequest getRequest();
+    }
+
+    /**
+     * Protobuf type {@code pb.CrossQueryRequest}
+     */
+    public static final class CrossQueryRequest extends
+            com.google.protobuf.GeneratedMessageLite<
+                    CrossQueryRequest, CrossQueryRequest.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.CrossQueryRequest)
+            CrossQueryRequestOrBuilder {
+        private CrossQueryRequest() {
+            bcname_ = "";
+            initiator_ = "";
+            authRequire_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+
+        private int bitField0_;
+        public static final int BCNAME_FIELD_NUMBER = 1;
+        private java.lang.String bcname_;
+
+        /**
+         * <code>optional string bcname = 1;</code>
+         */
+        public java.lang.String getBcname() {
+            return bcname_;
+        }
+
+        /**
+         * <code>optional string bcname = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+        getBcnameBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(bcname_);
+        }
+
+        /**
+         * <code>optional string bcname = 1;</code>
+         */
+        private void setBcname(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            bcname_ = value;
+        }
+
+        /**
+         * <code>optional string bcname = 1;</code>
+         */
+        private void clearBcname() {
+
+            bcname_ = getDefaultInstance().getBcname();
+        }
+
+        /**
+         * <code>optional string bcname = 1;</code>
+         */
+        private void setBcnameBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            bcname_ = value.toStringUtf8();
+        }
+
+        public static final int TIMESTAMP_FIELD_NUMBER = 2;
+        private long timestamp_;
+
+        /**
+         * <code>optional int64 timestamp = 2;</code>
+         */
+        public long getTimestamp() {
+            return timestamp_;
+        }
+
+        /**
+         * <code>optional int64 timestamp = 2;</code>
+         */
+        private void setTimestamp(long value) {
+
+            timestamp_ = value;
+        }
+
+        /**
+         * <code>optional int64 timestamp = 2;</code>
+         */
+        private void clearTimestamp() {
+
+            timestamp_ = 0L;
+        }
+
+        public static final int INITIATOR_FIELD_NUMBER = 3;
+        private java.lang.String initiator_;
+
+        /**
+         * <code>optional string initiator = 3;</code>
+         */
+        public java.lang.String getInitiator() {
+            return initiator_;
+        }
+
+        /**
+         * <code>optional string initiator = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getInitiatorBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(initiator_);
+        }
+
+        /**
+         * <code>optional string initiator = 3;</code>
+         */
+        private void setInitiator(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            initiator_ = value;
+        }
+
+        /**
+         * <code>optional string initiator = 3;</code>
+         */
+        private void clearInitiator() {
+
+            initiator_ = getDefaultInstance().getInitiator();
+        }
+
+        /**
+         * <code>optional string initiator = 3;</code>
+         */
+        private void setInitiatorBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            initiator_ = value.toStringUtf8();
+        }
+
+        public static final int AUTH_REQUIRE_FIELD_NUMBER = 4;
+        private com.google.protobuf.Internal.ProtobufList<String> authRequire_;
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        public java.util.List<String> getAuthRequireList() {
+            return authRequire_;
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        public int getAuthRequireCount() {
+            return authRequire_.size();
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        public java.lang.String getAuthRequire(int index) {
+            return authRequire_.get(index);
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+        getAuthRequireBytes(int index) {
+            return com.google.protobuf.ByteString.copyFromUtf8(
+                    authRequire_.get(index));
+        }
+
+        private void ensureAuthRequireIsMutable() {
+            if (!authRequire_.isModifiable()) {
+                authRequire_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(authRequire_);
+            }
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        private void setAuthRequire(
+                int index, java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureAuthRequireIsMutable();
+            authRequire_.set(index, value);
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        private void addAuthRequire(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureAuthRequireIsMutable();
+            authRequire_.add(value);
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        private void addAllAuthRequire(
+                java.lang.Iterable<java.lang.String> values) {
+            ensureAuthRequireIsMutable();
+            com.google.protobuf.AbstractMessageLite.addAll(
+                    values, authRequire_);
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        private void clearAuthRequire() {
+            authRequire_ = com.google.protobuf.GeneratedMessageLite.emptyProtobufList();
+        }
+
+        /**
+         * <code>repeated string auth_require = 4;</code>
+         */
+        private void addAuthRequireBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+            ensureAuthRequireIsMutable();
+            authRequire_.add(value.toStringUtf8());
+        }
+
+        public static final int REQUEST_FIELD_NUMBER = 5;
+        private com.baidu.xuper.pb.XchainOuterClass.InvokeRequest request_;
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        public boolean hasRequest() {
+            return request_ != null;
+        }
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.InvokeRequest getRequest() {
+            return request_ == null ? com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.getDefaultInstance() : request_;
+        }
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        private void setRequest(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            request_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        private void setRequest(
+                com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.Builder builderForValue) {
+            request_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        private void mergeRequest(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+            if (request_ != null &&
+                    request_ != com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.getDefaultInstance()) {
+                request_ =
+                        com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.newBuilder(request_).mergeFrom(value).buildPartial();
+            } else {
+                request_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.InvokeRequest request = 5;</code>
+         */
+        private void clearRequest() {
+            request_ = null;
+
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!bcname_.isEmpty()) {
+                output.writeString(1, getBcname());
+            }
+            if (timestamp_ != 0L) {
+                output.writeInt64(2, timestamp_);
+            }
+            if (!initiator_.isEmpty()) {
+                output.writeString(3, getInitiator());
+            }
+            for (int i = 0; i < authRequire_.size(); i++) {
+                output.writeString(4, authRequire_.get(i));
+            }
+            if (request_ != null) {
+                output.writeMessage(5, getRequest());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!bcname_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(1, getBcname());
+            }
+            if (timestamp_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(2, timestamp_);
+            }
+            if (!initiator_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(3, getInitiator());
+            }
+            {
+                int dataSize = 0;
+                for (int i = 0; i < authRequire_.size(); i++) {
+                    dataSize += com.google.protobuf.CodedOutputStream
+                            .computeStringSizeNoTag(authRequire_.get(i));
+                }
+                size += dataSize;
+                size += 1 * getAuthRequireList().size();
+            }
+            if (request_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(5, getRequest());
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.CrossQueryRequest}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.CrossQueryRequest)
+                com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequestOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional string bcname = 1;</code>
+             */
+            public java.lang.String getBcname() {
+                return instance.getBcname();
+            }
+
+            /**
+             * <code>optional string bcname = 1;</code>
+             */
+            public com.google.protobuf.ByteString
+            getBcnameBytes() {
+                return instance.getBcnameBytes();
+            }
+
+            /**
+             * <code>optional string bcname = 1;</code>
+             */
+            public Builder setBcname(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setBcname(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 1;</code>
+             */
+            public Builder clearBcname() {
+                copyOnWrite();
+                instance.clearBcname();
+                return this;
+            }
+
+            /**
+             * <code>optional string bcname = 1;</code>
+             */
+            public Builder setBcnameBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setBcnameBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 timestamp = 2;</code>
+             */
+            public long getTimestamp() {
+                return instance.getTimestamp();
+            }
+
+            /**
+             * <code>optional int64 timestamp = 2;</code>
+             */
+            public Builder setTimestamp(long value) {
+                copyOnWrite();
+                instance.setTimestamp(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 timestamp = 2;</code>
+             */
+            public Builder clearTimestamp() {
+                copyOnWrite();
+                instance.clearTimestamp();
+                return this;
+            }
+
+            /**
+             * <code>optional string initiator = 3;</code>
+             */
+            public java.lang.String getInitiator() {
+                return instance.getInitiator();
+            }
+
+            /**
+             * <code>optional string initiator = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getInitiatorBytes() {
+                return instance.getInitiatorBytes();
+            }
+
+            /**
+             * <code>optional string initiator = 3;</code>
+             */
+            public Builder setInitiator(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setInitiator(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string initiator = 3;</code>
+             */
+            public Builder clearInitiator() {
+                copyOnWrite();
+                instance.clearInitiator();
+                return this;
+            }
+
+            /**
+             * <code>optional string initiator = 3;</code>
+             */
+            public Builder setInitiatorBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setInitiatorBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public java.util.List<String>
+            getAuthRequireList() {
+                return java.util.Collections.unmodifiableList(
+                        instance.getAuthRequireList());
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public int getAuthRequireCount() {
+                return instance.getAuthRequireCount();
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public java.lang.String getAuthRequire(int index) {
+                return instance.getAuthRequire(index);
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public com.google.protobuf.ByteString
+            getAuthRequireBytes(int index) {
+                return instance.getAuthRequireBytes(index);
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public Builder setAuthRequire(
+                    int index, java.lang.String value) {
+                copyOnWrite();
+                instance.setAuthRequire(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public Builder addAuthRequire(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.addAuthRequire(value);
+                return this;
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public Builder addAllAuthRequire(
+                    java.lang.Iterable<java.lang.String> values) {
+                copyOnWrite();
+                instance.addAllAuthRequire(values);
+                return this;
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public Builder clearAuthRequire() {
+                copyOnWrite();
+                instance.clearAuthRequire();
+                return this;
+            }
+
+            /**
+             * <code>repeated string auth_require = 4;</code>
+             */
+            public Builder addAuthRequireBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.addAuthRequireBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.InvokeRequest request = 5;</code>
+             */
+            public boolean hasRequest() {
+                return instance.hasRequest();
+            }
+
+            /**
+             * <code>optional .pb.InvokeRequest request = 5;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.InvokeRequest getRequest() {
+                return instance.getRequest();
+            }
+
+            /**
+             * <code>optional .pb.InvokeRequest request = 5;</code>
+             */
+            public Builder setRequest(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+                copyOnWrite();
+                instance.setRequest(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.InvokeRequest request = 5;</code>
+             */
+            public Builder setRequest(
+                    com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.Builder builderForValue) {
+                copyOnWrite();
+                instance.setRequest(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.InvokeRequest request = 5;</code>
+             */
+            public Builder mergeRequest(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest value) {
+                copyOnWrite();
+                instance.mergeRequest(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.InvokeRequest request = 5;</code>
+             */
+            public Builder clearRequest() {
+                copyOnWrite();
+                instance.clearRequest();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.CrossQueryRequest)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    authRequire_.makeImmutable();
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest other = (com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest) arg1;
+                    bcname_ = visitor.visitString(!bcname_.isEmpty(), bcname_,
+                            !other.bcname_.isEmpty(), other.bcname_);
+                    timestamp_ = visitor.visitLong(timestamp_ != 0L, timestamp_,
+                            other.timestamp_ != 0L, other.timestamp_);
+                    initiator_ = visitor.visitString(!initiator_.isEmpty(), initiator_,
+                            !other.initiator_.isEmpty(), other.initiator_);
+                    authRequire_ = visitor.visitList(authRequire_, other.authRequire_);
+                    request_ = visitor.visitMessage(request_, other.request_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                        bitField0_ |= other.bitField0_;
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    bcname_ = s;
+                                    break;
+                                }
+                                case 16: {
+
+                                    timestamp_ = input.readInt64();
+                                    break;
+                                }
+                                case 26: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    initiator_ = s;
+                                    break;
+                                }
+                                case 34: {
+                                    String s = input.readStringRequireUtf8();
+                                    if (!authRequire_.isModifiable()) {
+                                        authRequire_ =
+                                                com.google.protobuf.GeneratedMessageLite.mutableCopy(authRequire_);
+                                    }
+                                    authRequire_.add(s);
+                                    break;
+                                }
+                                case 42: {
+                                    com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.Builder subBuilder = null;
+                                    if (request_ != null) {
+                                        subBuilder = request_.toBuilder();
+                                    }
+                                    request_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(request_);
+                                        request_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.CrossQueryRequest)
+        private static final com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new CrossQueryRequest();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<CrossQueryRequest> PARSER;
+
+        public static com.google.protobuf.Parser<CrossQueryRequest> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface CrossQueryResponseOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.CrossQueryResponse)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        boolean hasResponse();
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.ContractResponse getResponse();
+    }
+
+    /**
+     * Protobuf type {@code pb.CrossQueryResponse}
+     */
+    public static final class CrossQueryResponse extends
+            com.google.protobuf.GeneratedMessageLite<
+                    CrossQueryResponse, CrossQueryResponse.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.CrossQueryResponse)
+            CrossQueryResponseOrBuilder {
+        private CrossQueryResponse() {
+        }
+
+        public static final int RESPONSE_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.ContractResponse response_;
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        public boolean hasResponse() {
+            return response_ != null;
+        }
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.ContractResponse getResponse() {
+            return response_ == null ? com.baidu.xuper.pb.XchainOuterClass.ContractResponse.getDefaultInstance() : response_;
+        }
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        private void setResponse(com.baidu.xuper.pb.XchainOuterClass.ContractResponse value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            response_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        private void setResponse(
+                com.baidu.xuper.pb.XchainOuterClass.ContractResponse.Builder builderForValue) {
+            response_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        private void mergeResponse(com.baidu.xuper.pb.XchainOuterClass.ContractResponse value) {
+            if (response_ != null &&
+                    response_ != com.baidu.xuper.pb.XchainOuterClass.ContractResponse.getDefaultInstance()) {
+                response_ =
+                        com.baidu.xuper.pb.XchainOuterClass.ContractResponse.newBuilder(response_).mergeFrom(value).buildPartial();
+            } else {
+                response_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.ContractResponse response = 1;</code>
+         */
+        private void clearResponse() {
+            response_ = null;
+
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (response_ != null) {
+                output.writeMessage(1, getResponse());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (response_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getResponse());
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.CrossQueryResponse}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.CrossQueryResponse)
+                com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponseOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.ContractResponse response = 1;</code>
+             */
+            public boolean hasResponse() {
+                return instance.hasResponse();
+            }
+
+            /**
+             * <code>optional .pb.ContractResponse response = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.ContractResponse getResponse() {
+                return instance.getResponse();
+            }
+
+            /**
+             * <code>optional .pb.ContractResponse response = 1;</code>
+             */
+            public Builder setResponse(com.baidu.xuper.pb.XchainOuterClass.ContractResponse value) {
+                copyOnWrite();
+                instance.setResponse(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.ContractResponse response = 1;</code>
+             */
+            public Builder setResponse(
+                    com.baidu.xuper.pb.XchainOuterClass.ContractResponse.Builder builderForValue) {
+                copyOnWrite();
+                instance.setResponse(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.ContractResponse response = 1;</code>
+             */
+            public Builder mergeResponse(com.baidu.xuper.pb.XchainOuterClass.ContractResponse value) {
+                copyOnWrite();
+                instance.mergeResponse(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.ContractResponse response = 1;</code>
+             */
+            public Builder clearResponse() {
+                copyOnWrite();
+                instance.clearResponse();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.CrossQueryResponse)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse other = (com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse) arg1;
+                    response_ = visitor.visitMessage(response_, other.response_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.ContractResponse.Builder subBuilder = null;
+                                    if (response_ != null) {
+                                        subBuilder = response_.toBuilder();
+                                    }
+                                    response_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.ContractResponse.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(response_);
+                                        response_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.CrossQueryResponse)
+        private static final com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new CrossQueryResponse();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<CrossQueryResponse> PARSER;
+
+        public static com.google.protobuf.Parser<CrossQueryResponse> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface CrossChainMetaOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.CrossChainMeta)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional string type = 1;</code>
+         */
+        java.lang.String getType();
+
+        /**
+         * <code>optional string type = 1;</code>
+         */
+        com.google.protobuf.ByteString
+        getTypeBytes();
+
+        /**
+         * <code>optional int64 min_endorsor_num = 2;</code>
+         */
+        long getMinEndorsorNum();
+    }
+
+    /**
+     * Protobuf type {@code pb.CrossChainMeta}
+     */
+    public static final class CrossChainMeta extends
+            com.google.protobuf.GeneratedMessageLite<
+                    CrossChainMeta, CrossChainMeta.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.CrossChainMeta)
+            CrossChainMetaOrBuilder {
+        private CrossChainMeta() {
+            type_ = "";
+        }
+
+        public static final int TYPE_FIELD_NUMBER = 1;
+        private java.lang.String type_;
+
+        /**
+         * <code>optional string type = 1;</code>
+         */
+        public java.lang.String getType() {
+            return type_;
+        }
+
+        /**
+         * <code>optional string type = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+        getTypeBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(type_);
+        }
+
+        /**
+         * <code>optional string type = 1;</code>
+         */
+        private void setType(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            type_ = value;
+        }
+
+        /**
+         * <code>optional string type = 1;</code>
+         */
+        private void clearType() {
+
+            type_ = getDefaultInstance().getType();
+        }
+
+        /**
+         * <code>optional string type = 1;</code>
+         */
+        private void setTypeBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            type_ = value.toStringUtf8();
+        }
+
+        public static final int MIN_ENDORSOR_NUM_FIELD_NUMBER = 2;
+        private long minEndorsorNum_;
+
+        /**
+         * <code>optional int64 min_endorsor_num = 2;</code>
+         */
+        public long getMinEndorsorNum() {
+            return minEndorsorNum_;
+        }
+
+        /**
+         * <code>optional int64 min_endorsor_num = 2;</code>
+         */
+        private void setMinEndorsorNum(long value) {
+
+            minEndorsorNum_ = value;
+        }
+
+        /**
+         * <code>optional int64 min_endorsor_num = 2;</code>
+         */
+        private void clearMinEndorsorNum() {
+
+            minEndorsorNum_ = 0L;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!type_.isEmpty()) {
+                output.writeString(1, getType());
+            }
+            if (minEndorsorNum_ != 0L) {
+                output.writeInt64(2, minEndorsorNum_);
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!type_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(1, getType());
+            }
+            if (minEndorsorNum_ != 0L) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeInt64Size(2, minEndorsorNum_);
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.CrossChainMeta}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.CrossChainMeta)
+                com.baidu.xuper.pb.XchainOuterClass.CrossChainMetaOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional string type = 1;</code>
+             */
+            public java.lang.String getType() {
+                return instance.getType();
+            }
+
+            /**
+             * <code>optional string type = 1;</code>
+             */
+            public com.google.protobuf.ByteString
+            getTypeBytes() {
+                return instance.getTypeBytes();
+            }
+
+            /**
+             * <code>optional string type = 1;</code>
+             */
+            public Builder setType(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setType(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string type = 1;</code>
+             */
+            public Builder clearType() {
+                copyOnWrite();
+                instance.clearType();
+                return this;
+            }
+
+            /**
+             * <code>optional string type = 1;</code>
+             */
+            public Builder setTypeBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setTypeBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 min_endorsor_num = 2;</code>
+             */
+            public long getMinEndorsorNum() {
+                return instance.getMinEndorsorNum();
+            }
+
+            /**
+             * <code>optional int64 min_endorsor_num = 2;</code>
+             */
+            public Builder setMinEndorsorNum(long value) {
+                copyOnWrite();
+                instance.setMinEndorsorNum(value);
+                return this;
+            }
+
+            /**
+             * <code>optional int64 min_endorsor_num = 2;</code>
+             */
+            public Builder clearMinEndorsorNum() {
+                copyOnWrite();
+                instance.clearMinEndorsorNum();
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.CrossChainMeta)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta other = (com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta) arg1;
+                    type_ = visitor.visitString(!type_.isEmpty(), type_,
+                            !other.type_.isEmpty(), other.type_);
+                    minEndorsorNum_ = visitor.visitLong(minEndorsorNum_ != 0L, minEndorsorNum_,
+                            other.minEndorsorNum_ != 0L, other.minEndorsorNum_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    type_ = s;
+                                    break;
+                                }
+                                case 16: {
+
+                                    minEndorsorNum_ = input.readInt64();
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.CrossChainMeta)
+        private static final com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new CrossChainMeta();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<CrossChainMeta> PARSER;
+
+        public static com.google.protobuf.Parser<CrossChainMeta> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface CrossEndorsorOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.CrossEndorsor)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        java.lang.String getAddress();
+
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        com.google.protobuf.ByteString
+        getAddressBytes();
+
+        /**
+         * <code>optional string pub_key = 2;</code>
+         */
+        java.lang.String getPubKey();
+
+        /**
+         * <code>optional string pub_key = 2;</code>
+         */
+        com.google.protobuf.ByteString
+        getPubKeyBytes();
+
+        /**
+         * <pre>
+         * ip+port
+         * </pre>
+         *
+         * <code>optional string host = 3;</code>
+         */
+        java.lang.String getHost();
+
+        /**
+         * <pre>
+         * ip+port
+         * </pre>
+         *
+         * <code>optional string host = 3;</code>
+         */
+        com.google.protobuf.ByteString
+        getHostBytes();
+    }
+
+    /**
+     * Protobuf type {@code pb.CrossEndorsor}
+     */
+    public static final class CrossEndorsor extends
+            com.google.protobuf.GeneratedMessageLite<
+                    CrossEndorsor, CrossEndorsor.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.CrossEndorsor)
+            CrossEndorsorOrBuilder {
+        private CrossEndorsor() {
+            address_ = "";
+            pubKey_ = "";
+            host_ = "";
+        }
+
+        public static final int ADDRESS_FIELD_NUMBER = 1;
+        private java.lang.String address_;
+
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public java.lang.String getAddress() {
+            return address_;
+        }
+
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+        getAddressBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(address_);
+        }
+
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        private void setAddress(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            address_ = value;
+        }
+
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        private void clearAddress() {
+
+            address_ = getDefaultInstance().getAddress();
+        }
+
+        /**
+         * <code>optional string address = 1;</code>
+         */
+        private void setAddressBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            address_ = value.toStringUtf8();
+        }
+
+        public static final int PUB_KEY_FIELD_NUMBER = 2;
+        private java.lang.String pubKey_;
+
+        /**
+         * <code>optional string pub_key = 2;</code>
+         */
+        public java.lang.String getPubKey() {
+            return pubKey_;
+        }
+
+        /**
+         * <code>optional string pub_key = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+        getPubKeyBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(pubKey_);
+        }
+
+        /**
+         * <code>optional string pub_key = 2;</code>
+         */
+        private void setPubKey(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            pubKey_ = value;
+        }
+
+        /**
+         * <code>optional string pub_key = 2;</code>
+         */
+        private void clearPubKey() {
+
+            pubKey_ = getDefaultInstance().getPubKey();
+        }
+
+        /**
+         * <code>optional string pub_key = 2;</code>
+         */
+        private void setPubKeyBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            pubKey_ = value.toStringUtf8();
+        }
+
+        public static final int HOST_FIELD_NUMBER = 3;
+        private java.lang.String host_;
+
+        /**
+         * <pre>
+         * ip+port
+         * </pre>
+         *
+         * <code>optional string host = 3;</code>
+         */
+        public java.lang.String getHost() {
+            return host_;
+        }
+
+        /**
+         * <pre>
+         * ip+port
+         * </pre>
+         *
+         * <code>optional string host = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+        getHostBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(host_);
+        }
+
+        /**
+         * <pre>
+         * ip+port
+         * </pre>
+         *
+         * <code>optional string host = 3;</code>
+         */
+        private void setHost(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            host_ = value;
+        }
+
+        /**
+         * <pre>
+         * ip+port
+         * </pre>
+         *
+         * <code>optional string host = 3;</code>
+         */
+        private void clearHost() {
+
+            host_ = getDefaultInstance().getHost();
+        }
+
+        /**
+         * <pre>
+         * ip+port
+         * </pre>
+         *
+         * <code>optional string host = 3;</code>
+         */
+        private void setHostBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            host_ = value.toStringUtf8();
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (!address_.isEmpty()) {
+                output.writeString(1, getAddress());
+            }
+            if (!pubKey_.isEmpty()) {
+                output.writeString(2, getPubKey());
+            }
+            if (!host_.isEmpty()) {
+                output.writeString(3, getHost());
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!address_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(1, getAddress());
+            }
+            if (!pubKey_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(2, getPubKey());
+            }
+            if (!host_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(3, getHost());
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.CrossEndorsor}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.CrossEndorsor)
+                com.baidu.xuper.pb.XchainOuterClass.CrossEndorsorOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional string address = 1;</code>
+             */
+            public java.lang.String getAddress() {
+                return instance.getAddress();
+            }
+
+            /**
+             * <code>optional string address = 1;</code>
+             */
+            public com.google.protobuf.ByteString
+            getAddressBytes() {
+                return instance.getAddressBytes();
+            }
+
+            /**
+             * <code>optional string address = 1;</code>
+             */
+            public Builder setAddress(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setAddress(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string address = 1;</code>
+             */
+            public Builder clearAddress() {
+                copyOnWrite();
+                instance.clearAddress();
+                return this;
+            }
+
+            /**
+             * <code>optional string address = 1;</code>
+             */
+            public Builder setAddressBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setAddressBytes(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string pub_key = 2;</code>
+             */
+            public java.lang.String getPubKey() {
+                return instance.getPubKey();
+            }
+
+            /**
+             * <code>optional string pub_key = 2;</code>
+             */
+            public com.google.protobuf.ByteString
+            getPubKeyBytes() {
+                return instance.getPubKeyBytes();
+            }
+
+            /**
+             * <code>optional string pub_key = 2;</code>
+             */
+            public Builder setPubKey(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setPubKey(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string pub_key = 2;</code>
+             */
+            public Builder clearPubKey() {
+                copyOnWrite();
+                instance.clearPubKey();
+                return this;
+            }
+
+            /**
+             * <code>optional string pub_key = 2;</code>
+             */
+            public Builder setPubKeyBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setPubKeyBytes(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * ip+port
+             * </pre>
+             *
+             * <code>optional string host = 3;</code>
+             */
+            public java.lang.String getHost() {
+                return instance.getHost();
+            }
+
+            /**
+             * <pre>
+             * ip+port
+             * </pre>
+             *
+             * <code>optional string host = 3;</code>
+             */
+            public com.google.protobuf.ByteString
+            getHostBytes() {
+                return instance.getHostBytes();
+            }
+
+            /**
+             * <pre>
+             * ip+port
+             * </pre>
+             *
+             * <code>optional string host = 3;</code>
+             */
+            public Builder setHost(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setHost(value);
+                return this;
+            }
+
+            /**
+             * <pre>
+             * ip+port
+             * </pre>
+             *
+             * <code>optional string host = 3;</code>
+             */
+            public Builder clearHost() {
+                copyOnWrite();
+                instance.clearHost();
+                return this;
+            }
+
+            /**
+             * <pre>
+             * ip+port
+             * </pre>
+             *
+             * <code>optional string host = 3;</code>
+             */
+            public Builder setHostBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setHostBytes(value);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.CrossEndorsor)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor other = (com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor) arg1;
+                    address_ = visitor.visitString(!address_.isEmpty(), address_,
+                            !other.address_.isEmpty(), other.address_);
+                    pubKey_ = visitor.visitString(!pubKey_.isEmpty(), pubKey_,
+                            !other.pubKey_.isEmpty(), other.pubKey_);
+                    host_ = visitor.visitString(!host_.isEmpty(), host_,
+                            !other.host_.isEmpty(), other.host_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    address_ = s;
+                                    break;
+                                }
+                                case 18: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    pubKey_ = s;
+                                    break;
+                                }
+                                case 26: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    host_ = s;
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.CrossEndorsor)
+        private static final com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new CrossEndorsor();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<CrossEndorsor> PARSER;
+
+        public static com.google.protobuf.Parser<CrossEndorsor> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface CrossQueryMetaOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.CrossQueryMeta)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        boolean hasChainMeta();
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta getChainMeta();
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        java.util.List<com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor>
+        getEndorsorsList();
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor getEndorsors(int index);
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        int getEndorsorsCount();
+    }
+
+    /**
+     * Protobuf type {@code pb.CrossQueryMeta}
+     */
+    public static final class CrossQueryMeta extends
+            com.google.protobuf.GeneratedMessageLite<
+                    CrossQueryMeta, CrossQueryMeta.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.CrossQueryMeta)
+            CrossQueryMetaOrBuilder {
+        private CrossQueryMeta() {
+            endorsors_ = emptyProtobufList();
+        }
+
+        private int bitField0_;
+        public static final int CHAIN_META_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta chainMeta_;
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        public boolean hasChainMeta() {
+            return chainMeta_ != null;
+        }
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta getChainMeta() {
+            return chainMeta_ == null ? com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.getDefaultInstance() : chainMeta_;
+        }
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        private void setChainMeta(com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            chainMeta_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        private void setChainMeta(
+                com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.Builder builderForValue) {
+            chainMeta_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        private void mergeChainMeta(com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta value) {
+            if (chainMeta_ != null &&
+                    chainMeta_ != com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.getDefaultInstance()) {
+                chainMeta_ =
+                        com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.newBuilder(chainMeta_).mergeFrom(value).buildPartial();
+            } else {
+                chainMeta_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+         */
+        private void clearChainMeta() {
+            chainMeta_ = null;
+
+        }
+
+        public static final int ENDORSORS_FIELD_NUMBER = 2;
+        private com.google.protobuf.Internal.ProtobufList<com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor> endorsors_;
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        public java.util.List<com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor> getEndorsorsList() {
+            return endorsors_;
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        public java.util.List<? extends com.baidu.xuper.pb.XchainOuterClass.CrossEndorsorOrBuilder>
+        getEndorsorsOrBuilderList() {
+            return endorsors_;
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        public int getEndorsorsCount() {
+            return endorsors_.size();
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor getEndorsors(int index) {
+            return endorsors_.get(index);
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.CrossEndorsorOrBuilder getEndorsorsOrBuilder(
+                int index) {
+            return endorsors_.get(index);
+        }
+
+        private void ensureEndorsorsIsMutable() {
+            if (!endorsors_.isModifiable()) {
+                endorsors_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(endorsors_);
+            }
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void setEndorsors(
+                int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureEndorsorsIsMutable();
+            endorsors_.set(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void setEndorsors(
+                int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.Builder builderForValue) {
+            ensureEndorsorsIsMutable();
+            endorsors_.set(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void addEndorsors(com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureEndorsorsIsMutable();
+            endorsors_.add(value);
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void addEndorsors(
+                int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureEndorsorsIsMutable();
+            endorsors_.add(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void addEndorsors(
+                com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.Builder builderForValue) {
+            ensureEndorsorsIsMutable();
+            endorsors_.add(builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void addEndorsors(
+                int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.Builder builderForValue) {
+            ensureEndorsorsIsMutable();
+            endorsors_.add(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void addAllEndorsors(
+                java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor> values) {
+            ensureEndorsorsIsMutable();
+            com.google.protobuf.AbstractMessageLite.addAll(
+                    values, endorsors_);
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void clearEndorsors() {
+            endorsors_ = emptyProtobufList();
+        }
+
+        /**
+         * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+         */
+        private void removeEndorsors(int index) {
+            ensureEndorsorsIsMutable();
+            endorsors_.remove(index);
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (chainMeta_ != null) {
+                output.writeMessage(1, getChainMeta());
+            }
+            for (int i = 0; i < endorsors_.size(); i++) {
+                output.writeMessage(2, endorsors_.get(i));
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (chainMeta_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getChainMeta());
+            }
+            for (int i = 0; i < endorsors_.size(); i++) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(2, endorsors_.get(i));
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.CrossQueryMeta}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.CrossQueryMeta)
+                com.baidu.xuper.pb.XchainOuterClass.CrossQueryMetaOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+             */
+            public boolean hasChainMeta() {
+                return instance.hasChainMeta();
+            }
+
+            /**
+             * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta getChainMeta() {
+                return instance.getChainMeta();
+            }
+
+            /**
+             * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+             */
+            public Builder setChainMeta(com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta value) {
+                copyOnWrite();
+                instance.setChainMeta(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+             */
+            public Builder setChainMeta(
+                    com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.Builder builderForValue) {
+                copyOnWrite();
+                instance.setChainMeta(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+             */
+            public Builder mergeChainMeta(com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta value) {
+                copyOnWrite();
+                instance.mergeChainMeta(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossChainMeta chain_meta = 1;</code>
+             */
+            public Builder clearChainMeta() {
+                copyOnWrite();
+                instance.clearChainMeta();
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public java.util.List<com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor> getEndorsorsList() {
+                return java.util.Collections.unmodifiableList(
+                        instance.getEndorsorsList());
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public int getEndorsorsCount() {
+                return instance.getEndorsorsCount();
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor getEndorsors(int index) {
+                return instance.getEndorsors(index);
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder setEndorsors(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor value) {
+                copyOnWrite();
+                instance.setEndorsors(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder setEndorsors(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.Builder builderForValue) {
+                copyOnWrite();
+                instance.setEndorsors(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder addEndorsors(com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor value) {
+                copyOnWrite();
+                instance.addEndorsors(value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder addEndorsors(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor value) {
+                copyOnWrite();
+                instance.addEndorsors(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder addEndorsors(
+                    com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.Builder builderForValue) {
+                copyOnWrite();
+                instance.addEndorsors(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder addEndorsors(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.Builder builderForValue) {
+                copyOnWrite();
+                instance.addEndorsors(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder addAllEndorsors(
+                    java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor> values) {
+                copyOnWrite();
+                instance.addAllEndorsors(values);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder clearEndorsors() {
+                copyOnWrite();
+                instance.clearEndorsors();
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.CrossEndorsor endorsors = 2;</code>
+             */
+            public Builder removeEndorsors(int index) {
+                copyOnWrite();
+                instance.removeEndorsors(index);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.CrossQueryMeta)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    endorsors_.makeImmutable();
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta other = (com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta) arg1;
+                    chainMeta_ = visitor.visitMessage(chainMeta_, other.chainMeta_);
+                    endorsors_ = visitor.visitList(endorsors_, other.endorsors_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                        bitField0_ |= other.bitField0_;
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.Builder subBuilder = null;
+                                    if (chainMeta_ != null) {
+                                        subBuilder = chainMeta_.toBuilder();
+                                    }
+                                    chainMeta_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.CrossChainMeta.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(chainMeta_);
+                                        chainMeta_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 18: {
+                                    if (!endorsors_.isModifiable()) {
+                                        endorsors_ =
+                                                com.google.protobuf.GeneratedMessageLite.mutableCopy(endorsors_);
+                                    }
+                                    endorsors_.add(
+                                            input.readMessage(com.baidu.xuper.pb.XchainOuterClass.CrossEndorsor.parser(), extensionRegistry));
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.CrossQueryMeta)
+        private static final com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new CrossQueryMeta();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryMeta getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<CrossQueryMeta> PARSER;
+
+        public static com.google.protobuf.Parser<CrossQueryMeta> parser() {
+            return DEFAULT_INSTANCE.getParserForType();
+        }
+    }
+
+    public interface CrossQueryInfoOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:pb.CrossQueryInfo)
+            com.google.protobuf.MessageLiteOrBuilder {
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        boolean hasRequest();
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest getRequest();
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        boolean hasResponse();
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse getResponse();
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        java.util.List<com.baidu.xuper.pb.XchainOuterClass.SignatureInfo>
+        getSignsList();
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        com.baidu.xuper.pb.XchainOuterClass.SignatureInfo getSigns(int index);
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        int getSignsCount();
+    }
+
+    /**
+     * Protobuf type {@code pb.CrossQueryInfo}
+     */
+    public static final class CrossQueryInfo extends
+            com.google.protobuf.GeneratedMessageLite<
+                    CrossQueryInfo, CrossQueryInfo.Builder> implements
+            // @@protoc_insertion_point(message_implements:pb.CrossQueryInfo)
+            CrossQueryInfoOrBuilder {
+        private CrossQueryInfo() {
+            signs_ = emptyProtobufList();
+        }
+
+        private int bitField0_;
+        public static final int REQUEST_FIELD_NUMBER = 1;
+        private com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest request_;
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        public boolean hasRequest() {
+            return request_ != null;
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest getRequest() {
+            return request_ == null ? com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.getDefaultInstance() : request_;
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        private void setRequest(com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            request_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        private void setRequest(
+                com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.Builder builderForValue) {
+            request_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        private void mergeRequest(com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest value) {
+            if (request_ != null &&
+                    request_ != com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.getDefaultInstance()) {
+                request_ =
+                        com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.newBuilder(request_).mergeFrom(value).buildPartial();
+            } else {
+                request_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryRequest request = 1;</code>
+         */
+        private void clearRequest() {
+            request_ = null;
+
+        }
+
+        public static final int RESPONSE_FIELD_NUMBER = 2;
+        private com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse response_;
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        public boolean hasResponse() {
+            return response_ != null;
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse getResponse() {
+            return response_ == null ? com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.getDefaultInstance() : response_;
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        private void setResponse(com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            response_ = value;
+
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        private void setResponse(
+                com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.Builder builderForValue) {
+            response_ = builderForValue.build();
+
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        private void mergeResponse(com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse value) {
+            if (response_ != null &&
+                    response_ != com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.getDefaultInstance()) {
+                response_ =
+                        com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.newBuilder(response_).mergeFrom(value).buildPartial();
+            } else {
+                response_ = value;
+            }
+
+        }
+
+        /**
+         * <code>optional .pb.CrossQueryResponse response = 2;</code>
+         */
+        private void clearResponse() {
+            response_ = null;
+
+        }
+
+        public static final int SIGNS_FIELD_NUMBER = 3;
+        private com.google.protobuf.Internal.ProtobufList<com.baidu.xuper.pb.XchainOuterClass.SignatureInfo> signs_;
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        public java.util.List<com.baidu.xuper.pb.XchainOuterClass.SignatureInfo> getSignsList() {
+            return signs_;
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        public java.util.List<? extends com.baidu.xuper.pb.XchainOuterClass.SignatureInfoOrBuilder>
+        getSignsOrBuilderList() {
+            return signs_;
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        public int getSignsCount() {
+            return signs_.size();
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.SignatureInfo getSigns(int index) {
+            return signs_.get(index);
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        public com.baidu.xuper.pb.XchainOuterClass.SignatureInfoOrBuilder getSignsOrBuilder(
+                int index) {
+            return signs_.get(index);
+        }
+
+        private void ensureSignsIsMutable() {
+            if (!signs_.isModifiable()) {
+                signs_ =
+                        com.google.protobuf.GeneratedMessageLite.mutableCopy(signs_);
+            }
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void setSigns(
+                int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureSignsIsMutable();
+            signs_.set(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void setSigns(
+                int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.Builder builderForValue) {
+            ensureSignsIsMutable();
+            signs_.set(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void addSigns(com.baidu.xuper.pb.XchainOuterClass.SignatureInfo value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureSignsIsMutable();
+            signs_.add(value);
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void addSigns(
+                int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            ensureSignsIsMutable();
+            signs_.add(index, value);
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void addSigns(
+                com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.Builder builderForValue) {
+            ensureSignsIsMutable();
+            signs_.add(builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void addSigns(
+                int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.Builder builderForValue) {
+            ensureSignsIsMutable();
+            signs_.add(index, builderForValue.build());
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void addAllSigns(
+                java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.SignatureInfo> values) {
+            ensureSignsIsMutable();
+            com.google.protobuf.AbstractMessageLite.addAll(
+                    values, signs_);
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void clearSigns() {
+            signs_ = emptyProtobufList();
+        }
+
+        /**
+         * <code>repeated .pb.SignatureInfo signs = 3;</code>
+         */
+        private void removeSigns(int index) {
+            ensureSignsIsMutable();
+            signs_.remove(index);
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                throws java.io.IOException {
+            if (request_ != null) {
+                output.writeMessage(1, getRequest());
+            }
+            if (response_ != null) {
+                output.writeMessage(2, getResponse());
+            }
+            for (int i = 0; i < signs_.size(); i++) {
+                output.writeMessage(3, signs_.get(i));
+            }
+        }
+
+        public int getSerializedSize() {
+            int size = memoizedSerializedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (request_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(1, getRequest());
+            }
+            if (response_ != null) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(2, getResponse());
+            }
+            for (int i = 0; i < signs_.size(); i++) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeMessageSize(3, signs_.get(i));
+            }
+            memoizedSerializedSize = size;
+            return size;
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, data, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input);
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageLite.parseFrom(
+                    DEFAULT_INSTANCE, input, extensionRegistry);
+        }
+
+        public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+        }
+
+        public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+
+        /**
+         * Protobuf type {@code pb.CrossQueryInfo}
+         */
+        public static final class Builder extends
+                com.google.protobuf.GeneratedMessageLite.Builder<
+                        com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo, Builder> implements
+                // @@protoc_insertion_point(builder_implements:pb.CrossQueryInfo)
+                com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfoOrBuilder {
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo.newBuilder()
+            private Builder() {
+                super(DEFAULT_INSTANCE);
+            }
+
+
+            /**
+             * <code>optional .pb.CrossQueryRequest request = 1;</code>
+             */
+            public boolean hasRequest() {
+                return instance.hasRequest();
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryRequest request = 1;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest getRequest() {
+                return instance.getRequest();
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryRequest request = 1;</code>
+             */
+            public Builder setRequest(com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest value) {
+                copyOnWrite();
+                instance.setRequest(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryRequest request = 1;</code>
+             */
+            public Builder setRequest(
+                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.Builder builderForValue) {
+                copyOnWrite();
+                instance.setRequest(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryRequest request = 1;</code>
+             */
+            public Builder mergeRequest(com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest value) {
+                copyOnWrite();
+                instance.mergeRequest(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryRequest request = 1;</code>
+             */
+            public Builder clearRequest() {
+                copyOnWrite();
+                instance.clearRequest();
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryResponse response = 2;</code>
+             */
+            public boolean hasResponse() {
+                return instance.hasResponse();
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryResponse response = 2;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse getResponse() {
+                return instance.getResponse();
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryResponse response = 2;</code>
+             */
+            public Builder setResponse(com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse value) {
+                copyOnWrite();
+                instance.setResponse(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryResponse response = 2;</code>
+             */
+            public Builder setResponse(
+                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.Builder builderForValue) {
+                copyOnWrite();
+                instance.setResponse(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryResponse response = 2;</code>
+             */
+            public Builder mergeResponse(com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse value) {
+                copyOnWrite();
+                instance.mergeResponse(value);
+                return this;
+            }
+
+            /**
+             * <code>optional .pb.CrossQueryResponse response = 2;</code>
+             */
+            public Builder clearResponse() {
+                copyOnWrite();
+                instance.clearResponse();
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public java.util.List<com.baidu.xuper.pb.XchainOuterClass.SignatureInfo> getSignsList() {
+                return java.util.Collections.unmodifiableList(
+                        instance.getSignsList());
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public int getSignsCount() {
+                return instance.getSignsCount();
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public com.baidu.xuper.pb.XchainOuterClass.SignatureInfo getSigns(int index) {
+                return instance.getSigns(index);
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder setSigns(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo value) {
+                copyOnWrite();
+                instance.setSigns(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder setSigns(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.Builder builderForValue) {
+                copyOnWrite();
+                instance.setSigns(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder addSigns(com.baidu.xuper.pb.XchainOuterClass.SignatureInfo value) {
+                copyOnWrite();
+                instance.addSigns(value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder addSigns(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo value) {
+                copyOnWrite();
+                instance.addSigns(index, value);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder addSigns(
+                    com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.Builder builderForValue) {
+                copyOnWrite();
+                instance.addSigns(builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder addSigns(
+                    int index, com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.Builder builderForValue) {
+                copyOnWrite();
+                instance.addSigns(index, builderForValue);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder addAllSigns(
+                    java.lang.Iterable<? extends com.baidu.xuper.pb.XchainOuterClass.SignatureInfo> values) {
+                copyOnWrite();
+                instance.addAllSigns(values);
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder clearSigns() {
+                copyOnWrite();
+                instance.clearSigns();
+                return this;
+            }
+
+            /**
+             * <code>repeated .pb.SignatureInfo signs = 3;</code>
+             */
+            public Builder removeSigns(int index) {
+                copyOnWrite();
+                instance.removeSigns(index);
+                return this;
+            }
+
+            // @@protoc_insertion_point(builder_scope:pb.CrossQueryInfo)
+        }
+
+        protected final Object dynamicMethod(
+                com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+                Object arg0, Object arg1) {
+            switch (method) {
+                case NEW_MUTABLE_INSTANCE: {
+                    return new com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo();
+                }
+                case IS_INITIALIZED: {
+                    return DEFAULT_INSTANCE;
+                }
+                case MAKE_IMMUTABLE: {
+                    signs_.makeImmutable();
+                    return null;
+                }
+                case NEW_BUILDER: {
+                    return new Builder();
+                }
+                case VISIT: {
+                    Visitor visitor = (Visitor) arg0;
+                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo other = (com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo) arg1;
+                    request_ = visitor.visitMessage(request_, other.request_);
+                    response_ = visitor.visitMessage(response_, other.response_);
+                    signs_ = visitor.visitList(signs_, other.signs_);
+                    if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
+                            .INSTANCE) {
+                        bitField0_ |= other.bitField0_;
+                    }
+                    return this;
+                }
+                case MERGE_FROM_STREAM: {
+                    com.google.protobuf.CodedInputStream input =
+                            (com.google.protobuf.CodedInputStream) arg0;
+                    com.google.protobuf.ExtensionRegistryLite extensionRegistry =
+                            (com.google.protobuf.ExtensionRegistryLite) arg1;
+                    try {
+                        boolean done = false;
+                        while (!done) {
+                            int tag = input.readTag();
+                            switch (tag) {
+                                case 0:
+                                    done = true;
+                                    break;
+                                default: {
+                                    if (!input.skipField(tag)) {
+                                        done = true;
+                                    }
+                                    break;
+                                }
+                                case 10: {
+                                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.Builder subBuilder = null;
+                                    if (request_ != null) {
+                                        subBuilder = request_.toBuilder();
+                                    }
+                                    request_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.CrossQueryRequest.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(request_);
+                                        request_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 18: {
+                                    com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.Builder subBuilder = null;
+                                    if (response_ != null) {
+                                        subBuilder = response_.toBuilder();
+                                    }
+                                    response_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.CrossQueryResponse.parser(), extensionRegistry);
+                                    if (subBuilder != null) {
+                                        subBuilder.mergeFrom(response_);
+                                        response_ = subBuilder.buildPartial();
+                                    }
+
+                                    break;
+                                }
+                                case 26: {
+                                    if (!signs_.isModifiable()) {
+                                        signs_ =
+                                                com.google.protobuf.GeneratedMessageLite.mutableCopy(signs_);
+                                    }
+                                    signs_.add(
+                                            input.readMessage(com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.parser(), extensionRegistry));
+                                    break;
+                                }
+                            }
+                        }
+                    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                        throw new RuntimeException(e.setUnfinishedMessage(this));
+                    } catch (java.io.IOException e) {
+                        throw new RuntimeException(
+                                new com.google.protobuf.InvalidProtocolBufferException(
+                                        e.getMessage()).setUnfinishedMessage(this));
+                    } finally {
+                    }
+                }
+                case GET_DEFAULT_INSTANCE: {
+                    return DEFAULT_INSTANCE;
+                }
+                case GET_PARSER: {
+                    if (PARSER == null) {
+                        synchronized (com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo.class) {
+                            if (PARSER == null) {
+                                PARSER = new DefaultInstanceBasedParser(DEFAULT_INSTANCE);
+                            }
+                        }
+                    }
+                    return PARSER;
+                }
+            }
+            throw new UnsupportedOperationException();
+        }
+
+
+        // @@protoc_insertion_point(class_scope:pb.CrossQueryInfo)
+        private static final com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo DEFAULT_INSTANCE;
+
+        static {
+            DEFAULT_INSTANCE = new CrossQueryInfo();
+            DEFAULT_INSTANCE.makeImmutable();
+        }
+
+        public static com.baidu.xuper.pb.XchainOuterClass.CrossQueryInfo getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+        }
+
+        private static volatile com.google.protobuf.Parser<CrossQueryInfo> PARSER;
+
+        public static com.google.protobuf.Parser<CrossQueryInfo> parser() {
             return DEFAULT_INSTANCE.getParserForType();
         }
     }

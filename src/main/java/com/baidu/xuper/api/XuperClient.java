@@ -296,4 +296,90 @@ public class XuperClient {
         Common.checkResponseHeader(bcs.getHeader(), "query blockchain status");
         return bcs;
     }
+
+    /**
+     * @param from     the account of create contract.
+     * @param bin      evm contract bin byte array.
+     * @param abi      evm contract abi byte array.
+     * @param contract contract name.
+     * @param initArgs constructor args.
+     * @return transaction.
+     */
+    public Transaction deployEVMContract(Account from, byte[] bin, byte[] abi, String contract, Map<String, String> initArgs) {
+        if (from.getContractAccount().isEmpty()) {
+            throw new RuntimeException("deploy contract must use contract account");
+        }
+        XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
+                .setContractType("evm")
+                .build();
+
+        Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(initArgs);
+
+        Gson gson = new Gson();
+        byte[] initArgsJson = gson.toJson(evmArgs).getBytes();
+
+        Map<String, byte[]> args = new HashMap<>();
+        args.put("account_name", from.getContractAccount().getBytes());
+        args.put("contract_name", contract.getBytes());
+        args.put("contract_code", bin);
+        args.put("contract_desc", desc.toByteArray());
+        args.put("init_args", initArgsJson);
+        args.put("contract_abi", abi);
+        return invokeContract(from, "xkernel", "", "Deploy", args);
+    }
+
+    /**
+     * @param from     the initiator of calling method.
+     * @param contract contract name.
+     * @param method   contract method.
+     * @param args     method args.
+     * @return transaction.
+     */
+    public Transaction queryEVMContract(Account from, String contract, String method, Map<String, String> args) {
+        Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(args);
+
+        return new Proposal()
+                .setChainName(chainName)
+                .setInitiator(from)
+                .addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr())
+                .invokeContract("evm", contract, method, evmArgs)
+                .preExec(this);
+    }
+
+    /**
+     * @param from     the initiator of calling method.
+     * @param contract contract name.
+     * @param method   contract method.
+     * @param args     contract method args.
+     * @param amount   amount of transfer to contract when call payable method.
+     * @return transaction.
+     */
+    public Transaction invokeEVMContract(Account from, String contract, String method, Map<String, String> args, BigInteger amount) {
+        Proposal p = new Proposal().setChainName(chainName);
+        if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
+        }
+        p.setInitiator(from);
+
+        Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(args);
+        return p.transfer(contract, amount).invokeContract("evm", contract, method, evmArgs).build(this).sign().send(this);
+    }
+
+    private Map<String, byte[]> convertToXuper3EVMArgs(Map<String, String> initArgs) {
+        Map<String, Object> args = new HashMap<>();
+        if (initArgs != null) {
+            for (Map.Entry<String, String> entry : initArgs.entrySet()) {
+                args.put(entry.getKey(), entry.getValue());
+            }
+        }
+
+        Gson gson = new Gson();
+        byte[] initArgsJson = gson.toJson(args).getBytes();
+
+        Map<String, byte[]> evmArgs = new HashMap<>();
+        evmArgs.put("input", initArgsJson);
+        evmArgs.put("jsonEncoded", "true".getBytes());
+
+        return evmArgs;
+    }
 }

@@ -20,6 +20,20 @@ public class XuperClient {
 
     private String chainName = "xuper";
 
+    private final String evmContract = "evm";
+    private final String xkernelModule = "xkernel";
+    private final String evmJSONEncoded = "jsonEncoded";
+    private final String evmJSONEncodedTrue = "true";
+    private final String argsInput = "input";
+    private final String xkernelDeployMethod = "deploy";
+    private final String xkernelNewAccountMethod = "NewAccount";
+    private final String argAccountName = "account_name";
+    private final String argContractName = "contract_name";
+    private final String argContractCode = "contract_code";
+    private final String argContractDesc = "contract_desc";
+    private final String argInitArgs = "init_args";
+    private final String argContractAbi = "contract_abi";
+
     /**
      * @param target the address of xchain node, like 127.0.0.1:37101
      */
@@ -137,12 +151,12 @@ public class XuperClient {
         byte[] initArgsJson = gson.toJson(initArgs).getBytes();
 
         Map<String, byte[]> args = new HashMap<>();
-        args.put("account_name", from.getContractAccount().getBytes());
-        args.put("contract_name", contract.getBytes());
-        args.put("contract_code", code);
-        args.put("contract_desc", desc.toByteArray());
-        args.put("init_args", initArgsJson);
-        return invokeContract(from, "xkernel", "", "Deploy", args);
+        args.put(argAccountName, from.getContractAccount().getBytes());
+        args.put(argContractName, contract.getBytes());
+        args.put(argContractCode, code);
+        args.put(argContractDesc, desc.toByteArray());
+        args.put(argInitArgs, initArgsJson);
+        return invokeContract(from, xkernelModule, "", xkernelDeployMethod, args);
     }
 
     /**
@@ -155,7 +169,7 @@ public class XuperClient {
         Map<String, byte[]> args = new HashMap<>();
         args.put("account_name", accountName.getBytes());
         args.put("acl", desc.getBytes());
-        return invokeContract(from, "xkernel", "", "NewAccount", args);
+        return invokeContract(from, xkernelModule, "", xkernelNewAccountMethod, args);
     }
 
     /**
@@ -310,7 +324,7 @@ public class XuperClient {
             throw new RuntimeException("deploy contract must use contract account");
         }
         XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
-                .setContractType("evm")
+                .setContractType(evmContract)
                 .build();
 
         Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(initArgs);
@@ -319,13 +333,13 @@ public class XuperClient {
         byte[] initArgsJson = gson.toJson(evmArgs).getBytes();
 
         Map<String, byte[]> args = new HashMap<>();
-        args.put("account_name", from.getContractAccount().getBytes());
-        args.put("contract_name", contract.getBytes());
-        args.put("contract_code", bin);
-        args.put("contract_desc", desc.toByteArray());
-        args.put("init_args", initArgsJson);
-        args.put("contract_abi", abi);
-        return invokeContract(from, "xkernel", "", "Deploy", args);
+        args.put(argAccountName, from.getContractAccount().getBytes());
+        args.put(argContractName, contract.getBytes());
+        args.put(argContractCode, bin);
+        args.put(argContractDesc, desc.toByteArray());
+        args.put(argInitArgs, initArgsJson);
+        args.put(argContractAbi, abi);
+        return invokeContract(from, xkernelModule, "", xkernelDeployMethod, args);
     }
 
     /**
@@ -342,7 +356,7 @@ public class XuperClient {
                 .setChainName(chainName)
                 .setInitiator(from)
                 .addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr())
-                .invokeContract("evm", contract, method, evmArgs)
+                .invokeContract(evmContract, contract, method, evmArgs)
                 .preExec(this);
     }
 
@@ -362,7 +376,7 @@ public class XuperClient {
         p.setInitiator(from);
 
         Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(args);
-        return p.transfer(contract, amount).invokeContract("evm", contract, method, evmArgs).build(this).sign().send(this);
+        return p.transfer(contract, amount).invokeContract(evmContract, contract, method, evmArgs).build(this).sign().send(this);
     }
 
     private Map<String, byte[]> convertToXuper3EVMArgs(Map<String, String> initArgs) {
@@ -377,8 +391,8 @@ public class XuperClient {
         byte[] initArgsJson = gson.toJson(args).getBytes();
 
         Map<String, byte[]> evmArgs = new HashMap<>();
-        evmArgs.put("input", initArgsJson);
-        evmArgs.put("jsonEncoded", "true".getBytes());
+        evmArgs.put(argsInput, initArgsJson);
+        evmArgs.put(evmJSONEncoded, evmJSONEncodedTrue.getBytes());
 
         return evmArgs;
     }

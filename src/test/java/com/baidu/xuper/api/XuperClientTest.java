@@ -151,6 +151,32 @@ public class XuperClientTest {
     }
 
     @Test
+    public void deployEVMContract() {
+        String abi = "[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"num\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[],\"name\":\"retrieve\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"num\",\"type\":\"uint256\"}],\"name\":\"store\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"num\",\"type\":\"uint256\"}],\"name\":\"storepay\",\"outputs\":[],\"payable\":true,\"stateMutability\":\"payable\",\"type\":\"function\"}]";
+        String bin = "608060405234801561001057600080fd5b5060405161016c38038061016c8339818101604052602081101561003357600080fd5b810190808051906020019092919050505080600081905550506101118061005b6000396000f3fe60806040526004361060305760003560e01c80632e64cec11460355780636057361d14605d5780638995db74146094575b600080fd5b348015604057600080fd5b50604760bf565b6040518082815260200191505060405180910390f35b348015606857600080fd5b50609260048036036020811015607d57600080fd5b810190808035906020019092919050505060c8565b005b60bd6004803603602081101560a857600080fd5b810190808035906020019092919050505060d2565b005b60008054905090565b8060008190555050565b806000819055505056fea265627a7a723158209500c3e12321b837819442c0bc1daa92a4f4377fc7b59c41dbf9c7620b2f961064736f6c63430005110032";
+
+        Map<String, String> args = new HashMap<>();
+        args.put("num", "5889");
+        Transaction transaction = client.deployEVMContract(account, bin.getBytes(), abi.getBytes(), "storage", args);
+        System.out.println("tx id:" + transaction.getTxid());
+    }
+
+    @Test
+    public void invokeEVMContract() {
+        Map<String, String> args = new HashMap<>();
+        args.put("num", "5888");
+        Transaction transaction = client.invokeEVMContract(account, "storage", "storagepay", args, BigInteger.ONE);
+        System.out.println("tx id:" + transaction.getTxid());
+    }
+
+    @Test
+    public void queryEVMContract() {
+        Transaction transaction = client.queryEVMContract(account, "storage", "storagepay", null);
+        System.out.println("tx message:" + transaction.getContractResponse().getMessage());
+        System.out.println("tx bidy:" + transaction.getContractResponse().getBodyStr());
+    }
+
+    @Test
     public void apiExample() throws Exception {
         createContractAccount();
         transfer();

@@ -109,7 +109,7 @@ args.put("num", "5889");
 Transaction t = client.deployEVMContract(account, bin.getBytes(), abi.getBytes(), contractName, args);
 System.out.println("txID:" + t.getTxid());
 
-// storagepay is a payable method.
+// storagepay is a payable method. Amount param can be NULL if there is no need to transfer to the contract.
 Transaction t1 = xuperClient.invokeEVMContract(account, contractName, "storepay", args, BigInteger.ONE);
 System.out.println("txID:" + t1.getTxid());
 System.out.println("tx gas:" + t1.getGasUsed());

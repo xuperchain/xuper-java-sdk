@@ -88,9 +88,7 @@ public class Transaction {
     // 没有背书检查时，生成完整的交易。
     private void genRealTxOnly(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal) {
         XchainOuterClass.UtxoOutput utxos = response.getUtxoOutput();
-        System.out.println("response.getUtxoOutput() utxos:" + utxos);
         XchainOuterClass.InvokeResponse invokeResponse = response.getResponse();
-        System.out.println("invokeResponse.getUtxoOutputsList():" + invokeResponse.getUtxoOutputsList());
 
         Account initiator = proposal.initiator;
         XchainOuterClass.Transaction.Builder txBuilder = XchainOuterClass.Transaction.newBuilder()

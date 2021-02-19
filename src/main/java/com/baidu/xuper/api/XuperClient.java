@@ -25,7 +25,7 @@ public class XuperClient {
     private final String evmJSONEncoded = "jsonEncoded";
     private final String evmJSONEncodedTrue = "true";
     private final String argsInput = "input";
-    private final String xkernelDeployMethod = "deploy";
+    private final String xkernelDeployMethod = "Deploy";
     private final String xkernelNewAccountMethod = "NewAccount";
     private final String argAccountName = "account_name";
     private final String argContractName = "contract_name";

@@ -37,7 +37,7 @@ public class Transaction {
     Transaction(XchainOuterClass.InvokeRPCResponse rpcResponse, Proposal proposal) {
         this.proposal = proposal;
         if (rpcResponse.getResponse().getResponseCount() != 0) {
-            this.contractResponse = new ContractResponse(rpcResponse.getResponse().getResponses(0));
+            this.contractResponse = new ContractResponse(rpcResponse.getResponse().getResponses(rpcResponse.getResponse().getResponseCount() - 1));
             if (this.contractResponse.getStatus() >= 400) {
                 throw new RuntimeException("contract error status:"
                         + this.contractResponse.getStatus()
@@ -49,7 +49,7 @@ public class Transaction {
     Transaction(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal, XuperClient client) throws Exception {
         XchainOuterClass.InvokeResponse invokeResponse = response.getResponse();
         if (invokeResponse.getResponseCount() != 0) {
-            this.contractResponse = new ContractResponse(invokeResponse.getResponses(0));
+            this.contractResponse = new ContractResponse(invokeResponse.getResponses(invokeResponse.getResponseCount() - 1));
             if (this.contractResponse.getStatus() >= 400) {
                 throw new Exception("contract error status:"
                         + this.contractResponse.getStatus()

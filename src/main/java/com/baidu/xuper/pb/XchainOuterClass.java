@@ -1179,7 +1179,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Header, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Header)
                 com.baidu.xuper.pb.XchainOuterClass.HeaderOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Header.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Header.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -1836,7 +1836,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxDataAccount, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxDataAccount)
                 com.baidu.xuper.pb.XchainOuterClass.TxDataAccountOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxDataAccount.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxDataAccount.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -3302,7 +3302,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxData, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxData)
                 com.baidu.xuper.pb.XchainOuterClass.TxDataOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxData.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxData.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -4729,7 +4729,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxStatus)
                 com.baidu.xuper.pb.XchainOuterClass.TxStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -5505,7 +5505,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BatchTxs, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BatchTxs)
                 com.baidu.xuper.pb.XchainOuterClass.BatchTxsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BatchTxs.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BatchTxs.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -6322,7 +6322,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Block, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Block)
                 com.baidu.xuper.pb.XchainOuterClass.BlockOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Block.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Block.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -7041,7 +7041,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BlockID, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BlockID)
                 com.baidu.xuper.pb.XchainOuterClass.BlockIDOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BlockID.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BlockID.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -7633,7 +7633,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BlockHeight, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BlockHeight)
                 com.baidu.xuper.pb.XchainOuterClass.BlockHeightOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BlockHeight.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BlockHeight.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -8073,7 +8073,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.CommonReply, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.CommonReply)
                 com.baidu.xuper.pb.XchainOuterClass.CommonReplyOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.CommonReply.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CommonReply.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -8429,7 +8429,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.CommonIn, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.CommonIn)
                 com.baidu.xuper.pb.XchainOuterClass.CommonInOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.CommonIn.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.CommonIn.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -8910,7 +8910,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TokenDetail, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TokenDetail)
                 com.baidu.xuper.pb.XchainOuterClass.TokenDetailOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TokenDetail.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TokenDetail.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -9582,7 +9582,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AddressStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AddressStatus)
                 com.baidu.xuper.pb.XchainOuterClass.AddressStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AddressStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AddressStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -10143,7 +10143,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetail, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TokenFrozenDetail)
                 com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetailOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TokenFrozenDetail.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetail.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -10732,7 +10732,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetails, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TokenFrozenDetails)
                 com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetailsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TokenFrozenDetails.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TokenFrozenDetails.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -11473,7 +11473,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AddressBalanceStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AddressBalanceStatus)
                 com.baidu.xuper.pb.XchainOuterClass.AddressBalanceStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AddressBalanceStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AddressBalanceStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -12216,7 +12216,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxInput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxInput)
                 com.baidu.xuper.pb.XchainOuterClass.TxInputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxInput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxInput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -12829,7 +12829,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxOutput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxOutput)
                 com.baidu.xuper.pb.XchainOuterClass.TxOutputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxOutput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxOutput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -13327,7 +13327,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.XuperSignature, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.XuperSignature)
                 com.baidu.xuper.pb.XchainOuterClass.XuperSignatureOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.XuperSignature.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.XuperSignature.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -16077,7 +16077,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Transaction, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Transaction)
                 com.baidu.xuper.pb.XchainOuterClass.TransactionOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Transaction.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Transaction.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -18309,7 +18309,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.LedgerMeta, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.LedgerMeta)
                 com.baidu.xuper.pb.XchainOuterClass.LedgerMetaOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.LedgerMeta.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.LedgerMeta.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -19684,7 +19684,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.UtxoMeta, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.UtxoMeta)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoMetaOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.UtxoMeta.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoMeta.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -20845,7 +20845,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.GasPrice, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.GasPrice)
                 com.baidu.xuper.pb.XchainOuterClass.GasPriceOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.GasPrice.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.GasPrice.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -22728,7 +22728,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InternalBlock, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InternalBlock)
                 com.baidu.xuper.pb.XchainOuterClass.InternalBlockOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InternalBlock.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InternalBlock.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -24821,7 +24821,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BCStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BCStatus)
                 com.baidu.xuper.pb.XchainOuterClass.BCStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BCStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BCStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -25682,7 +25682,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BCTipStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BCTipStatus)
                 com.baidu.xuper.pb.XchainOuterClass.BCTipStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BCTipStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BCTipStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -26200,7 +26200,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BlockChains, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BlockChains)
                 com.baidu.xuper.pb.XchainOuterClass.BlockChainsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BlockChains.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BlockChains.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -26876,7 +26876,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Speeds, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Speeds)
                 com.baidu.xuper.pb.XchainOuterClass.SpeedsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Speeds.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Speeds.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -27484,7 +27484,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.BCSpeeds, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.BCSpeeds)
                 com.baidu.xuper.pb.XchainOuterClass.BCSpeedsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.BCSpeeds.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.BCSpeeds.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -28258,7 +28258,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.SystemsStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.SystemsStatus)
                 com.baidu.xuper.pb.XchainOuterClass.SystemsStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.SystemsStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.SystemsStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -28967,7 +28967,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.SystemsStatusReply, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.SystemsStatusReply)
                 com.baidu.xuper.pb.XchainOuterClass.SystemsStatusReplyOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.SystemsStatusReply.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.SystemsStatusReply.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -29466,7 +29466,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.RawUrl, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.RawUrl)
                 com.baidu.xuper.pb.XchainOuterClass.RawUrlOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.RawUrl.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.RawUrl.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -30004,7 +30004,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Utxo, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Utxo)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Utxo.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Utxo.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -30967,7 +30967,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.UtxoInput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.UtxoInput)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoInputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.UtxoInput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoInput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -32066,7 +32066,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.UtxoOutput, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.UtxoOutput)
                 com.baidu.xuper.pb.XchainOuterClass.UtxoOutputOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.UtxoOutput.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.UtxoOutput.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -33017,7 +33017,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeDesc, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeDesc)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeDescOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeDesc.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeDesc.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -33462,6 +33462,17 @@ public final class XchainOuterClass {
          */
         com.google.protobuf.ByteString
         getVmCompilerBytes();
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        java.lang.String getContractType();
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        com.google.protobuf.ByteString
+        getContractTypeBytes();
     }
 
     /**
@@ -33477,6 +33488,7 @@ public final class XchainOuterClass {
             compiler_ = "";
             digest_ = com.google.protobuf.ByteString.EMPTY;
             vmCompiler_ = "";
+            contractType_ = "";
         }
 
         public static final int RUNTIME_FIELD_NUMBER = 1;
@@ -33661,6 +33673,57 @@ public final class XchainOuterClass {
             vmCompiler_ = value.toStringUtf8();
         }
 
+        public static final int CONTRACT_TYPE_FIELD_NUMBER = 5;
+        private java.lang.String contractType_;
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        public java.lang.String getContractType() {
+            return contractType_;
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        public com.google.protobuf.ByteString
+        getContractTypeBytes() {
+            return com.google.protobuf.ByteString.copyFromUtf8(contractType_);
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        private void setContractType(
+                java.lang.String value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+
+            contractType_ = value;
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        private void clearContractType() {
+
+            contractType_ = getDefaultInstance().getContractType();
+        }
+
+        /**
+         * <code>optional string contract_type = 5;</code>
+         */
+        private void setContractTypeBytes(
+                com.google.protobuf.ByteString value) {
+            if (value == null) {
+                throw new NullPointerException();
+            }
+            checkByteStringIsUtf8(value);
+
+            contractType_ = value.toStringUtf8();
+        }
+
         public void writeTo(com.google.protobuf.CodedOutputStream output)
                 throws java.io.IOException {
             if (!runtime_.isEmpty()) {
@@ -33674,6 +33737,9 @@ public final class XchainOuterClass {
             }
             if (!vmCompiler_.isEmpty()) {
                 output.writeString(4, getVmCompiler());
+            }
+            if (!contractType_.isEmpty()) {
+                output.writeString(5, getContractType());
             }
         }
 
@@ -33697,6 +33763,10 @@ public final class XchainOuterClass {
             if (!vmCompiler_.isEmpty()) {
                 size += com.google.protobuf.CodedOutputStream
                         .computeStringSize(4, getVmCompiler());
+            }
+            if (!contractType_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                        .computeStringSize(5, getContractType());
             }
             memoizedSerializedSize = size;
             return size;
@@ -33788,7 +33858,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.WasmCodeDesc, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.WasmCodeDesc)
                 com.baidu.xuper.pb.XchainOuterClass.WasmCodeDescOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.WasmCodeDesc.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.WasmCodeDesc.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -33951,6 +34021,50 @@ public final class XchainOuterClass {
                 return this;
             }
 
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public java.lang.String getContractType() {
+                return instance.getContractType();
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public com.google.protobuf.ByteString
+            getContractTypeBytes() {
+                return instance.getContractTypeBytes();
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public Builder setContractType(
+                    java.lang.String value) {
+                copyOnWrite();
+                instance.setContractType(value);
+                return this;
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public Builder clearContractType() {
+                copyOnWrite();
+                instance.clearContractType();
+                return this;
+            }
+
+            /**
+             * <code>optional string contract_type = 5;</code>
+             */
+            public Builder setContractTypeBytes(
+                    com.google.protobuf.ByteString value) {
+                copyOnWrite();
+                instance.setContractTypeBytes(value);
+                return this;
+            }
+
             // @@protoc_insertion_point(builder_scope:pb.WasmCodeDesc)
         }
 
@@ -33981,6 +34095,8 @@ public final class XchainOuterClass {
                             other.digest_ != com.google.protobuf.ByteString.EMPTY, other.digest_);
                     vmCompiler_ = visitor.visitString(!vmCompiler_.isEmpty(), vmCompiler_,
                             !other.vmCompiler_.isEmpty(), other.vmCompiler_);
+                    contractType_ = visitor.visitString(!contractType_.isEmpty(), contractType_,
+                            !other.contractType_.isEmpty(), other.contractType_);
                     if (visitor == com.google.protobuf.GeneratedMessageLite.MergeFromVisitor
                             .INSTANCE) {
                     }
@@ -34026,6 +34142,12 @@ public final class XchainOuterClass {
                                     String s = input.readStringRequireUtf8();
 
                                     vmCompiler_ = s;
+                                    break;
+                                }
+                                case 42: {
+                                    String s = input.readStringRequireUtf8();
+
+                                    contractType_ = s;
                                     break;
                                 }
                             }
@@ -34745,7 +34867,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DeployNativeCodeRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DeployNativeCodeRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -35466,7 +35588,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DeployNativeCodeResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DeployNativeCodeResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DeployNativeCodeResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -35898,7 +36020,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeStatus)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -36388,7 +36510,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeStatusRequest)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeStatusRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -36955,7 +37077,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.NativeCodeStatusResponse)
                 com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.NativeCodeStatusResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.NativeCodeStatusResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -37510,7 +37632,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCandidatesRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCandidatesRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposCandidatesRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCandidatesRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCandidatesRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -38056,7 +38178,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCandidatesResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCandidatesResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposCandidatesResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCandidatesResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCandidatesResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -38652,7 +38774,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNominateRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNominateRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -39184,7 +39306,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNominateInfo, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNominateInfo)
                 com.baidu.xuper.pb.XchainOuterClass.DposNominateInfoOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNominateInfo.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNominateInfo.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -39746,7 +39868,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNominateRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNominateRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNominateRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -40371,7 +40493,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNomineeRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNomineeRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -40909,7 +41031,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposNomineeRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposNomineeRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposNomineeRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -41465,7 +41587,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVoteRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVoteRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -41997,7 +42119,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.voteRecord, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.voteRecord)
                 com.baidu.xuper.pb.XchainOuterClass.voteRecordOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.voteRecord.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.voteRecord.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -42627,7 +42749,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVoteRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVoteRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVoteRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -43300,7 +43422,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVotedRecordsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVotedRecordsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -43832,7 +43954,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.votedRecord, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.votedRecord)
                 com.baidu.xuper.pb.XchainOuterClass.votedRecordOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.votedRecord.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.votedRecord.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -44462,7 +44584,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposVotedRecordsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposVotedRecordsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposVotedRecordsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -45103,7 +45225,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCheckResultsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCheckResultsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -45719,7 +45841,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposCheckResultsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposCheckResultsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposCheckResultsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -46277,7 +46399,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposStatusRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposStatusRequest)
                 com.baidu.xuper.pb.XchainOuterClass.DposStatusRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposStatusRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposStatusRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -46769,7 +46891,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposStatusResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposStatusResponse)
                 com.baidu.xuper.pb.XchainOuterClass.DposStatusResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposStatusResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposStatusResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -47428,7 +47550,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.DposStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.DposStatus)
                 com.baidu.xuper.pb.XchainOuterClass.DposStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.DposStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.DposStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -48387,7 +48509,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeRPCRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeRPCRequest)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeRPCRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeRPCRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeRPCRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -49205,7 +49327,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeRPCResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeRPCResponse)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeRPCResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeRPCResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeRPCResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -50236,7 +50358,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeRequest)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -52022,7 +52144,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.InvokeResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.InvokeResponse)
                 com.baidu.xuper.pb.XchainOuterClass.InvokeResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.InvokeResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.InvokeResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -53261,7 +53383,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxInputExt, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxInputExt)
                 com.baidu.xuper.pb.XchainOuterClass.TxInputExtOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxInputExt.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxInputExt.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -53786,7 +53908,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.TxOutputExt, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.TxOutputExt)
                 com.baidu.xuper.pb.XchainOuterClass.TxOutputExtOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.TxOutputExt.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.TxOutputExt.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -54237,7 +54359,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.SignatureInfo, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.SignatureInfo)
                 com.baidu.xuper.pb.XchainOuterClass.SignatureInfoOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.SignatureInfo.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.SignatureInfo.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -54651,7 +54773,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.PermissionModel, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.PermissionModel)
                 com.baidu.xuper.pb.XchainOuterClass.PermissionModelOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.PermissionModel.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.PermissionModel.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -55147,7 +55269,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AkSet, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AkSet)
                 com.baidu.xuper.pb.XchainOuterClass.AkSetOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AkSet.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AkSet.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -55780,7 +55902,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AkSets, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AkSets)
                 com.baidu.xuper.pb.XchainOuterClass.AkSetsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AkSets.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AkSets.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -56602,7 +56724,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.Acl, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.Acl)
                 com.baidu.xuper.pb.XchainOuterClass.AclOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.Acl.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.Acl.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -57598,7 +57720,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AclStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AclStatus)
                 com.baidu.xuper.pb.XchainOuterClass.AclStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AclStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AclStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -58485,7 +58607,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.IdentityAuth, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.IdentityAuth)
                 com.baidu.xuper.pb.XchainOuterClass.IdentityAuthOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.IdentityAuth.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.IdentityAuth.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -59086,7 +59208,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.IdentityAuths, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.IdentityAuths)
                 com.baidu.xuper.pb.XchainOuterClass.IdentityAuthsOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.IdentityAuths.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.IdentityAuths.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -59520,7 +59642,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ResourceLimit, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ResourceLimit)
                 com.baidu.xuper.pb.XchainOuterClass.ResourceLimitOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ResourceLimit.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ResourceLimit.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -60031,7 +60153,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AK2AccountRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AK2AccountRequest)
                 com.baidu.xuper.pb.XchainOuterClass.AK2AccountRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AK2AccountRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AK2AccountRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -60691,7 +60813,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.AK2AccountResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.AK2AccountResponse)
                 com.baidu.xuper.pb.XchainOuterClass.AK2AccountResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.AK2AccountResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.AK2AccountResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -61339,7 +61461,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsRequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.GetAccountContractsRequest)
                 com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsRequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.GetAccountContractsRequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsRequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -61966,7 +62088,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.GetAccountContractsResponse)
                 com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.GetAccountContractsResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.GetAccountContractsResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -62595,7 +62717,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ContractStatus, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ContractStatus)
                 com.baidu.xuper.pb.XchainOuterClass.ContractStatusOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ContractStatus.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractStatus.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -63430,7 +63552,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXORequest, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.PreExecWithSelectUTXORequest)
                 com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXORequestOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXORequest.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -64346,7 +64468,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXOResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.PreExecWithSelectUTXOResponse)
                 com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXOResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.PreExecWithSelectUTXOResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.PreExecWithSelectUTXOResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -64990,7 +65112,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ContractResponse, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ContractResponse)
                 com.baidu.xuper.pb.XchainOuterClass.ContractResponseOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ContractResponse.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ContractResponse.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }
@@ -65723,7 +65845,7 @@ public final class XchainOuterClass {
                         com.baidu.xuper.pb.XchainOuterClass.ModifyBlock, Builder> implements
                 // @@protoc_insertion_point(builder_implements:pb.ModifyBlock)
                 com.baidu.xuper.pb.XchainOuterClass.ModifyBlockOrBuilder {
-            // Construct using com.baidu.xuperunion.pb.XchainOuterClass.ModifyBlock.newBuilder()
+            // Construct using com.baidu.xuper.pb.XchainOuterClass.ModifyBlock.newBuilder()
             private Builder() {
                 super(DEFAULT_INSTANCE);
             }

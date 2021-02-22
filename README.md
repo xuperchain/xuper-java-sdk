@@ -97,4 +97,27 @@ System.out.println("response: " + tx.getContractResponse().getBodyStr());
 System.out.println("gas: " + tx.getGasUsed());
 ```
 
+## EVM contract
+
+```java
+String abi = "[{\"inputs\":[{\"internalType\":\"uint256\"......";
+String bin = "6080604......";
+
+Map<String, String> args = new HashMap<>();
+args.put("num", "5889");
+
+Transaction t = client.deployEVMContract(account, bin.getBytes(), abi.getBytes(), contractName, args);
+System.out.println("txID:" + t.getTxid());
+
+// storagepay is a payable method. Amount param can be NULL if there is no need to transfer to the contract.
+Transaction t1 = xuperClient.invokeEVMContract(account, contractName, "storepay", args, BigInteger.ONE);
+System.out.println("txID:" + t1.getTxid());
+System.out.println("tx gas:" + t1.getGasUsed());
+
+Transaction t2 = xuperClient.queryEVMContract(account, contractName, "retrieve", null);
+System.out.println("tx res getMessage:" + t2.getContractResponse().getMessage());
+System.out.println("tx res getBodyStr:" + t2.getContractResponse().getBodyStr());
+```
+
+
 

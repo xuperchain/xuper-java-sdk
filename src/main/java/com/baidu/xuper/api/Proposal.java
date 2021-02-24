@@ -235,6 +235,10 @@ public class Proposal {
                 m2.put("args", m3);
             }
 
+            if (!r.getAmount().isEmpty()) {
+                m2.put("amount", r.getAmount());
+            }
+
             l.add(m2);
         }
 

@@ -91,6 +91,10 @@ public class JsonUtils {
                     if (r.method_name != null) {
                         ireqBuilder.setMethodName(r.method_name);
                     }
+
+                    if (r.amount != null) {
+                        ireqBuilder.setAmount(r.amount);
+                    }
                     if (r.args != null) {
                         for (Map.Entry<String, byte[]> entry : r.args.entrySet()) {
                             if (entry.getValue() == null) {
@@ -325,6 +329,9 @@ public class JsonUtils {
                     if (item.getMethodName() != null && !item.getMethodName().isEmpty()) {
                         newIR.method_name = item.getMethodName();
                     }
+                    if (item.getAmount() != null && !item.getAmount().isEmpty()) {
+                        newIR.amount = item.getAmount();
+                    }
 
                     if (item.getArgsMap().size() != 0) {
                         HashMap<String, byte[]> m = new HashMap<>();
@@ -465,6 +472,7 @@ public class JsonUtils {
         public String method_name;
         public Map<String, byte[]> args;
         public ResourceLimit[] resource_limits;
+        public String amount;
     }
 
     public static class ResourceLimit {

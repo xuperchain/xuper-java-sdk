@@ -377,7 +377,7 @@ public class XuperClient {
 
         Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(args);
 
-        if (amount == null) {
+        if (amount == null || amount.compareTo(BigInteger.ZERO) == 0) {
             return p.invokeContract(evmContract, contract, method, evmArgs).build(this).sign().send(this);
         }
         return p.transfer(contract, amount).invokeContract(evmContract, contract, method, evmArgs).build(this).sign().send(this);

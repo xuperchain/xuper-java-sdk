@@ -6,7 +6,7 @@ import io.grpc.ManagedChannelBuilder;
 
 public class XendorserClient {
     private final ManagedChannel channel;
-    private final XendorserGrpc.xendorserBlockingStub blockingClient;
+    private final XendorserGrpc.XendorserBlockingStub blockingClient;
 
     public XendorserClient(String target) {
         this(ManagedChannelBuilder.forTarget(target)
@@ -23,7 +23,7 @@ public class XendorserClient {
         channel.shutdown();
     }
 
-    XendorserGrpc.xendorserBlockingStub getBlockingClient() {
+    XendorserGrpc.XendorserBlockingStub getBlockingClient() {
         return blockingClient;
     }
 }

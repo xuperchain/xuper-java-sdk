@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 option java_outer_classname="XendorserOuterClass";
-option java_package = "com.baidu.xuperunion.pb";
+option java_package = "com.baidu.xuper.pb";
 
 package pb;
 import "xchain.proto";
@@ -23,7 +23,7 @@ message EndorserResponse {
   bytes ResponseData = 5;
 }
 
-service xendorser {
+service Xendorser {
   rpc EndorserCall(EndorserRequest) returns (EndorserResponse) {
     option (google.api.http) = {
       post : "/v1/endorsercall"

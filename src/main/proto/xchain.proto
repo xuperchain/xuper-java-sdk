@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option java_package = "com.baidu.xuperunion.pb";
+option java_package = "com.baidu.xuper.pb";
 
 import "google/api/annotations.proto";
 import "chainedbft.proto";

@@ -12,18 +12,6 @@
     <!-- FIXME change it to the project's website -->
     <url>http://xuper.baidu.com</url>
     <description>xuper-java-sdk for XuperChain</description>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>1.8</java.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-
-        <io.grpc.version>1.40.1</io.grpc.version>
-    </properties>
-
-
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -35,6 +23,15 @@
         <url>https://github.com/xuperchain/xuper-java-sdk</url>
         <connection>https://github.com/xuperchain/xuper-java-sdk.git</connection>
     </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <io.grpc.version>1.40.1</io.grpc.version>
+    </properties>
 
 
     <developers>
@@ -163,11 +160,7 @@
     </profiles>
 
     <dependencies>
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.29</version>
-        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -177,6 +170,17 @@
 
 
 
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.29</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.perfmark</groupId>
+            <artifactId>perfmark-api</artifactId>
+            <version>0.24.0</version>
+        </dependency>
 
         <dependency>
             <groupId>io.grpc</groupId>
@@ -207,6 +211,8 @@
             <artifactId>bcprov-jdk15to18</artifactId>
             <version>1.69</version>
         </dependency>
+
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>

@@ -16,6 +16,7 @@ import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
 
 public class ECDSAAccount {
@@ -156,7 +157,7 @@ public class ECDSAAccount {
         try {
             byte[] fileBytes = Files.readAllBytes(Paths.get(path));
 
-            Base64.Decoder decoder  = Base64.getDecoder();
+            Decoder decoder  = Base64.getDecoder();
             //BASE64Decoder d =decoder new BASE64Decoder();
            // return decoder.decode(new String(fileBytes));
             return decoder.decode(fileBytes);

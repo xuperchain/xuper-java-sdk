@@ -45,6 +45,20 @@ public class XuperClient {
                 .build());
     }
 
+    /**
+     * @param target the address of xchain node, like 127.0.0.1:37101
+     * @param maxInboundMessageSize Sets the maximum message size allowed to be received on the channel, like 52428800 (50M)
+     */
+    public XuperClient(String target,Integer maxInboundMessageSize) {
+        this(ManagedChannelBuilder.forTarget(target)
+                .maxInboundMessageSize(maxInboundMessageSize)
+                // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
+                // needing certificates.
+                .usePlaintext()
+                .build());
+    }
+
+
     private XuperClient(ManagedChannel channel) {
         this.channel = channel;
         blockingClient = XchainGrpc.newBlockingStub(channel);

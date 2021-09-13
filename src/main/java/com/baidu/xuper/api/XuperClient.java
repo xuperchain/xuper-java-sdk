@@ -110,7 +110,7 @@ public class XuperClient {
         Proposal p = new Proposal()
                 .setChainName(chainName)
                 .setFee(fee);
-        if (desc!=null&&!desc.equals("")){
+        if ((desc!=null)&&(!desc.equals(""))){
             p.setDesc(desc);
         }
 

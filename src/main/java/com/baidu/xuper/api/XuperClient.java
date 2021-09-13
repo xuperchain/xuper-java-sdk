@@ -38,11 +38,7 @@ public class XuperClient {
      * @param target the address of xchain node, like 127.0.0.1:37101
      */
     public XuperClient(String target) {
-        this(ManagedChannelBuilder.forTarget(target)
-                // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
-                // needing certificates.
-                .usePlaintext()
-                .build());
+        this(target,4194304);
     }
 
     /**

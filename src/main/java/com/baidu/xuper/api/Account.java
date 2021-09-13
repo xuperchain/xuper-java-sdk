@@ -7,9 +7,9 @@ import com.baidu.xuper.crypto.account.ECDSAAccount;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.math.BigInteger;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -31,15 +31,15 @@ public class Account {
     }
 
     /**
-     * @param privateKeyFile  ./data/keys/private.key file
+     * @param inputStream  ./data/keys/private.key fileInputStream
      * @return
      * @throws Exception
      */
-    public static Account create(File privateKeyFile) {
+    public static Account create(InputStream inputStream) {
         Gson gson = new Gson();
         privatePubKey json;
         try {
-            JsonReader reader = new JsonReader(new FileReader(privateKeyFile));
+            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
             json = gson.fromJson(reader, privatePubKey.class);
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -51,6 +51,11 @@ public class Account {
         return create(ECKeyPair.create(json.D));
     }
 
+
+
+
+
+
     /**
      * @param keyPath the path to ./data/keys which contains private.key file
      * @return
@@ -60,7 +65,7 @@ public class Account {
         try {
             String privateKeyPath = Paths.get(keyPath, "private.key").toString();
             File privateKeyFile=new File(privateKeyPath);
-            return create(privateKeyFile);
+            return create(new FileInputStream(privateKeyFile));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

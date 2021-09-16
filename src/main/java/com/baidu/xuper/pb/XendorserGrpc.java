@@ -12,7 +12,7 @@ public final class XendorserGrpc {
 
   private XendorserGrpc() {}
 
-  public static final String SERVICE_NAME = "pb.Xendorser";
+  public static final String SERVICE_NAME = "pb.xendorser";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<com.baidu.xuper.pb.XendorserOuterClass.EndorserRequest,

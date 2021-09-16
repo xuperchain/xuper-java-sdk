@@ -51,11 +51,6 @@ public class Account {
         return create(ECKeyPair.create(json.D));
     }
 
-
-
-
-
-
     /**
      * @param keyPath the path to ./data/keys which contains private.key file
      * @return

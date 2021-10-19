@@ -38,12 +38,22 @@ public class XuperClient {
      * @param target the address of xchain node, like 127.0.0.1:37101
      */
     public XuperClient(String target) {
+        this(target,4194304);
+    }
+
+    /**
+     * @param target the address of xchain node, like 127.0.0.1:37101
+     * @param maxInboundMessageSize Sets the maximum message size allowed to be received on the channel, like 52428800 (50M)
+     */
+    public XuperClient(String target,Integer maxInboundMessageSize) {
         this(ManagedChannelBuilder.forTarget(target)
+                .maxInboundMessageSize(maxInboundMessageSize)
                 // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
                 // needing certificates.
                 .usePlaintext()
                 .build());
     }
+
 
     private XuperClient(ManagedChannel channel) {
         this.channel = channel;
@@ -86,9 +96,23 @@ public class XuperClient {
      * @return
      */
     public Transaction transfer(Account from, String to, BigInteger amount, String fee) {
+        return transfer(from,to,amount,fee,null);
+    }
+
+    /**
+     * @param from   from address
+     * @param to     to address
+     * @param amount transfer amount
+     * @param desc transfer desc
+     * @return
+     */
+    public Transaction transfer(Account from, String to, BigInteger amount, String fee,String desc) {
         Proposal p = new Proposal()
                 .setChainName(chainName)
                 .setFee(fee);
+        if ((desc!=null)&&(!desc.equals(""))){
+            p.setDesc(desc);
+        }
 
         if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
             p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
@@ -96,6 +120,8 @@ public class XuperClient {
         p.setInitiator(from);
         return p.transfer(to, amount).build(this).sign().send(this);
     }
+
+
 
     /**
      * @param from     the initiator of calling method

@@ -9,14 +9,15 @@ import com.baidu.xuper.crypto.bip39.MnemonicCode;
 import com.baidu.xuper.crypto.bip39.WordList;
 import com.baidu.xuper.crypto.bip39.wordlists.Chinese;
 import com.baidu.xuper.crypto.bip39.wordlists.English;
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.math.BigInteger;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Base64;
+import java.util.Base64.Decoder;
+import java.util.Base64.Encoder;
 
 public class ECDSAAccount {
     public byte[] entropyByte;
@@ -97,8 +98,8 @@ public class ECDSAAccount {
     }
 
     private void writeFileUsingFileName(String fileName, byte[] content) {
-        BASE64Encoder encoder = new BASE64Encoder();
-        String encoded = encoder.encode(content);
+        Encoder encoder =  Base64.getEncoder();
+        String encoded = encoder.encodeToString(content);
         FileWriter writer;
         try {
             writer = new FileWriter(fileName);
@@ -155,8 +156,11 @@ public class ECDSAAccount {
     private static byte[] readFileWithBASE64Decode(String path) {
         try {
             byte[] fileBytes = Files.readAllBytes(Paths.get(path));
-            BASE64Decoder d = new BASE64Decoder();
-            return d.decodeBuffer(new String(fileBytes));
+
+            Decoder decoder  = Base64.getDecoder();
+            //BASE64Decoder d =decoder new BASE64Decoder();
+           // return decoder.decode(new String(fileBytes));
+            return decoder.decode(fileBytes);
 
         } catch (Exception e) {
             throw new RuntimeException(e);

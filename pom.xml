@@ -6,7 +6,7 @@
 
     <groupId>com.baidu.xuper</groupId>
     <artifactId>xuper-java-sdk</artifactId>
-    <version>0.2.0</version>
+    <version>0.2.1</version>
 
     <name>xuper-java-sdk</name>
     <!-- FIXME change it to the project's website -->
@@ -26,9 +26,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <io.grpc.version>1.40.1</io.grpc.version>
     </properties>
+
 
     <developers>
         <developer>
@@ -156,32 +160,47 @@
     </profiles>
 
     <dependencies>
-        <dependency>
-            <groupId>org.yaml</groupId>
-            <artifactId>snakeyaml</artifactId>
-            <version>1.26</version>
-        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.13.1</version>
             <scope>test</scope>
         </dependency>
+
+
+
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+            <version>1.29</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.perfmark</groupId>
+            <artifactId>perfmark-api</artifactId>
+            <version>0.24.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.grpc</groupId>
+            <artifactId>grpc-protobuf</artifactId>
+            <version>${io.grpc.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-okhttp</artifactId>
-            <version>1.25.0</version>
+            <version>${io.grpc.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.grpc</groupId>
-            <artifactId>grpc-protobuf-lite</artifactId>
-            <version>1.25.0</version>
-        </dependency>
+
         <dependency>
             <groupId>io.grpc</groupId>
             <artifactId>grpc-stub</artifactId>
-            <version>1.25.0</version>
+            <version>${io.grpc.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>javax.annotation</groupId>
             <artifactId>javax.annotation-api</artifactId>
@@ -190,18 +209,20 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk15to18</artifactId>
-            <version>1.64</version>
+            <version>1.69</version>
         </dependency>
+
+
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.4</version>
+            <version>2.8.8</version>
         </dependency>
 
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.68</version>
+            <version>1.2.78</version>
         </dependency>
     </dependencies>
 
@@ -249,5 +270,15 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

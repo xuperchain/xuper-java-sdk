@@ -42,6 +42,12 @@ class TxEncoder {
     }
 
     private void encode(ByteString bs) {
+        if (bs == null){
+            String s = gson.toJson(null);
+            buffer.append(s);
+            buffer.append("\n");
+            return;
+        }
         if (!bs.isEmpty()) {
             encode(Base64.toBase64String(bs.toByteArray()));
         }
@@ -59,7 +65,11 @@ class TxEncoder {
         for (int i = 0; i < tx.getTxOutputsCount(); i++) {
             txOutputs[i] = TxOutputBean.create(tx.getTxOutputs(i));
         }
-        encode(txOutputs);
+        if (txOutputs.length > 0){
+            encode(txOutputs);
+        }else{
+            encode(null);
+        }
 
         encode(tx.getDesc());
         encode(tx.getNonce());

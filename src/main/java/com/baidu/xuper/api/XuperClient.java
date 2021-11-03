@@ -158,6 +158,7 @@ public class XuperClient {
     }
 
     /**
+     * deploy wasm contract
      * @param from     the contract account to deploy contract
      * @param code     the binary of contract code
      * @param contract the name of contract
@@ -166,13 +167,47 @@ public class XuperClient {
      * @return
      */
     public Transaction deployWasmContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs) {
+        return deployContract(from,code,contract,runtime,initArgs,"wasm");
+    }
+
+
+    /**
+     * deploy native contract
+     * @param from     the contract account to deploy contract
+     * @param code     the binary of contract code
+     * @param contract the name of contract
+     * @param runtime  contract runtime c or go
+     * @param initArgs initial argument of initialize method
+     * @return
+     */
+    public Transaction deployNativeContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs) {
+        return deployContract(from,code,contract,runtime,initArgs,"native");
+    }
+
+    /**
+     *
+     * @param from     the contract account to deploy contract
+     * @param code     the binary of contract code
+     * @param contract the name of contract
+     * @param runtime  contract runtime c or go
+     * @param initArgs initial argument of initialize method
+     * @param contractType contract type  wasm or native
+     * @return
+     */
+    private Transaction deployContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs,String contractType) {
         if (from.getContractAccount().isEmpty()) {
             throw new RuntimeException("deploy contract must use contract account");
         }
+
+        if (contractType.isEmpty()){
+            contractType="wasm";
+        }
+
+        // XchainOuterClass.NativeCodeDesc desc = XchainOuterClass.NativeCodeDesc.newBuilder().build();
         XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
                 .setRuntime(runtime)
+                .setContractType(contractType)
                 .build();
-
         Gson gson = new Gson();
         byte[] initArgsJson = gson.toJson(initArgs).getBytes();
 
@@ -184,7 +219,7 @@ public class XuperClient {
         args.put(argInitArgs, initArgsJson);
         return invokeContract(from, xkernelModule, "", xkernelDeployMethod, args);
     }
-
+    
     /**
      * @param from        the use account to create contract account
      * @param accountName the name of contract account

@@ -179,11 +179,14 @@ class TxEncoder {
             if (pb.getArgsCount() != 0) {
                 TreeMap<String, ByteString> margs = new TreeMap<>();
                 for (Map.Entry<String, ByteString> entry : pb.getArgsMap().entrySet()) {
+                    /*
                     if (entry.getValue().isEmpty()) {
                         margs.put(entry.getKey(), null);
                     } else {
                         margs.put(entry.getKey(), entry.getValue());
-                    }
+                    }*/
+                    //修复 参数值为 ""时,设置了为null,造成签名和实际传输的数据不同,验签失败
+                    margs.put(entry.getKey(), entry.getValue());
                 }
                 m.put("args", margs);
             }

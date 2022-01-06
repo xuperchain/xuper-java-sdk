@@ -36,6 +36,7 @@ public class Transaction {
 
     Transaction(XchainOuterClass.InvokeRPCResponse rpcResponse, Proposal proposal) {
         this.proposal = proposal;
+        this.gasUsed = rpcResponse.getResponse().getGasUsed();
         if (rpcResponse.getResponse().getResponseCount() != 0) {
             this.contractResponse = new ContractResponse(rpcResponse.getResponse().getResponses(rpcResponse.getResponse().getResponseCount() - 1));
             if (this.contractResponse.getStatus() >= 400) {
@@ -48,6 +49,8 @@ public class Transaction {
 
     Transaction(XchainOuterClass.PreExecWithSelectUTXOResponse response, Proposal proposal, XuperClient client) throws Exception {
         XchainOuterClass.InvokeResponse invokeResponse = response.getResponse();
+        this.proposal = proposal;
+        this.gasUsed = invokeResponse.getGasUsed();
         if (invokeResponse.getResponseCount() != 0) {
             this.contractResponse = new ContractResponse(invokeResponse.getResponses(invokeResponse.getResponseCount() - 1));
             if (this.contractResponse.getStatus() >= 400) {
@@ -56,9 +59,6 @@ public class Transaction {
                         + " message:" + this.contractResponse.getMessage());
             }
         }
-        this.proposal = proposal;
-        this.gasUsed = invokeResponse.getGasUsed();
-
         try {
             if (!Config.hasConfigFile() || !Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
                 genRealTxOnly(response, proposal);

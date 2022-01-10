@@ -7,11 +7,16 @@ import com.baidu.xuper.crypto.account.ECDSAAccount;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Locale;
 
 public class Account {
     private final ECKeyPair ecKeyPair;
@@ -175,6 +180,44 @@ public class Account {
     }
 
     /**
+     * 字节数组转16进制大写字符串
+     *
+     * @param bytes
+     * @return
+     */
+    public static String hexEncodeUpperToString(byte[] bytes) {
+        StringBuilder result = new StringBuilder();
+        for (int index = 0, len = bytes.length; index <= len - 1; index += 1) {
+            String invalue1 = Integer.toHexString((bytes[index] >> 4) & 0xF);
+            String intValue2 = Integer.toHexString(bytes[index] & 0xF);
+            result.append(invalue1);
+            result.append(intValue2);
+        }
+        return result.toString().toUpperCase(Locale.ROOT);
+    }
+
+    /**
+     * AK 转 EVM Address
+     *
+     * @return
+     * @throws Exception
+     */
+
+    public String xchainAKToEVMAddress() throws Exception {
+        if (getAKAddress() == null) {
+            throw new RuntimeException("getAKAddress() is null");
+        }
+        byte[] rawAddr = Base58.decode(getAKAddress());
+
+        if (rawAddr.length < 21) {
+            throw new RuntimeException("bad address");
+        }
+
+        byte[] ripemd160Hash = Arrays.copyOfRange(rawAddr, 1, 21);
+        return hexEncodeUpperToString(ripemd160Hash);
+    }
+
+    /**
      * @return 公私钥相关。
      */
     public ECKeyPair getKeyPair() {
@@ -228,6 +271,8 @@ public class Account {
         }
         return this.address;
     }
+
+
 
     class privatePubKey {
         String CurvName;

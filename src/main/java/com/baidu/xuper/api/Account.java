@@ -198,16 +198,16 @@ public class Account {
 
     /**
      * AK 转 EVM Address
-     *
+     * @param akAddress
      * @return
      * @throws Exception
      */
 
-    public String xchainAKToEVMAddress() throws Exception {
-        if (getAKAddress() == null) {
+    public static String xchainAKToEVMAddress(String akAddress) throws Exception {
+        if (akAddress == null) {
             throw new RuntimeException("getAKAddress() is null");
         }
-        byte[] rawAddr = Base58.decode(getAKAddress());
+        byte[] rawAddr = Base58.decode(akAddress);
 
         if (rawAddr.length < 21) {
             throw new RuntimeException("bad address");

@@ -2,7 +2,8 @@ package com.baidu.xuper.api;
 
 import com.alibaba.fastjson.JSON;
 import com.baidu.xuper.config.Config;
-import com.baidu.xuper.crypto.Hash;
+import com.baidu.xuper.crypto.Crypto;
+import com.baidu.xuper.crypto.xchain.hash.Hash;
 import com.baidu.xuper.pb.XchainOuterClass;
 import com.baidu.xuper.pb.XendorserOuterClass;
 import com.google.protobuf.ByteString;
@@ -120,8 +121,8 @@ public class Proposal {
 
         int extAmount = 0;
         try {
-            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
-                if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()) {
+            if (Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
+                if (Config.getInstance().getComplianceCheck().isNeedComplianceCheckFee()) {
                     extAmount = Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee();
                 }
             }
@@ -158,7 +159,11 @@ public class Proposal {
 
         try {
             byte[] hash = Hash.doubleSha256((chainName + initiator.getAKAddress() + amount + false).getBytes());
-            byte[] sign = initiator.getKeyPair().sign(hash);
+
+//            byte[] sign = initiator.getKeyPair().sign(hash);
+            Crypto cli = CryptoClient.getCryptoClient();
+            byte[] sign = cli.signECDSA(hash, initiator.getKeyPair().getPrivateKey());
+
             XchainOuterClass.SignatureInfo signature = XchainOuterClass.SignatureInfo.newBuilder()
                     .setPublicKey(initiator.getKeyPair().getJSONPublicKey())
                     .setSign(ByteString.copyFrom(sign))
@@ -174,7 +179,7 @@ public class Proposal {
                     .build();
 
             XchainOuterClass.PreExecWithSelectUTXOResponse pr;
-            if (Config.hasConfigFile() && Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            if (Config.hasConfigFile() && Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
                 XendorserOuterClass.EndorserResponse r = client.getXendorserClient().getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
                         .setHeader(header)
                         .setBcName(chainName)

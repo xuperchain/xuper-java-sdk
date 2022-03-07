@@ -1,6 +1,6 @@
 package com.baidu.xuper.api;
 
-import com.baidu.xuper.crypto.ECKeyPair;
+import com.baidu.xuper.crypto.xchain.sign.ECKeyPair;
 import com.baidu.xuper.pb.XchainOuterClass;
 import com.google.common.io.ByteStreams;
 import org.bouncycastle.util.encoders.Hex;

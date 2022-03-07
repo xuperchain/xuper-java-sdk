@@ -1,21 +1,6 @@
-/*
- * Copyright 2011 Google Inc.
- * Copyright 2018 Andreas Schildbach
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *    http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package com.baidu.xuper.crypto;
+
+import com.baidu.xuper.crypto.xchain.hash.Hash;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -48,8 +33,10 @@ public class Base58 {
             ++zeros;
         }
         // Convert base-256 digits to base-58 digits (plus conversion to ASCII characters)
-        input = Arrays.copyOf(input, input.length); // since we modify it in-place
-        char[] encoded = new char[input.length * 2]; // upper bound
+        // since we modify it in-place
+        input = Arrays.copyOf(input, input.length);
+        // upper bound
+        char[] encoded = new char[input.length * 2];
         int outputStart = encoded.length;
         for (int inputStart = zeros; inputStart < input.length; ) {
             encoded[--outputStart] = ALPHABET[divmod(input, inputStart, 256, 58)];
@@ -76,17 +63,25 @@ public class Base58 {
      * @return the base58-encoded string
      */
     public static String encodeChecked(int version, byte[] payload) {
-        if (version < 0 || version > 255)
+        if (version < 0 || version > 255) {
             throw new IllegalArgumentException("Version not in range.");
+        }
 
         // A stringified buffer is:
         // 1 byte version + data bytes + 4 bytes check code (a truncated hash)
         byte[] addressBytes = new byte[1 + payload.length + 4];
         addressBytes[0] = (byte) version;
         System.arraycopy(payload, 0, addressBytes, 1, payload.length);
-        byte[] checksum = Hash.doubleSha256(addressBytes, 0, payload.length + 1);
+        byte[] checksum = new byte[0];
+        if (version == Common.nist){
+            checksum = Hash.doubleSha256(addressBytes, 0, payload.length + 1);
+        }
+        // 国密
+        if (version == Common.gm) {
+            checksum = com.baidu.xuper.crypto.gm.hash.Hash.hashUsingSM3(addressBytes, 0, payload.length + 1);
+        }
         System.arraycopy(checksum, 0, addressBytes, payload.length + 1, 4);
-        return Base58.encode(addressBytes);
+        return encode(addressBytes);
     }
 
     /**
@@ -146,13 +141,15 @@ public class Base58 {
      */
     public static byte[] decodeChecked(String input) throws Exception {
         byte[] decoded = decode(input);
-        if (decoded.length < 4)
+        if (decoded.length < 4) {
             throw new Exception("Input too short: " + decoded.length);
+        }
         byte[] data = Arrays.copyOfRange(decoded, 0, decoded.length - 4);
         byte[] checksum = Arrays.copyOfRange(decoded, decoded.length - 4, decoded.length);
         byte[] actualChecksum = Arrays.copyOfRange(Hash.doubleSha256(data), 0, 4);
-        if (!Arrays.equals(checksum, actualChecksum))
+        if (!Arrays.equals(checksum, actualChecksum)) {
             throw new Exception("invalid checksum");
+        }
         return data;
     }
 

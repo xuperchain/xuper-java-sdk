@@ -1,8 +1,10 @@
 package com.baidu.xuper.api;
 
 import com.baidu.xuper.pb.XendorserGrpc;
+
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+
 
 public class XendorserClient {
     private final ManagedChannel channel;

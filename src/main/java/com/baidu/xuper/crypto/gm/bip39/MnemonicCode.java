@@ -1,8 +1,9 @@
-package com.baidu.xuper.crypto.bip39;
+package com.baidu.xuper.crypto.gm.bip39;
+
+import com.baidu.xuper.crypto.gm.hash.Hash;
+import com.baidu.xuper.crypto.wordlists.WordList;
 
 import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -104,7 +105,7 @@ public class MnemonicCode {
     }
 
     private byte[] addChecksum(byte[] data) {
-        byte[] hashByte = hash(data);
+        byte[] hashByte = Hash.hashUsingSM3(data);
         byte firstChecksumByte = hashByte[1];
         int checksumBitLength = data.length / 4;
         BigInteger dataBigInt = new BigInteger(1, data);
@@ -188,16 +189,5 @@ public class MnemonicCode {
         if (bitSize % 32 != 0 || bitSize < 128 || bitSize > 256) {
             throw new RuntimeException("invalid bitSize");
         }
-    }
-
-    private byte[] hash(byte[] data) {
-        MessageDigest messageDigest = null;
-        try {
-            messageDigest = MessageDigest.getInstance("SHA-256");
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-
-        return messageDigest.digest(data);
     }
 }

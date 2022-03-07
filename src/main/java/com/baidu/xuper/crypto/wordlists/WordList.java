@@ -1,4 +1,4 @@
-package com.baidu.xuper.crypto.bip39;
+package com.baidu.xuper.crypto.wordlists;
 
 public interface WordList {
     /**

@@ -1,3 +1,7 @@
+# IDE related
+.vscode/
+.idea/
+
 target/
 pom.xml.tag
 pom.xml.releaseBackup

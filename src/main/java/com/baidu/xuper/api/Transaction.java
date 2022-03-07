@@ -1,19 +1,20 @@
 package com.baidu.xuper.api;
 
-import com.baidu.xuper.config.Config;
-import com.baidu.xuper.crypto.ECKeyPair;
-import com.baidu.xuper.pb.XchainOuterClass;
-import com.baidu.xuper.pb.XendorserOuterClass;
-import com.google.protobuf.ByteString;
-import org.bouncycastle.util.encoders.Hex;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.baidu.xuper.crypto.Crypto;
+import com.google.protobuf.ByteString;
+import org.bouncycastle.util.encoders.Hex;
+
+import com.baidu.xuper.config.Config;
+import com.baidu.xuper.crypto.xchain.sign.ECKeyPair;
+import com.baidu.xuper.pb.XchainOuterClass;
+import com.baidu.xuper.pb.XendorserOuterClass;
+
 public class Transaction {
-    static public final int txVersion = 1;
     private final Proposal proposal;
     private XchainOuterClass.Transaction.Builder txBuilder;
     private XchainOuterClass.Transaction pbtx;
@@ -60,13 +61,13 @@ public class Transaction {
         this.gasUsed = invokeResponse.getGasUsed();
 
         try {
-            if (!Config.hasConfigFile() || !Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            if (!Config.hasConfigFile() || !Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
                 genRealTxOnly(response, proposal);
                 return;
             }
 
             XchainOuterClass.Transaction complianceCheckTx = null;
-            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()) {
+            if (Config.getInstance().getComplianceCheck().isNeedComplianceCheckFee()) {
                 complianceCheckTx = genComplianceCheckTx(response);
                 genRealTx(response, complianceCheckTx);
             } else {
@@ -94,7 +95,7 @@ public class Transaction {
         XchainOuterClass.Transaction.Builder txBuilder = XchainOuterClass.Transaction.newBuilder()
                 .setNonce(Common.newNonce())
                 .setTimestamp(Common.getTimestamp())
-                .setVersion(txVersion)
+                .setVersion(Config.getInstance().getTxVersion())
                 .setInitiator(initiator.getAKAddress());
 
         if (proposal.desc != null) {
@@ -163,7 +164,7 @@ public class Transaction {
 
         XchainOuterClass.Transaction.Builder txBuilder = XchainOuterClass.Transaction.newBuilder()
                 .setNonce(Common.newNonce())
-                .setVersion(txVersion)
+                .setVersion(Config.getInstance().getTxVersion())
                 .setCoinbase(false)
                 .setTimestamp(Common.getTimestamp())
                 .addAllTxInputs(Arrays.asList(txInputs))
@@ -360,7 +361,7 @@ public class Transaction {
 
             XchainOuterClass.Transaction.Builder builder = XchainOuterClass.Transaction.newBuilder();
             builder.setNonce(Common.newNonce())
-                    .setVersion(txVersion)
+                    .setVersion(Config.getInstance().getTxVersion())
                     .setCoinbase(false)
                     .addAllTxInputs(Arrays.asList(txInputs))
                     .addAllTxOutputs(Arrays.asList(txOutputs))
@@ -370,7 +371,11 @@ public class Transaction {
             XchainOuterClass.Transaction tx = builder.build();
             byte[] bytes = TxEncoder.makeTxDigest(tx);
 
-            byte[] signBytes = this.proposal.initiator.getKeyPair().sign(bytes);
+
+//            byte[] signBytes = this.proposal.initiator.getKeyPair().sign(bytes);
+            Crypto cli = CryptoClient.getCryptoClient();
+            byte[] signBytes = cli.signECDSA(bytes, this.proposal.initiator.getKeyPair().getPrivateKey());
+
 
             XchainOuterClass.SignatureInfo signatureInfo = XchainOuterClass.SignatureInfo.newBuilder()
                     .setPublicKey(this.proposal.initiator.getKeyPair().getJSONPublicKey())
@@ -450,7 +455,9 @@ public class Transaction {
         try {
             txdigest = TxEncoder.makeTxDigest(pbtx);
             ECKeyPair keyPair = singer.getKeyPair();
-            byte[] sig = keyPair.sign(txdigest);
+//            byte[] sig = keyPair.sign(txdigest);
+            Crypto cli = CryptoClient.getCryptoClient();
+            byte[] sig = cli.signECDSA(txdigest, keyPair.getPrivateKey());
 
             XchainOuterClass.SignatureInfo siginfo = XchainOuterClass.SignatureInfo.newBuilder()
                     .setPublicKey(keyPair.getJSONPublicKey())

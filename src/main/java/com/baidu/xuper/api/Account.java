@@ -1,23 +1,28 @@
 package com.baidu.xuper.api;
 
-import com.baidu.xuper.crypto.Base58;
-import com.baidu.xuper.crypto.ECKeyPair;
-import com.baidu.xuper.crypto.Hash;
+import com.baidu.xuper.crypto.Crypto;
+import com.baidu.xuper.crypto.xchain.sign.ECKeyPair;
+import com.baidu.xuper.crypto.account.AccountUtil.*;
 import com.baidu.xuper.crypto.account.ECDSAAccount;
+
+import com.baidu.xuper.crypto.Base58;
+import com.baidu.xuper.crypto.xchain.hash.Hash;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
 import java.io.*;
-import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 
 public class Account {
     private final ECKeyPair ecKeyPair;
     private final String address;
     private String contractAccount;
     private String mnemonic;
+
+    private CryptoClient cryptoClient;
 
     private Account(ECKeyPair ecKeyPair, String address) {
         this.ecKeyPair = ecKeyPair;
@@ -31,113 +36,52 @@ public class Account {
     }
 
     /**
-     * @param inputStream  ./data/keys/private.key fileInputStream
-     * @return
-     * @throws Exception
-     */
-    public static Account create(InputStream inputStream) {
-        Gson gson = new Gson();
-        privatePubKey json;
-        try {
-            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
-            json = gson.fromJson(reader, privatePubKey.class);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        if (json.D == null) {
-            throw new RuntimeException("invalid private.key file");
-        }
-        return create(ECKeyPair.create(json.D));
-    }
-
-    /**
-     * @param keyPath the path to ./data/keys which contains private.key file
-     * @return
-     * @throws Exception
-     */
-    public static Account create(String keyPath) {
-        try {
-            String privateKeyPath = Paths.get(keyPath, "private.key").toString();
-            File privateKeyFile=new File(privateKeyPath);
-            return create(new FileInputStream(privateKeyFile));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    /**
-     * @param keyPair the private and public key of account
-     * @return
-     */
-    public static Account create(ECKeyPair keyPair) {
-        byte[] pubkey = keyPair.getPublicKey().getEncoded(false);
-        byte[] hash = Hash.ripeMD128(Hash.sha256(pubkey));
-        String address = Base58.encodeChecked(1, hash);
-        return new Account(keyPair, address);
-    }
-
-    /**
-     * Create a account using random private key
+     * create an account.
      *
-     * @return
-     */
-    public static Account create() {
-        return create(ECKeyPair.create());
-    }
-
-    /**
-     * @param strength 助记词强度。
+     * @param strength 助记词强度, 1弱（12个助记词），2中（18个助记词），3强（24个助记词）。
      * @param language 助记词语言，1中文，2英文。
      * @return Account 账户信息。
      */
     public static Account create(int strength, int language) {
-        ECDSAAccount ecdsaAccount = new ECDSAAccount();
-        ecdsaAccount.createAccountWithMnemonic(strength, language);
+        Crypto cli = CryptoClient.getCryptoClient();
+        ECDSAAccount ecdsaAccount = cli.createNewAccountWithMnemonic(language, strength);
         return new Account(ecdsaAccount.ecKeyPair, ecdsaAccount.address, ecdsaAccount.mnemonic);
     }
 
     /**
-     * @param mnemonic 助记词。
+     * retrieve account from mnemonic.
+     *
+     * @param mnemonic 助记词，例如："玉 脸 驱 协 介 跨 尔 籍 杆 伏 愈 即"。
      * @param language 助记词语言，1中文，2英文。
      * @return Account 账户信息。
      */
     public static Account retrieve(String mnemonic, int language) {
-        ECDSAAccount ecdsaAccount = new ECDSAAccount();
-        ecdsaAccount.createByMnemonic(mnemonic, language);
+        Crypto cli = CryptoClient.getCryptoClient();
+        ECDSAAccount ecdsaAccount = cli.retrieveAccountByMnemonic(mnemonic, language);
         return new Account(ecdsaAccount.ecKeyPair, ecdsaAccount.address, ecdsaAccount.mnemonic);
     }
 
     /**
      * @param path     保存的路径。
      * @param passwd   密码。
-     * @param strength 助记词强度，1弱 12个助记词，2中 18个助记词，3强 24个助记词。
+     * @param strength 助记词强度, 1弱（12个助记词），2中（18个助记词），3强（24个助记词）。
      * @param language 助记词语言，1中文，2英文。
      * @return Account 账户信息。
      */
-    public static Account createAndSave(String path, String passwd, int strength, int language) {
-        ECDSAAccount ecdsaAccount = new ECDSAAccount();
-        ecdsaAccount.createAccountWithMnemonic(strength, language);
-        ecdsaAccount.saveToFile(path, passwd);
+    public static Account createAndSaveToFile(String path, String passwd, Integer strength, Integer language) {
+        Crypto cli = CryptoClient.getCryptoClient();
+        ECDSAAccount ecdsaAccount = cli.createNewAccountWithMnemonic(language, strength);
+
+        // TODO: 路径优化
+        mkdir(path);
+        cli.retrieveAccountByMnemonicAndSavePrivKey(path, language, ecdsaAccount.mnemonic, passwd);
+
         return new Account(ecdsaAccount.ecKeyPair, ecdsaAccount.address, ecdsaAccount.mnemonic);
     }
 
     /**
-     * @param path   文件路径。
-     * @param passwd 密码。
-     * @return Account 账户信息。
-     */
-    public static Account getAccountFromFile(String path, String passwd) {
-        byte[] p = ECDSAAccount.getBinaryECDSAPrivateKey(path, passwd);
-        Gson gson = new Gson();
-        privatePubKey json = gson.fromJson(new String(p), privatePubKey.class);
-        if (json.D == null) {
-            throw new RuntimeException("invalid private.key file");
-        }
-        return create(ECKeyPair.create(json.D));
-    }
-
-    /**
+     * import account from plain files which are JSON encoded
+     *
      * @param path 文件路径。
      *             The structure of path is like below:
      *             - keys
@@ -145,33 +89,52 @@ public class Account {
      *             |-- private.key
      *             |-- public.key
      *             |-- mnemonic
-     * @return 账户信息。
+     * @return Account 账户信息。
      */
     public static Account getAccountFromPlainFile(String path) {
         try {
-            byte[] address = Files.readAllBytes(Paths.get(path + "/address"));
-            byte[] pubKey = Files.readAllBytes(Paths.get(path + "/public.key"));
-            byte[] privKey = Files.readAllBytes(Paths.get(path + "/private.key"));
+            String address = Arrays.toString(Files.readAllBytes(Paths.get(path + "/address")));
+            String pubKey = Arrays.toString(Files.readAllBytes(Paths.get(path + "/public.key")));
+            String priKey = Arrays.toString(Files.readAllBytes(Paths.get(path + "/private.key")));
 
             Gson gson = new Gson();
-            privatePubKey json = gson.fromJson(new String(privKey), privatePubKey.class);
-            if (json.D == null) {
+            PrivatePubKey privatePubKey = gson.fromJson(priKey, PrivatePubKey.class);
+            if (privatePubKey.D == null) {
                 throw new RuntimeException("invalid private.key file");
             }
 
-            Account a = create(ECKeyPair.create(json.D));
-            if (!a.getAKAddress().equals(new String(address))) {
+            Account account = create(ECKeyPair.create(privatePubKey.D));
+            if (!account.getAKAddress().equals(address)) {
                 throw new RuntimeException("address and private key not match.");
             }
 
-            if (!a.getKeyPair().getJSONPublicKey().equals(new String(pubKey))) {
+            if (!account.getKeyPair().getJSONPublicKey().equals(pubKey)) {
                 throw new RuntimeException("public key and private key not match.");
             }
-            return a;
+            return account;
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    /**
+     * get an account from file and password.
+     *
+     * @param path     文件路径。
+     * @param password 密码。
+     * @return Account 账户信息。
+     */
+    public static Account getAccountFromFile(String path, String password) {
+        Crypto cli = CryptoClient.getCryptoClient();
+        byte[] p = cli.getEcdsaPrivateKeyFromFileByPassword(path, password);
+
+        Gson gson = new Gson();
+        PrivatePubKey privatePubKeyJson = gson.fromJson(new String(p), PrivatePubKey.class);
+        if (privatePubKeyJson.D == null) {
+            throw new RuntimeException("invalid private.key file");
+        }
+        return create(ECKeyPair.create(privatePubKeyJson.D));
     }
 
     /**
@@ -216,23 +179,94 @@ public class Account {
      * @param name 合约账户。
      */
     public void setContractAccount(String name) {
+        // todo name正则表达验证
         this.contractAccount = name;
     }
 
     /**
-     * @return AuthRequireId。
+     * remove contract account from this account.
+     */
+    public void RemoveContractAccount() {
+        this.contractAccount = "";
+    }
+
+    /**
+     * @return String
      */
     public String getAuthRequireId() {
-        if (this.contractAccount != null) {
+        if (this.contractAccount.isEmpty()) {
             return this.contractAccount + "/" + this.address;
         }
         return this.address;
     }
 
-    class privatePubKey {
-        String CurvName;
-        BigInteger D;
-        BigInteger X;
-        BigInteger Y;
+    /**
+     * @return boolean
+     */
+    public boolean HasContractAccount() {
+        return this.contractAccount != "";
+    }
+
+    /**
+     * @param inputStream ./data/keys/private.key fileInputStream
+     * @return
+     * @throws Exception
+     */
+    public static Account create(InputStream inputStream) {
+        Gson gson = new Gson();
+        PrivatePubKey json;
+        try {
+            JsonReader reader = new JsonReader(new InputStreamReader(inputStream, Charset.forName("UTF-8")));
+            json = gson.fromJson(reader, PrivatePubKey.class);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        if (json.D == null) {
+            throw new RuntimeException("invalid private.key file");
+        }
+        return create(ECKeyPair.create(json.D));
+    }
+
+    /**
+     * @param keyPath the path to ./data/keys which contains private.key file
+     * @return
+     * @throws Exception
+     */
+    public static Account create(String keyPath) {
+        try {
+            String privateKeyPath = Paths.get(keyPath, "private.key").toString();
+            File privateKeyFile = new File(privateKeyPath);
+            return create(new FileInputStream(privateKeyFile));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * @param keyPair the private and public key of account
+     * @return
+     */
+    public static Account create(ECKeyPair keyPair) {
+        byte[] pubkey = keyPair.getPublicKey().getEncoded(false);
+        byte[] hash = Hash.ripeMD160(Hash.hashUsingSha256(pubkey));
+        String address = Base58.encodeChecked(1, hash);
+        return new Account(keyPair, address);
+    }
+
+    /**
+     * 创建目录
+     *
+     * @param path
+     */
+    private static void mkdir(String path) {
+        File file = new File(path);
+        if (file.exists() || file.isDirectory()) {
+            throw new RuntimeException("dir exist");
+        }
+
+        if (!file.mkdir()) {
+            throw new RuntimeException("mkdir failed.");
+        }
     }
 }

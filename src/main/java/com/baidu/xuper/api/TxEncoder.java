@@ -1,6 +1,6 @@
 package com.baidu.xuper.api;
 
-import com.baidu.xuper.crypto.Hash;
+import com.baidu.xuper.crypto.xchain.hash.Hash;
 import com.baidu.xuper.pb.XchainOuterClass;
 import com.baidu.xuper.pb.XchainOuterClass.*;
 import com.google.gson.*;

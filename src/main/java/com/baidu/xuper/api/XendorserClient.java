@@ -1,9 +1,12 @@
 package com.baidu.xuper.api;
 
-import com.baidu.xuper.pb.XendorserGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import lombok.Data;
 
+import com.baidu.xuper.pb.XendorserGrpc;
+
+@Data
 public class XendorserClient {
     private final ManagedChannel channel;
     private final XendorserGrpc.XendorserBlockingStub blockingClient;
@@ -21,9 +24,5 @@ public class XendorserClient {
 
     public void close() {
         channel.shutdown();
-    }
-
-    XendorserGrpc.XendorserBlockingStub getBlockingClient() {
-        return blockingClient;
     }
 }

@@ -6,6 +6,7 @@ import com.baidu.xuper.crypto.Hash;
 import com.baidu.xuper.crypto.account.ECDSAAccount;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import lombok.Data;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -13,6 +14,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@Data
 public class Account {
     private final ECKeyPair ecKeyPair;
     private final String address;
@@ -196,20 +198,6 @@ public class Account {
      */
     public String getAKAddress() {
         return this.address;
-    }
-
-    /**
-     * @return 助记词。
-     */
-    public String getMnemonic() {
-        return this.mnemonic;
-    }
-
-    /**
-     * @return 合约账户信息。
-     */
-    public String getContractAccount() {
-        return this.contractAccount;
     }
 
     /**

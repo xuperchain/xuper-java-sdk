@@ -64,7 +64,7 @@ public class XuperClientTest {
         args.put("key", "icexin".getBytes());
         Transaction tx = client.invokeContract(account, "wasm", "counter", "increase", args);
         System.out.println("invoke txid: " + tx.getTxid());
-        System.out.println("response: " + tx.getContractResponse().getBodyStr());
+        System.out.println("response: " + tx.getContractResponse().getBody().toString());
         System.out.println("gas: " + tx.getGasUsed());
     }
 
@@ -73,7 +73,7 @@ public class XuperClientTest {
         Map<String, byte[]> args = new HashMap<>();
         args.put("key", "icexin".getBytes());
         Transaction tx = client.queryContract(account, "wasm", "counter", "increase", args);
-        System.out.println("response: " + tx.getContractResponse().getBodyStr());
+        System.out.println("response: " + tx.getContractResponse().getBody().toString());
         System.out.println("gas: " + tx.getGasUsed());
     }
 
@@ -173,7 +173,7 @@ public class XuperClientTest {
     public void queryEVMContract() {
         Transaction transaction = client.queryEVMContract(account, "storage", "storagepay", null);
         System.out.println("tx message:" + transaction.getContractResponse().getMessage());
-        System.out.println("tx bidy:" + transaction.getContractResponse().getBodyStr());
+        System.out.println("tx bidy:" + transaction.getContractResponse().getBody().toString());
     }
 
     @Test

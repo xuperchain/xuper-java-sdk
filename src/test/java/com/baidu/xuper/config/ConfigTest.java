@@ -12,8 +12,8 @@ public class ConfigTest {
         assertFalse(Config.hasConfigFile());
         assertEquals(c.getCrypto(), "xchain");
         assertEquals(c.getMinNewChainAmount(), "100");
-        assertFalse(c.getComplianceCheck().getIsNeedComplianceCheck());
-        assertFalse(c.getComplianceCheck().getIsNeedComplianceCheckFee());
+        assertFalse(c.getComplianceCheck().isNeedComplianceCheck());
+        assertFalse(c.getComplianceCheck().isNeedComplianceCheckFee());
         assertEquals(c.getComplianceCheck().getComplianceCheckEndorseServiceFee(), 10);
         assertEquals(c.getComplianceCheck().getComplianceCheckEndorseServiceFeeAddr(), "XBbhR82cB6PvaLJs3D4uB9f12bhmKkHeX");
         assertEquals(c.getComplianceCheck().getComplianceCheckEndorseServiceAddr(), "TYyA3y8wdFZyzExtcbRNVd7ZZ2XXcfjdw");

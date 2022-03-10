@@ -1,17 +1,20 @@
 package com.baidu.xuper.api;
 
-import com.baidu.xuper.config.Config;
-import com.baidu.xuper.crypto.ECKeyPair;
-import com.baidu.xuper.pb.XchainOuterClass;
-import com.baidu.xuper.pb.XendorserOuterClass;
-import com.google.protobuf.ByteString;
-import org.bouncycastle.util.encoders.Hex;
-
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.google.protobuf.ByteString;
+import org.bouncycastle.util.encoders.Hex;
+import lombok.Data;
+
+import com.baidu.xuper.config.Config;
+import com.baidu.xuper.crypto.ECKeyPair;
+import com.baidu.xuper.pb.XchainOuterClass;
+import com.baidu.xuper.pb.XendorserOuterClass;
+
+@Data
 public class Transaction {
     static public final int txVersion = 1;
     private final Proposal proposal;
@@ -60,13 +63,13 @@ public class Transaction {
         this.gasUsed = invokeResponse.getGasUsed();
 
         try {
-            if (!Config.hasConfigFile() || !Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            if (!Config.hasConfigFile() || !Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
                 genRealTxOnly(response, proposal);
                 return;
             }
 
             XchainOuterClass.Transaction complianceCheckTx = null;
-            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()) {
+            if (Config.getInstance().getComplianceCheck().isNeedComplianceCheckFee()) {
                 complianceCheckTx = genComplianceCheckTx(response);
                 genRealTx(response, complianceCheckTx);
             } else {
@@ -491,14 +494,6 @@ public class Transaction {
 
     public String getTxid() {
         return Hex.toHexString(pbtx.getTxid().toByteArray());
-    }
-
-    public ContractResponse getContractResponse() {
-        return contractResponse;
-    }
-
-    public long getGasUsed() {
-        return gasUsed;
     }
 
     public XchainOuterClass.Transaction getRawTx() {

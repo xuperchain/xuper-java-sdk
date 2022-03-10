@@ -120,8 +120,8 @@ public class Proposal {
 
         int extAmount = 0;
         try {
-            if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
-                if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheckFee()) {
+            if (Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
+                if (Config.getInstance().getComplianceCheck().isNeedComplianceCheckFee()) {
                     extAmount = Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceFee();
                 }
             }
@@ -174,7 +174,7 @@ public class Proposal {
                     .build();
 
             XchainOuterClass.PreExecWithSelectUTXOResponse pr;
-            if (Config.hasConfigFile() && Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+            if (Config.hasConfigFile() && Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
                 XendorserOuterClass.EndorserResponse r = client.getXendorserClient().getBlockingClient().endorserCall(XendorserOuterClass.EndorserRequest.newBuilder()
                         .setHeader(header)
                         .setBcName(chainName)

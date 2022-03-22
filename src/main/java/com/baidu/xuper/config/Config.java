@@ -56,8 +56,8 @@ public class Config {
     private static Config getDefaultConfig() {
         singletonConfig = new Config();
         singletonConfig.minNewChainAmount = "100";
-//        singletonConfig.crypto = CRYPTO_CHAIN;
-        singletonConfig.crypto = CRYPTO_GM;
+        singletonConfig.crypto = CRYPTO_CHAIN;
+//        singletonConfig.crypto = CRYPTO_GM;
         singletonConfig.endorseServiceHost = "";
 
         ComplianceCheck c = new ComplianceCheck();

@@ -127,6 +127,16 @@ public class XChainCryptoClient implements Crypto {
     }
 
     /**
+     * using random create ECKeyPair
+     *
+     * @return
+     */
+    @Override
+    public ECKeyPair createECKeyPair() {
+        return ECKeyPair.create();
+    }
+
+    /**
      * @param privateKey
      * @return
      */

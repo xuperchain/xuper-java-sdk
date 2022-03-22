@@ -13,7 +13,7 @@ import com.baidu.xuper.crypto.gm.hdWallet.Rand;
 import com.baidu.xuper.crypto.account.ECDSAAccount;
 import com.baidu.xuper.crypto.gm.sign.Ecc;
 import com.baidu.xuper.crypto.AES;
-import com.baidu.xuper.crypto.xchain.hdWallet.Key;
+import com.baidu.xuper.crypto.gm.hdWallet.Key;
 import com.baidu.xuper.crypto.xchain.sign.ECKeyPair;
 import org.bouncycastle.math.ec.ECPoint;
 
@@ -124,6 +124,22 @@ public class GmCryptoClient implements Crypto {
 
         String address = Base58.encodeChecked(Common.gm, hash);
         return address;
+    }
+
+    /**
+     * using random create ECKeyPair
+     *
+     * @return
+     */
+    @Override
+    public ECKeyPair createECKeyPair() {
+        ECKeyPair ecKeyPair = new ECKeyPair();
+        SM2KeyPair sm2KeyPair = SM2KeyPair.create();
+        ecKeyPair.privateKey = sm2KeyPair.getPrivateKey();
+        ecKeyPair.publicKey = sm2KeyPair.getPublicKey();
+        ecKeyPair.jsonPublicKey = sm2KeyPair.getJSONPublicKey();
+        ecKeyPair.jsonPrivateKey = sm2KeyPair.getJSONPrivateKey();
+        return ecKeyPair;
     }
 
     /**

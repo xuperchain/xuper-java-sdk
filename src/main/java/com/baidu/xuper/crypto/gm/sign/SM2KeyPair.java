@@ -3,12 +3,18 @@ package com.baidu.xuper.crypto.gm.sign;
 import com.baidu.xuper.crypto.Common;
 import com.baidu.xuper.crypto.gm.utils.sm2.SM2;
 
+import com.baidu.xuper.crypto.xchain.sign.ECKeyPair;
+import com.baidu.xuper.crypto.xchain.sign.Ecc;
 import com.google.gson.Gson;
+import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+import org.bouncycastle.crypto.generators.ECKeyPairGenerator;
+import org.bouncycastle.crypto.params.ECKeyGenerationParameters;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
 import org.bouncycastle.math.ec.ECPoint;
 
 import java.math.BigInteger;
+import java.security.SecureRandom;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -108,6 +114,16 @@ public class SM2KeyPair {
         return new SM2KeyPair(p.getD(), params.getQ());
     }
 
+
+    public static SM2KeyPair create() {
+        SM2 sm2 = SM2.Instance();
+
+        AsymmetricCipherKeyPair keypair = sm2.ecc_key_pair_generator.generateKeyPair();
+        ECPrivateKeyParameters privParams = (ECPrivateKeyParameters) keypair.getPrivate();
+//        ECPublicKeyParameters pubParams = (ECPublicKeyParameters) keypair.getPublic();
+
+        return create(privParams.getD());
+    }
 
     /**
      * 通过私钥恢复

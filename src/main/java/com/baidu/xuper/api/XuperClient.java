@@ -27,6 +27,7 @@ public class XuperClient {
     private final String evmJSONEncodedTrue = "true";
     private final String argsInput = "input";
     private final String xkernelDeployMethod = "Deploy";
+    private final String xkernelUpgradeMethod = "Upgrade";
     private final String xkernelNewAccountMethod = "NewAccount";
     private final String argAccountName = "account_name";
     private final String argContractName = "contract_name";
@@ -461,15 +462,15 @@ public class XuperClient {
         return evmArgs;
     }
 
-    public Transaction upgradeWasmContract(Account from, byte[] code, String name, String runtime, Map<String, byte[]> initArgs) {
-        return upgradeContract(from, code, name, runtime, initArgs, "wasm");
+    public Transaction upgradeWasmContract(Account from, byte[] code, String name) {
+        return upgradeContract(from, code, name, "wasm");
     }
 
-    public Transaction upgradeNativeContract(Account from, byte[] code, String name, String runtime, Map<String, byte[]> initArgs) {
-        return upgradeContract(from, code, name, runtime, initArgs, "wasm");
+    public Transaction upgradeNativeContract(Account from, byte[] code, String name) {
+        return upgradeContract(from, code, name, "native");
     }
 
-    private Transaction upgradeContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs, String contractType) {
+    private Transaction upgradeContract(Account from, byte[] code, String contract, String contractType) {
         if (from.getContractAccount().isEmpty()) {
             throw new RuntimeException("deploy contract must use contract account");
         }
@@ -479,19 +480,16 @@ public class XuperClient {
         }
 
         XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
-                .setRuntime(runtime)
                 .setContractType(contractType)
                 .build();
-        Gson gson = new Gson();
-        byte[] initArgsJson = gson.toJson(initArgs).getBytes();
 
         Map<String, byte[]> args = new HashMap<>();
         args.put(argAccountName, from.getContractAccount().getBytes());
         args.put(argContractName, contract.getBytes());
         args.put(argContractCode, code);
         args.put(argContractDesc, desc.toByteArray());
-        args.put(argInitArgs, initArgsJson);
-        return invokeContract(from, xkernelModule, "", xkernelDeployMethod, args);
+
+        return invokeContract(from, xkernelModule, "", xkernelUpgradeMethod, args);
     }
 
 }

@@ -12,7 +12,6 @@ import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 
 public class Account {
     private final ECKeyPair ecKeyPair;
@@ -88,23 +87,23 @@ public class Account {
      */
     public static Account getAccountFromPlainFile(String path) {
         try {
-            String address = Arrays.toString(Files.readAllBytes(Paths.get(path + "/address")));
-            String pubKey = Arrays.toString(Files.readAllBytes(Paths.get(path + "/public.key")));
-            String priKey = Arrays.toString(Files.readAllBytes(Paths.get(path + "/private.key")));
+            byte[] address = Files.readAllBytes(Paths.get(path + "/address"));
+            byte[] pubKey = Files.readAllBytes(Paths.get(path + "/public.key"));
+            byte[] priKey = Files.readAllBytes(Paths.get(path + "/private.key"));
 
             Gson gson = new Gson();
-            PrivatePubKey privatePubKey = gson.fromJson(priKey, PrivatePubKey.class);
+            PrivatePubKey privatePubKey = gson.fromJson(new String(priKey), PrivatePubKey.class);
             if (privatePubKey.D == null) {
                 throw new RuntimeException("invalid private.key file");
             }
 
             Crypto cli = CryptoClient.getCryptoClient();
             Account account = create(cli.getECKeyPairFromPrivateKey(privatePubKey.D));
-            if (!account.getAKAddress().equals(address)) {
+            if (!account.getAKAddress().equals(new String(address))) {
                 throw new RuntimeException("address and private key not match.");
             }
 
-            if (!account.getKeyPair().getJSONPublicKey().equals(pubKey)) {
+            if (!account.getKeyPair().getJSONPublicKey().equals(new String(pubKey))) {
                 throw new RuntimeException("public key and private key not match.");
             }
             return account;
@@ -190,7 +189,7 @@ public class Account {
      * @return String
      */
     public String getAuthRequireId() {
-        if (this.contractAccount.isEmpty()) {
+        if (this.contractAccount != null) {
             return this.contractAccount + "/" + this.address;
         }
         return this.address;
@@ -250,5 +249,15 @@ public class Account {
         Crypto cli = CryptoClient.getCryptoClient();
         String address = cli.getAddressFromPublicKey(keyPair.publicKey);
         return new Account(keyPair, address);
+    }
+
+    /**
+     * Create a account using random private key
+     *
+     * @return
+     */
+    public static Account create() {
+        Crypto cli = CryptoClient.getCryptoClient();
+        return create(cli.createECKeyPair());
     }
 }

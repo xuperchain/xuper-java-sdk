@@ -86,9 +86,9 @@ public class SM2 {
 //                k = new BigInteger(kS, 16);
 //                kp = this.ecc_point_g.multiply(k);
 
-                System.out.println("计算曲线点X1: " + kp.getXCoord().toBigInteger().toString(16));
-                System.out.println("计算曲线点Y1: " + kp.getYCoord().toBigInteger().toString(16));
-                System.out.println("");
+//                System.out.println("计算曲线点X1: " + kp.getXCoord().toBigInteger().toString(16));
+//                System.out.println("计算曲线点Y1: " + kp.getYCoord().toBigInteger().toString(16));
+//                System.out.println("");
 
                 // r
                 r = e.add(kp.getXCoord().toBigInteger());

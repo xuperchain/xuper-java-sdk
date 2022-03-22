@@ -84,6 +84,13 @@ public interface Crypto {
     String getAddressFromPublicKey(ECPoint publicKey);
 
     /**
+     * using random create ECKeyPair
+     *
+     * @return
+     */
+    ECKeyPair createECKeyPair();
+
+    /**
      *
      * @param privateKey
      * @return

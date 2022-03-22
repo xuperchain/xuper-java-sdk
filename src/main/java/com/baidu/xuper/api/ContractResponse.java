@@ -24,4 +24,8 @@ public class ContractResponse {
     public byte[] getBody() {
         return body;
     }
+
+    public String getBodyStr() {
+        return new String(body);
+    }
 }

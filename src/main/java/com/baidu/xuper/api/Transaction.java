@@ -15,6 +15,7 @@ import com.baidu.xuper.pb.XchainOuterClass;
 import com.baidu.xuper.pb.XendorserOuterClass;
 
 public class Transaction {
+    static public final int txVersion = 1;
     private final Proposal proposal;
     private XchainOuterClass.Transaction.Builder txBuilder;
     private XchainOuterClass.Transaction pbtx;
@@ -95,7 +96,7 @@ public class Transaction {
         XchainOuterClass.Transaction.Builder txBuilder = XchainOuterClass.Transaction.newBuilder()
                 .setNonce(Common.newNonce())
                 .setTimestamp(Common.getTimestamp())
-                .setVersion(Config.getInstance().getTxVersion())
+                .setVersion(txVersion)
                 .setInitiator(initiator.getAKAddress());
 
         if (proposal.desc != null) {
@@ -164,7 +165,7 @@ public class Transaction {
 
         XchainOuterClass.Transaction.Builder txBuilder = XchainOuterClass.Transaction.newBuilder()
                 .setNonce(Common.newNonce())
-                .setVersion(Config.getInstance().getTxVersion())
+                .setVersion(txVersion)
                 .setCoinbase(false)
                 .setTimestamp(Common.getTimestamp())
                 .addAllTxInputs(Arrays.asList(txInputs))
@@ -361,7 +362,7 @@ public class Transaction {
 
             XchainOuterClass.Transaction.Builder builder = XchainOuterClass.Transaction.newBuilder();
             builder.setNonce(Common.newNonce())
-                    .setVersion(Config.getInstance().getTxVersion())
+                    .setVersion(txVersion)
                     .setCoinbase(false)
                     .addAllTxInputs(Arrays.asList(txInputs))
                     .addAllTxOutputs(Arrays.asList(txOutputs))

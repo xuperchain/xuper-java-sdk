@@ -48,7 +48,7 @@ public class ECKeyPair {
         this.privateKey = privateKey;
         this.publicKey = publicKey;
         this.jsonPublicKey = getEcdsaPublicKeyJsonFormat(publicKey);
-        this.jsonPrivateKey = GetEcdsaPrivateKeyJsonFormat(privateKey, publicKey);
+        this.jsonPrivateKey = getEcdsaPrivateKeyJsonFormat(privateKey, publicKey);
     }
 
     /**
@@ -75,7 +75,7 @@ public class ECKeyPair {
      * @param publicKey
      * @return String
      */
-    static private String GetEcdsaPrivateKeyJsonFormat(BigInteger privateKey, ECPoint publicKey) {
+    static private String getEcdsaPrivateKeyJsonFormat(BigInteger privateKey, ECPoint publicKey) {
         BigInteger x = publicKey.getAffineXCoord().toBigInteger();
         BigInteger y = publicKey.getAffineYCoord().toBigInteger();
         BigInteger d = privateKey;

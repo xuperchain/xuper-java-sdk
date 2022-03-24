@@ -34,7 +34,6 @@ public class SM2Utils {
         sm2.sm2Sign(sourceData, userD, userKey, sm2Result);
 //        System.out.println("r: " + sm2Result.r.toString(16));
 //        System.out.println("s: " + sm2Result.s.toString(16));
-//        System.out.println("");
 
         ASN1Integer d_r = new ASN1Integer(sm2Result.r);
         ASN1Integer d_s = new ASN1Integer(sm2Result.s);

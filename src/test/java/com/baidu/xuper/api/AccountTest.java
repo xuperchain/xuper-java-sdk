@@ -117,17 +117,6 @@ public class AccountTest {
         assertEquals(b.getMnemonic(), b1.getMnemonic());
         assertEquals(b.getAddress(), b1.getAddress());
         assertEquals(b.getKeyPair().getJSONPrivateKey(), b1.getKeyPair().getJSONPrivateKey());
-
-//        Account a1 = Account.retrieve("侨 嘛 丁 研 蒸 熊 矛 储 迫 伪 浪 百", 1);
-//        System.out.println(a1.getAddress());
-//        System.out.println(a1.getMnemonic());
-//        System.out.println(a1.getKeyPair().getJSONPublicKey());
-//        System.out.println(a1.getKeyPair().getJSONPrivateKey());
-//        byte[] hash = Hash.doubleSha256("hello".getBytes());
-//        byte[] result = Ecc.sign(hash, a1.getKeyPair().getPrivateKey());
-//        System.out.println(Hex.toHexString(result));
-//        System.out.println(Hex.toHexString(result));
-
     }
 
     private boolean deleteDir(File dir) {

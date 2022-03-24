@@ -93,7 +93,7 @@ Map<String, byte[]> args = new HashMap<>();
 args.put("key", "icexin".getBytes());
 Transaction tx = client.invokeContract(account, "wasm", "counter", "increase", args);
 System.out.println("txid: " + tx.getTxid());
-System.out.println("response: " + tx.getContractResponse().getBody().toString());
+System.out.println("response: " + tx.getContractResponse().getBodyStr());
 System.out.println("gas: " + tx.getGasUsed());
 ```
 
@@ -116,7 +116,7 @@ System.out.println("tx gas:" + t1.getGasUsed());
 
 Transaction t2 = xuperClient.queryEVMContract(account, contractName, "retrieve", null);
 System.out.println("tx res getMessage:" + t2.getContractResponse().getMessage());
-System.out.println("tx res getBodyToString:" + t2.getContractResponse().getBody().toString());
+System.out.println("tx res getBodyStr:" + t2.getContractResponse().getBodyStr());
 ```
 
 

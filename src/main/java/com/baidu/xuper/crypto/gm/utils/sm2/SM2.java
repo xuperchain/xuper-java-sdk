@@ -63,32 +63,20 @@ public class SM2 {
         this.ecc_key_pair_generator.init(ecc_ecgenparam);
     }
 
-    public void sm2Sign(byte[] md, BigInteger userD, ECPoint userKey, SM2Result sm2Result)
-    {
+    public void sm2Sign(byte[] md, BigInteger userD, ECPoint userKey, SM2Result sm2Result) {
         BigInteger e = new BigInteger(1, md);
         BigInteger k = null;
         ECPoint kp = null;
         BigInteger r = null;
         BigInteger s = null;
-        do
-        {
-            do
-            {
+        do {
+            do {
                 // 正式环境
                 AsymmetricCipherKeyPair keypair = ecc_key_pair_generator.generateKeyPair();
                 ECPrivateKeyParameters ecpriv = (ECPrivateKeyParameters) keypair.getPrivate();
                 ECPublicKeyParameters ecpub = (ECPublicKeyParameters) keypair.getPublic();
                 k = ecpriv.getD();
                 kp = ecpub.getQ();
-
-//                // 国密规范测试 随机数k
-//                String kS = "6CB28D99385C175C94F94E934817663FC176D925DD72B727260DBAAE1FB2F96F";
-//                k = new BigInteger(kS, 16);
-//                kp = this.ecc_point_g.multiply(k);
-
-//                System.out.println("计算曲线点X1: " + kp.getXCoord().toBigInteger().toString(16));
-//                System.out.println("计算曲线点Y1: " + kp.getYCoord().toBigInteger().toString(16));
-//                System.out.println("");
 
                 // r
                 r = e.add(kp.getXCoord().toBigInteger());

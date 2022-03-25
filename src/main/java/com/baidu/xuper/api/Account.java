@@ -217,6 +217,46 @@ public class Account {
         return hexEncodeUpperToString(ripemd160Hash);
     }
 
+
+    /**
+     * EVM Address 转 AK
+     * @param evmAddress
+     * @return
+     * @throws Exception
+     */
+    public static String evmAddressToXchainAK(String evmAddress) throws Exception {
+        if (evmAddress == null) {
+            throw new RuntimeException("evmAddress is null");
+        }
+        byte[] outputRipemd160 = hexStringToBytes(evmAddress);
+        if (outputRipemd160.length != 20) {
+            throw new RuntimeException("bad address");
+        }
+
+        byte[] bufVersion = new byte[]{(byte) 1};
+        byte[] strSlice = new byte[outputRipemd160.length + bufVersion.length];
+        System.arraycopy(bufVersion, 0, strSlice, 0, bufVersion.length);
+        System.arraycopy(outputRipemd160, 0, strSlice, 1, outputRipemd160.length);
+        byte[] checkCode = Hash.doubleSha256(strSlice);
+
+        byte[] slice = new byte[strSlice.length + 4];
+        System.arraycopy(strSlice, 0, slice, 0, strSlice.length);
+        System.arraycopy(checkCode, 0, slice, strSlice.length, 4);
+        String encode = Base58.encode(slice);
+
+        return encode;
+    }
+
+
+    private static byte[] hexStringToBytes(String hex) {
+        byte[] bytes = new byte[hex.length() / 2];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = (byte) Integer.parseInt(hex.substring(i * 2, i * 2 + 2), 16);
+        }
+        return bytes;
+    }
+
+
     /**
      * @return 公私钥相关。
      */

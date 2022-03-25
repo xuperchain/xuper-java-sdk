@@ -7,11 +7,16 @@ import com.baidu.xuper.crypto.account.ECDSAAccount;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Locale;
 
 public class Account {
     private final ECKeyPair ecKeyPair;
@@ -175,6 +180,84 @@ public class Account {
     }
 
     /**
+     * 字节数组转16进制大写字符串
+     *
+     * @param bytes
+     * @return
+     */
+    public static String hexEncodeUpperToString(byte[] bytes) {
+        StringBuilder result = new StringBuilder();
+        for (int index = 0, len = bytes.length; index <= len - 1; index += 1) {
+            String invalue1 = Integer.toHexString((bytes[index] >> 4) & 0xF);
+            String intValue2 = Integer.toHexString(bytes[index] & 0xF);
+            result.append(invalue1);
+            result.append(intValue2);
+        }
+        return result.toString().toUpperCase(Locale.ROOT);
+    }
+
+    /**
+     * AK 转 EVM Address
+     * @param akAddress
+     * @return
+     * @throws Exception
+     */
+
+    public static String xchainAKToEVMAddress(String akAddress) throws Exception {
+        if (akAddress == null) {
+            throw new RuntimeException("getAKAddress() is null");
+        }
+        byte[] rawAddr = Base58.decode(akAddress);
+
+        if (rawAddr.length < 21) {
+            throw new RuntimeException("bad address");
+        }
+
+        byte[] ripemd160Hash = Arrays.copyOfRange(rawAddr, 1, 21);
+        return hexEncodeUpperToString(ripemd160Hash);
+    }
+
+
+    /**
+     * EVM Address 转 AK
+     * @param evmAddress
+     * @return
+     * @throws Exception
+     */
+    public static String evmAddressToXchainAK(String evmAddress) throws Exception {
+        if (evmAddress == null) {
+            throw new RuntimeException("evmAddress is null");
+        }
+        byte[] outputRipemd160 = hexStringToBytes(evmAddress);
+        if (outputRipemd160.length != 20) {
+            throw new RuntimeException("bad address");
+        }
+
+        byte[] bufVersion = new byte[]{(byte) 1};
+        byte[] strSlice = new byte[outputRipemd160.length + bufVersion.length];
+        System.arraycopy(bufVersion, 0, strSlice, 0, bufVersion.length);
+        System.arraycopy(outputRipemd160, 0, strSlice, 1, outputRipemd160.length);
+        byte[] checkCode = Hash.doubleSha256(strSlice);
+
+        byte[] slice = new byte[strSlice.length + 4];
+        System.arraycopy(strSlice, 0, slice, 0, strSlice.length);
+        System.arraycopy(checkCode, 0, slice, strSlice.length, 4);
+        String encode = Base58.encode(slice);
+
+        return encode;
+    }
+
+
+    private static byte[] hexStringToBytes(String hex) {
+        byte[] bytes = new byte[hex.length() / 2];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = (byte) Integer.parseInt(hex.substring(i * 2, i * 2 + 2), 16);
+        }
+        return bytes;
+    }
+
+
+    /**
      * @return 公私钥相关。
      */
     public ECKeyPair getKeyPair() {
@@ -228,6 +311,8 @@ public class Account {
         }
         return this.address;
     }
+
+
 
     class privatePubKey {
         String CurvName;

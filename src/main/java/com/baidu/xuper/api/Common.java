@@ -3,6 +3,7 @@ package com.baidu.xuper.api;
 import com.baidu.xuper.pb.XchainOuterClass;
 
 import java.io.File;
+import java.nio.ByteBuffer;
 
 public class Common {
     public static XchainOuterClass.Header newHeader() {
@@ -39,5 +40,33 @@ public class Common {
         if (!file.mkdir()) {
             throw new RuntimeException("mkdir failed.");
         }
+    }
+
+    /**
+     * 类型转换 int to byte[]
+     *
+     * @param x
+     * @param length
+     * @return
+     */
+    public static byte[] intToBytes(int x, int length) {
+        byte[] bs = new byte[length];
+        for (int i = bs.length - 1; i >= 0; i--) {
+            bs[i] = (byte) (x % 0xFF);
+            x = x / 0xFF;
+        }
+        return bs;
+    }
+
+    /**
+     * 类型转换 long to byte[]
+     * @param x
+     * @return
+     */
+    public static byte[] longToBytes(long x)
+    {
+        final ByteBuffer buffer = ByteBuffer.allocate(Long.BYTES);
+        buffer.putLong(x);
+        return buffer.array();
     }
 }

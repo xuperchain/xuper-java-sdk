@@ -18161,6 +18161,612 @@ public final class XchainOuterClass {
 
   }
 
+  public interface HDInfoOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:pb.HDInfo)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * HDPublickey
+     * </pre>
+     *
+     * <code>bytes hd_public_key = 1;</code>
+     * @return The hdPublicKey.
+     */
+    com.google.protobuf.ByteString getHdPublicKey();
+
+    /**
+     * <pre>
+     * original_hash
+     * </pre>
+     *
+     * <code>bytes original_hash = 2;</code>
+     * @return The originalHash.
+     */
+    com.google.protobuf.ByteString getOriginalHash();
+  }
+  /**
+   * Protobuf type {@code pb.HDInfo}
+   */
+  public static final class HDInfo extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:pb.HDInfo)
+      HDInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use HDInfo.newBuilder() to construct.
+    private HDInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private HDInfo() {
+      hdPublicKey_ = com.google.protobuf.ByteString.EMPTY;
+      originalHash_ = com.google.protobuf.ByteString.EMPTY;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new HDInfo();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private HDInfo(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+
+              hdPublicKey_ = input.readBytes();
+              break;
+            }
+            case 18: {
+
+              originalHash_ = input.readBytes();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.baidu.xuper.pb.XchainOuterClass.internal_static_pb_HDInfo_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.baidu.xuper.pb.XchainOuterClass.internal_static_pb_HDInfo_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.baidu.xuper.pb.XchainOuterClass.HDInfo.class, com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder.class);
+    }
+
+    public static final int HD_PUBLIC_KEY_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString hdPublicKey_;
+    /**
+     * <pre>
+     * HDPublickey
+     * </pre>
+     *
+     * <code>bytes hd_public_key = 1;</code>
+     * @return The hdPublicKey.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getHdPublicKey() {
+      return hdPublicKey_;
+    }
+
+    public static final int ORIGINAL_HASH_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString originalHash_;
+    /**
+     * <pre>
+     * original_hash
+     * </pre>
+     *
+     * <code>bytes original_hash = 2;</code>
+     * @return The originalHash.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getOriginalHash() {
+      return originalHash_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!hdPublicKey_.isEmpty()) {
+        output.writeBytes(1, hdPublicKey_);
+      }
+      if (!originalHash_.isEmpty()) {
+        output.writeBytes(2, originalHash_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!hdPublicKey_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, hdPublicKey_);
+      }
+      if (!originalHash_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(2, originalHash_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.baidu.xuper.pb.XchainOuterClass.HDInfo)) {
+        return super.equals(obj);
+      }
+      com.baidu.xuper.pb.XchainOuterClass.HDInfo other = (com.baidu.xuper.pb.XchainOuterClass.HDInfo) obj;
+
+      if (!getHdPublicKey()
+          .equals(other.getHdPublicKey())) return false;
+      if (!getOriginalHash()
+          .equals(other.getOriginalHash())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + HD_PUBLIC_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getHdPublicKey().hashCode();
+      hash = (37 * hash) + ORIGINAL_HASH_FIELD_NUMBER;
+      hash = (53 * hash) + getOriginalHash().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.baidu.xuper.pb.XchainOuterClass.HDInfo prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code pb.HDInfo}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:pb.HDInfo)
+        com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.baidu.xuper.pb.XchainOuterClass.internal_static_pb_HDInfo_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.baidu.xuper.pb.XchainOuterClass.internal_static_pb_HDInfo_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.baidu.xuper.pb.XchainOuterClass.HDInfo.class, com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder.class);
+      }
+
+      // Construct using com.baidu.xuper.pb.XchainOuterClass.HDInfo.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        hdPublicKey_ = com.google.protobuf.ByteString.EMPTY;
+
+        originalHash_ = com.google.protobuf.ByteString.EMPTY;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.baidu.xuper.pb.XchainOuterClass.internal_static_pb_HDInfo_descriptor;
+      }
+
+      @java.lang.Override
+      public com.baidu.xuper.pb.XchainOuterClass.HDInfo getDefaultInstanceForType() {
+        return com.baidu.xuper.pb.XchainOuterClass.HDInfo.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.baidu.xuper.pb.XchainOuterClass.HDInfo build() {
+        com.baidu.xuper.pb.XchainOuterClass.HDInfo result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.baidu.xuper.pb.XchainOuterClass.HDInfo buildPartial() {
+        com.baidu.xuper.pb.XchainOuterClass.HDInfo result = new com.baidu.xuper.pb.XchainOuterClass.HDInfo(this);
+        result.hdPublicKey_ = hdPublicKey_;
+        result.originalHash_ = originalHash_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.baidu.xuper.pb.XchainOuterClass.HDInfo) {
+          return mergeFrom((com.baidu.xuper.pb.XchainOuterClass.HDInfo)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.baidu.xuper.pb.XchainOuterClass.HDInfo other) {
+        if (other == com.baidu.xuper.pb.XchainOuterClass.HDInfo.getDefaultInstance()) return this;
+        if (other.getHdPublicKey() != com.google.protobuf.ByteString.EMPTY) {
+          setHdPublicKey(other.getHdPublicKey());
+        }
+        if (other.getOriginalHash() != com.google.protobuf.ByteString.EMPTY) {
+          setOriginalHash(other.getOriginalHash());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.baidu.xuper.pb.XchainOuterClass.HDInfo parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.baidu.xuper.pb.XchainOuterClass.HDInfo) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString hdPublicKey_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * HDPublickey
+       * </pre>
+       *
+       * <code>bytes hd_public_key = 1;</code>
+       * @return The hdPublicKey.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getHdPublicKey() {
+        return hdPublicKey_;
+      }
+      /**
+       * <pre>
+       * HDPublickey
+       * </pre>
+       *
+       * <code>bytes hd_public_key = 1;</code>
+       * @param value The hdPublicKey to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHdPublicKey(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hdPublicKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * HDPublickey
+       * </pre>
+       *
+       * <code>bytes hd_public_key = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHdPublicKey() {
+        
+        hdPublicKey_ = getDefaultInstance().getHdPublicKey();
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString originalHash_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <pre>
+       * original_hash
+       * </pre>
+       *
+       * <code>bytes original_hash = 2;</code>
+       * @return The originalHash.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getOriginalHash() {
+        return originalHash_;
+      }
+      /**
+       * <pre>
+       * original_hash
+       * </pre>
+       *
+       * <code>bytes original_hash = 2;</code>
+       * @param value The originalHash to set.
+       * @return This builder for chaining.
+       */
+      public Builder setOriginalHash(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        originalHash_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * original_hash
+       * </pre>
+       *
+       * <code>bytes original_hash = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearOriginalHash() {
+        
+        originalHash_ = getDefaultInstance().getOriginalHash();
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:pb.HDInfo)
+    }
+
+    // @@protoc_insertion_point(class_scope:pb.HDInfo)
+    private static final com.baidu.xuper.pb.XchainOuterClass.HDInfo DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.baidu.xuper.pb.XchainOuterClass.HDInfo();
+    }
+
+    public static com.baidu.xuper.pb.XchainOuterClass.HDInfo getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<HDInfo>
+        PARSER = new com.google.protobuf.AbstractParser<HDInfo>() {
+      @java.lang.Override
+      public HDInfo parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new HDInfo(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<HDInfo> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<HDInfo> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.baidu.xuper.pb.XchainOuterClass.HDInfo getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface XuperSignatureOrBuilder extends
       // @@protoc_insertion_point(interface_extends:pb.XuperSignature)
       com.google.protobuf.MessageOrBuilder {
@@ -19308,6 +19914,33 @@ public final class XchainOuterClass {
      * <code>.pb.ModifyBlock modify_block = 32;</code>
      */
     com.baidu.xuper.pb.XchainOuterClass.ModifyBlockOrBuilder getModifyBlockOrBuilder();
+
+    /**
+     * <pre>
+     * HD加解密相关信息
+     * </pre>
+     *
+     * <code>.pb.HDInfo HD_info = 33;</code>
+     * @return Whether the hDInfo field is set.
+     */
+    boolean hasHDInfo();
+    /**
+     * <pre>
+     * HD加解密相关信息
+     * </pre>
+     *
+     * <code>.pb.HDInfo HD_info = 33;</code>
+     * @return The hDInfo.
+     */
+    com.baidu.xuper.pb.XchainOuterClass.HDInfo getHDInfo();
+    /**
+     * <pre>
+     * HD加解密相关信息
+     * </pre>
+     *
+     * <code>.pb.HDInfo HD_info = 33;</code>
+     */
+    com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder getHDInfoOrBuilder();
   }
   /**
    * <pre>
@@ -19518,6 +20151,19 @@ public final class XchainOuterClass {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(modifyBlock_);
                 modifyBlock_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 266: {
+              com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder subBuilder = null;
+              if (hDInfo_ != null) {
+                subBuilder = hDInfo_.toBuilder();
+              }
+              hDInfo_ = input.readMessage(com.baidu.xuper.pb.XchainOuterClass.HDInfo.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(hDInfo_);
+                hDInfo_ = subBuilder.buildPartial();
               }
 
               break;
@@ -20279,6 +20925,44 @@ public final class XchainOuterClass {
       return getModifyBlock();
     }
 
+    public static final int HD_INFO_FIELD_NUMBER = 33;
+    private com.baidu.xuper.pb.XchainOuterClass.HDInfo hDInfo_;
+    /**
+     * <pre>
+     * HD加解密相关信息
+     * </pre>
+     *
+     * <code>.pb.HDInfo HD_info = 33;</code>
+     * @return Whether the hDInfo field is set.
+     */
+    @java.lang.Override
+    public boolean hasHDInfo() {
+      return hDInfo_ != null;
+    }
+    /**
+     * <pre>
+     * HD加解密相关信息
+     * </pre>
+     *
+     * <code>.pb.HDInfo HD_info = 33;</code>
+     * @return The hDInfo.
+     */
+    @java.lang.Override
+    public com.baidu.xuper.pb.XchainOuterClass.HDInfo getHDInfo() {
+      return hDInfo_ == null ? com.baidu.xuper.pb.XchainOuterClass.HDInfo.getDefaultInstance() : hDInfo_;
+    }
+    /**
+     * <pre>
+     * HD加解密相关信息
+     * </pre>
+     *
+     * <code>.pb.HDInfo HD_info = 33;</code>
+     */
+    @java.lang.Override
+    public com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder getHDInfoOrBuilder() {
+      return getHDInfo();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -20352,6 +21036,9 @@ public final class XchainOuterClass {
       }
       if (modifyBlock_ != null) {
         output.writeMessage(32, getModifyBlock());
+      }
+      if (hDInfo_ != null) {
+        output.writeMessage(33, getHDInfo());
       }
       unknownFields.writeTo(output);
     }
@@ -20444,6 +21131,10 @@ public final class XchainOuterClass {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(32, getModifyBlock());
       }
+      if (hDInfo_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(33, getHDInfo());
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -20504,6 +21195,11 @@ public final class XchainOuterClass {
       if (hasModifyBlock()) {
         if (!getModifyBlock()
             .equals(other.getModifyBlock())) return false;
+      }
+      if (hasHDInfo() != other.hasHDInfo()) return false;
+      if (hasHDInfo()) {
+        if (!getHDInfo()
+            .equals(other.getHDInfo())) return false;
       }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
@@ -20579,6 +21275,10 @@ public final class XchainOuterClass {
       if (hasModifyBlock()) {
         hash = (37 * hash) + MODIFY_BLOCK_FIELD_NUMBER;
         hash = (53 * hash) + getModifyBlock().hashCode();
+      }
+      if (hasHDInfo()) {
+        hash = (37 * hash) + HD_INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getHDInfo().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -20800,6 +21500,12 @@ public final class XchainOuterClass {
           modifyBlock_ = null;
           modifyBlockBuilder_ = null;
         }
+        if (hDInfoBuilder_ == null) {
+          hDInfo_ = null;
+        } else {
+          hDInfo_ = null;
+          hDInfoBuilder_ = null;
+        }
         return this;
       }
 
@@ -20914,6 +21620,11 @@ public final class XchainOuterClass {
           result.modifyBlock_ = modifyBlock_;
         } else {
           result.modifyBlock_ = modifyBlockBuilder_.build();
+        }
+        if (hDInfoBuilder_ == null) {
+          result.hDInfo_ = hDInfo_;
+        } else {
+          result.hDInfo_ = hDInfoBuilder_.build();
         }
         onBuilt();
         return result;
@@ -21192,6 +21903,9 @@ public final class XchainOuterClass {
         }
         if (other.hasModifyBlock()) {
           mergeModifyBlock(other.getModifyBlock());
+        }
+        if (other.hasHDInfo()) {
+          mergeHDInfo(other.getHDInfo());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -24195,6 +24909,161 @@ public final class XchainOuterClass {
           modifyBlock_ = null;
         }
         return modifyBlockBuilder_;
+      }
+
+      private com.baidu.xuper.pb.XchainOuterClass.HDInfo hDInfo_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.baidu.xuper.pb.XchainOuterClass.HDInfo, com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder, com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder> hDInfoBuilder_;
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       * @return Whether the hDInfo field is set.
+       */
+      public boolean hasHDInfo() {
+        return hDInfoBuilder_ != null || hDInfo_ != null;
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       * @return The hDInfo.
+       */
+      public com.baidu.xuper.pb.XchainOuterClass.HDInfo getHDInfo() {
+        if (hDInfoBuilder_ == null) {
+          return hDInfo_ == null ? com.baidu.xuper.pb.XchainOuterClass.HDInfo.getDefaultInstance() : hDInfo_;
+        } else {
+          return hDInfoBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       */
+      public Builder setHDInfo(com.baidu.xuper.pb.XchainOuterClass.HDInfo value) {
+        if (hDInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          hDInfo_ = value;
+          onChanged();
+        } else {
+          hDInfoBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       */
+      public Builder setHDInfo(
+          com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder builderForValue) {
+        if (hDInfoBuilder_ == null) {
+          hDInfo_ = builderForValue.build();
+          onChanged();
+        } else {
+          hDInfoBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       */
+      public Builder mergeHDInfo(com.baidu.xuper.pb.XchainOuterClass.HDInfo value) {
+        if (hDInfoBuilder_ == null) {
+          if (hDInfo_ != null) {
+            hDInfo_ =
+              com.baidu.xuper.pb.XchainOuterClass.HDInfo.newBuilder(hDInfo_).mergeFrom(value).buildPartial();
+          } else {
+            hDInfo_ = value;
+          }
+          onChanged();
+        } else {
+          hDInfoBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       */
+      public Builder clearHDInfo() {
+        if (hDInfoBuilder_ == null) {
+          hDInfo_ = null;
+          onChanged();
+        } else {
+          hDInfo_ = null;
+          hDInfoBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       */
+      public com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder getHDInfoBuilder() {
+        
+        onChanged();
+        return getHDInfoFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       */
+      public com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder getHDInfoOrBuilder() {
+        if (hDInfoBuilder_ != null) {
+          return hDInfoBuilder_.getMessageOrBuilder();
+        } else {
+          return hDInfo_ == null ?
+              com.baidu.xuper.pb.XchainOuterClass.HDInfo.getDefaultInstance() : hDInfo_;
+        }
+      }
+      /**
+       * <pre>
+       * HD加解密相关信息
+       * </pre>
+       *
+       * <code>.pb.HDInfo HD_info = 33;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.baidu.xuper.pb.XchainOuterClass.HDInfo, com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder, com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder> 
+          getHDInfoFieldBuilder() {
+        if (hDInfoBuilder_ == null) {
+          hDInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.baidu.xuper.pb.XchainOuterClass.HDInfo, com.baidu.xuper.pb.XchainOuterClass.HDInfo.Builder, com.baidu.xuper.pb.XchainOuterClass.HDInfoOrBuilder>(
+                  getHDInfo(),
+                  getParentForChildren(),
+                  isClean());
+          hDInfo_ = null;
+        }
+        return hDInfoBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -92324,6 +93193,11 @@ public final class XchainOuterClass {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_pb_TxOutput_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_pb_HDInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_pb_HDInfo_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_pb_XuperSignature_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -92741,282 +93615,284 @@ public final class XchainOuterClass {
       "ffset\030\002 \001(\005\022\021\n\tfrom_addr\030\005 \001(\014\022\016\n\006amount" +
       "\030\006 \001(\014\022\025\n\rfrozen_height\030\007 \001(\003\"B\n\010TxOutpu" +
       "t\022\016\n\006amount\030\001 \001(\014\022\017\n\007to_addr\030\002 \001(\014\022\025\n\rfr" +
-      "ozen_height\030\004 \001(\003\"8\n\016XuperSignature\022\023\n\013p" +
-      "ublic_keys\030\001 \003(\014\022\021\n\tsignature\030\002 \001(\014\"\277\004\n\013" +
-      "Transaction\022\014\n\004txid\030\001 \001(\014\022\017\n\007blockid\030\002 \001" +
-      "(\014\022\036\n\ttx_inputs\030\003 \003(\0132\013.pb.TxInput\022 \n\ntx" +
-      "_outputs\030\004 \003(\0132\014.pb.TxOutput\022\014\n\004desc\030\006 \001" +
-      "(\014\022\020\n\010coinbase\030\007 \001(\010\022\r\n\005nonce\030\010 \001(\t\022\021\n\tt" +
-      "imestamp\030\t \001(\003\022\017\n\007version\030\n \001(\005\022\017\n\007autog" +
-      "en\030\013 \001(\010\022%\n\rtx_inputs_ext\030\027 \003(\0132\016.pb.TxI" +
-      "nputExt\022\'\n\016tx_outputs_ext\030\030 \003(\0132\017.pb.TxO" +
-      "utputExt\022,\n\021contract_requests\030\031 \003(\0132\021.pb" +
-      ".InvokeRequest\022\021\n\tinitiator\030\032 \001(\t\022\024\n\014aut" +
-      "h_require\030\033 \003(\t\022*\n\017initiator_signs\030\034 \003(\013" +
-      "2\021.pb.SignatureInfo\022-\n\022auth_require_sign" +
-      "s\030\035 \003(\0132\021.pb.SignatureInfo\022\032\n\022received_t" +
-      "imestamp\030\036 \001(\003\022&\n\nxuper_sign\030\037 \001(\0132\022.pb." +
-      "XuperSignature\022%\n\014modify_block\030  \001(\0132\017.p" +
-      "b.ModifyBlock\"M\n\nLedgerMeta\022\024\n\014root_bloc" +
-      "kid\030\001 \001(\014\022\023\n\013tip_blockid\030\002 \001(\014\022\024\n\014trunk_" +
-      "height\030\003 \001(\003\"\367\002\n\010UtxoMeta\022\026\n\016latest_bloc" +
-      "kid\030\001 \001(\014\022\025\n\rlock_key_list\030\002 \003(\t\022\022\n\nutxo" +
-      "_total\030\003 \001(\t\022\020\n\010avgDelay\030\004 \001(\003\022\031\n\021unconf" +
-      "irmTxAmount\030\005 \001(\003\022\026\n\016max_block_size\030\006 \001(" +
-      "\003\022-\n\022reserved_contracts\030\007 \003(\0132\021.pb.Invok" +
-      "eRequest\022-\n\022forbidden_contract\030\010 \001(\0132\021.p" +
-      "b.InvokeRequest\022#\n\033new_account_resource_" +
-      "amount\030\t \001(\003\022\037\n\027irreversibleBlockHeight\030" +
-      "\n \001(\003\022\037\n\027irreversibleSlideWindow\030\013 \001(\003\022\036" +
-      "\n\010gasPrice\030\014 \001(\0132\014.pb.GasPrice\"T\n\010GasPri" +
-      "ce\022\020\n\010cpu_rate\030\001 \001(\003\022\020\n\010mem_rate\030\002 \001(\003\022\021" +
-      "\n\tdisk_rate\030\003 \001(\003\022\021\n\txfee_rate\030\004 \001(\003\"\360\003\n" +
-      "\rInternalBlock\022\017\n\007version\030\001 \001(\005\022\r\n\005nonce" +
-      "\030\002 \001(\005\022\017\n\007blockid\030\003 \001(\014\022\020\n\010pre_hash\030\004 \001(" +
-      "\014\022\020\n\010proposer\030\005 \001(\014\022\014\n\004sign\030\006 \001(\014\022\016\n\006pub" +
-      "key\030\007 \001(\014\022\023\n\013merkle_root\030\010 \001(\014\022\016\n\006height" +
-      "\030\t \001(\003\022\021\n\ttimestamp\030\n \001(\003\022%\n\014transaction" +
-      "s\030\013 \003(\0132\017.pb.Transaction\022\020\n\010tx_count\030\014 \001" +
-      "(\005\022\023\n\013merkle_tree\030\r \003(\014\022\017\n\007curTerm\030\020 \001(\003" +
-      "\022\023\n\013curBlockNum\030\021 \001(\003\0224\n\nfailed_txs\030\022 \003(" +
-      "\0132 .pb.InternalBlock.FailedTxsEntry\022\022\n\nt" +
-      "argetBits\030\023 \001(\005\022\037\n\007Justify\030\024 \001(\0132\016.pb.Qu" +
-      "orumCert\022\020\n\010in_trunk\030\016 \001(\010\022\021\n\tnext_hash\030" +
-      "\017 \001(\014\0320\n\016FailedTxsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005" +
-      "value\030\002 \001(\t:\0028\001\"\255\001\n\010BCStatus\022\032\n\006header\030\001" +
-      " \001(\0132\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022\034\n\004meta" +
-      "\030\003 \001(\0132\016.pb.LedgerMeta\022 \n\005block\030\004 \001(\0132\021." +
-      "pb.InternalBlock\022\036\n\010utxoMeta\030\005 \001(\0132\014.pb." +
-      "UtxoMeta\022\025\n\rbranchBlockid\030\006 \003(\t\"?\n\013BCTip" +
-      "Status\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\024\n\014is" +
-      "_trunk_tip\030\002 \001(\010\">\n\013BlockChains\022\032\n\006heade" +
-      "r\030\001 \001(\0132\n.pb.Header\022\023\n\013blockchains\030\002 \003(\t" +
-      "\"\323\001\n\006Speeds\022,\n\tSumSpeeds\030\001 \003(\0132\031.pb.Spee" +
-      "ds.SumSpeedsEntry\022*\n\010BcSpeeds\030\002 \003(\0132\030.pb" +
-      ".Speeds.BcSpeedsEntry\0320\n\016SumSpeedsEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\032=\n\rBcSpe" +
-      "edsEntry\022\013\n\003key\030\001 \001(\t\022\033\n\005value\030\002 \001(\0132\014.p" +
-      "b.BCSpeeds:\0028\001\"f\n\010BCSpeeds\022*\n\007BcSpeed\030\001 " +
-      "\003(\0132\031.pb.BCSpeeds.BcSpeedEntry\032.\n\014BcSpee" +
-      "dEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\"{" +
-      "\n\rSystemsStatus\022\032\n\006header\030\001 \001(\0132\n.pb.Hea" +
-      "der\022 \n\nbcs_status\030\002 \003(\0132\014.pb.BCStatus\022\032\n" +
-      "\006speeds\030\003 \001(\0132\n.pb.Speeds\022\020\n\010peerUrls\030\004 " +
-      "\003(\t\"[\n\022SystemsStatusReply\022\032\n\006header\030\001 \001(" +
-      "\0132\n.pb.Header\022)\n\016systems_status\030\002 \001(\0132\021." +
-      "pb.SystemsStatus\"4\n\006RawUrl\022\032\n\006header\030\001 \001" +
-      "(\0132\n.pb.Header\022\016\n\006rawUrl\030\002 \001(\t\"\\\n\004Utxo\022\016" +
-      "\n\006amount\030\001 \001(\014\022\016\n\006toAddr\030\002 \001(\014\022\020\n\010toPubk" +
-      "ey\030\003 \001(\014\022\017\n\007refTxid\030\004 \001(\014\022\021\n\trefOffset\030\005" +
-      " \001(\005\"\222\001\n\tUtxoInput\022\032\n\006header\030\001 \001(\0132\n.pb." +
-      "Header\022\016\n\006bcname\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\022" +
-      "\021\n\tpublickey\030\004 \001(\t\022\021\n\ttotalNeed\030\005 \001(\t\022\020\n" +
-      "\010userSign\030\007 \001(\014\022\020\n\010needLock\030\010 \001(\010\"[\n\nUtx" +
-      "oOutput\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\032\n\010u" +
-      "txoList\030\002 \003(\0132\010.pb.Utxo\022\025\n\rtotalSelected" +
-      "\030\003 \001(\t\"m\n\016NativeCodeDesc\022\014\n\004name\030\001 \001(\t\022\017" +
-      "\n\007version\030\002 \001(\t\022\016\n\006digest\030\003 \001(\014\022\023\n\013prevV" +
-      "ersion\030\004 \001(\t\022\027\n\017xuperApiVersion\030\005 \001(\005\"m\n" +
-      "\014WasmCodeDesc\022\017\n\007runtime\030\001 \001(\t\022\020\n\010compil" +
-      "er\030\002 \001(\t\022\016\n\006digest\030\003 \001(\014\022\023\n\013vm_compiler\030" +
-      "\004 \001(\t\022\025\n\rcontract_type\030\005 \001(\t\"\244\001\n\027DeployN" +
-      "ativeCodeRequest\022\032\n\006header\030\001 \001(\0132\n.pb.He" +
-      "ader\022\016\n\006bcname\030\002 \001(\t\022 \n\004desc\030\003 \001(\0132\022.pb." +
-      "NativeCodeDesc\022\014\n\004code\030\004 \001(\014\022\017\n\007address\030" +
-      "\005 \001(\t\022\016\n\006pubkey\030\006 \001(\014\022\014\n\004sign\030\007 \001(\014\"6\n\030D" +
-      "eployNativeCodeResponse\022\032\n\006header\030\001 \001(\0132" +
-      "\n.pb.Header\"U\n\020NativeCodeStatus\022 \n\004desc\030" +
-      "\001 \001(\0132\022.pb.NativeCodeDesc\022\016\n\006status\030\002 \001(" +
-      "\005\022\017\n\007healthy\030\003 \001(\010\"E\n\027NativeCodeStatusRe" +
+      "ozen_height\030\004 \001(\003\"6\n\006HDInfo\022\025\n\rhd_public" +
+      "_key\030\001 \001(\014\022\025\n\roriginal_hash\030\002 \001(\014\"8\n\016Xup" +
+      "erSignature\022\023\n\013public_keys\030\001 \003(\014\022\021\n\tsign" +
+      "ature\030\002 \001(\014\"\334\004\n\013Transaction\022\014\n\004txid\030\001 \001(" +
+      "\014\022\017\n\007blockid\030\002 \001(\014\022\036\n\ttx_inputs\030\003 \003(\0132\013." +
+      "pb.TxInput\022 \n\ntx_outputs\030\004 \003(\0132\014.pb.TxOu" +
+      "tput\022\014\n\004desc\030\006 \001(\014\022\020\n\010coinbase\030\007 \001(\010\022\r\n\005" +
+      "nonce\030\010 \001(\t\022\021\n\ttimestamp\030\t \001(\003\022\017\n\007versio" +
+      "n\030\n \001(\005\022\017\n\007autogen\030\013 \001(\010\022%\n\rtx_inputs_ex" +
+      "t\030\027 \003(\0132\016.pb.TxInputExt\022\'\n\016tx_outputs_ex" +
+      "t\030\030 \003(\0132\017.pb.TxOutputExt\022,\n\021contract_req" +
+      "uests\030\031 \003(\0132\021.pb.InvokeRequest\022\021\n\tinitia" +
+      "tor\030\032 \001(\t\022\024\n\014auth_require\030\033 \003(\t\022*\n\017initi" +
+      "ator_signs\030\034 \003(\0132\021.pb.SignatureInfo\022-\n\022a" +
+      "uth_require_signs\030\035 \003(\0132\021.pb.SignatureIn" +
+      "fo\022\032\n\022received_timestamp\030\036 \001(\003\022&\n\nxuper_" +
+      "sign\030\037 \001(\0132\022.pb.XuperSignature\022%\n\014modify" +
+      "_block\030  \001(\0132\017.pb.ModifyBlock\022\033\n\007HD_info" +
+      "\030! \001(\0132\n.pb.HDInfo\"M\n\nLedgerMeta\022\024\n\014root" +
+      "_blockid\030\001 \001(\014\022\023\n\013tip_blockid\030\002 \001(\014\022\024\n\014t" +
+      "runk_height\030\003 \001(\003\"\367\002\n\010UtxoMeta\022\026\n\016latest" +
+      "_blockid\030\001 \001(\014\022\025\n\rlock_key_list\030\002 \003(\t\022\022\n" +
+      "\nutxo_total\030\003 \001(\t\022\020\n\010avgDelay\030\004 \001(\003\022\031\n\021u" +
+      "nconfirmTxAmount\030\005 \001(\003\022\026\n\016max_block_size" +
+      "\030\006 \001(\003\022-\n\022reserved_contracts\030\007 \003(\0132\021.pb." +
+      "InvokeRequest\022-\n\022forbidden_contract\030\010 \001(" +
+      "\0132\021.pb.InvokeRequest\022#\n\033new_account_reso" +
+      "urce_amount\030\t \001(\003\022\037\n\027irreversibleBlockHe" +
+      "ight\030\n \001(\003\022\037\n\027irreversibleSlideWindow\030\013 " +
+      "\001(\003\022\036\n\010gasPrice\030\014 \001(\0132\014.pb.GasPrice\"T\n\010G" +
+      "asPrice\022\020\n\010cpu_rate\030\001 \001(\003\022\020\n\010mem_rate\030\002 " +
+      "\001(\003\022\021\n\tdisk_rate\030\003 \001(\003\022\021\n\txfee_rate\030\004 \001(" +
+      "\003\"\360\003\n\rInternalBlock\022\017\n\007version\030\001 \001(\005\022\r\n\005" +
+      "nonce\030\002 \001(\005\022\017\n\007blockid\030\003 \001(\014\022\020\n\010pre_hash" +
+      "\030\004 \001(\014\022\020\n\010proposer\030\005 \001(\014\022\014\n\004sign\030\006 \001(\014\022\016" +
+      "\n\006pubkey\030\007 \001(\014\022\023\n\013merkle_root\030\010 \001(\014\022\016\n\006h" +
+      "eight\030\t \001(\003\022\021\n\ttimestamp\030\n \001(\003\022%\n\014transa" +
+      "ctions\030\013 \003(\0132\017.pb.Transaction\022\020\n\010tx_coun" +
+      "t\030\014 \001(\005\022\023\n\013merkle_tree\030\r \003(\014\022\017\n\007curTerm\030" +
+      "\020 \001(\003\022\023\n\013curBlockNum\030\021 \001(\003\0224\n\nfailed_txs" +
+      "\030\022 \003(\0132 .pb.InternalBlock.FailedTxsEntry" +
+      "\022\022\n\ntargetBits\030\023 \001(\005\022\037\n\007Justify\030\024 \001(\0132\016." +
+      "pb.QuorumCert\022\020\n\010in_trunk\030\016 \001(\010\022\021\n\tnext_" +
+      "hash\030\017 \001(\014\0320\n\016FailedTxsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\r\n\005value\030\002 \001(\t:\0028\001\"\255\001\n\010BCStatus\022\032\n\006hea" +
+      "der\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022\034\n" +
+      "\004meta\030\003 \001(\0132\016.pb.LedgerMeta\022 \n\005block\030\004 \001" +
+      "(\0132\021.pb.InternalBlock\022\036\n\010utxoMeta\030\005 \001(\0132" +
+      "\014.pb.UtxoMeta\022\025\n\rbranchBlockid\030\006 \003(\t\"?\n\013" +
+      "BCTipStatus\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022" +
+      "\024\n\014is_trunk_tip\030\002 \001(\010\">\n\013BlockChains\022\032\n\006" +
+      "header\030\001 \001(\0132\n.pb.Header\022\023\n\013blockchains\030" +
+      "\002 \003(\t\"\323\001\n\006Speeds\022,\n\tSumSpeeds\030\001 \003(\0132\031.pb" +
+      ".Speeds.SumSpeedsEntry\022*\n\010BcSpeeds\030\002 \003(\013" +
+      "2\030.pb.Speeds.BcSpeedsEntry\0320\n\016SumSpeedsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\032=\n\r" +
+      "BcSpeedsEntry\022\013\n\003key\030\001 \001(\t\022\033\n\005value\030\002 \001(" +
+      "\0132\014.pb.BCSpeeds:\0028\001\"f\n\010BCSpeeds\022*\n\007BcSpe" +
+      "ed\030\001 \003(\0132\031.pb.BCSpeeds.BcSpeedEntry\032.\n\014B" +
+      "cSpeedEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:" +
+      "\0028\001\"{\n\rSystemsStatus\022\032\n\006header\030\001 \001(\0132\n.p" +
+      "b.Header\022 \n\nbcs_status\030\002 \003(\0132\014.pb.BCStat" +
+      "us\022\032\n\006speeds\030\003 \001(\0132\n.pb.Speeds\022\020\n\010peerUr" +
+      "ls\030\004 \003(\t\"[\n\022SystemsStatusReply\022\032\n\006header" +
+      "\030\001 \001(\0132\n.pb.Header\022)\n\016systems_status\030\002 \001" +
+      "(\0132\021.pb.SystemsStatus\"4\n\006RawUrl\022\032\n\006heade" +
+      "r\030\001 \001(\0132\n.pb.Header\022\016\n\006rawUrl\030\002 \001(\t\"\\\n\004U" +
+      "txo\022\016\n\006amount\030\001 \001(\014\022\016\n\006toAddr\030\002 \001(\014\022\020\n\010t" +
+      "oPubkey\030\003 \001(\014\022\017\n\007refTxid\030\004 \001(\014\022\021\n\trefOff" +
+      "set\030\005 \001(\005\"\222\001\n\tUtxoInput\022\032\n\006header\030\001 \001(\0132" +
+      "\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022\017\n\007address\030\003" +
+      " \001(\t\022\021\n\tpublickey\030\004 \001(\t\022\021\n\ttotalNeed\030\005 \001" +
+      "(\t\022\020\n\010userSign\030\007 \001(\014\022\020\n\010needLock\030\010 \001(\010\"[" +
+      "\n\nUtxoOutput\022\032\n\006header\030\001 \001(\0132\n.pb.Header" +
+      "\022\032\n\010utxoList\030\002 \003(\0132\010.pb.Utxo\022\025\n\rtotalSel" +
+      "ected\030\003 \001(\t\"m\n\016NativeCodeDesc\022\014\n\004name\030\001 " +
+      "\001(\t\022\017\n\007version\030\002 \001(\t\022\016\n\006digest\030\003 \001(\014\022\023\n\013" +
+      "prevVersion\030\004 \001(\t\022\027\n\017xuperApiVersion\030\005 \001" +
+      "(\005\"m\n\014WasmCodeDesc\022\017\n\007runtime\030\001 \001(\t\022\020\n\010c" +
+      "ompiler\030\002 \001(\t\022\016\n\006digest\030\003 \001(\014\022\023\n\013vm_comp" +
+      "iler\030\004 \001(\t\022\025\n\rcontract_type\030\005 \001(\t\"\244\001\n\027De" +
+      "ployNativeCodeRequest\022\032\n\006header\030\001 \001(\0132\n." +
+      "pb.Header\022\016\n\006bcname\030\002 \001(\t\022 \n\004desc\030\003 \001(\0132" +
+      "\022.pb.NativeCodeDesc\022\014\n\004code\030\004 \001(\014\022\017\n\007add" +
+      "ress\030\005 \001(\t\022\016\n\006pubkey\030\006 \001(\014\022\014\n\004sign\030\007 \001(\014" +
+      "\"6\n\030DeployNativeCodeResponse\022\032\n\006header\030\001" +
+      " \001(\0132\n.pb.Header\"U\n\020NativeCodeStatus\022 \n\004" +
+      "desc\030\001 \001(\0132\022.pb.NativeCodeDesc\022\016\n\006status" +
+      "\030\002 \001(\005\022\017\n\007healthy\030\003 \001(\010\"E\n\027NativeCodeSta" +
+      "tusRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016" +
+      "\n\006bcname\030\002 \001(\t\"\\\n\030NativeCodeStatusRespon" +
+      "se\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022$\n\006status" +
+      "\030\002 \003(\0132\024.pb.NativeCodeStatus\"C\n\025DposCand" +
+      "idatesRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Heade" +
+      "r\022\016\n\006bcname\030\002 \001(\t\"L\n\026DposCandidatesRespo" +
+      "nse\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\026\n\016candi" +
+      "datesInfo\030\002 \003(\t\"Y\n\032DposNominateRecordsRe" +
       "quest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcn" +
-      "ame\030\002 \001(\t\"\\\n\030NativeCodeStatusResponse\022\032\n" +
-      "\006header\030\001 \001(\0132\n.pb.Header\022$\n\006status\030\002 \003(" +
-      "\0132\024.pb.NativeCodeStatus\"C\n\025DposCandidate" +
-      "sRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006" +
-      "bcname\030\002 \001(\t\"L\n\026DposCandidatesResponse\022\032" +
-      "\n\006header\030\001 \001(\0132\n.pb.Header\022\026\n\016candidates" +
-      "Info\030\002 \003(\t\"Y\n\032DposNominateRecordsRequest" +
-      "\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002" +
-      " \001(\t\022\017\n\007address\030\003 \001(\t\"3\n\020DposNominateInf" +
-      "o\022\021\n\tcandidate\030\001 \001(\t\022\014\n\004txid\030\002 \001(\t\"h\n\033Dp" +
-      "osNominateRecordsResponse\022\032\n\006header\030\001 \001(" +
-      "\0132\n.pb.Header\022-\n\017nominateRecords\030\002 \003(\0132\024" +
-      ".pb.DposNominateInfo\"X\n\031DposNomineeRecor" +
-      "dsRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n" +
-      "\006bcname\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\"F\n\032DposNo" +
-      "mineeRecordsResponse\022\032\n\006header\030\001 \001(\0132\n.p" +
-      "b.Header\022\014\n\004txid\030\002 \001(\t\"U\n\026DposVoteRecord" +
-      "sRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006" +
-      "bcname\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\"-\n\nvoteRec" +
-      "ord\022\021\n\tcandidate\030\001 \001(\t\022\014\n\004txid\030\002 \001(\t\"^\n\027" +
-      "DposVoteRecordsResponse\022\032\n\006header\030\001 \001(\0132" +
-      "\n.pb.Header\022\'\n\017voteTxidRecords\030\002 \003(\0132\016.p" +
-      "b.voteRecord\"V\n\027DposVotedRecordsRequest\022" +
-      "\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002 " +
-      "\001(\t\022\017\n\007address\030\003 \001(\t\"*\n\013votedRecord\022\r\n\005v" +
-      "oter\030\001 \001(\t\022\014\n\004txid\030\002 \001(\t\"a\n\030DposVotedRec" +
-      "ordsResponse\022\032\n\006header\030\001 \001(\0132\n.pb.Header" +
-      "\022)\n\020votedTxidRecords\030\002 \003(\0132\017.pb.votedRec" +
-      "ord\"S\n\027DposCheckResultsRequest\022\032\n\006header" +
-      "\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022\014\n\004te" +
-      "rm\030\003 \001(\003\"Y\n\030DposCheckResultsResponse\022\032\n\006" +
-      "header\030\001 \001(\0132\n.pb.Header\022\014\n\004term\030\002 \001(\003\022\023" +
-      "\n\013checkResult\030\003 \003(\t\"?\n\021DposStatusRequest" +
-      "\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002" +
-      " \001(\t\"P\n\022DposStatusResponse\022\032\n\006header\030\001 \001" +
-      "(\0132\n.pb.Header\022\036\n\006status\030\002 \001(\0132\016.pb.Dpos" +
-      "Status\"j\n\nDposStatus\022\014\n\004term\030\001 \001(\003\022\021\n\tbl" +
-      "ock_num\030\002 \001(\003\022\020\n\010proposer\030\003 \001(\t\022\024\n\014propo" +
-      "ser_num\030\004 \001(\003\022\023\n\013checkResult\030\005 \003(\t\"\214\001\n\020I" +
-      "nvokeRPCRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Hea" +
-      "der\022\016\n\006bcname\030\002 \001(\t\022#\n\010requests\030\003 \003(\0132\021." +
-      "pb.InvokeRequest\022\021\n\tinitiator\030\004 \001(\t\022\024\n\014a" +
-      "uth_require\030\005 \003(\t\"e\n\021InvokeRPCResponse\022\032" +
+      "ame\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\"3\n\020DposNomina" +
+      "teInfo\022\021\n\tcandidate\030\001 \001(\t\022\014\n\004txid\030\002 \001(\t\"" +
+      "h\n\033DposNominateRecordsResponse\022\032\n\006header" +
+      "\030\001 \001(\0132\n.pb.Header\022-\n\017nominateRecords\030\002 " +
+      "\003(\0132\024.pb.DposNominateInfo\"X\n\031DposNominee" +
+      "RecordsRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Head" +
+      "er\022\016\n\006bcname\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\"F\n\032D" +
+      "posNomineeRecordsResponse\022\032\n\006header\030\001 \001(" +
+      "\0132\n.pb.Header\022\014\n\004txid\030\002 \001(\t\"U\n\026DposVoteR" +
+      "ecordsRequest\022\032\n\006header\030\001 \001(\0132\n.pb.Heade" +
+      "r\022\016\n\006bcname\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\"-\n\nvo" +
+      "teRecord\022\021\n\tcandidate\030\001 \001(\t\022\014\n\004txid\030\002 \001(" +
+      "\t\"^\n\027DposVoteRecordsResponse\022\032\n\006header\030\001" +
+      " \001(\0132\n.pb.Header\022\'\n\017voteTxidRecords\030\002 \003(" +
+      "\0132\016.pb.voteRecord\"V\n\027DposVotedRecordsReq" +
+      "uest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcna" +
+      "me\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\"*\n\013votedRecord" +
+      "\022\r\n\005voter\030\001 \001(\t\022\014\n\004txid\030\002 \001(\t\"a\n\030DposVot" +
+      "edRecordsResponse\022\032\n\006header\030\001 \001(\0132\n.pb.H" +
+      "eader\022)\n\020votedTxidRecords\030\002 \003(\0132\017.pb.vot" +
+      "edRecord\"S\n\027DposCheckResultsRequest\022\032\n\006h" +
+      "eader\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022" +
+      "\014\n\004term\030\003 \001(\003\"Y\n\030DposCheckResultsRespons" +
+      "e\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\014\n\004term\030\002 " +
+      "\001(\003\022\023\n\013checkResult\030\003 \003(\t\"?\n\021DposStatusRe" +
+      "quest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcn" +
+      "ame\030\002 \001(\t\"P\n\022DposStatusResponse\022\032\n\006heade" +
+      "r\030\001 \001(\0132\n.pb.Header\022\036\n\006status\030\002 \001(\0132\016.pb" +
+      ".DposStatus\"j\n\nDposStatus\022\014\n\004term\030\001 \001(\003\022" +
+      "\021\n\tblock_num\030\002 \001(\003\022\020\n\010proposer\030\003 \001(\t\022\024\n\014" +
+      "proposer_num\030\004 \001(\003\022\023\n\013checkResult\030\005 \003(\t\"" +
+      "\214\001\n\020InvokeRPCRequest\022\032\n\006header\030\001 \001(\0132\n.p" +
+      "b.Header\022\016\n\006bcname\030\002 \001(\t\022#\n\010requests\030\003 \003" +
+      "(\0132\021.pb.InvokeRequest\022\021\n\tinitiator\030\004 \001(\t" +
+      "\022\024\n\014auth_require\030\005 \003(\t\"e\n\021InvokeRPCRespo" +
+      "nse\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcnam" +
+      "e\030\002 \001(\t\022$\n\010response\030\003 \001(\0132\022.pb.InvokeRes" +
+      "ponse\"\344\001\n\rInvokeRequest\022\023\n\013module_name\030\001" +
+      " \001(\t\022\025\n\rcontract_name\030\002 \001(\t\022\023\n\013method_na" +
+      "me\030\003 \001(\t\022)\n\004args\030\004 \003(\0132\033.pb.InvokeReques" +
+      "t.ArgsEntry\022*\n\017resource_limits\030\005 \003(\0132\021.p" +
+      "b.ResourceLimit\022\016\n\006amount\030\006 \001(\t\032+\n\tArgsE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\210\002\n" +
+      "\016InvokeResponse\022\036\n\006inputs\030\001 \003(\0132\016.pb.TxI" +
+      "nputExt\022 \n\007outputs\030\002 \003(\0132\017.pb.TxOutputEx" +
+      "t\022\020\n\010response\030\003 \003(\014\022\020\n\010gas_used\030\004 \001(\003\022#\n" +
+      "\010requests\030\005 \003(\0132\021.pb.InvokeRequest\022\'\n\tre" +
+      "sponses\030\006 \003(\0132\024.pb.ContractResponse\022\037\n\nu" +
+      "txoInputs\030\007 \003(\0132\013.pb.TxInput\022!\n\013utxoOutp" +
+      "uts\030\010 \003(\0132\014.pb.TxOutput\"O\n\nTxInputExt\022\016\n" +
+      "\006bucket\030\001 \001(\t\022\013\n\003key\030\002 \001(\014\022\020\n\010ref_txid\030\003" +
+      " \001(\014\022\022\n\nref_offset\030\004 \001(\005\"9\n\013TxOutputExt\022" +
+      "\016\n\006bucket\030\001 \001(\t\022\013\n\003key\030\002 \001(\014\022\r\n\005value\030\003 " +
+      "\001(\014\"0\n\rSignatureInfo\022\021\n\tPublicKey\030\001 \001(\t\022" +
+      "\014\n\004Sign\030\002 \001(\014\"H\n\017PermissionModel\022 \n\004rule" +
+      "\030\001 \001(\0162\022.pb.PermissionRule\022\023\n\013acceptValu" +
+      "e\030\002 \001(\001\"\024\n\005AkSet\022\013\n\003aks\030\001 \003(\t\"x\n\006AkSets\022" +
+      "\"\n\004sets\030\001 \003(\0132\024.pb.AkSets.SetsEntry\022\022\n\ne" +
+      "xpression\030\002 \001(\t\0326\n\tSetsEntry\022\013\n\003key\030\001 \001(" +
+      "\t\022\030\n\005value\030\002 \001(\0132\t.pb.AkSet:\0028\001\"\237\001\n\003Acl\022" +
+      "\037\n\002pm\030\001 \001(\0132\023.pb.PermissionModel\022)\n\taksW" +
+      "eight\030\002 \003(\0132\026.pb.Acl.AksWeightEntry\022\032\n\006a" +
+      "kSets\030\003 \001(\0132\n.pb.AkSets\0320\n\016AksWeightEntr" +
+      "y\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\"\237\001\n\tAc" +
+      "lStatus\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006b" +
+      "cname\030\002 \001(\t\022\023\n\013accountName\030\003 \001(\t\022\024\n\014cont" +
+      "ractName\030\004 \001(\t\022\022\n\nmethodName\030\005 \001(\t\022\021\n\tco" +
+      "nfirmed\030\006 \001(\010\022\024\n\003acl\030\007 \001(\0132\007.pb.Acl\"]\n\014I" +
+      "dentityAuth\022\014\n\004sign\030\001 \001(\014\022\016\n\006pubkey\030\002 \001(" +
+      "\014\022\014\n\004addr\030\003 \001(\t\022\016\n\006peerID\030\004 \001(\t\022\021\n\ttimes" +
+      "tamp\030\005 \001(\t\"/\n\rIdentityAuths\022\036\n\004auth\030\001 \003(" +
+      "\0132\020.pb.IdentityAuth\">\n\rResourceLimit\022\036\n\004" +
+      "type\030\001 \001(\0162\020.pb.ResourceType\022\r\n\005limit\030\002 " +
+      "\001(\003\"P\n\021AK2AccountRequest\022\032\n\006header\030\001 \001(\013" +
+      "2\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022\017\n\007address\030" +
+      "\003 \001(\t\"Q\n\022AK2AccountResponse\022\032\n\006header\030\001 " +
+      "\001(\0132\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022\017\n\007accou" +
+      "nt\030\003 \003(\t\"Y\n\032GetAccountContractsRequest\022\032" +
       "\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002 \001" +
-      "(\t\022$\n\010response\030\003 \001(\0132\022.pb.InvokeResponse" +
-      "\"\344\001\n\rInvokeRequest\022\023\n\013module_name\030\001 \001(\t\022" +
-      "\025\n\rcontract_name\030\002 \001(\t\022\023\n\013method_name\030\003 " +
-      "\001(\t\022)\n\004args\030\004 \003(\0132\033.pb.InvokeRequest.Arg" +
-      "sEntry\022*\n\017resource_limits\030\005 \003(\0132\021.pb.Res" +
-      "ourceLimit\022\016\n\006amount\030\006 \001(\t\032+\n\tArgsEntry\022" +
-      "\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\014:\0028\001\"\210\002\n\016Invo" +
-      "keResponse\022\036\n\006inputs\030\001 \003(\0132\016.pb.TxInputE" +
-      "xt\022 \n\007outputs\030\002 \003(\0132\017.pb.TxOutputExt\022\020\n\010" +
-      "response\030\003 \003(\014\022\020\n\010gas_used\030\004 \001(\003\022#\n\010requ" +
-      "ests\030\005 \003(\0132\021.pb.InvokeRequest\022\'\n\trespons" +
-      "es\030\006 \003(\0132\024.pb.ContractResponse\022\037\n\nutxoIn" +
-      "puts\030\007 \003(\0132\013.pb.TxInput\022!\n\013utxoOutputs\030\010" +
-      " \003(\0132\014.pb.TxOutput\"O\n\nTxInputExt\022\016\n\006buck" +
-      "et\030\001 \001(\t\022\013\n\003key\030\002 \001(\014\022\020\n\010ref_txid\030\003 \001(\014\022" +
-      "\022\n\nref_offset\030\004 \001(\005\"9\n\013TxOutputExt\022\016\n\006bu" +
-      "cket\030\001 \001(\t\022\013\n\003key\030\002 \001(\014\022\r\n\005value\030\003 \001(\014\"0" +
-      "\n\rSignatureInfo\022\021\n\tPublicKey\030\001 \001(\t\022\014\n\004Si" +
-      "gn\030\002 \001(\014\"H\n\017PermissionModel\022 \n\004rule\030\001 \001(" +
-      "\0162\022.pb.PermissionRule\022\023\n\013acceptValue\030\002 \001" +
-      "(\001\"\024\n\005AkSet\022\013\n\003aks\030\001 \003(\t\"x\n\006AkSets\022\"\n\004se" +
-      "ts\030\001 \003(\0132\024.pb.AkSets.SetsEntry\022\022\n\nexpres" +
-      "sion\030\002 \001(\t\0326\n\tSetsEntry\022\013\n\003key\030\001 \001(\t\022\030\n\005" +
-      "value\030\002 \001(\0132\t.pb.AkSet:\0028\001\"\237\001\n\003Acl\022\037\n\002pm" +
-      "\030\001 \001(\0132\023.pb.PermissionModel\022)\n\taksWeight" +
-      "\030\002 \003(\0132\026.pb.Acl.AksWeightEntry\022\032\n\006akSets" +
-      "\030\003 \001(\0132\n.pb.AkSets\0320\n\016AksWeightEntry\022\013\n\003" +
-      "key\030\001 \001(\t\022\r\n\005value\030\002 \001(\001:\0028\001\"\237\001\n\tAclStat" +
-      "us\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname" +
-      "\030\002 \001(\t\022\023\n\013accountName\030\003 \001(\t\022\024\n\014contractN" +
-      "ame\030\004 \001(\t\022\022\n\nmethodName\030\005 \001(\t\022\021\n\tconfirm" +
-      "ed\030\006 \001(\010\022\024\n\003acl\030\007 \001(\0132\007.pb.Acl\"]\n\014Identi" +
-      "tyAuth\022\014\n\004sign\030\001 \001(\014\022\016\n\006pubkey\030\002 \001(\014\022\014\n\004" +
-      "addr\030\003 \001(\t\022\016\n\006peerID\030\004 \001(\t\022\021\n\ttimestamp\030" +
-      "\005 \001(\t\"/\n\rIdentityAuths\022\036\n\004auth\030\001 \003(\0132\020.p" +
-      "b.IdentityAuth\">\n\rResourceLimit\022\036\n\004type\030" +
-      "\001 \001(\0162\020.pb.ResourceType\022\r\n\005limit\030\002 \001(\003\"P" +
-      "\n\021AK2AccountRequest\022\032\n\006header\030\001 \001(\0132\n.pb" +
-      ".Header\022\016\n\006bcname\030\002 \001(\t\022\017\n\007address\030\003 \001(\t" +
-      "\"Q\n\022AK2AccountResponse\022\032\n\006header\030\001 \001(\0132\n" +
-      ".pb.Header\022\016\n\006bcname\030\002 \001(\t\022\017\n\007account\030\003 " +
-      "\003(\t\"Y\n\032GetAccountContractsRequest\022\032\n\006hea" +
-      "der\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002 \001(\t\022\017\n" +
-      "\007account\030\003 \001(\t\"g\n\033GetAccountContractsRes" +
-      "ponse\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022,\n\020con" +
-      "tracts_status\030\002 \003(\0132\022.pb.ContractStatus\"" +
-      "V\n\016ContractStatus\022\025\n\rcontract_name\030\001 \001(\t" +
-      "\022\014\n\004txid\030\002 \001(\t\022\014\n\004desc\030\003 \001(\014\022\021\n\tis_banne" +
-      "d\030\004 \001(\010\"\316\001\n\034PreExecWithSelectUTXORequest" +
-      "\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcname\030\002" +
-      " \001(\t\022\017\n\007address\030\003 \001(\t\022\023\n\013totalAmount\030\004 \001" +
-      "(\003\022#\n\010signInfo\030\006 \001(\0132\021.pb.SignatureInfo\022" +
-      "\020\n\010needLock\030\007 \001(\010\022%\n\007request\030\005 \001(\0132\024.pb." +
-      "InvokeRPCRequest\"\225\001\n\035PreExecWithSelectUT" +
-      "XOResponse\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016" +
-      "\n\006bcname\030\002 \001(\t\022$\n\010response\030\003 \001(\0132\022.pb.In" +
-      "vokeResponse\022\"\n\nutxoOutput\030\004 \001(\0132\016.pb.Ut" +
-      "xoOutput\"A\n\020ContractResponse\022\016\n\006status\030\001" +
-      " \001(\005\022\017\n\007message\030\002 \001(\t\022\014\n\004body\030\003 \001(\014\"q\n\013M" +
-      "odifyBlock\022\026\n\016effective_txid\030\001 \001(\t\022\016\n\006ma" +
-      "rked\030\002 \001(\010\022\030\n\020effective_height\030\003 \001(\003\022\022\n\n" +
-      "public_key\030\004 \001(\t\022\014\n\004sign\030\005 \001(\t*\255\006\n\017XChai" +
-      "nErrorEnum\022\013\n\007SUCCESS\020\000\022\020\n\014UNKNOW_ERROR\020" +
-      "\001\022\022\n\016CONNECT_REFUSE\020\002\022\031\n\025NOT_ENOUGH_UTXO" +
-      "_ERROR\020\003\022\"\n\036UTXOVM_ALREADY_UNCONFIRM_ERR" +
-      "OR\020\004\022\032\n\026UTXOVM_NOT_FOUND_ERROR\020\005\022 \n\034INPU" +
-      "T_OUTPUT_NOT_EQUAL_ERROR\020\006\022\026\n\022TX_NOT_FOU" +
-      "ND_ERROR\020\007\022\021\n\rTX_SIGN_ERROR\020\010\022\027\n\023BLOCKCH" +
-      "AIN_NOTEXIST\020\t\022\022\n\016VALIDATE_ERROR\020\n\022\033\n\027CA" +
-      "NNOT_SYNC_BLOCK_ERROR\020\013\022\027\n\023CONFIRM_BLOCK" +
-      "_ERROR\020\014\022\025\n\021UTXOVM_PLAY_ERROR\020\r\022\016\n\nWALK_" +
-      "ERROR\020\016\022\023\n\017NOT_READY_ERROR\020\017\022\025\n\021BLOCK_EX" +
-      "IST_ERROR\020\020\022\032\n\026ROOT_BLOCK_EXIST_ERROR\020\021\022" +
-      "\026\n\022TX_DUPLICATE_ERROR\020\023\022\031\n\025SERVICE_REFUS" +
-      "ED_ERROR\020\024\022\025\n\021TXDATA_SIGN_ERROR\020\025\022\020\n\014TX_" +
-      "SLE_ERROR\020\031\022\033\n\027TX_FEE_NOT_ENOUGH_ERROR\020\032" +
-      "\022\023\n\017UTXO_SIGN_ERROR\020\034\022\024\n\020DPOS_QUERY_ERRO" +
-      "R\020\037\022\027\n\023RWSET_INVALID_ERROR\020!\022\027\n\023RWACL_IN" +
-      "VALID_ERROR\020\"\022\030\n\024GAS_NOT_ENOUGH_ERROR\020#\022" +
-      "\034\n\030TX_VERSION_INVALID_ERROR\020$\022!\n\035COMPLIA" +
-      "NCE_CHECK_NOT_APPROVED\020%\022!\n\035ACCOUNT_CONT" +
-      "RACT_STATUS_ERROR\020&\022\031\n\025TX_VERIFICATION_E" +
-      "RROR\020(*Y\n\021TransactionStatus\022\014\n\010UNDEFINE\020" +
-      "\000\022\013\n\007NOEXIST\020\001\022\013\n\007CONFIRM\020\002\022\r\n\tFURCATION" +
-      "\020\003\022\r\n\tUNCONFIRM\020\004*~\n\016PermissionRule\022\010\n\004N" +
-      "ULL\020\000\022\022\n\016SIGN_THRESHOLD\020\001\022\016\n\nSIGN_AKSET\020" +
-      "\002\022\r\n\tSIGN_RATE\020\003\022\014\n\010SIGN_SUM\020\004\022\r\n\tCA_SER" +
-      "VER\020\005\022\022\n\016COMMUNITY_VOTE\020\006*7\n\014ResourceTyp" +
-      "e\022\007\n\003CPU\020\000\022\n\n\006MEMORY\020\001\022\010\n\004DISK\020\002\022\010\n\004XFEE" +
-      "\020\0032\316\020\n\006Xchain\022?\n\006PostTx\022\014.pb.TxStatus\032\017." +
-      "pb.CommonReply\"\026\202\323\344\223\002\020\"\013/v1/post_tx:\001*\022B" +
-      "\n\010QueryACL\022\r.pb.AclStatus\032\r.pb.AclStatus" +
-      "\"\030\202\323\344\223\002\022\"\r/v1/query_acl:\001*\022|\n\023GetAccount" +
-      "Contracts\022\036.pb.GetAccountContractsReques" +
-      "t\032\037.pb.GetAccountContractsResponse\"$\202\323\344\223" +
-      "\002\036\"\031/v1/get_account_contracts:\001*\022>\n\007Quer" +
-      "yTx\022\014.pb.TxStatus\032\014.pb.TxStatus\"\027\202\323\344\223\002\021\"" +
-      "\014/v1/query_tx:\001*\022N\n\nGetBalance\022\021.pb.Addr" +
-      "essStatus\032\021.pb.AddressStatus\"\032\202\323\344\223\002\024\"\017/v" +
-      "1/get_balance:\001*\022i\n\020GetBalanceDetail\022\030.p" +
-      "b.AddressBalanceStatus\032\030.pb.AddressBalan" +
-      "ceStatus\"!\202\323\344\223\002\033\"\026/v1/get_balance_detail" +
-      ":\001*\022[\n\020GetFrozenBalance\022\021.pb.AddressStat" +
-      "us\032\021.pb.AddressStatus\"!\202\323\344\223\002\033\"\026/v1/get_f" +
-      "rozen_balance:\001*\022<\n\010GetBlock\022\013.pb.BlockI" +
-      "D\032\t.pb.Block\"\030\202\323\344\223\002\022\"\r/v1/get_block:\001*\022R" +
-      "\n\020GetBlockByHeight\022\017.pb.BlockHeight\032\t.pb" +
-      ".Block\"\"\202\323\344\223\002\034\"\027/v1/get_block_by_height:" +
-      "\001*\022N\n\023GetBlockChainStatus\022\014.pb.BCStatus\032" +
-      "\014.pb.BCStatus\"\033\202\323\344\223\002\025\"\020/v1/get_bcstatus:" +
-      "\001*\022I\n\016GetBlockChains\022\014.pb.CommonIn\032\017.pb." +
-      "BlockChains\"\030\202\323\344\223\002\022\022\020/v1/get_bcchains\022U\n" +
-      "\017GetSystemStatus\022\014.pb.CommonIn\032\026.pb.Syst" +
-      "emsStatusReply\"\034\202\323\344\223\002\026\"\021/v1/get_sysstatu" +
-      "s:\001*\022\'\n\tGetNetURL\022\014.pb.CommonIn\032\n.pb.Raw" +
-      "Url\"\000\022K\n\nSelectUTXO\022\r.pb.UtxoInput\032\016.pb." +
-      "UtxoOutput\"\036\202\323\344\223\002\030\"\023/v1/select_utxos_v2:" +
-      "\001*\022\200\001\n\025PreExecWithSelectUTXO\022 .pb.PreExe" +
-      "cWithSelectUTXORequest\032!.pb.PreExecWithS" +
-      "electUTXOResponse\"\"\202\323\344\223\002\034\"\027/v1/preexec_s" +
-      "elect_utxo:\001*\022M\n\020DeployNativeCode\022\033.pb.D" +
-      "eployNativeCodeRequest\032\034.pb.DeployNative" +
-      "CodeResponse\022M\n\020NativeCodeStatus\022\033.pb.Na" +
-      "tiveCodeStatusRequest\032\034.pb.NativeCodeSta" +
-      "tusResponse\022G\n\016DposCandidates\022\031.pb.DposC" +
-      "andidatesRequest\032\032.pb.DposCandidatesResp" +
-      "onse\022V\n\023DposNominateRecords\022\036.pb.DposNom" +
-      "inateRecordsRequest\032\037.pb.DposNominateRec" +
-      "ordsResponse\022S\n\022DposNomineeRecords\022\035.pb." +
-      "DposNomineeRecordsRequest\032\036.pb.DposNomin" +
-      "eeRecordsResponse\022J\n\017DposVoteRecords\022\032.p" +
-      "b.DposVoteRecordsRequest\032\033.pb.DposVoteRe" +
-      "cordsResponse\022M\n\020DposVotedRecords\022\033.pb.D" +
-      "posVotedRecordsRequest\032\034.pb.DposVotedRec" +
-      "ordsResponse\022M\n\020DposCheckResults\022\033.pb.Dp" +
-      "osCheckResultsRequest\032\034.pb.DposCheckResu" +
-      "ltsResponse\022;\n\nDposStatus\022\025.pb.DposStatu" +
-      "sRequest\032\026.pb.DposStatusResponse\022a\n\016GetA" +
-      "ccountByAK\022\025.pb.AK2AccountRequest\032\026.pb.A" +
-      "K2AccountResponse\" \202\323\344\223\002\032\"\025/v1/get_accou" +
-      "nt_by_ak:\001*\022N\n\007PreExec\022\024.pb.InvokeRPCReq" +
-      "uest\032\025.pb.InvokeRPCResponse\"\026\202\323\344\223\002\020\"\013/v1" +
-      "/preexec:\001*B\024\n\022com.baidu.xuper.pbb\006proto" +
-      "3"
+      "(\t\022\017\n\007account\030\003 \001(\t\"g\n\033GetAccountContrac" +
+      "tsResponse\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022," +
+      "\n\020contracts_status\030\002 \003(\0132\022.pb.ContractSt" +
+      "atus\"V\n\016ContractStatus\022\025\n\rcontract_name\030" +
+      "\001 \001(\t\022\014\n\004txid\030\002 \001(\t\022\014\n\004desc\030\003 \001(\014\022\021\n\tis_" +
+      "banned\030\004 \001(\010\"\316\001\n\034PreExecWithSelectUTXORe" +
+      "quest\022\032\n\006header\030\001 \001(\0132\n.pb.Header\022\016\n\006bcn" +
+      "ame\030\002 \001(\t\022\017\n\007address\030\003 \001(\t\022\023\n\013totalAmoun" +
+      "t\030\004 \001(\003\022#\n\010signInfo\030\006 \001(\0132\021.pb.Signature" +
+      "Info\022\020\n\010needLock\030\007 \001(\010\022%\n\007request\030\005 \001(\0132" +
+      "\024.pb.InvokeRPCRequest\"\225\001\n\035PreExecWithSel" +
+      "ectUTXOResponse\022\032\n\006header\030\001 \001(\0132\n.pb.Hea" +
+      "der\022\016\n\006bcname\030\002 \001(\t\022$\n\010response\030\003 \001(\0132\022." +
+      "pb.InvokeResponse\022\"\n\nutxoOutput\030\004 \001(\0132\016." +
+      "pb.UtxoOutput\"A\n\020ContractResponse\022\016\n\006sta" +
+      "tus\030\001 \001(\005\022\017\n\007message\030\002 \001(\t\022\014\n\004body\030\003 \001(\014" +
+      "\"q\n\013ModifyBlock\022\026\n\016effective_txid\030\001 \001(\t\022" +
+      "\016\n\006marked\030\002 \001(\010\022\030\n\020effective_height\030\003 \001(" +
+      "\003\022\022\n\npublic_key\030\004 \001(\t\022\014\n\004sign\030\005 \001(\t*\255\006\n\017" +
+      "XChainErrorEnum\022\013\n\007SUCCESS\020\000\022\020\n\014UNKNOW_E" +
+      "RROR\020\001\022\022\n\016CONNECT_REFUSE\020\002\022\031\n\025NOT_ENOUGH" +
+      "_UTXO_ERROR\020\003\022\"\n\036UTXOVM_ALREADY_UNCONFIR" +
+      "M_ERROR\020\004\022\032\n\026UTXOVM_NOT_FOUND_ERROR\020\005\022 \n" +
+      "\034INPUT_OUTPUT_NOT_EQUAL_ERROR\020\006\022\026\n\022TX_NO" +
+      "T_FOUND_ERROR\020\007\022\021\n\rTX_SIGN_ERROR\020\010\022\027\n\023BL" +
+      "OCKCHAIN_NOTEXIST\020\t\022\022\n\016VALIDATE_ERROR\020\n\022" +
+      "\033\n\027CANNOT_SYNC_BLOCK_ERROR\020\013\022\027\n\023CONFIRM_" +
+      "BLOCK_ERROR\020\014\022\025\n\021UTXOVM_PLAY_ERROR\020\r\022\016\n\n" +
+      "WALK_ERROR\020\016\022\023\n\017NOT_READY_ERROR\020\017\022\025\n\021BLO" +
+      "CK_EXIST_ERROR\020\020\022\032\n\026ROOT_BLOCK_EXIST_ERR" +
+      "OR\020\021\022\026\n\022TX_DUPLICATE_ERROR\020\023\022\031\n\025SERVICE_" +
+      "REFUSED_ERROR\020\024\022\025\n\021TXDATA_SIGN_ERROR\020\025\022\020" +
+      "\n\014TX_SLE_ERROR\020\031\022\033\n\027TX_FEE_NOT_ENOUGH_ER" +
+      "ROR\020\032\022\023\n\017UTXO_SIGN_ERROR\020\034\022\024\n\020DPOS_QUERY" +
+      "_ERROR\020\037\022\027\n\023RWSET_INVALID_ERROR\020!\022\027\n\023RWA" +
+      "CL_INVALID_ERROR\020\"\022\030\n\024GAS_NOT_ENOUGH_ERR" +
+      "OR\020#\022\034\n\030TX_VERSION_INVALID_ERROR\020$\022!\n\035CO" +
+      "MPLIANCE_CHECK_NOT_APPROVED\020%\022!\n\035ACCOUNT" +
+      "_CONTRACT_STATUS_ERROR\020&\022\031\n\025TX_VERIFICAT" +
+      "ION_ERROR\020(*Y\n\021TransactionStatus\022\014\n\010UNDE" +
+      "FINE\020\000\022\013\n\007NOEXIST\020\001\022\013\n\007CONFIRM\020\002\022\r\n\tFURC" +
+      "ATION\020\003\022\r\n\tUNCONFIRM\020\004*~\n\016PermissionRule" +
+      "\022\010\n\004NULL\020\000\022\022\n\016SIGN_THRESHOLD\020\001\022\016\n\nSIGN_A" +
+      "KSET\020\002\022\r\n\tSIGN_RATE\020\003\022\014\n\010SIGN_SUM\020\004\022\r\n\tC" +
+      "A_SERVER\020\005\022\022\n\016COMMUNITY_VOTE\020\006*7\n\014Resour" +
+      "ceType\022\007\n\003CPU\020\000\022\n\n\006MEMORY\020\001\022\010\n\004DISK\020\002\022\010\n" +
+      "\004XFEE\020\0032\316\020\n\006Xchain\022?\n\006PostTx\022\014.pb.TxStat" +
+      "us\032\017.pb.CommonReply\"\026\202\323\344\223\002\020\"\013/v1/post_tx" +
+      ":\001*\022B\n\010QueryACL\022\r.pb.AclStatus\032\r.pb.AclS" +
+      "tatus\"\030\202\323\344\223\002\022\"\r/v1/query_acl:\001*\022|\n\023GetAc" +
+      "countContracts\022\036.pb.GetAccountContractsR" +
+      "equest\032\037.pb.GetAccountContractsResponse\"" +
+      "$\202\323\344\223\002\036\"\031/v1/get_account_contracts:\001*\022>\n" +
+      "\007QueryTx\022\014.pb.TxStatus\032\014.pb.TxStatus\"\027\202\323" +
+      "\344\223\002\021\"\014/v1/query_tx:\001*\022N\n\nGetBalance\022\021.pb" +
+      ".AddressStatus\032\021.pb.AddressStatus\"\032\202\323\344\223\002" +
+      "\024\"\017/v1/get_balance:\001*\022i\n\020GetBalanceDetai" +
+      "l\022\030.pb.AddressBalanceStatus\032\030.pb.Address" +
+      "BalanceStatus\"!\202\323\344\223\002\033\"\026/v1/get_balance_d" +
+      "etail:\001*\022[\n\020GetFrozenBalance\022\021.pb.Addres" +
+      "sStatus\032\021.pb.AddressStatus\"!\202\323\344\223\002\033\"\026/v1/" +
+      "get_frozen_balance:\001*\022<\n\010GetBlock\022\013.pb.B" +
+      "lockID\032\t.pb.Block\"\030\202\323\344\223\002\022\"\r/v1/get_block" +
+      ":\001*\022R\n\020GetBlockByHeight\022\017.pb.BlockHeight" +
+      "\032\t.pb.Block\"\"\202\323\344\223\002\034\"\027/v1/get_block_by_he" +
+      "ight:\001*\022N\n\023GetBlockChainStatus\022\014.pb.BCSt" +
+      "atus\032\014.pb.BCStatus\"\033\202\323\344\223\002\025\"\020/v1/get_bcst" +
+      "atus:\001*\022I\n\016GetBlockChains\022\014.pb.CommonIn\032" +
+      "\017.pb.BlockChains\"\030\202\323\344\223\002\022\022\020/v1/get_bcchai" +
+      "ns\022U\n\017GetSystemStatus\022\014.pb.CommonIn\032\026.pb" +
+      ".SystemsStatusReply\"\034\202\323\344\223\002\026\"\021/v1/get_sys" +
+      "status:\001*\022\'\n\tGetNetURL\022\014.pb.CommonIn\032\n.p" +
+      "b.RawUrl\"\000\022K\n\nSelectUTXO\022\r.pb.UtxoInput\032" +
+      "\016.pb.UtxoOutput\"\036\202\323\344\223\002\030\"\023/v1/select_utxo" +
+      "s_v2:\001*\022\200\001\n\025PreExecWithSelectUTXO\022 .pb.P" +
+      "reExecWithSelectUTXORequest\032!.pb.PreExec" +
+      "WithSelectUTXOResponse\"\"\202\323\344\223\002\034\"\027/v1/pree" +
+      "xec_select_utxo:\001*\022M\n\020DeployNativeCode\022\033" +
+      ".pb.DeployNativeCodeRequest\032\034.pb.DeployN" +
+      "ativeCodeResponse\022M\n\020NativeCodeStatus\022\033." +
+      "pb.NativeCodeStatusRequest\032\034.pb.NativeCo" +
+      "deStatusResponse\022G\n\016DposCandidates\022\031.pb." +
+      "DposCandidatesRequest\032\032.pb.DposCandidate" +
+      "sResponse\022V\n\023DposNominateRecords\022\036.pb.Dp" +
+      "osNominateRecordsRequest\032\037.pb.DposNomina" +
+      "teRecordsResponse\022S\n\022DposNomineeRecords\022" +
+      "\035.pb.DposNomineeRecordsRequest\032\036.pb.Dpos" +
+      "NomineeRecordsResponse\022J\n\017DposVoteRecord" +
+      "s\022\032.pb.DposVoteRecordsRequest\032\033.pb.DposV" +
+      "oteRecordsResponse\022M\n\020DposVotedRecords\022\033" +
+      ".pb.DposVotedRecordsRequest\032\034.pb.DposVot" +
+      "edRecordsResponse\022M\n\020DposCheckResults\022\033." +
+      "pb.DposCheckResultsRequest\032\034.pb.DposChec" +
+      "kResultsResponse\022;\n\nDposStatus\022\025.pb.Dpos" +
+      "StatusRequest\032\026.pb.DposStatusResponse\022a\n" +
+      "\016GetAccountByAK\022\025.pb.AK2AccountRequest\032\026" +
+      ".pb.AK2AccountResponse\" \202\323\344\223\002\032\"\025/v1/get_" +
+      "account_by_ak:\001*\022N\n\007PreExec\022\024.pb.InvokeR" +
+      "PCRequest\032\025.pb.InvokeRPCResponse\"\026\202\323\344\223\002\020" +
+      "\"\013/v1/preexec:\001*B\024\n\022com.baidu.xuper.pbb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -93126,38 +94002,44 @@ public final class XchainOuterClass {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_TxOutput_descriptor,
         new java.lang.String[] { "Amount", "ToAddr", "FrozenHeight", });
-    internal_static_pb_XuperSignature_descriptor =
+    internal_static_pb_HDInfo_descriptor =
       getDescriptor().getMessageTypes().get(17);
+    internal_static_pb_HDInfo_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_pb_HDInfo_descriptor,
+        new java.lang.String[] { "HdPublicKey", "OriginalHash", });
+    internal_static_pb_XuperSignature_descriptor =
+      getDescriptor().getMessageTypes().get(18);
     internal_static_pb_XuperSignature_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_XuperSignature_descriptor,
         new java.lang.String[] { "PublicKeys", "Signature", });
     internal_static_pb_Transaction_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(19);
     internal_static_pb_Transaction_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_Transaction_descriptor,
-        new java.lang.String[] { "Txid", "Blockid", "TxInputs", "TxOutputs", "Desc", "Coinbase", "Nonce", "Timestamp", "Version", "Autogen", "TxInputsExt", "TxOutputsExt", "ContractRequests", "Initiator", "AuthRequire", "InitiatorSigns", "AuthRequireSigns", "ReceivedTimestamp", "XuperSign", "ModifyBlock", });
+        new java.lang.String[] { "Txid", "Blockid", "TxInputs", "TxOutputs", "Desc", "Coinbase", "Nonce", "Timestamp", "Version", "Autogen", "TxInputsExt", "TxOutputsExt", "ContractRequests", "Initiator", "AuthRequire", "InitiatorSigns", "AuthRequireSigns", "ReceivedTimestamp", "XuperSign", "ModifyBlock", "HDInfo", });
     internal_static_pb_LedgerMeta_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_pb_LedgerMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_LedgerMeta_descriptor,
         new java.lang.String[] { "RootBlockid", "TipBlockid", "TrunkHeight", });
     internal_static_pb_UtxoMeta_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_pb_UtxoMeta_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_UtxoMeta_descriptor,
         new java.lang.String[] { "LatestBlockid", "LockKeyList", "UtxoTotal", "AvgDelay", "UnconfirmTxAmount", "MaxBlockSize", "ReservedContracts", "ForbiddenContract", "NewAccountResourceAmount", "IrreversibleBlockHeight", "IrreversibleSlideWindow", "GasPrice", });
     internal_static_pb_GasPrice_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_pb_GasPrice_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_GasPrice_descriptor,
         new java.lang.String[] { "CpuRate", "MemRate", "DiskRate", "XfeeRate", });
     internal_static_pb_InternalBlock_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_pb_InternalBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_InternalBlock_descriptor,
@@ -93169,25 +94051,25 @@ public final class XchainOuterClass {
         internal_static_pb_InternalBlock_FailedTxsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_pb_BCStatus_descriptor =
-      getDescriptor().getMessageTypes().get(23);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_pb_BCStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_BCStatus_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Meta", "Block", "UtxoMeta", "BranchBlockid", });
     internal_static_pb_BCTipStatus_descriptor =
-      getDescriptor().getMessageTypes().get(24);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_pb_BCTipStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_BCTipStatus_descriptor,
         new java.lang.String[] { "Header", "IsTrunkTip", });
     internal_static_pb_BlockChains_descriptor =
-      getDescriptor().getMessageTypes().get(25);
+      getDescriptor().getMessageTypes().get(26);
     internal_static_pb_BlockChains_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_BlockChains_descriptor,
         new java.lang.String[] { "Header", "Blockchains", });
     internal_static_pb_Speeds_descriptor =
-      getDescriptor().getMessageTypes().get(26);
+      getDescriptor().getMessageTypes().get(27);
     internal_static_pb_Speeds_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_Speeds_descriptor,
@@ -93205,7 +94087,7 @@ public final class XchainOuterClass {
         internal_static_pb_Speeds_BcSpeedsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_pb_BCSpeeds_descriptor =
-      getDescriptor().getMessageTypes().get(27);
+      getDescriptor().getMessageTypes().get(28);
     internal_static_pb_BCSpeeds_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_BCSpeeds_descriptor,
@@ -93217,205 +94099,205 @@ public final class XchainOuterClass {
         internal_static_pb_BCSpeeds_BcSpeedEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_pb_SystemsStatus_descriptor =
-      getDescriptor().getMessageTypes().get(28);
+      getDescriptor().getMessageTypes().get(29);
     internal_static_pb_SystemsStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_SystemsStatus_descriptor,
         new java.lang.String[] { "Header", "BcsStatus", "Speeds", "PeerUrls", });
     internal_static_pb_SystemsStatusReply_descriptor =
-      getDescriptor().getMessageTypes().get(29);
+      getDescriptor().getMessageTypes().get(30);
     internal_static_pb_SystemsStatusReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_SystemsStatusReply_descriptor,
         new java.lang.String[] { "Header", "SystemsStatus", });
     internal_static_pb_RawUrl_descriptor =
-      getDescriptor().getMessageTypes().get(30);
+      getDescriptor().getMessageTypes().get(31);
     internal_static_pb_RawUrl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_RawUrl_descriptor,
         new java.lang.String[] { "Header", "RawUrl", });
     internal_static_pb_Utxo_descriptor =
-      getDescriptor().getMessageTypes().get(31);
+      getDescriptor().getMessageTypes().get(32);
     internal_static_pb_Utxo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_Utxo_descriptor,
         new java.lang.String[] { "Amount", "ToAddr", "ToPubkey", "RefTxid", "RefOffset", });
     internal_static_pb_UtxoInput_descriptor =
-      getDescriptor().getMessageTypes().get(32);
+      getDescriptor().getMessageTypes().get(33);
     internal_static_pb_UtxoInput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_UtxoInput_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Address", "Publickey", "TotalNeed", "UserSign", "NeedLock", });
     internal_static_pb_UtxoOutput_descriptor =
-      getDescriptor().getMessageTypes().get(33);
+      getDescriptor().getMessageTypes().get(34);
     internal_static_pb_UtxoOutput_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_UtxoOutput_descriptor,
         new java.lang.String[] { "Header", "UtxoList", "TotalSelected", });
     internal_static_pb_NativeCodeDesc_descriptor =
-      getDescriptor().getMessageTypes().get(34);
+      getDescriptor().getMessageTypes().get(35);
     internal_static_pb_NativeCodeDesc_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_NativeCodeDesc_descriptor,
         new java.lang.String[] { "Name", "Version", "Digest", "PrevVersion", "XuperApiVersion", });
     internal_static_pb_WasmCodeDesc_descriptor =
-      getDescriptor().getMessageTypes().get(35);
+      getDescriptor().getMessageTypes().get(36);
     internal_static_pb_WasmCodeDesc_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_WasmCodeDesc_descriptor,
         new java.lang.String[] { "Runtime", "Compiler", "Digest", "VmCompiler", "ContractType", });
     internal_static_pb_DeployNativeCodeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_pb_DeployNativeCodeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DeployNativeCodeRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Desc", "Code", "Address", "Pubkey", "Sign", });
     internal_static_pb_DeployNativeCodeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_pb_DeployNativeCodeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DeployNativeCodeResponse_descriptor,
         new java.lang.String[] { "Header", });
     internal_static_pb_NativeCodeStatus_descriptor =
-      getDescriptor().getMessageTypes().get(38);
+      getDescriptor().getMessageTypes().get(39);
     internal_static_pb_NativeCodeStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_NativeCodeStatus_descriptor,
         new java.lang.String[] { "Desc", "Status", "Healthy", });
     internal_static_pb_NativeCodeStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(39);
+      getDescriptor().getMessageTypes().get(40);
     internal_static_pb_NativeCodeStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_NativeCodeStatusRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", });
     internal_static_pb_NativeCodeStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(40);
+      getDescriptor().getMessageTypes().get(41);
     internal_static_pb_NativeCodeStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_NativeCodeStatusResponse_descriptor,
         new java.lang.String[] { "Header", "Status", });
     internal_static_pb_DposCandidatesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(41);
+      getDescriptor().getMessageTypes().get(42);
     internal_static_pb_DposCandidatesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposCandidatesRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", });
     internal_static_pb_DposCandidatesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(42);
+      getDescriptor().getMessageTypes().get(43);
     internal_static_pb_DposCandidatesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposCandidatesResponse_descriptor,
         new java.lang.String[] { "Header", "CandidatesInfo", });
     internal_static_pb_DposNominateRecordsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(43);
+      getDescriptor().getMessageTypes().get(44);
     internal_static_pb_DposNominateRecordsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposNominateRecordsRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Address", });
     internal_static_pb_DposNominateInfo_descriptor =
-      getDescriptor().getMessageTypes().get(44);
+      getDescriptor().getMessageTypes().get(45);
     internal_static_pb_DposNominateInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposNominateInfo_descriptor,
         new java.lang.String[] { "Candidate", "Txid", });
     internal_static_pb_DposNominateRecordsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(45);
+      getDescriptor().getMessageTypes().get(46);
     internal_static_pb_DposNominateRecordsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposNominateRecordsResponse_descriptor,
         new java.lang.String[] { "Header", "NominateRecords", });
     internal_static_pb_DposNomineeRecordsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(46);
+      getDescriptor().getMessageTypes().get(47);
     internal_static_pb_DposNomineeRecordsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposNomineeRecordsRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Address", });
     internal_static_pb_DposNomineeRecordsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(47);
+      getDescriptor().getMessageTypes().get(48);
     internal_static_pb_DposNomineeRecordsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposNomineeRecordsResponse_descriptor,
         new java.lang.String[] { "Header", "Txid", });
     internal_static_pb_DposVoteRecordsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(48);
+      getDescriptor().getMessageTypes().get(49);
     internal_static_pb_DposVoteRecordsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposVoteRecordsRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Address", });
     internal_static_pb_voteRecord_descriptor =
-      getDescriptor().getMessageTypes().get(49);
+      getDescriptor().getMessageTypes().get(50);
     internal_static_pb_voteRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_voteRecord_descriptor,
         new java.lang.String[] { "Candidate", "Txid", });
     internal_static_pb_DposVoteRecordsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(50);
+      getDescriptor().getMessageTypes().get(51);
     internal_static_pb_DposVoteRecordsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposVoteRecordsResponse_descriptor,
         new java.lang.String[] { "Header", "VoteTxidRecords", });
     internal_static_pb_DposVotedRecordsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(51);
+      getDescriptor().getMessageTypes().get(52);
     internal_static_pb_DposVotedRecordsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposVotedRecordsRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Address", });
     internal_static_pb_votedRecord_descriptor =
-      getDescriptor().getMessageTypes().get(52);
+      getDescriptor().getMessageTypes().get(53);
     internal_static_pb_votedRecord_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_votedRecord_descriptor,
         new java.lang.String[] { "Voter", "Txid", });
     internal_static_pb_DposVotedRecordsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(53);
+      getDescriptor().getMessageTypes().get(54);
     internal_static_pb_DposVotedRecordsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposVotedRecordsResponse_descriptor,
         new java.lang.String[] { "Header", "VotedTxidRecords", });
     internal_static_pb_DposCheckResultsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(54);
+      getDescriptor().getMessageTypes().get(55);
     internal_static_pb_DposCheckResultsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposCheckResultsRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Term", });
     internal_static_pb_DposCheckResultsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(55);
+      getDescriptor().getMessageTypes().get(56);
     internal_static_pb_DposCheckResultsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposCheckResultsResponse_descriptor,
         new java.lang.String[] { "Header", "Term", "CheckResult", });
     internal_static_pb_DposStatusRequest_descriptor =
-      getDescriptor().getMessageTypes().get(56);
+      getDescriptor().getMessageTypes().get(57);
     internal_static_pb_DposStatusRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposStatusRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", });
     internal_static_pb_DposStatusResponse_descriptor =
-      getDescriptor().getMessageTypes().get(57);
+      getDescriptor().getMessageTypes().get(58);
     internal_static_pb_DposStatusResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposStatusResponse_descriptor,
         new java.lang.String[] { "Header", "Status", });
     internal_static_pb_DposStatus_descriptor =
-      getDescriptor().getMessageTypes().get(58);
+      getDescriptor().getMessageTypes().get(59);
     internal_static_pb_DposStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_DposStatus_descriptor,
         new java.lang.String[] { "Term", "BlockNum", "Proposer", "ProposerNum", "CheckResult", });
     internal_static_pb_InvokeRPCRequest_descriptor =
-      getDescriptor().getMessageTypes().get(59);
+      getDescriptor().getMessageTypes().get(60);
     internal_static_pb_InvokeRPCRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_InvokeRPCRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Requests", "Initiator", "AuthRequire", });
     internal_static_pb_InvokeRPCResponse_descriptor =
-      getDescriptor().getMessageTypes().get(60);
+      getDescriptor().getMessageTypes().get(61);
     internal_static_pb_InvokeRPCResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_InvokeRPCResponse_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Response", });
     internal_static_pb_InvokeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(61);
+      getDescriptor().getMessageTypes().get(62);
     internal_static_pb_InvokeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_InvokeRequest_descriptor,
@@ -93427,43 +94309,43 @@ public final class XchainOuterClass {
         internal_static_pb_InvokeRequest_ArgsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_pb_InvokeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(62);
+      getDescriptor().getMessageTypes().get(63);
     internal_static_pb_InvokeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_InvokeResponse_descriptor,
         new java.lang.String[] { "Inputs", "Outputs", "Response", "GasUsed", "Requests", "Responses", "UtxoInputs", "UtxoOutputs", });
     internal_static_pb_TxInputExt_descriptor =
-      getDescriptor().getMessageTypes().get(63);
+      getDescriptor().getMessageTypes().get(64);
     internal_static_pb_TxInputExt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_TxInputExt_descriptor,
         new java.lang.String[] { "Bucket", "Key", "RefTxid", "RefOffset", });
     internal_static_pb_TxOutputExt_descriptor =
-      getDescriptor().getMessageTypes().get(64);
+      getDescriptor().getMessageTypes().get(65);
     internal_static_pb_TxOutputExt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_TxOutputExt_descriptor,
         new java.lang.String[] { "Bucket", "Key", "Value", });
     internal_static_pb_SignatureInfo_descriptor =
-      getDescriptor().getMessageTypes().get(65);
+      getDescriptor().getMessageTypes().get(66);
     internal_static_pb_SignatureInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_SignatureInfo_descriptor,
         new java.lang.String[] { "PublicKey", "Sign", });
     internal_static_pb_PermissionModel_descriptor =
-      getDescriptor().getMessageTypes().get(66);
+      getDescriptor().getMessageTypes().get(67);
     internal_static_pb_PermissionModel_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_PermissionModel_descriptor,
         new java.lang.String[] { "Rule", "AcceptValue", });
     internal_static_pb_AkSet_descriptor =
-      getDescriptor().getMessageTypes().get(67);
+      getDescriptor().getMessageTypes().get(68);
     internal_static_pb_AkSet_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_AkSet_descriptor,
         new java.lang.String[] { "Aks", });
     internal_static_pb_AkSets_descriptor =
-      getDescriptor().getMessageTypes().get(68);
+      getDescriptor().getMessageTypes().get(69);
     internal_static_pb_AkSets_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_AkSets_descriptor,
@@ -93475,7 +94357,7 @@ public final class XchainOuterClass {
         internal_static_pb_AkSets_SetsEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_pb_Acl_descriptor =
-      getDescriptor().getMessageTypes().get(69);
+      getDescriptor().getMessageTypes().get(70);
     internal_static_pb_Acl_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_Acl_descriptor,
@@ -93487,79 +94369,79 @@ public final class XchainOuterClass {
         internal_static_pb_Acl_AksWeightEntry_descriptor,
         new java.lang.String[] { "Key", "Value", });
     internal_static_pb_AclStatus_descriptor =
-      getDescriptor().getMessageTypes().get(70);
+      getDescriptor().getMessageTypes().get(71);
     internal_static_pb_AclStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_AclStatus_descriptor,
         new java.lang.String[] { "Header", "Bcname", "AccountName", "ContractName", "MethodName", "Confirmed", "Acl", });
     internal_static_pb_IdentityAuth_descriptor =
-      getDescriptor().getMessageTypes().get(71);
+      getDescriptor().getMessageTypes().get(72);
     internal_static_pb_IdentityAuth_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_IdentityAuth_descriptor,
         new java.lang.String[] { "Sign", "Pubkey", "Addr", "PeerID", "Timestamp", });
     internal_static_pb_IdentityAuths_descriptor =
-      getDescriptor().getMessageTypes().get(72);
+      getDescriptor().getMessageTypes().get(73);
     internal_static_pb_IdentityAuths_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_IdentityAuths_descriptor,
         new java.lang.String[] { "Auth", });
     internal_static_pb_ResourceLimit_descriptor =
-      getDescriptor().getMessageTypes().get(73);
+      getDescriptor().getMessageTypes().get(74);
     internal_static_pb_ResourceLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_ResourceLimit_descriptor,
         new java.lang.String[] { "Type", "Limit", });
     internal_static_pb_AK2AccountRequest_descriptor =
-      getDescriptor().getMessageTypes().get(74);
+      getDescriptor().getMessageTypes().get(75);
     internal_static_pb_AK2AccountRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_AK2AccountRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Address", });
     internal_static_pb_AK2AccountResponse_descriptor =
-      getDescriptor().getMessageTypes().get(75);
+      getDescriptor().getMessageTypes().get(76);
     internal_static_pb_AK2AccountResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_AK2AccountResponse_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Account", });
     internal_static_pb_GetAccountContractsRequest_descriptor =
-      getDescriptor().getMessageTypes().get(76);
+      getDescriptor().getMessageTypes().get(77);
     internal_static_pb_GetAccountContractsRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_GetAccountContractsRequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Account", });
     internal_static_pb_GetAccountContractsResponse_descriptor =
-      getDescriptor().getMessageTypes().get(77);
+      getDescriptor().getMessageTypes().get(78);
     internal_static_pb_GetAccountContractsResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_GetAccountContractsResponse_descriptor,
         new java.lang.String[] { "Header", "ContractsStatus", });
     internal_static_pb_ContractStatus_descriptor =
-      getDescriptor().getMessageTypes().get(78);
+      getDescriptor().getMessageTypes().get(79);
     internal_static_pb_ContractStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_ContractStatus_descriptor,
         new java.lang.String[] { "ContractName", "Txid", "Desc", "IsBanned", });
     internal_static_pb_PreExecWithSelectUTXORequest_descriptor =
-      getDescriptor().getMessageTypes().get(79);
+      getDescriptor().getMessageTypes().get(80);
     internal_static_pb_PreExecWithSelectUTXORequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_PreExecWithSelectUTXORequest_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Address", "TotalAmount", "SignInfo", "NeedLock", "Request", });
     internal_static_pb_PreExecWithSelectUTXOResponse_descriptor =
-      getDescriptor().getMessageTypes().get(80);
+      getDescriptor().getMessageTypes().get(81);
     internal_static_pb_PreExecWithSelectUTXOResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_PreExecWithSelectUTXOResponse_descriptor,
         new java.lang.String[] { "Header", "Bcname", "Response", "UtxoOutput", });
     internal_static_pb_ContractResponse_descriptor =
-      getDescriptor().getMessageTypes().get(81);
+      getDescriptor().getMessageTypes().get(82);
     internal_static_pb_ContractResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_ContractResponse_descriptor,
         new java.lang.String[] { "Status", "Message", "Body", });
     internal_static_pb_ModifyBlock_descriptor =
-      getDescriptor().getMessageTypes().get(82);
+      getDescriptor().getMessageTypes().get(83);
     internal_static_pb_ModifyBlock_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_pb_ModifyBlock_descriptor,

@@ -224,6 +224,13 @@
             <version>1.2.78</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.fluo</groupId>
+            <artifactId>fluo-api</artifactId>
+            <version>1.2.0</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>

@@ -26,11 +26,21 @@ class TxEncoder {
     }
 
     static byte[] makeTxDigest(XchainOuterClass.Transaction tx) {
+        if (tx.getVersion() >= 3) {
+            TxEncoderV2 enc = new TxEncoderV2();
+            return enc.txDigestHashV2(tx, false);
+        }
+
         TxEncoder enc = new TxEncoder();
         return Hash.doubleSha256(enc.encodeTx(tx, false));
     }
 
     static byte[] makeTxID(XchainOuterClass.Transaction tx) {
+        if (tx.getVersion() >= 3) {
+            TxEncoderV2 enc = new TxEncoderV2();
+            return enc.txDigestHashV2(tx, true);
+        }
+
         TxEncoder enc = new TxEncoder();
         return Hash.doubleSha256(enc.encodeTx(tx, true));
     }
@@ -42,7 +52,7 @@ class TxEncoder {
     }
 
     private void encode(ByteString bs) {
-        if (bs == null){
+        if (bs == null) {
             String s = gson.toJson(null);
             buffer.append(s);
             buffer.append("\n");
@@ -65,9 +75,9 @@ class TxEncoder {
         for (int i = 0; i < tx.getTxOutputsCount(); i++) {
             txOutputs[i] = TxOutputBean.create(tx.getTxOutputs(i));
         }
-        if (txOutputs.length > 0){
+        if (txOutputs.length > 0) {
             encode(txOutputs);
-        }else{
+        } else {
             encode(null);
         }
 
@@ -126,6 +136,13 @@ class TxEncoder {
         }
         encode(tx.getCoinbase());
         encode(tx.getAutogen());
+        if (tx.getVersion() >= 2) {
+            if (tx.hasHDInfo()) {
+                encode(tx.getHDInfo());
+            } else {
+                encode(null);
+            }
+        }
 //        try {
 //            anInt++;
 //            System.out.println("anInt:" + anInt);
@@ -143,6 +160,7 @@ class TxEncoder {
     }
 
     private static class PbByteStringAdapter implements JsonSerializer<ByteString> {
+        @Override
         public JsonElement serialize(ByteString src, Type typeOfSrc, JsonSerializationContext context) {
             return new JsonPrimitive(Base64.toBase64String(src.toByteArray()));
         }

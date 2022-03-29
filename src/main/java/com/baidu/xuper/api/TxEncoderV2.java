@@ -22,12 +22,13 @@ public class TxEncoderV2 {
     }
 
     private void encode(int i) {
-        byte[] result = Common.intToBytes(i, 8);
-        buffer.append(result);
+        encode((long)i);
+//        byte[] result = Common.intToBytes(i, 8);
+//        buffer.append(result);
     }
 
     private void encode(ByteString bs) {
-        encode(bs.size());
+        encode((long)bs.size());
         if (bs.size() == 0) {
             return;
         }

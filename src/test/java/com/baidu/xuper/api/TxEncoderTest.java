@@ -78,5 +78,9 @@ public class TxEncoderTest {
 
         txid = TxEncoder.makeTxID(getTxpb("invoke.pb"));
         assertEquals("657abe49d57f6083d3d5ac278d324c441ee102abab03999934e1f4c56822b31c", Hex.toHexString(txid));
+
+        txid = TxEncoder.makeTxID(getTxpb("counterDeploy.pb"));
+        assertEquals("fc33b74ce929bbd4cbf81d13dfd3dd5c9961f366083344bf35a091f875f2af26", Hex.toHexString(txid));
     }
+
 }

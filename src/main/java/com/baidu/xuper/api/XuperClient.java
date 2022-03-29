@@ -40,7 +40,7 @@ public class XuperClient {
      * @param target the address of xchain node, like 127.0.0.1:37101
      */
     public XuperClient(String target) {
-        this(target, 4194304);
+        this(target, Integer.MAX_VALUE);
     }
 
     /**

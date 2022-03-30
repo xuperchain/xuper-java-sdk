@@ -83,4 +83,13 @@ public class TxEncoderTest {
         assertEquals("fc33b74ce929bbd4cbf81d13dfd3dd5c9961f366083344bf35a091f875f2af26", Hex.toHexString(txid));
     }
 
+    @Test
+    public void makeEncoderTxID() throws IOException {
+        byte[] txid = TxEncoder.makeTxID(getTxpb("xendorser1.pb"));
+        assertEquals("a11699f57a4187eafac51254678fe68e3bc9cb6783f2c6ab7c8a3dc911257d93", Hex.toHexString(txid));
+
+        txid = TxEncoder.makeTxID(getTxpb("xendorser2.pb"));
+        assertEquals("2e9828aac0c7ac1fd3c578186df0c72fd904d4a3dec26e41c0336f4eab06699e", Hex.toHexString(txid));
+    }
+
 }

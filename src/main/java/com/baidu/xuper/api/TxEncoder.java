@@ -160,7 +160,6 @@ class TxEncoder {
     }
 
     private static class PbByteStringAdapter implements JsonSerializer<ByteString> {
-        @Override
         public JsonElement serialize(ByteString src, Type typeOfSrc, JsonSerializationContext context) {
             return new JsonPrimitive(Base64.toBase64String(src.toByteArray()));
         }
@@ -198,7 +197,7 @@ class TxEncoder {
                 TreeMap<String, ByteString> margs = new TreeMap<>();
                 for (Map.Entry<String, ByteString> entry : pb.getArgsMap().entrySet()) {
                     if (entry.getValue().isEmpty()) {
-                        margs.put(entry.getKey(), null);
+                        margs.put(entry.getKey(), ByteString.copyFrom("".getBytes()));
                     } else {
                         margs.put(entry.getKey(), entry.getValue());
                     }

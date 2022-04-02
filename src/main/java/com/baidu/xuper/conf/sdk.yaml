@@ -12,7 +12,10 @@ complianceCheck:
   complianceCheckEndorseServiceFeeAddr: aB2hpHnTBDxko3UoP2BpBZRujwhdcAFoT
   # 如果通过合规性检查，签发认证签名的地址
   complianceCheckEndorseServiceAddr: jknGxa6eyum1JrATWvSJKW3thJ9GKHA9n
-#创建平行链所需要的最低费用
+# 创建平行链所需要的最低费用
 minNewChainAmount: "100"
 crypto: "xchain"
 txVersion: 1
+# 如果txVersion为1且xchain低于v5版本，该字段设置为true
+# 其他情况为false
+isLessVersion5: true

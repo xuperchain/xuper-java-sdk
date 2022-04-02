@@ -1,5 +1,6 @@
 package com.baidu.xuper.api;
 
+import com.baidu.xuper.config.Config;
 import com.baidu.xuper.crypto.xchain.hash.Hash;
 import com.baidu.xuper.pb.XchainOuterClass;
 import com.baidu.xuper.pb.XchainOuterClass.*;
@@ -197,7 +198,11 @@ class TxEncoder {
                 TreeMap<String, ByteString> margs = new TreeMap<>();
                 for (Map.Entry<String, ByteString> entry : pb.getArgsMap().entrySet()) {
                     if (entry.getValue().isEmpty()) {
-                        margs.put(entry.getKey(), ByteString.copyFrom("".getBytes()));
+                        if (Config.getInstance().isLessVersion5()){
+                            margs.put(entry.getKey(), null);
+                        } else {
+                            margs.put(entry.getKey(), ByteString.copyFrom("".getBytes()));
+                        }
                     } else {
                         margs.put(entry.getKey(), entry.getValue());
                     }

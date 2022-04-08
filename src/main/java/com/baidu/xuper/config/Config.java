@@ -18,7 +18,6 @@ public class Config {
     private String minNewChainAmount;
     private String crypto;
     private Integer txVersion;
-    private boolean isLessVersion5;
 
     private Config() {
     }
@@ -70,7 +69,6 @@ public class Config {
 
         singletonConfig.complianceCheck = c;
         singletonConfig.txVersion = 1;
-        singletonConfig.isLessVersion5 = false;
         return singletonConfig;
     }
 
@@ -112,14 +110,6 @@ public class Config {
 
     public void setTxVersion(Integer txVersion) {
         this.txVersion = txVersion;
-    }
-
-    public boolean isLessVersion5() {
-        return isLessVersion5;
-    }
-
-    public void setIsLessVersion5(boolean lessVersion5) {
-        isLessVersion5 = lessVersion5;
     }
 
     public static class ComplianceCheck {

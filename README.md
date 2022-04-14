@@ -11,7 +11,7 @@ If your're using Maven, just add the following dependency in `pom.xml`.
 <dependency>
   <groupId>com.baidu.xuper</groupId>
   <artifactId>xuper-java-sdk</artifactId>
-  <version>0.2.0</version>
+  <version>0.2.1</version>
 </dependency>
 ```
 

@@ -1,17 +1,18 @@
 # endorseService Info
 # testNet addrs
-endorseServiceHost: "127.0.0.1:6848"
+endorseServiceHost: "127.0.0.1:37101"
 complianceCheck:
   # 是否需要进行合规性背书
-  isNeedComplianceCheck: true
+  isNeedComplianceCheck: false
   # 是否需要支付合规性背书费用
-  isNeedComplianceCheckFee: true
+  isNeedComplianceCheckFee: false
   # 合规性背书费用
-  complianceCheckEndorseServiceFee: 400
+  complianceCheckEndorseServiceFee: 10
   # 支付合规性背书费用的收款地址
-  complianceCheckEndorseServiceFeeAddr: ejD5M7phBVW5vKsz9RY86ZwomjK5CHekK
+  complianceCheckEndorseServiceFeeAddr: cHvBK1TTB52GYtVxHK7HnW8N9RTqkN99R
   # 如果通过合规性检查，签发认证签名的地址
-  complianceCheckEndorseServiceAddr: ejD5M7phBVW5vKsz9RY86ZwomjK5CHekK
+  complianceCheckEndorseServiceAddr: XDxkpQkfLwG6h56e896f3vBHhuN5g6M9u
 #创建平行链所需要的最低费用
 minNewChainAmount: "100"
 crypto: "xchain"
+txVersion: 1

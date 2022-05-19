@@ -1,5 +1,6 @@
 package com.baidu.xuper.crypto;
 
+import com.baidu.xuper.crypto.xchain.hash.Hash;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.Test;
 

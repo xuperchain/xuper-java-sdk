@@ -1,4 +1,4 @@
-package com.baidu.xuper.crypto.bip39;
+package com.baidu.xuper.crypto.gm.bip39;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;

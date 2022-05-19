@@ -1,6 +1,4 @@
-package com.baidu.xuper.crypto.bip39.wordlists;
-
-import com.baidu.xuper.crypto.bip39.WordList;
+package com.baidu.xuper.crypto.wordlists;
 
 import java.util.Arrays;
 

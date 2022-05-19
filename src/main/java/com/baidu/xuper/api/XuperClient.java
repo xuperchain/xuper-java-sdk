@@ -3,6 +3,7 @@ package com.baidu.xuper.api;
 import com.baidu.xuper.config.Config;
 import com.baidu.xuper.pb.XchainGrpc;
 import com.baidu.xuper.pb.XchainOuterClass;
+
 import com.google.gson.Gson;
 import com.google.protobuf.ByteString;
 import io.grpc.ManagedChannel;
@@ -26,6 +27,7 @@ public class XuperClient {
     private final String evmJSONEncodedTrue = "true";
     private final String argsInput = "input";
     private final String xkernelDeployMethod = "Deploy";
+    private final String xkernelUpgradeMethod = "Upgrade";
     private final String xkernelNewAccountMethod = "NewAccount";
     private final String argAccountName = "account_name";
     private final String argContractName = "contract_name";
@@ -38,14 +40,14 @@ public class XuperClient {
      * @param target the address of xchain node, like 127.0.0.1:37101
      */
     public XuperClient(String target) {
-        this(target,4194304);
+        this(target, Integer.MAX_VALUE);
     }
 
     /**
-     * @param target the address of xchain node, like 127.0.0.1:37101
+     * @param target                the address of xchain node, like 127.0.0.1:37101
      * @param maxInboundMessageSize Sets the maximum message size allowed to be received on the channel, like 52428800 (50M)
      */
-    public XuperClient(String target,Integer maxInboundMessageSize) {
+    public XuperClient(String target, Integer maxInboundMessageSize) {
         this(ManagedChannelBuilder.forTarget(target)
                 .maxInboundMessageSize(maxInboundMessageSize)
                 // Channels are secure by default (via SSL/TLS). For the example we disable TLS to avoid
@@ -53,7 +55,6 @@ public class XuperClient {
                 .usePlaintext()
                 .build());
     }
-
 
     private XuperClient(ManagedChannel channel) {
         this.channel = channel;
@@ -96,31 +97,30 @@ public class XuperClient {
      * @return
      */
     public Transaction transfer(Account from, String to, BigInteger amount, String fee) {
-        return transfer(from,to,amount,fee,null);
+        return transfer(from, to, amount, fee, null);
     }
 
     /**
      * @param from   from address
      * @param to     to address
      * @param amount transfer amount
-     * @param desc transfer desc
+     * @param desc   transfer desc
      * @return
      */
-    public Transaction transfer(Account from, String to, BigInteger amount, String fee,String desc) {
+    public Transaction transfer(Account from, String to, BigInteger amount, String fee, String desc) {
         Proposal p = new Proposal()
                 .setChainName(chainName)
                 .setFee(fee);
-        if ((desc!=null)&&(!desc.equals(""))){
+        if ((desc != null) && (!desc.equals(""))) {
             p.setDesc(desc);
         }
 
-        if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+        if (Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
             p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
         }
         p.setInitiator(from);
         return p.transfer(to, amount).build(this).sign().send(this);
     }
-
 
 
     /**
@@ -133,7 +133,7 @@ public class XuperClient {
      */
     public Transaction invokeContract(Account from, String module, String contract, String method, Map<String, byte[]> args) {
         Proposal p = new Proposal().setChainName(chainName);
-        if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+        if (Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
             p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
         }
         p.setInitiator(from);
@@ -159,6 +159,7 @@ public class XuperClient {
 
     /**
      * deploy wasm contract
+     *
      * @param from     the contract account to deploy contract
      * @param code     the binary of contract code
      * @param contract the name of contract
@@ -167,12 +168,12 @@ public class XuperClient {
      * @return
      */
     public Transaction deployWasmContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs) {
-        return deployContract(from,code,contract,runtime,initArgs,"wasm");
+        return deployContract(from, code, contract, runtime, initArgs, "wasm");
     }
-
 
     /**
      * deploy native contract
+     *
      * @param from     the contract account to deploy contract
      * @param code     the binary of contract code
      * @param contract the name of contract
@@ -181,26 +182,56 @@ public class XuperClient {
      * @return
      */
     public Transaction deployNativeContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs) {
-        return deployContract(from,code,contract,runtime,initArgs,"native");
+        return deployContract(from, code, contract, runtime, initArgs, "native");
     }
 
     /**
-     *
-     * @param from     the contract account to deploy contract
-     * @param code     the binary of contract code
-     * @param contract the name of contract
-     * @param runtime  contract runtime c or go
-     * @param initArgs initial argument of initialize method
+     * @param from     the account of create contract.
+     * @param bin      evm contract bin byte array.
+     * @param abi      evm contract abi byte array.
+     * @param contract contract name.
+     * @param initArgs constructor args.
+     * @return transaction.
+     */
+    public Transaction deployEVMContract(Account from, byte[] bin, byte[] abi, String contract, Map<String, String> initArgs) {
+        if (from.getContractAccount().isEmpty()) {
+            throw new RuntimeException("deploy contract must use contract account");
+        }
+        XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
+                .setContractType(evmContract)
+                .build();
+
+        Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(initArgs);
+
+        Gson gson = new Gson();
+        byte[] initArgsJson = gson.toJson(evmArgs).getBytes();
+
+        Map<String, byte[]> args = new HashMap<>();
+        args.put(argAccountName, from.getContractAccount().getBytes());
+        args.put(argContractName, contract.getBytes());
+        args.put(argContractCode, bin);
+        args.put(argContractDesc, desc.toByteArray());
+        args.put(argInitArgs, initArgsJson);
+        args.put(argContractAbi, abi);
+        return invokeContract(from, xkernelModule, "", xkernelDeployMethod, args);
+    }
+
+    /**
+     * @param from         the contract account to deploy contract
+     * @param code         the binary of contract code
+     * @param contract     the name of contract
+     * @param runtime      contract runtime c or go
+     * @param initArgs     initial argument of initialize method
      * @param contractType contract type  wasm or native
      * @return
      */
-    private Transaction deployContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs,String contractType) {
+    private Transaction deployContract(Account from, byte[] code, String contract, String runtime, Map<String, byte[]> initArgs, String contractType) {
         if (from.getContractAccount().isEmpty()) {
             throw new RuntimeException("deploy contract must use contract account");
         }
 
-        if (contractType.isEmpty()){
-            contractType="wasm";
+        if (contractType.isEmpty()) {
+            contractType = "wasm";
         }
 
         // XchainOuterClass.NativeCodeDesc desc = XchainOuterClass.NativeCodeDesc.newBuilder().build();
@@ -219,7 +250,7 @@ public class XuperClient {
         args.put(argInitArgs, initArgsJson);
         return invokeContract(from, xkernelModule, "", xkernelDeployMethod, args);
     }
-    
+
     /**
      * @param from        the use account to create contract account
      * @param accountName the name of contract account
@@ -373,37 +404,6 @@ public class XuperClient {
     }
 
     /**
-     * @param from     the account of create contract.
-     * @param bin      evm contract bin byte array.
-     * @param abi      evm contract abi byte array.
-     * @param contract contract name.
-     * @param initArgs constructor args.
-     * @return transaction.
-     */
-    public Transaction deployEVMContract(Account from, byte[] bin, byte[] abi, String contract, Map<String, String> initArgs) {
-        if (from.getContractAccount().isEmpty()) {
-            throw new RuntimeException("deploy contract must use contract account");
-        }
-        XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
-                .setContractType(evmContract)
-                .build();
-
-        Map<String, byte[]> evmArgs = this.convertToXuper3EVMArgs(initArgs);
-
-        Gson gson = new Gson();
-        byte[] initArgsJson = gson.toJson(evmArgs).getBytes();
-
-        Map<String, byte[]> args = new HashMap<>();
-        args.put(argAccountName, from.getContractAccount().getBytes());
-        args.put(argContractName, contract.getBytes());
-        args.put(argContractCode, bin);
-        args.put(argContractDesc, desc.toByteArray());
-        args.put(argInitArgs, initArgsJson);
-        args.put(argContractAbi, abi);
-        return invokeContract(from, xkernelModule, "", xkernelDeployMethod, args);
-    }
-
-    /**
      * @param from     the initiator of calling method.
      * @param contract contract name.
      * @param method   contract method.
@@ -431,7 +431,7 @@ public class XuperClient {
      */
     public Transaction invokeEVMContract(Account from, String contract, String method, Map<String, String> args, BigInteger amount) {
         Proposal p = new Proposal().setChainName(chainName);
-        if (Config.getInstance().getComplianceCheck().getIsNeedComplianceCheck()) {
+        if (Config.getInstance().getComplianceCheck().isNeedComplianceCheck()) {
             p.addAuthRequire(Config.getInstance().getComplianceCheck().getComplianceCheckEndorseServiceAddr());
         }
         p.setInitiator(from);
@@ -461,4 +461,35 @@ public class XuperClient {
 
         return evmArgs;
     }
+
+    public Transaction upgradeWasmContract(Account from, byte[] code, String name) {
+        return upgradeContract(from, code, name, "wasm");
+    }
+
+    public Transaction upgradeNativeContract(Account from, byte[] code, String name) {
+        return upgradeContract(from, code, name, "native");
+    }
+
+    private Transaction upgradeContract(Account from, byte[] code, String contract, String contractType) {
+        if (from.getContractAccount().isEmpty()) {
+            throw new RuntimeException("deploy contract must use contract account");
+        }
+
+        if (contractType.isEmpty()) {
+            contractType = "wasm";
+        }
+
+        XchainOuterClass.WasmCodeDesc desc = XchainOuterClass.WasmCodeDesc.newBuilder()
+                .setContractType(contractType)
+                .build();
+
+        Map<String, byte[]> args = new HashMap<>();
+        args.put(argAccountName, from.getContractAccount().getBytes());
+        args.put(argContractName, contract.getBytes());
+        args.put(argContractCode, code);
+        args.put(argContractDesc, desc.toByteArray());
+
+        return invokeContract(from, xkernelModule, "", xkernelUpgradeMethod, args);
+    }
+
 }

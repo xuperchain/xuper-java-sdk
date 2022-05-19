@@ -1,5 +1,6 @@
 package com.baidu.xuper.api;
 
+import com.baidu.xuper.config.Config;
 import com.baidu.xuper.pb.XchainOuterClass;
 import org.bouncycastle.util.encoders.Hex;
 import org.junit.After;
@@ -23,8 +24,8 @@ public class XuperClientTest {
     @Before
     public void setUp() {
         try {
-//            String p = getClass().getResource("./conf/sdk.yaml").getPath();
-//            Config.setConfigPath(p);
+            String p = getClass().getResource("./conf/sdk.yaml").getPath();
+            Config.setConfigPath(p);
 
             client = new XuperClient("127.0.0.1:37101");
             // test connection

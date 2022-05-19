@@ -1,4 +1,4 @@
-package com.baidu.xuper.crypto;
+package com.baidu.xuper.crypto.xchain.sign;
 
 import org.bouncycastle.asn1.ASN1Integer;
 import org.bouncycastle.asn1.DERSequenceGenerator;

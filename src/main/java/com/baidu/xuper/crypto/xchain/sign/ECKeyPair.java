@@ -1,4 +1,4 @@
-package com.baidu.xuper.crypto;
+package com.baidu.xuper.crypto.xchain.sign;
 
 import com.google.gson.Gson;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
@@ -20,25 +20,44 @@ public class ECKeyPair {
         secureRandom = new SecureRandom();
     }
 
-    private final BigInteger privateKey;
-    private final ECPoint publicKey;
-    private final String jsonPublicKey;
-    private final String jsonPrivateKey;
+    public BigInteger privateKey;
+    public ECPoint publicKey;
+    public String jsonPublicKey;
+    public String jsonPrivateKey;
+
+    public BigInteger getPrivateKey() {
+        return privateKey;
+    }
+
+    public ECPoint getPublicKey() {
+        return publicKey;
+    }
+
+    public String getJSONPublicKey() {
+        return jsonPublicKey;
+    }
+
+    public String getJSONPrivateKey() {
+        return jsonPrivateKey;
+    }
+
+    public ECKeyPair() {
+    }
 
     private ECKeyPair(BigInteger privateKey, ECPoint publicKey) {
         this.privateKey = privateKey;
         this.publicKey = publicKey;
-        this.jsonPublicKey = createJSONPublicKey(publicKey);
-        this.jsonPrivateKey = createJSONPrivateKey(privateKey, publicKey);
+        this.jsonPublicKey = getEcdsaPublicKeyJsonFormat(publicKey);
+        this.jsonPrivateKey = getEcdsaPrivateKeyJsonFormat(privateKey, publicKey);
     }
 
-    public static ECKeyPair create(BigInteger privateKey) {
-        ECPoint q = Ecc.domain.getG().multiply(privateKey);
-        ECPublicKeyParameters params = new ECPublicKeyParameters(q, Ecc.domain);
-        return new ECKeyPair(privateKey, params.getQ());
-    }
-
-    static private String createJSONPublicKey(ECPoint publicKey) {
+    /**
+     * 公钥转json
+     *
+     * @param publicKey
+     * @return String
+     */
+    static private String getEcdsaPublicKeyJsonFormat(ECPoint publicKey) {
         BigInteger x = publicKey.getAffineXCoord().toBigInteger();
         BigInteger y = publicKey.getAffineYCoord().toBigInteger();
         Map<String, Object> m = new LinkedHashMap<>();
@@ -49,44 +68,14 @@ public class ECKeyPair {
         return gson.toJson(m);
     }
 
-    public static ECKeyPair create() {
-        return create(secureRandom);
-    }
-
-    public static ECKeyPair create(byte[] seed) {
-        BigInteger k = new BigInteger(1, seed);
-        BigInteger n = Ecc.domain.getN().subtract(BigInteger.ONE);
-        k = k.mod(n);
-        k = k.add(BigInteger.ONE);
-        ECPrivateKeyParameters p = new ECPrivateKeyParameters(k, Ecc.domain);
-        return create(p.getD());
-    }
-
-    public static ECKeyPair create(SecureRandom secureRandom) {
-        ECKeyPairGenerator generator = new ECKeyPairGenerator();
-        ECKeyGenerationParameters keygenParams = new ECKeyGenerationParameters(Ecc.domain, secureRandom);
-        generator.init(keygenParams);
-        AsymmetricCipherKeyPair keypair = generator.generateKeyPair();
-        ECPrivateKeyParameters privParams = (ECPrivateKeyParameters) keypair.getPrivate();
-        ECPublicKeyParameters pubParams = (ECPublicKeyParameters) keypair.getPublic();
-        return create(privParams.getD());
-    }
-
     /**
-     * @return 公钥 json 字符串。
+     * 私钥转json
+     *
+     * @param privateKey
+     * @param publicKey
+     * @return String
      */
-    public String getJSONPublicKey() {
-        return jsonPublicKey;
-    }
-
-    /**
-     * @return 私钥 json 字符串。
-     */
-    public String getJSONPrivateKey() {
-        return jsonPrivateKey;
-    }
-
-    static private String createJSONPrivateKey(BigInteger privateKey, ECPoint publicKey) {
+    static private String getEcdsaPrivateKeyJsonFormat(BigInteger privateKey, ECPoint publicKey) {
         BigInteger x = publicKey.getAffineXCoord().toBigInteger();
         BigInteger y = publicKey.getAffineYCoord().toBigInteger();
         BigInteger d = privateKey;
@@ -99,20 +88,32 @@ public class ECKeyPair {
         return gson.toJson(m);
     }
 
-    public ECPoint getPublicKey() {
-        return publicKey;
+    public static ECKeyPair create(byte[] seed) {
+        BigInteger k = new BigInteger(1, seed);
+        BigInteger n = Ecc.domain.getN().subtract(BigInteger.ONE);
+        k = k.mod(n);
+        k = k.add(BigInteger.ONE);
+        ECPrivateKeyParameters p = new ECPrivateKeyParameters(k, Ecc.domain);
+        return create(p.getD());
     }
 
-    public BigInteger getPrivateKey() {
-        return privateKey;
+    public static ECKeyPair create() {
+        return create(secureRandom);
     }
 
-    /**
-     * @param hash 待签名数据。
-     * @return 签名。
-     * @throws Exception
-     */
-    public byte[] sign(byte[] hash) throws Exception {
-        return Ecc.sign(hash, privateKey);
+    public static ECKeyPair create(SecureRandom secureRandom) {
+        ECKeyPairGenerator generator = new ECKeyPairGenerator();
+        ECKeyGenerationParameters keygenParams = new ECKeyGenerationParameters(Ecc.domain, secureRandom);
+        generator.init(keygenParams);
+        AsymmetricCipherKeyPair keypair = generator.generateKeyPair();
+        ECPrivateKeyParameters privParams = (ECPrivateKeyParameters) keypair.getPrivate();
+        ECPublicKeyParameters pubParams = (ECPublicKeyParameters) keypair.getPublic();
+        return create(privParams.getD());
+    }
+
+    public static ECKeyPair create(BigInteger privateKey) {
+        ECPoint q = Ecc.domain.getG().multiply(privateKey);
+        ECPublicKeyParameters params = new ECPublicKeyParameters(q, Ecc.domain);
+        return new ECKeyPair(privateKey, params.getQ());
     }
 }

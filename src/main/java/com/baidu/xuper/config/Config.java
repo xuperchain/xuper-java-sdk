@@ -2,6 +2,8 @@ package com.baidu.xuper.config;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.Constructor;
@@ -12,6 +14,7 @@ public class Config {
 
     private static Config singletonConfig;
     private static String confFilePath;
+    private static InputStream confFileInputStream;
 
     private String endorseServiceHost;
     private ComplianceCheck complianceCheck;
@@ -22,12 +25,15 @@ public class Config {
     private Config() {
     }
 
-    public static void setConfigPath(String path) {
+    public static void setConfigPath(String path) throws FileNotFoundException {
         confFilePath = path;
+        setConfigInputStream(new FileInputStream(path));
     }
-
+    public static void setConfigInputStream(InputStream inputStream) {
+        confFileInputStream = inputStream;
+    }
     public static boolean hasConfigFile() {
-        return confFilePath != null;
+        return confFilePath != null || confFileInputStream != null;
     }
 
     public static Config getInstance() {
@@ -35,7 +41,7 @@ public class Config {
             return singletonConfig;
         }
 
-        if (confFilePath != null) {
+        if (hasConfigFile()) {
             try {
                 singletonConfig = getConfigFromYaml();
             } catch (Exception e) {
@@ -50,7 +56,7 @@ public class Config {
 
     private static Config getConfigFromYaml() throws Exception {
         Yaml yaml = new Yaml(new Constructor(Config.class));
-        return yaml.load(new FileInputStream(new File(confFilePath)));
+        return yaml.load(confFileInputStream!=null?confFileInputStream:new FileInputStream(new File(confFilePath)));
     }
 
     private static Config getDefaultConfig() {

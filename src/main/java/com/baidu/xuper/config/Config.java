@@ -24,6 +24,11 @@ public class Config {
 
     public static void setConfigPath(String path) {
         confFilePath = path;
+        try {
+            singletonConfig = getConfigFromYaml();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static boolean hasConfigFile() {

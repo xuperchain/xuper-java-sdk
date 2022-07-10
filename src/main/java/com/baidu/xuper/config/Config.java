@@ -17,7 +17,7 @@ public class Config {
     private ComplianceCheck complianceCheck;
     private String minNewChainAmount;
     private String crypto;
-    private Integer txVersion;
+    private Integer txVersion=1;
 
     private Config() {
     }
@@ -50,7 +50,12 @@ public class Config {
 
     private static Config getConfigFromYaml() throws Exception {
         Yaml yaml = new Yaml(new Constructor(Config.class));
-        return yaml.load(new FileInputStream(new File(confFilePath)));
+        Config config= yaml.load(new FileInputStream(new File(confFilePath)));
+        if (config.getTxVersion()==null){
+            config.setTxVersion(1);
+        }
+        return config;
+        //return yaml.load(new FileInputStream(new File(confFilePath)));
     }
 
     private static Config getDefaultConfig() {

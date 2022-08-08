@@ -7,6 +7,7 @@ import com.baidu.xuper.crypto.account.ECDSAAccount;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -199,7 +200,7 @@ public class Account {
      * @return boolean
      */
     public boolean HasContractAccount() {
-        return this.contractAccount != "";
+        return StringUtils.isNotBlank(this.contractAccount);
     }
 
 
